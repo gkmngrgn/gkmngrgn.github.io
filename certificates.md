@@ -62,7 +62,12 @@
 - July, 2017
 - [Certificate URL](https://www.datacamp.com/statement-of-accomplishment/course/a0d865856e060e422ab07c3f745a2c19a316c74a) - [Course URL](https://www.datacamp.com/courses/merging-dataframes-with-pandas)
 
-### 11. Introduction to Databases in Python Course
+### 11. Introduction to Databases in Python
 - *by* **Jason Myers**
 - August, 2017
 - [Certificate URL](https://www.datacamp.com/statement-of-accomplishment/course/1acf1c34bfaa8b3384f30a1f02e978fa0a022416) - [Course URL](https://www.datacamp.com/courses/introduction-to-relational-databases-in-python)
+
+### 12. Introduction to Data Visualization with Python
+- *by* **Bryan Van de Ven**
+- September, 2017
+- [Certificate URL](https://www.datacamp.com/statement-of-accomplishment/course/4d8507db5a751a2812fc8d4011be7f8b6f3fee51) - [Course URL](https://www.datacamp.com/courses/introduction-to-data-visualization-with-python)

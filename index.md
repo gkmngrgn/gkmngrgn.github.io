@@ -1,4 +1,4 @@
 - [GitHub](https://github.com/gkmngrgn) - [GitLab](https://gitlab.com/gokmen) - [Bitbucket](https://bitbucket.com/gokmen)
 - [Twitter](https://twitter.com/gokmengorgen) - [Blog](https://medium.com/@gokmengorgen)
-- [Resume (PDF)](https://goo.gl/KI3RY5) - [Linkedin](https://linkedin.com/in/gokmengorgen) - [E-mail](http://www.google.com/recaptcha/mailhide/d?k=01cHoL9GkCaCMplzfkm9g14Q==&c=5Ysl7ZlVwgH6PUGWTSmvHxQaD01eh-sswQrVnEXrP7A=)
+- [Resume (PDF)](https://goo.gl/m9tqZh) - [Linkedin](https://linkedin.com/in/gokmengorgen) - [E-mail](http://www.google.com/recaptcha/mailhide/d?k=01cHoL9GkCaCMplzfkm9g14Q==&c=5Ysl7ZlVwgH6PUGWTSmvHxQaD01eh-sswQrVnEXrP7A=)
 - [My Certificates](/certificates) - [My Company](https://alageek.com/)

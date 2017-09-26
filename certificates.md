@@ -71,3 +71,8 @@
 - *by* **Bryan Van de Ven**
 - September, 2017
 - [Certificate URL](https://www.datacamp.com/statement-of-accomplishment/course/4d8507db5a751a2812fc8d4011be7f8b6f3fee51) - [Course URL](https://www.datacamp.com/courses/introduction-to-data-visualization-with-python)
+
+### 13. Interactive Data Visualization with Bokeh
+- *by* **Bryan Van de Ven**
+- September, 2017
+- [Certificate URL](https://www.datacamp.com/statement-of-accomplishment/course/12c5903ecbca72d0d11ae5178e0c86dbef08785b) - [Course URL](https://www.datacamp.com/courses/interactive-data-visualization-with-bokeh)

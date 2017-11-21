@@ -1,4 +1,1 @@
-- [GitHub](https://github.com/gkmngrgn) - [GitLab](https://gitlab.com/gokmen) - [Bitbucket](https://bitbucket.com/gokmen)
-- [Twitter](https://twitter.com/gokmengorgen) - [Blog](https://medium.com/@gokmengorgen)
-- [Resume (PDF)](https://goo.gl/m9tqZh) - [Linkedin](https://linkedin.com/in/gokmengorgen) - [E-mail](http://www.google.com/recaptcha/mailhide/d?k=01cHoL9GkCaCMplzfkm9g14Q==&c=5Ysl7ZlVwgH6PUGWTSmvHxQaD01eh-sswQrVnEXrP7A=)
-- [My Certificates](/certificates) - [My Company](https://alageek.com/)
+Hello, I'm working as a software developer in Radity. I mostly use Python for Django, C# for .NET, and I improve myself about web and mobile technologies. Also, I'm interested in Java / Kotlin for Android, and I follow the news about machine learning, deep learning, artificial intelligence, etc.

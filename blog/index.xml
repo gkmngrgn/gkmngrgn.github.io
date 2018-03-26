@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on GKMNGRGN</title>
+    <link>http://gokmengorgen.net/blog/</link>
+    <description>Recent content in Blog on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 19 Oct 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://gokmengorgen.net/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Borsa Kumar mı?</title>
+      <link>http://gokmengorgen.net/blog/borsa-kumar-m%C4%B1/</link>
+      <pubDate>Mon, 19 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://gokmengorgen.net/blog/borsa-kumar-m%C4%B1/</guid>
+      <description>Sabah uyandığınızda pencereden bakıyorsunuz, kar yağıyor. Bugün işe arabayla gitmenin tehlikeli olabileceğini düşünüyorsunuz. Sıkı giyinmeye karar veriyorsunuz; ama diğer taraftan toplu taşımanın da sıkıntılı bir yolculuk olacağını hatırlıyorsunuz. Acaba patronu arayıp bugün evden çalışacağımızı mı söylesek? Çok verimli olmayacağını düşünüp işe gitmeye karar veriyorsunuz. Peki, akşam eve sağ salim dönmenizin garantisini kim verir? Kimse; ama buna rağmen önlemleri almışsınızdır. Olur da işyerinde mahsur kalırsanız, bir günlük erzağınızı da hazırlamışsınızdır. Böylece hayatta kalmayı bir şans olmaktan çıkarırsınız.</description>
+    </item>
+    
+    <item>
+      <title>İşletim Sistemi Tercihini Geliştiriciye Bırakın</title>
+      <link>http://gokmengorgen.net/blog/i%C5%9Fletim-sistemi-tercihini-geli%C5%9Ftiriciye-b%C4%B1rak%C4%B1n/</link>
+      <pubDate>Sun, 22 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://gokmengorgen.net/blog/i%C5%9Fletim-sistemi-tercihini-geli%C5%9Ftiriciye-b%C4%B1rak%C4%B1n/</guid>
+      <description>Bir yazılım projesine başlarken ihtiyaç duyacağımız ilk şey ne olur diye soracak olursak, sanırım buna “geliştirme ortamı” diyebiliriz. Örneğin bir Android projesi için şunlar gerekli:
+ Android Studio veya Eclipse (ADT) Android Java SDK Android yüklü donanım veya emulator İşletim sistemine göre emulator hızlandırıcı eklentiler (HAXM, qemu, vb)  Bu ortamı işletim sistemimize kurduğumuzda, iki şeye sahip oluyoruz: Birincisi kod yazabiliyoruz, debug edebiliyoruz, sorunları düzeltebiliyoruz; ikincisi sonucu görmek için uygulamayı yükleyip çalıştırabiliyoruz, test edebiliyoruz, yayınlayabiliyoruz.</description>
+    </item>
+    
+  </channel>
+</rss>

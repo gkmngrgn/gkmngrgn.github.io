@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GKMNGRGN</title>
+    <link>http://gokmengorgen.net/</link>
+    <description>Recent content on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Mar 2018 23:56:12 +0200</lastBuildDate>
+    
+	<atom:link href="http://gokmengorgen.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Certificates</title>
+      <link>http://gokmengorgen.net/certificates/</link>
+      <pubDate>Mon, 26 Mar 2018 23:56:12 +0200</pubDate>
+      
+      <guid>http://gokmengorgen.net/certificates/</guid>
+      <description>Machine Learning Specialization 1. Machine Learning Foundations: A Case Study Approach  by Emily Fox, Carlos Guestrin April 2017 Certificate URL - Course URL  2. Machine Learning: Regression  by Emily Fox, Carlos Guestrin Not finished yet. Course URL  DataCamp 1. Intro to Python for Data Science  by Filip Schouwenaars May, 2017 Certificate URL - Course URL  2. Intermediate Python for Data Science  by Filip Schouwenaars May, 2017 Certificate URL - Course URL  3.</description>
+    </item>
+    
+    <item>
+      <title>My Work</title>
+      <link>http://gokmengorgen.net/my_work/</link>
+      <pubDate>Mon, 26 Mar 2018 22:21:28 +0200</pubDate>
+      
+      <guid>http://gokmengorgen.net/my_work/</guid>
+      <description>I&amp;rsquo;m coding Python for years and it&amp;rsquo;s still my primary language. I usually worked on the web projects with Django. Its admin panel is really awesome, do you know what I mean? Cool.
+Python is also in demand in data science, but it may not be a good idea to use the same language and the same tools in every project. Thus I&amp;rsquo;m not a fan of any programming language.</description>
+    </item>
+    
+    <item>
+      <title>Home</title>
+      <link>http://gokmengorgen.net/home/</link>
+      <pubDate>Sun, 25 Mar 2018 23:54:01 +0200</pubDate>
+      
+      <guid>http://gokmengorgen.net/home/</guid>
+      <description>Hello. I’m working as a software developer in Radity. I mostly use Python for Django, C# for .NET, and I improve myself about web and mobile technologies. Also, I’m interested in Java / Kotlin for Android, and I follow the news about machine learning, deep learning, artificial intelligence, etc.
+Currently I&amp;rsquo;m spending all my time on Coachfrog.ch and I live in Berlin. I am not interested in Hackathon but if you are looking for teammates on open source projects you can contact me or take a look at my my work page to see the list of my projects.</description>
+    </item>
+    
+    <item>
+      <title>Borsa Kumar mı?</title>
+      <link>http://gokmengorgen.net/blog/borsa-kumar-m%C4%B1/</link>
+      <pubDate>Mon, 19 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://gokmengorgen.net/blog/borsa-kumar-m%C4%B1/</guid>
+      <description>Sabah uyandığınızda pencereden bakıyorsunuz, kar yağıyor. Bugün işe arabayla gitmenin tehlikeli olabileceğini düşünüyorsunuz. Sıkı giyinmeye karar veriyorsunuz; ama diğer taraftan toplu taşımanın da sıkıntılı bir yolculuk olacağını hatırlıyorsunuz. Acaba patronu arayıp bugün evden çalışacağımızı mı söylesek? Çok verimli olmayacağını düşünüp işe gitmeye karar veriyorsunuz. Peki, akşam eve sağ salim dönmenizin garantisini kim verir? Kimse; ama buna rağmen önlemleri almışsınızdır. Olur da işyerinde mahsur kalırsanız, bir günlük erzağınızı da hazırlamışsınızdır. Böylece hayatta kalmayı bir şans olmaktan çıkarırsınız.</description>
+    </item>
+    
+    <item>
+      <title>İşletim Sistemi Tercihini Geliştiriciye Bırakın</title>
+      <link>http://gokmengorgen.net/blog/i%C5%9Fletim-sistemi-tercihini-geli%C5%9Ftiriciye-b%C4%B1rak%C4%B1n/</link>
+      <pubDate>Sun, 22 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://gokmengorgen.net/blog/i%C5%9Fletim-sistemi-tercihini-geli%C5%9Ftiriciye-b%C4%B1rak%C4%B1n/</guid>
+      <description>Bir yazılım projesine başlarken ihtiyaç duyacağımız ilk şey ne olur diye soracak olursak, sanırım buna “geliştirme ortamı” diyebiliriz. Örneğin bir Android projesi için şunlar gerekli:
+ Android Studio veya Eclipse (ADT) Android Java SDK Android yüklü donanım veya emulator İşletim sistemine göre emulator hızlandırıcı eklentiler (HAXM, qemu, vb)  Bu ortamı işletim sistemimize kurduğumuzda, iki şeye sahip oluyoruz: Birincisi kod yazabiliyoruz, debug edebiliyoruz, sorunları düzeltebiliyoruz; ikincisi sonucu görmek için uygulamayı yükleyip çalıştırabiliyoruz, test edebiliyoruz, yayınlayabiliyoruz.</description>
+    </item>
+    
+  </channel>
+</rss>

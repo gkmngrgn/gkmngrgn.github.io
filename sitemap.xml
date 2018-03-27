@@ -18,6 +18,36 @@
   </url>
   
   <url>
+    <loc>http://gokmengorgen.net/blog/geli%C5%9Ftiriciler-i%C3%A7in-windows-10-pro/</loc>
+    <lastmod>2017-12-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://gokmengorgen.net/blog/vagrant-ile-proje-geli%C5%9Ftirme/</loc>
+    <lastmod>2017-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://gokmengorgen.net/blog/emacse-nereden-ba%C5%9Flamal%C4%B1/</loc>
+    <lastmod>2017-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://gokmengorgen.net/blog/i%C5%9Fverenlere-uzaktan-%C3%A7al%C4%B1%C5%9Fma-tavsiyesi/</loc>
+    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://gokmengorgen.net/blog/kitaplar%C4%B1-sanalla%C5%9Ft%C4%B1rmak/</loc>
+    <lastmod>2016-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://gokmengorgen.net/blog/uzaktan-%C3%A7al%C4%B1%C5%9Fmak/</loc>
+    <lastmod>2016-05-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://gokmengorgen.net/blog/borsa-kumar-m%C4%B1/</loc>
     <lastmod>2015-10-19T00:00:00+00:00</lastmod>
   </url>
@@ -28,13 +58,30 @@
   </url>
   
   <url>
+    <loc>http://gokmengorgen.net/blog/geli%C5%9Ftiriciden-i%C5%9Fverene-da%C4%9F%C4%B1t%C4%B1k-manifesto/</loc>
+    <lastmod>2012-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://gokmengorgen.net/blog/</loc>
-    <lastmod>2015-10-19T00:00:00+00:00</lastmod>
+    <lastmod>2017-12-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://gokmengorgen.net/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://gokmengorgen.net/tags/coding/</loc>
+    <lastmod>2017-12-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://gokmengorgen.net/tags/emacs/</loc>
+    <lastmod>2017-04-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -45,7 +92,32 @@
   </url>
   
   <url>
+    <loc>http://gokmengorgen.net/tags/remote/</loc>
+    <lastmod>2016-05-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://gokmengorgen.net/tags/software/</loc>
+    <lastmod>2016-05-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://gokmengorgen.net/tags/</loc>
+    <lastmod>2017-12-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://gokmengorgen.net/tags/vagrant/</loc>
+    <lastmod>2017-07-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://gokmengorgen.net/tags/windows/</loc>
+    <lastmod>2017-12-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

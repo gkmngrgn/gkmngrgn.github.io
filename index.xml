@@ -6,10 +6,19 @@
     <description>Recent content on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Mar 2018 23:56:12 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 28 Mar 2018 23:28:36 +0200</lastBuildDate>
     
 	<atom:link href="http://gokmengorgen.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>License</title>
+      <link>http://gokmengorgen.net/license/</link>
+      <pubDate>Wed, 28 Mar 2018 23:28:36 +0200</pubDate>
+      
+      <guid>http://gokmengorgen.net/license/</guid>
+      <description>Content licensed under the Creative Commons attribution-noncommercial-sharealike License. Please look at this url for more information.</description>
+    </item>
     
     <item>
       <title>Certificates</title>
@@ -79,6 +88,16 @@ Emacs Linux, Windows ve macOS işletim sistemlerinde çalışıyor. Yükleyip ed
       <description>Beyin göçünün yükseldiği bir dönem, işveren veya üst düzey çalışanların konuyla ilgili yazdığı yazılarda aradığım çok basit bir çözüm vardı: Uzaktan çalışmak.
 Çalışanlar uzaktan çalışmak ister, gerekçeleri çok, konuyla ilgili ben dahil birçok çalışan yazı yazmıştır. Ama işverenlerin uzaktan çalışmayla ilgili pek bir fikir paylaşımı yok. Onların ne düşündüğünü merak ediyorum. Görebildiğim tek cümle bu:
  Yurt dışında yaşayan arkadaşlarımdan bu yazıya biraz incindiklerini öğrendim, oradan da her şeyi yapabiliriz diyorlardı.</description>
+    </item>
+    
+    <item>
+      <title>Göç</title>
+      <link>http://gokmengorgen.net/blog/g%C3%B6%C3%A7/</link>
+      <pubDate>Sat, 01 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://gokmengorgen.net/blog/g%C3%B6%C3%A7/</guid>
+      <description>Bir arkadaşım, “Metroya binerken yüzü gülen insan görmüyorum.” demişti. İstanbul’a geldim geleli, insanların gözlerinin içine baka baka yürürüm. Yüzlerdeki ciddiyet, bana zihinlerinde çok farklı şeyler gezindiğini hissettiriyor. Sanki yüzleriyle zihinleri arasındaki bağlantılar kopmuş gibi. Bu o kadar bulaşıcı bir şey ki, ben de çoğu zaman pek gülümsemiyorum.
+Katre adında bir kadın. Bir bankacı, sabahı ve akşamı belli. Kahvaltısı bir poğaçadan ibaret, ancak yürürken yiyebiliyor, bir on dakikalık yürüme mesafesinden sonra metrobüse, oradan aktarma yapıp metroya binecek, sonrasında yine bir beş dakika daha yürümesi gerek.</description>
     </item>
     
     <item>

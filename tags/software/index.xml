@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Software on GKMNGRGN</title>
-    <link>http://gokmengorgen.net/tags/software/</link>
+    <link>https://gokmengorgen.net/tags/software/</link>
     <description>Recent content in Software on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 May 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://gokmengorgen.net/tags/software/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://gokmengorgen.net/tags/software/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Uzaktan çalışmak</title>
-      <link>http://gokmengorgen.net/blog/uzaktan-%C3%A7al%C4%B1%C5%9Fmak/</link>
+      <link>https://gokmengorgen.net/blog/uzaktan-%C3%A7al%C4%B1%C5%9Fmak/</link>
       <pubDate>Mon, 23 May 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://gokmengorgen.net/blog/uzaktan-%C3%A7al%C4%B1%C5%9Fmak/</guid>
+      <guid>https://gokmengorgen.net/blog/uzaktan-%C3%A7al%C4%B1%C5%9Fmak/</guid>
       <description>Bağımsız çalışmak (freelance) ile uzaktan çalışmak (remote) çok karıştırılıyor. Bağımsız çalışanlar aynı zamanda uzaktan çalışıyor veya uzaktan çalışanlar fiziki bir ofise sahip bir şirkette çalışıyor olabilir. Yani uzaktan çalışıyor olmanız, sizi bağımsız çalışan (freelancer) yapmıyor.
 Ben yazılımcıyım. Bağımsız çalışmak konusunda çok deneyimim yok. Bu konudaki gözlemim, en azından Türkiye’de hem işi verenin, hem de işi yapanın çok da profesyonel davranmadığı. Bağımsız çalışmak ayrı bir disiplin gerektiren, kendine özgü şartları ve anlaşması olan, hobi veya ek iş olarak bakılamayacak kadar ciddi bir çalışma biçimi.</description>
     </item>

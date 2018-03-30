@@ -15,9 +15,9 @@
 <meta property="og:site_name" content="GKMNGRGN" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://gokmengorgen.net/blog/i%C5%9Fletim-sistemi-tercihini-geli%C5%9Ftiriciye-b%C4%B1rak%C4%B1n/" />
-<meta property="og:title" content="İşletim sistemi tercihini geliştiriciye bırakın" />
-<meta property="twitter:title" content="İşletim sistemi tercihini geliştiriciye bırakın">
+<meta property="og:url" content="https://gokmengorgen.net/my-work/" />
+<meta property="og:title" content="My Work" />
+<meta property="twitter:title" content="My Work">
 
     <meta property="og:image" content="https://gokmengorgen.net/img/banner.png">
     <meta property="twitter:card" content="summary">
@@ -29,10 +29,10 @@
 <title>
 
 
-     GKMNGRGN - İşletim sistemi tercihini geliştiriciye bırakın 
+     GKMNGRGN - My Work 
 
 </title>
-<link rel="canonical" href="https://gokmengorgen.net/blog/i%C5%9Fletim-sistemi-tercihini-geli%C5%9Ftiriciye-b%C4%B1rak%C4%B1n/">
+<link rel="canonical" href="https://gokmengorgen.net/my-work/">
 
 
 <style media="screen">
@@ -1022,124 +1022,49 @@ margin-left: -4%;
     </div>
 </div>
 
-
-<div class="main post non-narrow zero-top-spacing column">
+<div class="main column">
     <div class="container">
         <div class="content">
-            <div class="front-matter">
-                <div class="title-container">
-                    <div class="page-heading">
+            <div class="page-heading">
 
-    İşletim sistemi tercihini geliştiriciye bırakın
+    My Work
 
 </div>
 
-                </div>
-                <div class="meta">
-                    <div class="date" title="Sun Mar 22 2015 00:00:00 UTC">Mar 22, 2015</div>
-                    
-                        
-                    
-                    <div class="reading-time middot">2 minute read</div>
-                    <div class="tags">
-                        <ul>
-                          
-                        </ul>
-                    </div>
-                    <div class="tags">
-                        <ul>
-                          
-                          
-                        </ul>
-                    </div>
-                </div>
-            </div>
             <div class="markdown">
                 
     
-    <p>Bir yazılım projesine başlarken ihtiyaç duyacağımız ilk şey ne olur diye soracak olursak, sanırım buna “geliştirme ortamı” diyebiliriz. Örneğin bir Android projesi için şunlar gerekli:</p>
+    
 
-<ul>
-<li>Android Studio veya Eclipse (ADT)</li>
-<li>Android Java SDK</li>
-<li>Android yüklü donanım veya emulator</li>
-<li>İşletim sistemine göre emulator hızlandırıcı eklentiler (HAXM, qemu, vb)</li>
-</ul>
+<p>I&rsquo;m coding <strong>Python</strong> for years and it&rsquo;s still my primary language. I usually worked on the web projects with <strong>Django</strong>. Its admin panel is really awesome, do you know what I mean? Cool.</p>
 
-<p>Bu ortamı işletim sistemimize kurduğumuzda, iki şeye sahip oluyoruz: Birincisi kod yazabiliyoruz, debug edebiliyoruz, sorunları düzeltebiliyoruz; ikincisi sonucu görmek için uygulamayı yükleyip çalıştırabiliyoruz, test edebiliyoruz, yayınlayabiliyoruz. Bir Windows Phone veya IOS projesi olsaydı, geliştirme ortamı gereksinimleri arasına işletim sistemi de (Windows veya OS X) girecekti; ama Android SDK tüm popüler sistemleri destekliyor, tercih geliştiriciye kalmış.</p>
+<p>Python is also in demand in data science, but it may not be a good idea to use the same language and the same tools in every project. Thus I&rsquo;m not a fan of any programming language. Of course I have my preferences but do not hesitate to contact me for your open source projects even it&rsquo;s written in C# or F#!</p>
 
-<p>Peki web projelerinde durum nasıl? Web projesi için geliştirme ortamı konusunda şu üç yoldan birine başvuruyoruz:</p>
+<p>For more information about me, you can find my CV <a href="https://1drv.ms/b/s!AsRMET0ye5r7g406YRsbW_37fa0Miw">here</a>.</p>
 
-<ol>
-<li>Geliştiriciden projeyi, kullandığı sistemin içine kurmasını talep etmek.</li>
-<li>Geliştiriciye GNU/Linux kullanmaya mecbur bırakmak.</li>
-<li>Emulator kullanmak, geliştiriciler için sanal sunucu paketi oluşturmak.</li>
-</ol>
+<hr />
 
-<p>1.’si bence çok kötü fikir. Geliştirici Windows kullanıyorsa karşılaşacağı handikapların sonu yok, production için fayda etmeyecek bir sürü gereksiz düzeltme yapmak zorunda kalabilir. 2.’si de bence kötü fikir. Geliştiricinin alışkın olmadığı bir sistemde, alışkın olmadığı birtakım araçlar kullanarak verimli ve pragmatik olmasını beklemek ne kadar doğru? Velev ki işe alımlarda GNU/Linux kullanıcısı olmak diye bir filtremiz olsun, doğru geliştiriciyi işe almada ne kadar adil ve yardımcı olabilir? Daha önemli bir soru, neden kişisel kullanım için tasarlanmış bilgisayarı bir server’a dönüştüresin?</p>
+<h1 id="projects">Projects</h1>
 
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/vagrant-cloud.png" src="https://gokmengorgen.net/img/low/vagrant-cloud.png" alt="Vagrant Cloud" /></p></figure>
+<p><em>This list is not up to date yet.</em></p>
 
-<p>O nedenle, tıpki mobil uygulama geliştirirken kullandığımız gerçek donanım veya emulator gibi, web geliştirmede de benzer bir yöntem uygulamalıyız. VMware veya Virtualbox ile, olabildiğince production’u taklit edebilmeliyiz. Ben bunu vagrant ile çok kolay bir şekilde yapabiliyorum, istediğim işletim sisteminde kullanabiliyorum ve taşıyabiliyorum. Bir başka geliştiriciyle de geliştirme ortamımı paylaşabiliyorum.</p>
+<h2 id="radpress-https-github-com-gkmngrgn-radpress"><a href="https://github.com/gkmngrgn/radpress">Radpress</a></h2>
 
-<p>İşletim sistemi tercihi, IIS’ye ihtiyaç duymak gibi çok özel durumlar olmadıkça geliştiriciye bırakılmalı. En verimli nasıl çalışabileceğini en iyi geliştiricinin kendisi bilir.</p>
+<p>A blog engine written in Django.</p>
+
+<h2 id="palette-https-github-com-gkmngrgn-palette"><a href="https://github.com/gkmngrgn/palette">Palette</a></h2>
+
+<p>A simple web application for generating color palette from an image.</p>
+
+<h2 id="django-cms-html-tags-https-github-com-gkmngrgn-djangocms-html-tags"><a href="https://github.com/gkmngrgn/djangocms-html-tags">Django CMS HTML Tags</a></h2>
+
+<p>A simple Django CMS plugin that includes HTML elements as a plugin.</p>
 
 
-                <br>
             </div>
-            
-            <div class="share">
-                <a href="" class="ssk ssk-facebook"></a>
-                <a href="" class="ssk ssk-twitter"></a>
-                <a href="" class="ssk ssk-google-plus"></a>
-                <a href="" class="ssk ssk-linkedin"></a>
-            </div>
-            
-
-
-
-<div id="mc_embed_signup">
-  <form action="https://gokmengorgen.us2.list-manage.com/subscribe/post?u=1f8579ae0ed781033db51f1b0&amp;id=4ce83a8b61" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll">
-      <label for="mce-EMAIL">Yeni yazılarım için sana haber verebilirim!</label>
-      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Eposta adresin" required>
-      
-      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1f8579ae0ed781033db51f1b0_4ce83a8b61" tabindex="-1" value=""></div>
-      <div class="clear"><input type="submit" value="Abone ol" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-    </div>
-  </form>
-</div>
-
-
-
-
-
-            
-                <div class="navigation">
-                    
-                    <div>
-                        <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
-                        <a href="https://gokmengorgen.net/blog/geli%C5%9Ftiriciden-i%C5%9Fverene-da%C4%9F%C4%B1t%C4%B1k-manifesto/">Geliştiriciden işverene dağıtık manifesto</a>
-                    </div>
-                    
-                    <div style="width: 100%;"></div>
-                    
-                    <div>
-                        <a href="https://gokmengorgen.net/blog/borsa-kumar-m%C4%B1/">Borsa kumar mı?</a>
-                        <img class="icon" src="https://gokmengorgen.net/img/next.svg" alt="next" />
-                    </div>
-                    
-                </div>
-            
-            <br>
-            <div class="disqus">
-                
-            </div>
-            
         </div>
     </div>
 </div>
-
 <div class="footer column">
     <div class="container">
 

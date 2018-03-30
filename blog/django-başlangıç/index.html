@@ -15,9 +15,9 @@
 <meta property="og:site_name" content="GKMNGRGN" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://gokmengorgen.net/blog/i%C5%9Fletim-sistemi-tercihini-geli%C5%9Ftiriciye-b%C4%B1rak%C4%B1n/" />
-<meta property="og:title" content="İşletim sistemi tercihini geliştiriciye bırakın" />
-<meta property="twitter:title" content="İşletim sistemi tercihini geliştiriciye bırakın">
+<meta property="og:url" content="https://gokmengorgen.net/blog/django-ba%C5%9Flang%C4%B1%C3%A7/" />
+<meta property="og:title" content="Django: Başlangıç" />
+<meta property="twitter:title" content="Django: Başlangıç">
 
     <meta property="og:image" content="https://gokmengorgen.net/img/banner.png">
     <meta property="twitter:card" content="summary">
@@ -29,10 +29,10 @@
 <title>
 
 
-     GKMNGRGN - İşletim sistemi tercihini geliştiriciye bırakın 
+     GKMNGRGN - Django: Başlangıç 
 
 </title>
-<link rel="canonical" href="https://gokmengorgen.net/blog/i%C5%9Fletim-sistemi-tercihini-geli%C5%9Ftiriciye-b%C4%B1rak%C4%B1n/">
+<link rel="canonical" href="https://gokmengorgen.net/blog/django-ba%C5%9Flang%C4%B1%C3%A7/">
 
 
 <style media="screen">
@@ -1030,19 +1030,23 @@ margin-left: -4%;
                 <div class="title-container">
                     <div class="page-heading">
 
-    İşletim sistemi tercihini geliştiriciye bırakın
+    Django: Başlangıç
 
 </div>
 
                 </div>
                 <div class="meta">
-                    <div class="date" title="Sun Mar 22 2015 00:00:00 UTC">Mar 22, 2015</div>
+                    <div class="date" title="Fri Mar 30 2018 19:22:15 CEST">Mar 30, 2018</div>
                     
                         
                     
                     <div class="reading-time middot">2 minute read</div>
                     <div class="tags">
                         <ul>
+                          
+                            <li class="middot"><a href="https://gokmengorgen.net/tags/coding">coding</a> </li>
+                          
+                            <li class="middot"><a href="https://gokmengorgen.net/tags/django">django</a> </li>
                           
                         </ul>
                     </div>
@@ -1057,32 +1061,73 @@ margin-left: -4%;
             <div class="markdown">
                 
     
-    <p>Bir yazılım projesine başlarken ihtiyaç duyacağımız ilk şey ne olur diye soracak olursak, sanırım buna “geliştirme ortamı” diyebiliriz. Örneğin bir Android projesi için şunlar gerekli:</p>
+    
+
+<p><em>Web Framework&rsquo;leri, bir web projesinde duyulabilecek temel ihtiyaçları belli bir amaç doğrultusunda, belli yöntemlerle karşılamaya çalışırlar. Bugüne kadar geliştirilmiş binlerce framework var ve tercihi nasıl yapacağınız konusu tamamen size bağlı. Kararınız Django ise veya Django&rsquo;ya meraklıysanız, bu yazı dizisini sizler için hazırladım. Elimden geldiğince hızlı bir başlangıç yapacağım, <u>detaylara boğmak yok</u>, motivasyonunuzu da <strong>yüksek tutmaya</strong> çalışacağım.</em></p>
+
+<h2 id="en-temel-gereksinimler">En Temel Gereksinimler</h2>
+
+<p>En temel gereksinimimiz Django&rsquo;nun geliştirildiği dil olan Python. Yani öncelikle bizim <a href="https://www.python.org/downloads/">Python3</a> yorumlayıcısına ihtiyacımız var. Sitesine girip kurduktan sonra beraberinde pip paket yükleme aracınızı da kurmuş olacaksınız. Bu araçla Django&rsquo;yu kuracağız. Kullandığınız herhangi bir terminal uygulamasını açın ve şu komutu çalıştırın:</p>
+
+<pre><code class="language-bash">&gt; pip install Django==2.0.3
+</code></pre>
+
+<pre><code class="language-bash">Collecting Django==2.0.3
+  Downloading Django-2.0.3-py3-none-any.whl (7.1MB)
+    100% |████████████████████████████████| 7.1MB 127kB/s
+Collecting pytz (from Django==2.0.3)
+  Downloading pytz-2018.3-py2.py3-none-any.whl (509kB)
+    100% |████████████████████████████████| 512kB 776kB/s
+Installing collected packages: pytz, Django
+Successfully installed Django-2.0.3 pytz-2018.3
+</code></pre>
+
+<p>Django kurulduktan sonra, artık Django projelerini yönetebilmek için bir yeni bir komutumuz var, <code>django-admin</code>. Hemen bir websitesi projesini oluşturalım ve geliştirme sunucusunu çalıştıralım:</p>
+
+<pre><code class="language-bash">&gt; django-admin.exe startproject HelloDjango
+&gt; cd HelloDjango
+&gt; python manage.py runserver 0:8000
+</code></pre>
+
+<pre><code class="language-bash">Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 14 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+March 30, 2018 - 22:14:18
+Django version 2.0.3, using settings 'HelloDjango.settings'
+Starting development server at http://0:8000/
+Quit the server with CTRL-BREAK.
+</code></pre>
+
+<p>Bu noktaya kadar geldiniz ve web tarayıcınızdan <a href="http://localhost:8000">http://localhost:8000</a> adresine girdiğinizde aşağıdaki gibi bir görüntü alıyorsanız, temel gereksinimlerimiz tamam demektir.</p>
+
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-installation.png" src="https://gokmengorgen.net/img/low/django-installation.png" alt="Django Installation" title="Tebrikler! Django hazır." /></p></figure>
+
+<h2 id="kodlamaya-geçmeden-bir-gözden-geçirelim">Kodlamaya Geçmeden, Bir Gözden Geçirelim</h2>
+
+<p>Projemizin dizin / dosya yapısını bir gözden geçirelim. Ne nerede, önce onu bilelim:</p>
+
+<pre><code>HelloDjango/
+  __pycache__
+  settings.py
+  urls.py
+  wsgi.py
+  __init__.py
+db.sqlite3
+manage.py
+</code></pre>
+
+<p>Eksikler çok; ama başlamak için yeterince basit. En önemlilerinden başlayalım:</p>
 
 <ul>
-<li>Android Studio veya Eclipse (ADT)</li>
-<li>Android Java SDK</li>
-<li>Android yüklü donanım veya emulator</li>
-<li>İşletim sistemine göre emulator hızlandırıcı eklentiler (HAXM, qemu, vb)</li>
+<li><code>db.sqlite3</code>, adından belli. Veritabanı dosyamız, varsayılan veritabanı hizmetini <a href="https://sqlite.org/">SQLite</a>&lsquo;ten alıyoruz.</li>
+<li><code>manage.py</code>, <code>django-admin</code> komutumuzla benzer bir işlevi var; ancak içinde barındırıldığı projeye göre özelleştirilmiş, yapılandırılmış.</li>
+<li><code>settings.py</code>, proje ayarlarımızı içeren bir Python dosyası.</li>
+<li><code>urls.py</code>, tüm url tanımlamalarımızı içeriyor.</li>
+<li><code>wsgi.py</code>, <a href="https://wsgi.readthedocs.io/en/latest/what.html">WSGI</a> yapılandırmamızı içeriyor.</li>
 </ul>
-
-<p>Bu ortamı işletim sistemimize kurduğumuzda, iki şeye sahip oluyoruz: Birincisi kod yazabiliyoruz, debug edebiliyoruz, sorunları düzeltebiliyoruz; ikincisi sonucu görmek için uygulamayı yükleyip çalıştırabiliyoruz, test edebiliyoruz, yayınlayabiliyoruz. Bir Windows Phone veya IOS projesi olsaydı, geliştirme ortamı gereksinimleri arasına işletim sistemi de (Windows veya OS X) girecekti; ama Android SDK tüm popüler sistemleri destekliyor, tercih geliştiriciye kalmış.</p>
-
-<p>Peki web projelerinde durum nasıl? Web projesi için geliştirme ortamı konusunda şu üç yoldan birine başvuruyoruz:</p>
-
-<ol>
-<li>Geliştiriciden projeyi, kullandığı sistemin içine kurmasını talep etmek.</li>
-<li>Geliştiriciye GNU/Linux kullanmaya mecbur bırakmak.</li>
-<li>Emulator kullanmak, geliştiriciler için sanal sunucu paketi oluşturmak.</li>
-</ol>
-
-<p>1.’si bence çok kötü fikir. Geliştirici Windows kullanıyorsa karşılaşacağı handikapların sonu yok, production için fayda etmeyecek bir sürü gereksiz düzeltme yapmak zorunda kalabilir. 2.’si de bence kötü fikir. Geliştiricinin alışkın olmadığı bir sistemde, alışkın olmadığı birtakım araçlar kullanarak verimli ve pragmatik olmasını beklemek ne kadar doğru? Velev ki işe alımlarda GNU/Linux kullanıcısı olmak diye bir filtremiz olsun, doğru geliştiriciyi işe almada ne kadar adil ve yardımcı olabilir? Daha önemli bir soru, neden kişisel kullanım için tasarlanmış bilgisayarı bir server’a dönüştüresin?</p>
-
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/vagrant-cloud.png" src="https://gokmengorgen.net/img/low/vagrant-cloud.png" alt="Vagrant Cloud" /></p></figure>
-
-<p>O nedenle, tıpki mobil uygulama geliştirirken kullandığımız gerçek donanım veya emulator gibi, web geliştirmede de benzer bir yöntem uygulamalıyız. VMware veya Virtualbox ile, olabildiğince production’u taklit edebilmeliyiz. Ben bunu vagrant ile çok kolay bir şekilde yapabiliyorum, istediğim işletim sisteminde kullanabiliyorum ve taşıyabiliyorum. Bir başka geliştiriciyle de geliştirme ortamımı paylaşabiliyorum.</p>
-
-<p>İşletim sistemi tercihi, IIS’ye ihtiyaç duymak gibi çok özel durumlar olmadıkça geliştiriciye bırakılmalı. En verimli nasıl çalışabileceğini en iyi geliştiricinin kendisi bilir.</p>
 
 
                 <br>
@@ -1119,15 +1164,10 @@ margin-left: -4%;
                     
                     <div>
                         <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
-                        <a href="https://gokmengorgen.net/blog/geli%C5%9Ftiriciden-i%C5%9Fverene-da%C4%9F%C4%B1t%C4%B1k-manifesto/">Geliştiriciden işverene dağıtık manifesto</a>
+                        <a href="https://gokmengorgen.net/blog/geli%C5%9Ftiriciler-i%C3%A7in-windows-10-pro/">Geliştiriciler için Windows 10 Pro</a>
                     </div>
                     
                     <div style="width: 100%;"></div>
-                    
-                    <div>
-                        <a href="https://gokmengorgen.net/blog/borsa-kumar-m%C4%B1/">Borsa kumar mı?</a>
-                        <img class="icon" src="https://gokmengorgen.net/img/next.svg" alt="next" />
-                    </div>
                     
                 </div>
             

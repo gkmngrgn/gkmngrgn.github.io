@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://gokmengorgen.net/blog/django-ba%C5%9Flang%C4%B1%C3%A7/</loc>
-    <lastmod>2018-03-30T19:22:15+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://gokmengorgen.net/certificates/</loc>
     <lastmod>2018-03-26T23:56:12+02:00</lastmod>
   </url>
@@ -74,7 +69,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/blog/</loc>
-    <lastmod>2018-03-30T19:22:15+02:00</lastmod>
+    <lastmod>2017-12-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -85,13 +80,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/coding/</loc>
-    <lastmod>2018-03-30T19:22:15+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://gokmengorgen.net/tags/django/</loc>
-    <lastmod>2018-03-30T19:22:15+02:00</lastmod>
+    <lastmod>2017-12-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -103,7 +92,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/</loc>
-    <lastmod>2018-03-30T19:22:15+02:00</lastmod>
+    <lastmod>2018-03-26T23:56:12+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -137,7 +126,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/</loc>
-    <lastmod>2018-03-30T19:22:15+02:00</lastmod>
+    <lastmod>2017-12-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -6,20 +6,10 @@
     <description>Recent content in Blog on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Mar 2018 19:22:15 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 10 Dec 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/blog/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Django: Başlangıç</title>
-      <link>https://gokmengorgen.net/blog/django-ba%C5%9Flang%C4%B1%C3%A7/</link>
-      <pubDate>Fri, 30 Mar 2018 19:22:15 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/django-ba%C5%9Flang%C4%B1%C3%A7/</guid>
-      <description>Web Framework&amp;rsquo;leri, bir web projesinde duyulabilecek temel ihtiyaçları belli bir amaç doğrultusunda, belli yöntemlerle karşılamaya çalışırlar. Bugüne kadar geliştirilmiş binlerce framework var ve tercihi nasıl yapacağınız konusu tamamen size bağlı. Kararınız Django ise veya Django&amp;rsquo;ya meraklıysanız, bu yazı dizisini sizler için hazırladım. Elimden geldiğince hızlı bir başlangıç yapacağım, detaylara boğmak yok, motivasyonunuzu da yüksek tutmaya çalışacağım.
-En Temel Gereksinimler En temel gereksinimimiz Django&amp;rsquo;nun geliştirildiği dil olan Python. Yani öncelikle bizim Python3 yorumlayıcısına ihtiyacımız var.</description>
-    </item>
     
     <item>
       <title>Geliştiriciler için Windows 10 Pro</title>

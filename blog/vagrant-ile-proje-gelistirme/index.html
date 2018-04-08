@@ -15,9 +15,9 @@
 <meta property="og:site_name" content="GKMNGRGN" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://gokmengorgen.net/tags/life-style/" />
-<meta property="og:title" content="Life Style" />
-<meta property="twitter:title" content="Life Style">
+<meta property="og:url" content="https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/" />
+<meta property="og:title" content="Vagrant ile proje geliştirme" />
+<meta property="twitter:title" content="Vagrant ile proje geliştirme">
 
     <meta property="og:image" content="https://gokmengorgen.net/img/banner.png">
     <meta property="twitter:card" content="summary">
@@ -29,10 +29,10 @@
 <title>
 
 
-     GKMNGRGN - Life Style 
+     GKMNGRGN - Vagrant ile proje geliştirme 
 
 </title>
-<link rel="canonical" href="https://gokmengorgen.net/tags/life-style/">
+<link rel="canonical" href="https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/">
 
 
 <style media="screen">
@@ -1018,8 +1018,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://gokmengorgen.net/tags/life-style/index.xml" rel="alternate" type="application/rss+xml" title="GKMNGRGN" />
-
 
 </head>
 
@@ -1046,24 +1044,164 @@ margin-left: -4%;
     </div>
 </div>
 
-<div class="main column">
+
+<div class="main post non-narrow zero-top-spacing column">
     <div class="container">
         <div class="content">
-            <div class="posts">
-                <div class="page-heading">Posts about Life Style</div>
-                <ul>
-                    
-                        <li class="post-item">
-    <span class="meta">Oct 1, 2016</span>
-    <a href="https://gokmengorgen.net/blog/goc/"><span>Göç</span></a>
-</li>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
 
+    Vagrant ile proje geliştirme
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Sat Jul 1 2017 00:00:00 UTC">Jul 1, 2017</div>
                     
-                </ul>
+                        
+                    
+                    <div class="reading-time middot">3 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <li class="middot"><a href="https://gokmengorgen.net/tags/coding">coding</a> </li>
+                          
+                            <li class="middot"><a href="https://gokmengorgen.net/tags/vagrant">vagrant</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <div class="markdown">
+                
+    
+    
+
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/hashicorp-vagrant.png" src="https://gokmengorgen.net/img/low/hashicorp-vagrant.png" alt="Hashicorp Vagrant" /></p></figure>
+
+<p>Monolitik yapıda bir web projesinin iskeletini oluşturup, projeyi geliştirmek için bir geliştirme ortamına ihtiyacımız var. Geliştirme ortamını hazırlarken bazı ayrıntıları göz önünde bulundurmak gerekir:</p>
+
+<ol>
+<li>Projede tek başıma mı olacağım? Tek başıma değilsem ekip arkadaşlarım kurulumda sorun yaşarlar mı?</li>
+<li>Tek başıma bile olsam, yerelimde yaşamadığım bir sorunu sunucuda yaşarsam bununla nasıl başa çıkacağım veya bu ihtimalın olmaması için ne yapabilirim?</li>
+<li>Bağımlılıklarda sürüm çakışması yaşarsam bunu nasıl çözeceğim? Geliştirme ortamımı diğerlerinden nasıl izole edebilirim?</li>
+<li>Geliştirme ortamımı yeni baştan kurmak istediğimde, başka bir bilgisayara geçtiğimde, her seferinde kurulum belgesi mi okuyacağım? Ve bu belge her işletim sistemi, her işletim sistemi sürümünde geçerli olabilecek mi?</li>
+</ol>
+
+<p>Amacımız şudur: 5 tane projemiz de olsa, ekibe sonradan katılıyor da olsak, hızlıca geliştirme ortamına sahip olabilmek ve bu ortamlar arasında kolayca geçiş yapabilmek, gerekirse hızlıca baştan kurabilmek.</p>
+
+<h2 id="sanallaştırma">Sanallaştırma</h2>
+
+<p>Vagrant sanallaştırma teknolojilerini kullanarak, kolayca yapılandırılabilir, tekrar tekrar kurulabilir ve taşınabilir geliştirme ortamı sağlayan bir araç. Bu sayede tek komutla geliştirme ortamımız hazırlanacak:</p>
+
+<pre><code class="language-bash">$ vagrant up
+</code></pre>
+
+<p>Bu komutun bizim istediğimiz şekilde çalışabilmesi için bilgisayarımıza Vagrant ve bir sanallaştırma çözümü (örneğin VirtualBox) kurmamız, bir de proje dizinimizde Vagrantfile adında bir yapılandırma dosyası oluşturup hazırlamamız gerekiyor. Vagrant hakkında daha fazla bilgiyi şuradan edinebilirsiniz: <a href="https://www.vagrantup.com/intro/index.html">https://www.vagrantup.com/intro/index.html</a></p>
+
+<p>Projelerimde kullandığım Vagrant yapılandırmamı şurada bulabilirsiniz, depoyu forklayıp siz de katkıda bulunabilirsiniz: <a href="https://github.com/gkmngrgn/vagrant-skeleton">https://github.com/gkmngrgn/vagrant-skeleton</a></p>
+
+<pre><code class="language-ruby"># -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.box = &quot;ubuntu/xenial64&quot;
+  config.vm.network &quot;forwarded_port&quot;, guest: 8000, host: 8000
+  config.vm.provider &quot;virtualbox&quot; do |vb|
+    vb.memory = &quot;512&quot;
+  end
+  config.vm.provision &quot;shell&quot;, path: &quot;increase_swap.sh&quot;
+  config.vm.provision &quot;shell&quot;, path: &quot;update_repositories.sh&quot;
+  config.vm.provision &quot;shell&quot;, path: &quot;install_java.sh&quot;
+  config.vm.provision &quot;shell&quot;, path: &quot;install_elasticsearch.sh&quot;
+  config.vm.provision &quot;shell&quot;, path: &quot;install_nodejs.sh&quot;
+  config.vm.provision &quot;shell&quot;, path: &quot;install_postgresql.sh&quot;
+  config.vm.provision &quot;shell&quot;, path: &quot;install_python.sh&quot;
+  [...]
+end
+</code></pre>
+
+<p><code>Vagrantfile</code> dosyamızın içeriği çok basit. Bir Ubuntu 16.04 imajıyla sanal bir sunucu oluşturup, bir seferlik provision script’lerini çalıştırarak geliştirme ortamınızı hazırlıyor. Bu örnekte, 512 MB ram’lık sanal sunucumuza 1024 MB’lik SWAP alanı oluşturuyorum, sonrasında Elasticsearch, Nodejs, PostgreSQL gibi proje için gerekli paketleri kuruyorum, proje için veritabanı oluşturuyorum, Python için virtualenv’i hazırlıyorum.</p>
+
+<h2 id="sorunlar-çözümler">Sorunlar, Çözümler</h2>
+
+<p>Bu yöntemde şimdiye kadar Windows ve MacOS kullanan geliştirici arkadaşlarda ciddi problem yaşamadık. Bazen sanal sunucunun internet erişiminin olmaması gibi sorunlar yaşadıysak da bir şekilde çözüldü. Fakat tuhaf bir şekilde Linux dağıtımı kullanan arkadaşlarda VirtualBox’un çalışmaması, paketlerin yüklenmemesi gibi sorunlar yaşadık ve onlar da provision script’lerini kendi yerel bilgisayarlarında çalıştırmayı tercih ettiler. Her zaman yaşanan sorunlar değildi; ama yaşandı mı uğraştıran sorunlardı. Diğer konulara değinecek olursak:</p>
+
+<ol>
+<li>Belli ve kurulumu denenmiş Vagrant ve VirtualBox sürümlerini kurulum belgemizde belirtmeye ve geliştiricilere de bu sürümleri kullanmalarını önermeye başladık.</li>
+<li>Mikro servisler için geliştirme ortamı hazırlamak monolitik yapıdaki projeler kadar basit olmayabiliyor. Örneğin sanal sunucumuzun içinde Docker kullanarak her bir mikro servis için bir container hazırlamak gerekebiliyor.</li>
+<li>Henüz denemedik ama provision script’lerinin bir kez çalıştırılıp, sanal sunucumuzu paketleyip, sonra bu paketi arkadaşlara dağıtmak sorunları biraz azaltabilir. Fakat bu durumda imajın boyutu artıyor ve birinin bu imajları oluşturmak için zaman ayırması gerekiyor.</li>
+<li>Değişikliklerin deploy edilmesi süreci kesinklikle geliştirme ortamının içinde değil, dışında olması gerekiyor. Geliştirme ortamının kolayca hazırlanması gibi, deployment ve test süreçlerinin de en baştan hazırlanması çok zaman kazandırır.</li>
+</ol>
+
+
+                <br>
+            </div>
+            
+            <div class="share">
+                <a href="" class="ssk ssk-facebook"></a>
+                <a href="" class="ssk ssk-twitter"></a>
+                <a href="" class="ssk ssk-google-plus"></a>
+                <a href="" class="ssk ssk-linkedin"></a>
+
+                
+                  <a href="mailto:gokmen@alageek.com" class="ssk ssk-email" title="Sorun, önerin, şikayetin varsa bana yazabilirsin."></a>
+                
+            </div>
+            
+
+
+
+<div id="mc_embed_signup">
+  <form action="https://gokmengorgen.us2.list-manage.com/subscribe/post?u=1f8579ae0ed781033db51f1b0&amp;id=4ce83a8b61" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+      <label for="mce-EMAIL">Yeni yazılarım için sana haber verebilirim!</label>
+      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Eposta adresin" required>
+      
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1f8579ae0ed781033db51f1b0_4ce83a8b61" tabindex="-1" value=""></div>
+      <div class="clear"><input type="submit" value="Abone ol" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
+                        <a href="https://gokmengorgen.net/blog/emacse-nereden-baslamali/">Emacs&#39;e nereden başlamalı?</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                    <div>
+                        <a href="https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/">Geliştiriciler için Windows 10 Pro</a>
+                        <img class="icon" src="https://gokmengorgen.net/img/next.svg" alt="next" />
+                    </div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
         </div>
     </div>
 </div>
+
 <div class="footer column">
     <div class="container">
 

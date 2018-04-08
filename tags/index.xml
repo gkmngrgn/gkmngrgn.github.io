@@ -6,7 +6,7 @@
     <description>Recent content in Tags on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Mar 2018 19:22:15 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>Coding</title>
       <link>https://gokmengorgen.net/tags/coding/</link>
-      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 30 Mar 2018 19:22:15 +0200</pubDate>
       
       <guid>https://gokmengorgen.net/tags/coding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Django</title>
+      <link>https://gokmengorgen.net/tags/django/</link>
+      <pubDate>Fri, 30 Mar 2018 19:22:15 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tags/django/</guid>
       <description></description>
     </item>
     

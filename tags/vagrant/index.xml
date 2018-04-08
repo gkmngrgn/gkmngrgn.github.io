@@ -13,10 +13,10 @@
     
     <item>
       <title>Vagrant ile proje geliştirme</title>
-      <link>https://gokmengorgen.net/blog/vagrant-ile-proje-geli%C5%9Ftirme/</link>
+      <link>https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/vagrant-ile-proje-geli%C5%9Ftirme/</guid>
+      <guid>https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/</guid>
       <description>Monolitik yapıda bir web projesinin iskeletini oluşturup, projeyi geliştirmek için bir geliştirme ortamına ihtiyacımız var. Geliştirme ortamını hazırlarken bazı ayrıntıları göz önünde bulundurmak gerekir:
  Projede tek başıma mı olacağım? Tek başıma değilsem ekip arkadaşlarım kurulumda sorun yaşarlar mı? Tek başıma bile olsam, yerelimde yaşamadığım bir sorunu sunucuda yaşarsam bununla nasıl başa çıkacağım veya bu ihtimalın olmaması için ne yapabilirim? Bağımlılıklarda sürüm çakışması yaşarsam bunu nasıl çözeceğim? Geliştirme ortamımı diğerlerinden nasıl izole edebilirim?</description>
     </item>

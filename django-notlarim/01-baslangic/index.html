@@ -15,9 +15,9 @@
 <meta property="og:site_name" content="GKMNGRGN" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://gokmengorgen.net/tags/life-style/" />
-<meta property="og:title" content="Life Style" />
-<meta property="twitter:title" content="Life Style">
+<meta property="og:url" content="https://gokmengorgen.net/django-notlarim/01-baslangic/" />
+<meta property="og:title" content="01 - Django: Başlangıç" />
+<meta property="twitter:title" content="01 - Django: Başlangıç">
 
     <meta property="og:image" content="https://gokmengorgen.net/img/banner.png">
     <meta property="twitter:card" content="summary">
@@ -29,10 +29,10 @@
 <title>
 
 
-     GKMNGRGN - Life Style 
+     GKMNGRGN - 01 - Django: Başlangıç 
 
 </title>
-<link rel="canonical" href="https://gokmengorgen.net/tags/life-style/">
+<link rel="canonical" href="https://gokmengorgen.net/django-notlarim/01-baslangic/">
 
 
 <style media="screen">
@@ -1018,8 +1018,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://gokmengorgen.net/tags/life-style/index.xml" rel="alternate" type="application/rss+xml" title="GKMNGRGN" />
-
 
 </head>
 
@@ -1046,24 +1044,286 @@ margin-left: -4%;
     </div>
 </div>
 
-<div class="main column">
+
+<div class="main post non-narrow zero-top-spacing column">
     <div class="container">
         <div class="content">
-            <div class="posts">
-                <div class="page-heading">Posts about Life Style</div>
-                <ul>
-                    
-                        <li class="post-item">
-    <span class="meta">Oct 1, 2016</span>
-    <a href="https://gokmengorgen.net/blog/goc/"><span>Göç</span></a>
-</li>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
 
+    01 - Django: Başlangıç
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Fri Mar 30 2018 19:22:15 CEST">Mar 30, 2018</div>
                     
-                </ul>
+                        
+                    
+                    <div class="reading-time middot">4 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <li class="middot"><a href="https://gokmengorgen.net/tags/coding">coding</a> </li>
+                          
+                            <li class="middot"><a href="https://gokmengorgen.net/tags/django">django</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <div class="markdown">
+                
+    
+    
+
+<p><em>Web Framework&rsquo;leri, bir web projesinde duyulabilecek temel ihtiyaçları belli bir amaç doğrultusunda, belli yöntemlerle karşılamaya çalışırlar. Bugüne kadar geliştirilmiş binlerce framework var ve tercihi nasıl yapacağınız konusu tamamen size bağlı. Kararınız Django ise veya Django&rsquo;ya meraklıysanız, bu yazı dizisini sizler için hazırladım. Elimden geldiğince hızlı bir başlangıç yapacağım, <u>detaylara boğmak yok</u>, motivasyonunuzu da <strong>yüksek tutmaya</strong> çalışacağım.</em></p>
+
+<h2 id="özet">Özet</h2>
+
+<ul>
+<li>Django geliştirme ortamımızı kuracağız.</li>
+<li>Geliştirme sunucusunu nasıl kullanacağımızı öğreneceğiz.</li>
+<li>Dizin ve dosya yapımızı inceleyeceğiz, MVC ve MTV konularına kısaca değineceğiz.</li>
+<li>Anasayfamızı çok basit bir tasarımla birlikte sunacağız.</li>
+<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-01">buradan</a> erişebilirsiniz.</li>
+</ul>
+
+<h2 id="en-temel-gereksinimler">En Temel Gereksinimler</h2>
+
+<p>En temel gereksinimimiz Django&rsquo;nun geliştirildiği dil olan Python. Yani öncelikle bizim Python3<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> yorumlayıcısına ihtiyacımız var. Sitesine girip kurduktan sonra beraberinde pip paket yükleme aracınızı da kurmuş olacaksınız. Bu araçla Django&rsquo;yu kuracağız. Kullandığınız herhangi bir terminal uygulamasını açın ve şu komutu çalıştırın:</p>
+
+<pre><code class="language-bash">$ pip install Django==2.0.3
+</code></pre>
+
+<pre><code class="language-bash">Collecting Django==2.0.3
+  Downloading Django-2.0.3-py3-none-any.whl (7.1MB)
+    100% |████████████████████████████████| 7.1MB 127kB/s
+Collecting pytz (from Django==2.0.3)
+  Downloading pytz-2018.3-py2.py3-none-any.whl (509kB)
+    100% |████████████████████████████████| 512kB 776kB/s
+Installing collected packages: pytz, Django
+Successfully installed Django-2.0.3 pytz-2018.3
+</code></pre>
+
+<p>Django kurulduktan sonra, artık Django projelerini yönetebilmek için bir yeni bir komutumuz var, <code>django-admin</code>. Hemen bir websitesi projesini oluşturalım ve geliştirme sunucusunu çalıştıralım:</p>
+
+<pre><code class="language-bash">$ django-admin.exe startproject hello_django
+$ cd hello_django
+$ python manage.py runserver 0:8000  # Bunu hatırlayın, çok sık kullanacağız.
+</code></pre>
+
+<pre><code class="language-bash">Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 14 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+March 30, 2018 - 22:14:18
+Django version 2.0.3, using settings 'hello_django.settings'
+Starting development server at http://0:8000/
+Quit the server with CTRL-BREAK.
+</code></pre>
+
+<p>Bu noktaya kadar geldiniz ve web tarayıcınızdan <a href="http://localhost:8000">http://localhost:8000</a> adresine girdiğinizde aşağıdaki gibi bir görüntü alıyorsanız, temel gereksinimlerimiz tamam demektir.</p>
+
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-baslangic/installation.png" src="https://gokmengorgen.net/img/django-baslangic/low/installation.png" alt="Django installation" title="Tebrikler! Django hazır." /></p></figure>
+
+<h2 id="kodlamaya-geçmeden-bir-gözden-geçirelim">Kodlamaya Geçmeden, Bir Gözden Geçirelim</h2>
+
+<p>Projemizin dizin / dosya yapısını bir gözden geçirelim. Ne nerede, önce onu bilelim:</p>
+
+<pre><code>hello_django/
+  __pycache__
+  settings.py
+  urls.py
+  wsgi.py
+  __init__.py
+db.sqlite3
+manage.py
+</code></pre>
+
+<p>Eksikler çok; ama başlamak için yeterince basit. En önemlilerinden başlayalım:</p>
+
+<ul>
+<li><code>db.sqlite3</code>, adından belli. Veritabanı dosyamız, varsayılan veritabanı hizmetini <a href="https://sqlite.org/">SQLite</a>&lsquo;ten alıyoruz.</li>
+<li><code>manage.py</code>, <code>django-admin</code> komutumuzla benzer bir işlevi var; ancak içinde barındırıldığı projeye göre özelleştirilmiş, yapılandırılmış.</li>
+<li><code>settings.py</code>, proje ayarlarımızı içeren bir Python dosyası.</li>
+<li><code>urls.py</code>, tüm url tanımlamalarımızı içeriyor.</li>
+<li><code>wsgi.py</code>, <a href="https://wsgi.readthedocs.io/en/latest/what.html">WSGI</a> yapılandırmamızı içeriyor.</li>
+</ul>
+
+<p>WSGI&rsquo;ye daha sonra bakacağız, onu bir kenara bırakalım ve <code>runserver</code> ile ne olduğunu anlayalım:</p>
+
+<ol>
+<li>Önce proje ortamındaki değişkenlerimiz <code>manage.py</code> ile tanımlanıyor.</li>
+<li>Ayarlarımız <code>settings.py</code> dosyasından alınıyor, uygulanıyor. Veritabanımız da bu noktada ayarlanmış oluyor.</li>
+<li>Web adreslerimiz <code>urls.py</code> üzerinden tanımlanıyor. Böylece burada tanımlanan adreslere tarayıcımızdan ulaşabiliyoruz.</li>
+</ol>
+
+<p>Buraya kadar projenin nasıl çalıştığını anladıysak, artık kod yazmaya ve MTV (Model - Template - View) kullanarak ilk
+sayfamızı oluşturmaya hazırız.</p>
+
+<h2 id="mtv-nedir-birlikte-deneyelim">MTV nedir? Birlikte Deneyelim</h2>
+
+<p>Bir web sitesi ziyaretçisinin isteklerinin değerlendirilmesi ve cevaplandırılması için yazılımda çeşitli tasarımlar bulunuyor ve bunlardan biri <strong>MVC</strong><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>. Model - View - Controller sayesinde, ziyaretçinin istekleri alınıyor, View katmanında değerlendiriliyor; veri gerektiğinde Model katmanından elde ediliyor ve Controller üzerinden bu iki katman arasında iletişim sağlanıyor.</p>
+
+<p>Fakat Django&rsquo;da biz bu yapıyı farklı şekilde kullanıyoruz ve <strong>MTV</strong> (Model - Template - View) olarak isimlendiriyoruz. Bir Controller yerine merkeze View katmanını koyuyoruz, veriyi Model katmanından alıyoruz, Template katmanında da kullanıcıya bir sonuç gösteriyoruz. URL adresi tanımlarken de hep View katmanını kullanıyoruz. Bunu bizzat deneyip görelim. Yapacağımız şey, anasayfada farklı bir mesaj göstermek. Önce <code>hello_django/hello_django/urls.py</code> dosyasını açın ve ilk sayfamızı bağlayalım:</p>
+
+<pre><code class="language-python">...
+from django.contrib import admin
+from django.urls import path
+from hello_django.views import HomeView  # Bunu ekledik.
+
+urlpatterns = [
+    path('', view=HomeView.as_view(), name='home'),  # Bunu ekledik.
+    path('admin/', admin.site.urls),
+]
+</code></pre>
+
+<p>Burada anasayfaya ziyaret edildiğinde hangi View class&rsquo;ının karşılayacağını belirtmiş olduk; fakat View henüz hazır değil. <code>hello_django/hello_django/views.py</code> dosyası oluşturup yeni bir tane yazalım:</p>
+
+<pre><code class="language-python">from django.views.generic import TemplateView
+
+
+class HomeView(TemplateView):
+    template_name = 'home.html'
+</code></pre>
+
+<p>Geliştirme sunucumuzu daha önce gösterdiğimiz şekilde çalıştırın ve sonucu beraber anlayalım:</p>
+
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-baslangic/template-does-not-exist.png" src="https://gokmengorgen.net/img/django-baslangic/low/template-does-not-exist.png" alt="Template does not exist." title="View hazır; ama Template eksik." /></p></figure>
+
+<p>View class&rsquo;ımızda <code>home.html</code> dosyasını kullanacağımızı belirttik, Django bizim için birkaç yere bakmış ama Template&rsquo;i bulamamış. Biz bir dizin oluşturalım ve Template dosyamızı <code>hello_django/templates/home.html</code> olarak tutalım:</p>
+
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;Hello, Django!&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/main.css&quot;&gt; &lt;!-- Buna dikkat! --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Hello, Django!&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Son bir şey kaldı. Django&rsquo;ya Template dizinimizin nerede olduğunu haber vermemiz gerekiyor. <code>settings.py</code> dosyasını açın ve aşağıdaki değişikliği yapın:</p>
+
+<pre><code class="language-python">...
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Bunu değiştirdik.
+        'APP_DIRS': True,
+        'OPTIONS': {
+            ...
+        },
+    },
+]
+...
+</code></pre>
+
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-baslangic/say-hello.png" src="https://gokmengorgen.net/img/django-baslangic/low/say-hello.png" alt="Say hello!" title="View tamam, Template tamam. Sırada?" /></p></figure>
+
+<p>Artık beklediğimiz sonucu görebiliyoruz. Son olarak sayfada bir stil düzenlemesi yaparak ilk yazımızı tamamlayalım. HTML dosyamızı oluştururken <code>/static/main.css</code> adında bir stil dosyamız varmış gibi tanımlamıştık. Bu dosyayı oluşturalım ve sonra <code>static</code> dizinimizi Template dizini için olduğu gibi <code>settings.py</code> dosyamızda tanımlayalım.</p>
+
+<p><code>static/main.css</code> dosyamız:</p>
+
+<pre><code class="language-css">body {
+  background-color: #222;
+  color: #fff;
+  font-size: 48px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+</code></pre>
+
+<p><code>settings.py</code> dosyamızda yapılan değişiklik:</p>
+
+<pre><code class="language-python">...
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.0/howto/static-files/
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+</code></pre>
+
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-baslangic/hello-django-with-style.png" src="https://gokmengorgen.net/img/django-baslangic/low/hello-django-with-style.png" alt="black and white" title="Siyah Beyaz!" /></p></figure>
+
+<p>MTV&rsquo;nin Template ve View katmanlarına burada kısaca değinmiş olduk. Bir sonraki yazımda Model katmanı hakkında bilgi vereceğim ve bununla ilgili beraber bir alıştırma yapacağız. Hoşça kalın!</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Python3 <a href="https://www.python.org/downloads/">buradan</a> indirebilirsiniz.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">MVC hakkında daha fazla bilgi için <a href="https://tr.wikipedia.org/wiki/Model-View-Controller">buraya</a> bakın.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+                <br>
+            </div>
+            
+            <div class="share">
+                <a href="" class="ssk ssk-facebook"></a>
+                <a href="" class="ssk ssk-twitter"></a>
+                <a href="" class="ssk ssk-google-plus"></a>
+                <a href="" class="ssk ssk-linkedin"></a>
+
+                
+                  <a href="mailto:gokmen@alageek.com" class="ssk ssk-email" title="Sorun, önerin, şikayetin varsa bana yazabilirsin."></a>
+                
+            </div>
+            
+
+
+
+<div id="mc_embed_signup">
+  <form action="https://gokmengorgen.us2.list-manage.com/subscribe/post?u=1f8579ae0ed781033db51f1b0&amp;id=4ce83a8b61" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+      <label for="mce-EMAIL">Yeni yazılarım için sana haber verebilirim!</label>
+      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Eposta adresin" required>
+      
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1f8579ae0ed781033db51f1b0_4ce83a8b61" tabindex="-1" value=""></div>
+      <div class="clear"><input type="submit" value="Abone ol" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+            
+                <div class="navigation">
+                    
+                    <div style="width: 100%;"></div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
         </div>
     </div>
 </div>
+
 <div class="footer column">
     <div class="container">
 

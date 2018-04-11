@@ -7,29 +7,24 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
-<meta name="description" content="Example blog">
-
-
-    <meta property="twitter:site" content="@gokmengorgen">
-
+<meta name="description" content="Django&#39;yu öğrenmeye başlıyoruz. Detaylarda boğulmak yok, motivasyonumuzu yüksek tutuyoruz.">
 <meta property="og:site_name" content="GKMNGRGN" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://gokmengorgen.net/django-notlarim/01-baslangic/" />
-<meta property="og:title" content="01 - Django: Başlangıç" />
-<meta property="twitter:title" content="01 - Django: Başlangıç">
-
-    <meta property="og:image" content="https://gokmengorgen.net/img/banner.png">
-    <meta property="twitter:card" content="summary">
-    <meta property="twitter:image" content="https://gokmengorgen.net/img/banner.png">
-
-<meta property="og:description" content="">
-<meta property="twitter:description" content="">
+<meta property="og:title" content="01 - Başlangıç" />
+<meta property="og:image" content="https://gokmengorgen.net/img/django-notlarim/django-notlarim.png" />
+<meta property="og:description" content="Django&#39;yu öğrenmeye başlıyoruz. Detaylarda boğulmak yok, motivasyonumuzu yüksek tutuyoruz." />
+<meta property="twitter:site" content="@gokmengorgen" />
+<meta property="twitter:title" content="01 - Başlangıç" />
+<meta property="twitter:image" content="https://gokmengorgen.net/img/django-notlarim/django-notlarim.png" />
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:description" content="Django&#39;yu öğrenmeye başlıyoruz. Detaylarda boğulmak yok, motivasyonumuzu yüksek tutuyoruz." />
 
 <title>
 
 
-     GKMNGRGN - 01 - Django: Başlangıç 
+     GKMNGRGN - 01 - Başlangıç 
 
 </title>
 <link rel="canonical" href="https://gokmengorgen.net/django-notlarim/01-baslangic/">
@@ -1052,7 +1047,7 @@ margin-left: -4%;
                 <div class="title-container">
                     <div class="page-heading">
 
-    01 - Django: Başlangıç
+    01 - Başlangıç
 
 </div>
 
@@ -1135,7 +1130,7 @@ Quit the server with CTRL-BREAK.
 
 <p>Bu noktaya kadar geldiniz ve web tarayıcınızdan <a href="http://localhost:8000">http://localhost:8000</a> adresine girdiğinizde aşağıdaki gibi bir görüntü alıyorsanız, temel gereksinimlerimiz tamam demektir.</p>
 
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-baslangic/installation.png" src="https://gokmengorgen.net/img/django-baslangic/low/installation.png" alt="Django installation" title="Tebrikler! Django hazır." /></p></figure>
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/installation.png" src="https://gokmengorgen.net/img/django-notlarim/low/installation.png" alt="Django installation" title="Tebrikler! Django hazır." /></p></figure>
 
 <h2 id="kodlamaya-geçmeden-bir-gözden-geçirelim">Kodlamaya Geçmeden, Bir Gözden Geçirelim</h2>
 
@@ -1200,7 +1195,7 @@ class HomeView(TemplateView):
 
 <p>Geliştirme sunucumuzu daha önce gösterdiğimiz şekilde çalıştırın ve sonucu beraber anlayalım:</p>
 
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-baslangic/template-does-not-exist.png" src="https://gokmengorgen.net/img/django-baslangic/low/template-does-not-exist.png" alt="Template does not exist." title="View hazır; ama Template eksik." /></p></figure>
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/template-does-not-exist.png" src="https://gokmengorgen.net/img/django-notlarim/low/template-does-not-exist.png" alt="Template does not exist." title="View hazır; ama Template eksik." /></p></figure>
 
 <p>View class&rsquo;ımızda <code>home.html</code> dosyasını kullanacağımızı belirttik, Django bizim için birkaç yere bakmış ama Template&rsquo;i bulamamış. Biz bir dizin oluşturalım ve Template dosyamızı <code>hello_django/templates/home.html</code> olarak tutalım:</p>
 
@@ -1233,7 +1228,7 @@ TEMPLATES = [
 ...
 </code></pre>
 
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-baslangic/say-hello.png" src="https://gokmengorgen.net/img/django-baslangic/low/say-hello.png" alt="Say hello!" title="View tamam, Template tamam. Sırada?" /></p></figure>
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/say-hello.png" src="https://gokmengorgen.net/img/django-notlarim/low/say-hello.png" alt="Say hello!" title="View tamam, Template tamam. Sırada?" /></p></figure>
 
 <p>Artık beklediğimiz sonucu görebiliyoruz. Son olarak sayfada bir stil düzenlemesi yaparak ilk yazımızı tamamlayalım. HTML dosyamızı oluştururken <code>/static/main.css</code> adında bir stil dosyamız varmış gibi tanımlamıştık. Bu dosyayı oluşturalım ve sonra <code>static</code> dizinimizi Template dizini için olduğu gibi <code>settings.py</code> dosyamızda tanımlayalım.</p>
 
@@ -1259,7 +1254,7 @@ STATICFILES_DIRS = [
 ]
 </code></pre>
 
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-baslangic/hello-django-with-style.png" src="https://gokmengorgen.net/img/django-baslangic/low/hello-django-with-style.png" alt="black and white" title="Siyah Beyaz!" /></p></figure>
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/hello-django-with-style.png" src="https://gokmengorgen.net/img/django-notlarim/low/hello-django-with-style.png" alt="black and white" title="Siyah Beyaz!" /></p></figure>
 
 <p>MTV&rsquo;nin Template ve View katmanlarına burada kısaca değinmiş olduk. Bir sonraki yazımda Model katmanı hakkında bilgi vereceğim ve bununla ilgili beraber bir alıştırma yapacağız. Hoşça kalın!</p>
 <div class="footnotes">

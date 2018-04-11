@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>01 - Django: Başlangıç</title>
+      <title>01 - Başlangıç</title>
       <link>https://gokmengorgen.net/django-notlarim/01-baslangic/</link>
       <pubDate>Fri, 30 Mar 2018 19:22:15 +0200</pubDate>
       
@@ -23,30 +23,30 @@
     
     <item>
       <title>Geliştiriciler için Windows 10 Pro</title>
-      <link>https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/</link>
+      <link>https://gokmengorgen.net/blog/geli%C5%9Ftiriciler-i%C3%A7in-windows-10-pro/</link>
       <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/</guid>
+      <guid>https://gokmengorgen.net/blog/geli%C5%9Ftiriciler-i%C3%A7in-windows-10-pro/</guid>
       <description>Bu yazıda sözünü ettiğim işletim sistemi ve sürümü Windows 10 Pro’dur. Amacım yazılım geliştiriciler için Windows 10 Pro’nun alternatif bir geliştirme ortamı olduğunu anlatmaktır. Windows 8 değil, Windows 10 Home da değil, sadece Windows 10 Pro. Karar elbette sizin.
 Genel Görünüm Uzun süre Linux dağıtımı ve MacOS kullanan birisi olarak ilk Windows izlenimim çok kötüydü. Font rendering Ubuntu’dan bile kötüydü. Masaüstü ortamı KDE’den bile karışıktı. Klavye kısayollarını yeni baştan öğrenmem, alışmam gerekecekti.</description>
     </item>
     
     <item>
       <title>Vagrant ile proje geliştirme</title>
-      <link>https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/</link>
+      <link>https://gokmengorgen.net/blog/vagrant-ile-proje-geli%C5%9Ftirme/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/</guid>
+      <guid>https://gokmengorgen.net/blog/vagrant-ile-proje-geli%C5%9Ftirme/</guid>
       <description>Monolitik yapıda bir web projesinin iskeletini oluşturup, projeyi geliştirmek için bir geliştirme ortamına ihtiyacımız var. Geliştirme ortamını hazırlarken bazı ayrıntıları göz önünde bulundurmak gerekir:
  Projede tek başıma mı olacağım? Tek başıma değilsem ekip arkadaşlarım kurulumda sorun yaşarlar mı? Tek başıma bile olsam, yerelimde yaşamadığım bir sorunu sunucuda yaşarsam bununla nasıl başa çıkacağım veya bu ihtimalın olmaması için ne yapabilirim? Bağımlılıklarda sürüm çakışması yaşarsam bunu nasıl çözeceğim? Geliştirme ortamımı diğerlerinden nasıl izole edebilirim?</description>
     </item>
     
     <item>
       <title>Emacs&#39;e nereden başlamalı?</title>
-      <link>https://gokmengorgen.net/blog/emacse-nereden-baslamali/</link>
+      <link>https://gokmengorgen.net/blog/emacse-nereden-ba%C5%9Flamal%C4%B1/</link>
       <pubDate>Mon, 24 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/emacse-nereden-baslamali/</guid>
+      <guid>https://gokmengorgen.net/blog/emacse-nereden-ba%C5%9Flamal%C4%B1/</guid>
       <description>Yazılım dünyasının en eski editörlerinden Emacs, günümüzdeki diğer popüler editörlerden farklı bir kullanma ve öğrenme disiplini istiyor. Bazı temel özelliklerini öğrenmeden editörde bir dosya açmak bile zor. O nedenle Emacs’in kendi içinde gelen tutorial’ını en azından bir kez okumak, öğrendiklerini uygulamak ve birkaç hafta sabırla kullanmak gerekiyor.
 Emacs Linux, Windows ve macOS işletim sistemlerinde çalışıyor. Yükleyip editörü açtığınızda ilk hali muhtemelen arzu ettiğiniz gibi görünmeyecek. Bir yandan Emacs’i öğrenirken, bir yandan da kendi zevkinize göre özelleştirmeye başlamanızı öneriyorum.</description>
     </item>

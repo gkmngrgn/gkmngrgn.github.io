@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>01 - Django: Başlangıç</title>
+      <title>01 - Başlangıç</title>
       <link>https://gokmengorgen.net/django-notlarim/01-baslangic/</link>
       <pubDate>Fri, 30 Mar 2018 19:22:15 +0200</pubDate>
       
@@ -23,40 +23,40 @@
     
     <item>
       <title>Geliştiriciler için Windows 10 Pro</title>
-      <link>https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/</link>
+      <link>https://gokmengorgen.net/blog/geli%C5%9Ftiriciler-i%C3%A7in-windows-10-pro/</link>
       <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/</guid>
+      <guid>https://gokmengorgen.net/blog/geli%C5%9Ftiriciler-i%C3%A7in-windows-10-pro/</guid>
       <description>Bu yazıda sözünü ettiğim işletim sistemi ve sürümü Windows 10 Pro’dur. Amacım yazılım geliştiriciler için Windows 10 Pro’nun alternatif bir geliştirme ortamı olduğunu anlatmaktır. Windows 8 değil, Windows 10 Home da değil, sadece Windows 10 Pro. Karar elbette sizin.
 Genel Görünüm Uzun süre Linux dağıtımı ve MacOS kullanan birisi olarak ilk Windows izlenimim çok kötüydü. Font rendering Ubuntu’dan bile kötüydü. Masaüstü ortamı KDE’den bile karışıktı. Klavye kısayollarını yeni baştan öğrenmem, alışmam gerekecekti.</description>
     </item>
     
     <item>
       <title>Vagrant ile proje geliştirme</title>
-      <link>https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/</link>
+      <link>https://gokmengorgen.net/blog/vagrant-ile-proje-geli%C5%9Ftirme/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/</guid>
+      <guid>https://gokmengorgen.net/blog/vagrant-ile-proje-geli%C5%9Ftirme/</guid>
       <description>Monolitik yapıda bir web projesinin iskeletini oluşturup, projeyi geliştirmek için bir geliştirme ortamına ihtiyacımız var. Geliştirme ortamını hazırlarken bazı ayrıntıları göz önünde bulundurmak gerekir:
  Projede tek başıma mı olacağım? Tek başıma değilsem ekip arkadaşlarım kurulumda sorun yaşarlar mı? Tek başıma bile olsam, yerelimde yaşamadığım bir sorunu sunucuda yaşarsam bununla nasıl başa çıkacağım veya bu ihtimalın olmaması için ne yapabilirim? Bağımlılıklarda sürüm çakışması yaşarsam bunu nasıl çözeceğim? Geliştirme ortamımı diğerlerinden nasıl izole edebilirim?</description>
     </item>
     
     <item>
       <title>Emacs&#39;e nereden başlamalı?</title>
-      <link>https://gokmengorgen.net/blog/emacse-nereden-baslamali/</link>
+      <link>https://gokmengorgen.net/blog/emacse-nereden-ba%C5%9Flamal%C4%B1/</link>
       <pubDate>Mon, 24 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/emacse-nereden-baslamali/</guid>
+      <guid>https://gokmengorgen.net/blog/emacse-nereden-ba%C5%9Flamal%C4%B1/</guid>
       <description>Yazılım dünyasının en eski editörlerinden Emacs, günümüzdeki diğer popüler editörlerden farklı bir kullanma ve öğrenme disiplini istiyor. Bazı temel özelliklerini öğrenmeden editörde bir dosya açmak bile zor. O nedenle Emacs’in kendi içinde gelen tutorial’ını en azından bir kez okumak, öğrendiklerini uygulamak ve birkaç hafta sabırla kullanmak gerekiyor.
 Emacs Linux, Windows ve macOS işletim sistemlerinde çalışıyor. Yükleyip editörü açtığınızda ilk hali muhtemelen arzu ettiğiniz gibi görünmeyecek. Bir yandan Emacs’i öğrenirken, bir yandan da kendi zevkinize göre özelleştirmeye başlamanızı öneriyorum.</description>
     </item>
     
     <item>
       <title>İşverenlere uzaktan çalışma tavsiyesi</title>
-      <link>https://gokmengorgen.net/blog/isverenlere-uzaktan-calisma-tavsiyesi/</link>
+      <link>https://gokmengorgen.net/blog/i%C5%9Fverenlere-uzaktan-%C3%A7al%C4%B1%C5%9Fma-tavsiyesi/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/isverenlere-uzaktan-calisma-tavsiyesi/</guid>
+      <guid>https://gokmengorgen.net/blog/i%C5%9Fverenlere-uzaktan-%C3%A7al%C4%B1%C5%9Fma-tavsiyesi/</guid>
       <description>Beyin göçünün yükseldiği bir dönem, işveren veya üst düzey çalışanların konuyla ilgili yazdığı yazılarda aradığım çok basit bir çözüm vardı: Uzaktan çalışmak.
 Çalışanlar uzaktan çalışmak ister, gerekçeleri çok, konuyla ilgili ben dahil birçok çalışan yazı yazmıştır. Ama işverenlerin uzaktan çalışmayla ilgili pek bir fikir paylaşımı yok. Onların ne düşündüğünü merak ediyorum. Görebildiğim tek cümle bu:
  Yurt dışında yaşayan arkadaşlarımdan bu yazıya biraz incindiklerini öğrendim, oradan da her şeyi yapabiliriz diyorlardı.</description>
@@ -64,20 +64,20 @@ Emacs Linux, Windows ve macOS işletim sistemlerinde çalışıyor. Yükleyip ed
     
     <item>
       <title>Göç</title>
-      <link>https://gokmengorgen.net/blog/goc/</link>
+      <link>https://gokmengorgen.net/blog/g%C3%B6%C3%A7/</link>
       <pubDate>Sat, 01 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/goc/</guid>
+      <guid>https://gokmengorgen.net/blog/g%C3%B6%C3%A7/</guid>
       <description>Bir arkadaşım, “Metroya binerken yüzü gülen insan görmüyorum.” demişti. İstanbul’a geldim geleli, insanların gözlerinin içine baka baka yürürüm. Yüzlerdeki ciddiyet, bana zihinlerinde çok farklı şeyler gezindiğini hissettiriyor. Sanki yüzleriyle zihinleri arasındaki bağlantılar kopmuş gibi. Bu o kadar bulaşıcı bir şey ki, ben de çoğu zaman pek gülümsemiyorum.
 Katre adında bir kadın. Bir bankacı, sabahı ve akşamı belli. Kahvaltısı bir poğaçadan ibaret, ancak yürürken yiyebiliyor, bir on dakikalık yürüme mesafesinden sonra metrobüse, oradan aktarma yapıp metroya binecek, sonrasında yine bir beş dakika daha yürümesi gerek.</description>
     </item>
     
     <item>
       <title>Kitapları sanallaştırmak</title>
-      <link>https://gokmengorgen.net/blog/kitaplari-sanallastirmak/</link>
+      <link>https://gokmengorgen.net/blog/kitaplar%C4%B1-sanalla%C5%9Ft%C4%B1rmak/</link>
       <pubDate>Sat, 09 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/kitaplari-sanallastirmak/</guid>
+      <guid>https://gokmengorgen.net/blog/kitaplar%C4%B1-sanalla%C5%9Ft%C4%B1rmak/</guid>
       <description>Geçen gün esas niyetimi fazla açıklamadan Twitter üzerinden, kitapları dağıtırsam pişman olup olmayacağım üzerine bir soru sordum:
 Siz olsanız evdeki kitapları dağıtmaktan pişman olur muydunuz? Bundan sonra sadece ebook alan biri olarak soruyorum.
 &amp;mdash; Gökmen Görgen ☄️ (@gokmengorgen) July 7, 2016 
@@ -87,39 +87,39 @@ Seçimler arasında çok bir uçurum olmaması beni bir süre kararsız bırakt�
     
     <item>
       <title>Uzaktan çalışmak</title>
-      <link>https://gokmengorgen.net/blog/uzaktan-calismak/</link>
+      <link>https://gokmengorgen.net/blog/uzaktan-%C3%A7al%C4%B1%C5%9Fmak/</link>
       <pubDate>Mon, 23 May 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/uzaktan-calismak/</guid>
+      <guid>https://gokmengorgen.net/blog/uzaktan-%C3%A7al%C4%B1%C5%9Fmak/</guid>
       <description>Bağımsız çalışmak (freelance) ile uzaktan çalışmak (remote) çok karıştırılıyor. Bağımsız çalışanlar aynı zamanda uzaktan çalışıyor veya uzaktan çalışanlar fiziki bir ofise sahip bir şirkette çalışıyor olabilir. Yani uzaktan çalışıyor olmanız, sizi bağımsız çalışan (freelancer) yapmıyor.
 Ben yazılımcıyım. Bağımsız çalışmak konusunda çok deneyimim yok. Bu konudaki gözlemim, en azından Türkiye’de hem işi verenin, hem de işi yapanın çok da profesyonel davranmadığı. Bağımsız çalışmak ayrı bir disiplin gerektiren, kendine özgü şartları ve anlaşması olan, hobi veya ek iş olarak bakılamayacak kadar ciddi bir çalışma biçimi.</description>
     </item>
     
     <item>
       <title>Borsa kumar mı?</title>
-      <link>https://gokmengorgen.net/blog/borsa-kumar-mi/</link>
+      <link>https://gokmengorgen.net/blog/borsa-kumar-m%C4%B1/</link>
       <pubDate>Mon, 19 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/borsa-kumar-mi/</guid>
+      <guid>https://gokmengorgen.net/blog/borsa-kumar-m%C4%B1/</guid>
       <description>Sabah uyandığınızda pencereden bakıyorsunuz, kar yağıyor. Bugün işe arabayla gitmenin tehlikeli olabileceğini düşünüyorsunuz. Sıkı giyinmeye karar veriyorsunuz; ama diğer taraftan toplu taşımanın da sıkıntılı bir yolculuk olacağını hatırlıyorsunuz. Acaba patronu arayıp bugün evden çalışacağımızı mı söylesek? Çok verimli olmayacağını düşünüp işe gitmeye karar veriyorsunuz. Peki, akşam eve sağ salim dönmenizin garantisini kim verir? Kimse; ama buna rağmen önlemleri almışsınızdır. Olur da işyerinde mahsur kalırsanız, bir günlük erzağınızı da hazırlamışsınızdır. Böylece hayatta kalmayı bir şans olmaktan çıkarırsınız.</description>
     </item>
     
     <item>
       <title>İşletim sistemi tercihini geliştiriciye bırakın</title>
-      <link>https://gokmengorgen.net/blog/isletim-sistemi-tercihini-gelistiriciye-birakin/</link>
+      <link>https://gokmengorgen.net/blog/i%C5%9Fletim-sistemi-tercihini-geli%C5%9Ftiriciye-b%C4%B1rak%C4%B1n/</link>
       <pubDate>Sun, 22 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/isletim-sistemi-tercihini-gelistiriciye-birakin/</guid>
+      <guid>https://gokmengorgen.net/blog/i%C5%9Fletim-sistemi-tercihini-geli%C5%9Ftiriciye-b%C4%B1rak%C4%B1n/</guid>
       <description>Bir yazılım projesine başlarken ihtiyaç duyacağımız ilk şey ne olur diye soracak olursak, sanırım buna “geliştirme ortamı” diyebiliriz. Örneğin bir Android projesi için şunlar gerekli:
  Android Studio veya Eclipse (ADT) Android Java SDK Android yüklü donanım veya emulator İşletim sistemine göre emulator hızlandırıcı eklentiler (HAXM, qemu, vb)  Bu ortamı işletim sistemimize kurduğumuzda, iki şeye sahip oluyoruz: Birincisi kod yazabiliyoruz, debug edebiliyoruz, sorunları düzeltebiliyoruz; ikincisi sonucu görmek için uygulamayı yükleyip çalıştırabiliyoruz, test edebiliyoruz, yayınlayabiliyoruz.</description>
     </item>
     
     <item>
       <title>Geliştiriciden işverene dağıtık manifesto</title>
-      <link>https://gokmengorgen.net/blog/gelistiriciden-isverene-dagitik-manifesto/</link>
+      <link>https://gokmengorgen.net/blog/geli%C5%9Ftiriciden-i%C5%9Fverene-da%C4%9F%C4%B1t%C4%B1k-manifesto/</link>
       <pubDate>Sat, 24 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/gelistiriciden-isverene-dagitik-manifesto/</guid>
+      <guid>https://gokmengorgen.net/blog/geli%C5%9Ftiriciden-i%C5%9Fverene-da%C4%9F%C4%B1t%C4%B1k-manifesto/</guid>
       <description>İdeal bir dünyada yaşamadığımız malum. İşimizi yaparken birçok problemle karşılaşıyoruz; bağırarak yanımızda telefonla konuşanlar, oje sürerken kokusunun ne kadar rahatsız edici olduğunu bilmeyenler, laptopta kullanmak amacıyla bir fare ihtiyacımızı kimin karşılaması gerektiğini tartışanlar veya başkalarına aldırış etmeksizin klimanın ayarlarıyla oynayanlar.. Bunlar her zaman karşımıza çıkacaktır, şuanki dünya düzenini ele alacaksak yapacak çok fazla bir şey yok. Fakat bir nebze de olsa, aklımızdan geçenleri burada manifesto tadında sıralamak faydalı olabilir düşüncesindeyiz.</description>
     </item>
     

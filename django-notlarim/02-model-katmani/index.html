@@ -7,27 +7,27 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
-<meta name="description" content="Gökmen Görgen&#39;s writings about programming and remote-working style.">
+<meta name="description" content="Django&#39;da Model katmanı hakkında ilk öğrenmemiz gerekenler neler? Uygulama nasıl oluşturulur, migration nedir?">
 <meta property="og:site_name" content="GKMNGRGN" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://gokmengorgen.net/tags/life-style/" />
-<meta property="og:title" content="Life Style" />
-<meta property="og:image" content="https://gokmengorgen.net/img/laughing-man.png" />
-<meta property="og:description" content="Gökmen Görgen&#39;s writings about programming and remote-working style." />
+<meta property="og:url" content="https://gokmengorgen.net/django-notlarim/02-model-katmani/" />
+<meta property="og:title" content="02 - Model Katmanı" />
+<meta property="og:image" content="https://gokmengorgen.net/img/django-notlarim/django-notlarim.png" />
+<meta property="og:description" content="Django&#39;da Model katmanı hakkında ilk öğrenmemiz gerekenler neler? Uygulama nasıl oluşturulur, migration nedir?" />
 <meta property="twitter:site" content="@gokmengorgen" />
-<meta property="twitter:title" content="Life Style" />
-<meta property="twitter:image" content="https://gokmengorgen.net/img/laughing-man.png" />
+<meta property="twitter:title" content="02 - Model Katmanı" />
+<meta property="twitter:image" content="https://gokmengorgen.net/img/django-notlarim/django-notlarim.png" />
 <meta property="twitter:card" content="summary" />
-<meta property="twitter:description" content="Gökmen Görgen&#39;s writings about programming and remote-working style." />
+<meta property="twitter:description" content="Django&#39;da Model katmanı hakkında ilk öğrenmemiz gerekenler neler? Uygulama nasıl oluşturulur, migration nedir?" />
 
 <title>
 
 
-     GKMNGRGN - Life Style 
+     GKMNGRGN - 02 - Model Katmanı 
 
 </title>
-<link rel="canonical" href="https://gokmengorgen.net/tags/life-style/">
+<link rel="canonical" href="https://gokmengorgen.net/django-notlarim/02-model-katmani/">
 
 
 <style media="screen">
@@ -1013,8 +1013,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://gokmengorgen.net/tags/life-style/index.xml" rel="alternate" type="application/rss+xml" title="GKMNGRGN" />
-
 
 </head>
 
@@ -1041,24 +1039,273 @@ margin-left: -4%;
     </div>
 </div>
 
-<div class="main column">
+
+<div class="main post non-narrow zero-top-spacing column">
     <div class="container">
         <div class="content">
-            <div class="posts">
-                <div class="page-heading">Posts about Life Style</div>
-                <ul>
-                    
-                        <li class="post-item">
-    <span class="meta">Oct 1, 2016</span>
-    <a href="https://gokmengorgen.net/blog/goc/"><span>Göç</span></a>
-</li>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
 
+    02 - Model Katmanı
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Wed Apr 4 2018 00:12:24 CEST">Apr 4, 2018</div>
                     
-                </ul>
+                        
+                    
+                    <div class="reading-time middot">4 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <li class="middot"><a href="https://gokmengorgen.net/tags/coding">coding</a> </li>
+                          
+                            <li class="middot"><a href="https://gokmengorgen.net/tags/django">django</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <div class="markdown">
+                
+    
+    
+
+<p><em>Şimdi MTV&rsquo;nin Model katmanına giriş yapacağız; ama bu konuya tek bir yazı yetmeyecek. Bu yazıyı okurken öğrendiklerinizi pekiştirmek için alıştırmaları yapmaya özen gösterirseniz, bir sonraki konuya daha kolay ısınırsınız.</em></p>
+
+<h2 id="özet">Özet</h2>
+
+<ul>
+<li>Django&rsquo;da uygulama oluşturacağız, bundle yapısına kısaca değineceğiz.</li>
+<li>Model katmanını içerecek basit bir uygulama yazacağız.</li>
+<li>Model migration script&rsquo;leri oluşturacağız.</li>
+<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-02/hello_django">buradan</a> erişebilirsiniz.</li>
+</ul>
+
+<h2 id="oluştur-oku-güncelle-sil">Oluştur, Oku, Güncelle, Sil</h2>
+
+<p>Veritabanında veri ile ilgili yapılabilecek dört temel işlemin baş harflerinden oluşuyor <strong>CRUD</strong>: Create - Read - Update - Delete. Her View katmanının belli bir amacı olur ve bu amaca göre Model katmanıyla bağlantıya geçer (bazen geçmez), sonucu Template katmanında gösterir. Django dökümantasyonunda çok güzel bir alıştırma<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> var. Biz şimdi herhangi bir resim dosyasını analiz edip bir renk paleti oluşturmayı deneyeceğiz, önce modellemeden başlıyoruz. Önce uygulamayı oluşturalım:</p>
+
+<pre><code class="language-bash"># terminal
+$ python manage.py startapp hello_palette
+</code></pre>
+
+<p>Bu noktada <strong>bundled application</strong> konusuna bir değinelim. Django&rsquo;da her uygulamanın bir dizini var:</p>
+
+<ul>
+<li>Bir Django projesi, <strong>birden fazla uygulamayı</strong> içinde barındırabilir.</li>
+<li>Bir uygulama, <strong>birden fazla Django projesinde</strong> barınabilir.</li>
+</ul>
+
+<p>Burada amaç, projenin belli bir işlevini veya özelliğini bir paket haline getirip, o paketi kolayca projeye kurup çıkarabilmek. <strong>pip</strong><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> ile kurulabilen her Django eklentisi aslında birer uygulamadır. Yani siz de geliştirdiğiniz bir uygulamayı, Template ve statik dosyalarını uygulama dizininde tutarak dağıtabilirsiniz.</p>
+
+<p>Ben dağıtmayı düşünmediğim, bir projeye kökünden bağımlı olan uygulamalarımda iki şeye önem veriyorum:</p>
+
+<ol>
+<li>İsimlendirirken herhangi bir isim çakışmasını önlemek için proje adıyla bir prefix ekliyorum: <strong>palette</strong> yerine <strong>hello_palette</strong> gibi.</li>
+<li><strong>templates</strong> ve <strong>static</strong> dosyalarımı uygulamanın içinde değil, ortak proje dizininde tutmayı tercih ediyorum.</li>
+</ol>
+
+<pre><code class="language-bash"># terminal
+$ ls
+hello_django/  hello_palette/  manage.py*  static/  templates/
+</code></pre>
+
+<pre><code class="language-bash"># terminal
+$ ls hello_palette/
+__init__.py  admin.py  apps.py  migrations/  models.py  tests.py  views.py
+</code></pre>
+
+<p>Bir uygulama oluşturduğumuzda oluşan dosya ve dizin yapısı bu. Model katmanında ORM<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup> model objelerimizi <code>models.py</code> dosyasında tutacağız, Model katmanında yapılan değişiklikleri içeren, otomatik oluşturulan scriptleri <code>migrations/</code> dizininde bulabileceğiz. Şimdi bir örnekle ORM konusuna girelim:</p>
+
+<pre><code class="language-python"># models.py
+from django.db import models
+from django.utils.translation import ugettext_lazy as _
+
+
+class Palette(models.Model):
+    image = models.ImageField(verbose_name=_(&quot;Image&quot;), upload_to='images/')
+    colors = models.TextField(verbose_name=_(&quot;Colors&quot;))
+    created_at = models.DateTimeField(verbose_name=_(&quot;Created at&quot;), auto_now_add=True)
+
+    class Meta:
+        verbose_name = _(&quot;Palette&quot;)
+        verbose_name_plural = _(&quot;Palettes&quot;)
+        ordering = ('-created_at',)
+
+    def __str__(self):
+        return self.image.path
+</code></pre>
+
+<p>Bizim varsayılan veritabanımız SQLite ve daha ilk andan kullanıma hazır. Fakat veritabanımızda henüz <strong>Palette</strong> model objemiz ile ilgili bir table ve columnlar yok. Model katmanımızda yaptığımız her değişikliğin veritabanımıza yansıtılması için bir <strong>migration script</strong> oluşturmamız gerekiyor.</p>
+
+<pre><code class="language-bash"># terminal
+$ python manage.py makemigrations hello_palette
+App 'hello_palette' could not be found. Is it in INSTALLED_APPS?
+</code></pre>
+
+<p>Önemli bir şey unuttuk, uygulamayı kurmadan kullanmaya çalıştık. Yeni uygulamamızı INSTALLED_APPS listesine ekleyelim:</p>
+
+<pre><code class="language-python"># settings.py
+...
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'hello_palette',  # en sona, sira onemli.
+]
+...
+</code></pre>
+
+<pre><code class="language-bash"># terminal
+$ python manage.py makemigrations hello_palette
+SystemCheckError: System check identified some issues:
+
+ERRORS:
+hello_palette.Palette.image: (fields.E210) Cannot use ImageField because Pillow is not installed.
+        HINT: Get Pillow at https://pypi.python.org/pypi/Pillow or run command &quot;pip install Pillow&quot;.
+</code></pre>
+
+<p>Bu sefer de eksik bağımlılık nedeniyle hata aldık. Bu sorunu nasıl çözeceğimize dair bir ipucu zaten verilmiş ama yeri gelmişken bağımlılıklar konusuna el atalım.</p>
+
+<h2 id="proje-bağımlılıkları-requirements-txt">Proje Bağımlılıkları, requirements.txt</h2>
+
+<p>Projeye başlarken <code>pip</code> ile kurduğumuz ilk bağımlılığımızı hatırlayalım, Django. Şimdi resim dosyalarımız ile ilgili meta datayı veritabanında saklamak isterken Django bizden <code>Pillow</code> kurmamızı istedi. Projenin kapasitesi, özellikleri arttıkça bağımlılıklar artar. Bizim bunları her kurulumda tek tek kurmamız, sürümlerini kontrol etmemiz, yönetmemiz epey zor. Fakat bir <code>requirements.txt</code> dosyası oluşturup bu listeyi saklarsak, bu sorunu büyük ölçüde çözmüş oluruz:</p>
+
+<pre><code class="language-bash"># requirements.txt
+Django==2.0.3
+Pillow==5.1.0
+</code></pre>
+
+<p>Bağımlılıkların sürümünü <a href="https://pypi.org/">PyPI</a> sitesinden bakıp öğrenebilirsiniz. Bağımlılık dosyamızı hazırladıktan sonra paketleri artık bir komutla kurabiliriz:</p>
+
+<pre><code class="language-bash"># terminal
+$ pip install -r requirements.txt
+Requirement already satisfied: Django==2.0.3 in c:\users\gokmen\appdata\local\programs\python\python36-32\lib\site-packages (from -r requirements.txt (line 1))
+Collecting Pillow==5.1.0 (from -r requirements.txt (line 2))
+  Using cached Pillow-5.1.0-cp36-cp36m-win32.whl
+Requirement already satisfied: pytz in c:\users\gokmen\appdata\local\programs\python\python36-32\lib\site-packages (from Django==2.0.3-&gt;-r requirements.txt (line 1))
+Installing collected packages: Pillow
+Successfully installed Pillow-5.1.0
+</code></pre>
+
+<p>Son kez migration script oluşturmayı deneyelim:</p>
+
+<pre><code class="language-bash"># terminal
+$ python manage.py makemigrations hello_palette
+Migrations for 'hello_palette':
+  hello_palette\migrations\0001_initial.py
+    - Create model Palette
+</code></pre>
+
+<p>Oldu! Elimizde veritabanında istediğimiz tabloları ve columnları oluşturacak bir script&rsquo;imiz var. Artık sıra veritabanında:</p>
+
+<pre><code class="language-bash"># terminal
+$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, hello_palette, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying hello_palette.0001_initial... OK  # bizimki burada.
+  Applying sessions.0001_initial... OK
+</code></pre>
+
+<p>Hayda, bir migration script&rsquo;imiz var sanıyorduk. Tabi ki öyle değil, auth, contenttypes, sessions&hellip; Bunların hepsi birer uygulama ve dikkat ederseniz bunlar INSTALLED_APPS listesinde de var. Projede kullandığımız uygulamaların veritabanımıza henüz kabul edilmemiş migration script&rsquo;leri varsa, Django bunları tespit edip belli sırayla veritabanımıza uygular. Peki bir migration script&rsquo;in uygulanıp uygulanmadığını Django nasıl anlıyor? O bilgiyi de veritabanında tutarak! Yani Django&rsquo;daki migration uygulamasının da bir tablosu var.</p>
+
+<p>Bir sonraki yazımda palette uygulamasını kodlamaya devam edeceğiz. Sağlıcakla.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Ben kendi deneyimlerimi katarak bu yazı dizisini hazırlıyorum; ancak siz çok geç olmadan Django dökümantasyonuna elinizi, gözünüzü alıştırın. Bu yazıda öğrendiklerinizi <a href="https://docs.djangoproject.com/en/2.0/intro/tutorial01/">buradan</a> pekiştirmenizi tavsiye ediyorum.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Tüm Django paketlerini <a href="https://pypi.org/search/?q=django">buradan</a> görebilirsiniz.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">Object-Relational Mapping kısaltması ORM&rsquo;de temel amaç, kodumuzun içinde, kullandığımız programlama dilinin sağladığı kolaylıklardan sonuna kadar yararlanarak veritabanında çeşitli işlemler gerçekleştirmek.
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+                <br>
+            </div>
+            
+            <div class="share">
+                <a href="" class="ssk ssk-facebook"></a>
+                <a href="" class="ssk ssk-twitter"></a>
+                <a href="" class="ssk ssk-google-plus"></a>
+                <a href="" class="ssk ssk-linkedin"></a>
+
+                
+                  <a href="mailto:gokmen@alageek.com" class="ssk ssk-email" title="Sorun, önerin, şikayetin varsa bana yazabilirsin."></a>
+                
+            </div>
+            
+
+
+
+<div id="mc_embed_signup">
+  <form action="https://gokmengorgen.us2.list-manage.com/subscribe/post?u=1f8579ae0ed781033db51f1b0&amp;id=4ce83a8b61" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+      <label for="mce-EMAIL">Yeni yazılarım için sana haber verebilirim!</label>
+      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Eposta adresin" required>
+      
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1f8579ae0ed781033db51f1b0_4ce83a8b61" tabindex="-1" value=""></div>
+      <div class="clear"><input type="submit" value="Abone ol" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
+                        <a href="https://gokmengorgen.net/django-notlarim/01-baslangic/">01 - Başlangıç</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
         </div>
     </div>
 </div>
+
 <div class="footer column">
     <div class="container">
 

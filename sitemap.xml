@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gokmengorgen.net/django-notlarim/03-admin-paneli/</loc>
+    <lastmod>2018-04-22T00:02:51+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/django-notlarim/02-model-katmani/</loc>
     <lastmod>2018-04-04T00:12:24+02:00</lastmod>
   </url>
@@ -79,19 +84,19 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/coding/</loc>
-    <lastmod>2018-04-04T00:12:24+02:00</lastmod>
+    <lastmod>2018-04-22T00:02:51+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://gokmengorgen.net/tags/django/</loc>
-    <lastmod>2018-04-04T00:12:24+02:00</lastmod>
+    <lastmod>2018-04-22T00:02:51+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://gokmengorgen.net/django-notlarim/</loc>
-    <lastmod>2018-04-04T00:12:24+02:00</lastmod>
+    <lastmod>2018-04-22T00:02:51+02:00</lastmod>
   </url>
   
   <url>
@@ -102,7 +107,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/</loc>
-    <lastmod>2018-04-04T00:12:24+02:00</lastmod>
+    <lastmod>2018-04-22T00:02:51+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -144,7 +149,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/</loc>
-    <lastmod>2018-04-04T00:12:24+02:00</lastmod>
+    <lastmod>2018-04-22T00:02:51+02:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -6,10 +6,20 @@
     <description>Recent content in Django on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Apr 2018 00:12:24 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 22 Apr 2018 00:02:51 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tags/django/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>03 - Admin Paneli</title>
+      <link>https://gokmengorgen.net/django-notlarim/03-admin-paneli/</link>
+      <pubDate>Sun, 22 Apr 2018 00:02:51 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notlarim/03-admin-paneli/</guid>
+      <description>Model objemizi oluşturduktan sonra hemen veri girişi yapsak, denesek, kontrol etsek nasıl olurdu? Django&amp;rsquo;nun en güzel yanlarından biri olan Django Admin&amp;rsquo;e el atalım mı? Önce modelimizde biraz değişiklik yapmamız gerek.
+Özet  İkinci bir migration script oluşturma denemesi yapacağız. Model katmanında ilk sinyal denememizi yapacağız. Palette modelimizi Django Admin panelinde göreceğiz. Resim yükleyebilmek için form sayfası, resmin renk kodlarını görüntüleyebilmek için detay sayfası hazırlayacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.</description>
+    </item>
     
     <item>
       <title>02 - Model Katmanı</title>

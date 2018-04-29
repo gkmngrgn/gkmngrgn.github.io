@@ -6,10 +6,20 @@
     <description>Recent content on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Apr 2018 00:02:51 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 28 Apr 2018 00:56:53 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>04 - Template Motoru</title>
+      <link>https://gokmengorgen.net/django-notlarim/04-template-motoru/</link>
+      <pubDate>Sat, 28 Apr 2018 00:56:53 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notlarim/04-template-motoru/</guid>
+      <description>Eğer içeriği dinamik oluşturuyorsak, ortak sayfa bileşenlerini tekrar tekrar yazmak istemiyorsak, Template katmanını biraz daha yakından tanımamız gerekiyor.
+Özet  Template katmanında layout kullanımına bir örnek göstereceğiz. Örnek bir template tag ve filter yazmayı deneyeceğiz. Admin panelimizde, göze hoş görünmesi için bir stil düzenlemesi yapacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.  Layout Kullanımı Template dosyaları yazmaya başladıkça bir şeyleri tekrar etmeye başlayacaksınız. Birçoğunun içinde head ve body var, bir çoğunda ortak stil dosyalarını kullanacaksınız, hatta hangi sayfa olursa olsun bazı meta tagları hiç değişmeyecek.</description>
+    </item>
     
     <item>
       <title>03 - Admin Paneli</title>

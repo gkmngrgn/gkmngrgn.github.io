@@ -7,27 +7,27 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
-<meta name="description" content="Django&#39;yu öğrenmek için alternatif bir yazı dizisi.">
+<meta name="description" content="Django Template motoru nasıl çalışır, içeriği nasıl doldurabiliriz ve yardımcı araçları nasıl kullanabiliriz? Bu konulara değiniyoruz.">
 <meta property="og:site_name" content="GKMNGRGN" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://gokmengorgen.net/django-notlarim/" />
-<meta property="og:title" content="Django Notlarım" />
+<meta property="og:url" content="https://gokmengorgen.net/django-notlarim/04-template-motoru/" />
+<meta property="og:title" content="04 - Template Motoru" />
 <meta property="og:image" content="https://gokmengorgen.net/img/django-notlarim/django-notlarim.png" />
-<meta property="og:description" content="Django&#39;yu öğrenmek için alternatif bir yazı dizisi." />
+<meta property="og:description" content="Django Template motoru nasıl çalışır, içeriği nasıl doldurabiliriz ve yardımcı araçları nasıl kullanabiliriz? Bu konulara değiniyoruz." />
 <meta property="twitter:site" content="@gokmengorgen" />
-<meta property="twitter:title" content="Django Notlarım" />
+<meta property="twitter:title" content="04 - Template Motoru" />
 <meta property="twitter:image" content="https://gokmengorgen.net/img/django-notlarim/django-notlarim.png" />
 <meta property="twitter:card" content="summary" />
-<meta property="twitter:description" content="Django&#39;yu öğrenmek için alternatif bir yazı dizisi." />
+<meta property="twitter:description" content="Django Template motoru nasıl çalışır, içeriği nasıl doldurabiliriz ve yardımcı araçları nasıl kullanabiliriz? Bu konulara değiniyoruz." />
 
 <title>
 
 
-     GKMNGRGN - Django Notlarım 
+     GKMNGRGN - 04 - Template Motoru 
 
 </title>
-<link rel="canonical" href="https://gokmengorgen.net/django-notlarim/">
+<link rel="canonical" href="https://gokmengorgen.net/django-notlarim/04-template-motoru/">
 
 
 <style media="screen">
@@ -1013,8 +1013,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://gokmengorgen.net/django-notlarim/index.xml" rel="alternate" type="application/rss+xml" title="GKMNGRGN" />
-
 
 </head>
 
@@ -1041,72 +1039,284 @@ margin-left: -4%;
     </div>
 </div>
 
-<div class="main column">
+
+<div class="main post non-narrow zero-top-spacing column">
     <div class="container">
         <div class="content">
-            <div class="posts">
-                <div class="markdown">
-                    
-    
-    
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
 
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/django-notlarim.png" src="https://gokmengorgen.net/img/django-notlarim/low/django-notlarim.png" alt="Django notes" title="Django notlarım" /></p></figure>
+    04 - Template Motoru
 
-<p>Bu yazı dizisini &ldquo;Ben Django&rsquo;yu nasıl öğrenmek isterdim?&rdquo; sorusuna verdiğim birkaç cevaba göre hazırladım:</p>
-
-<ul>
-<li>Her bölüm en fazla 5 dakika sürmeli.</li>
-<li>Detaylara boğmamalı, konu bağlamından çıkmamalı.</li>
-<li>Her bölümün başında neyi anlattığına dair çok basit özet olmalı.</li>
-<li>Her bölümün başında -varsa- ilgili kaynak kodun linki verilmeli.</li>
-<li>Her bölüm bir alıştırma içermeli.</li>
-</ul>
-
-<h2 id="güncellemeler-sondan-başa">Güncellemeler (Sondan başa)</h2>
-
-<ul>
-<li><strong>29 Nisan 2018:</strong>
-Ekran görüntülerinin büyük çözünürlükleri için linkler eklendi.</li>
-<li><strong>22 Nisan 2018:</strong>
-Sosyal medya paylaşımlarında kullanılan linklerde içeriğin daha iyi anlaşılabilmesi için meta etiketlerini düzenledik.</li>
-<li><strong>8 Nisan 2018:</strong>
-Bugün ilk bölümü yayına aldık.</li>
-</ul>
-
+</div>
 
                 </div>
-
-                <div class="markdown">
-                  <h2 style="margin-top: 3rem;">Bölümler</h2>
+                <div class="meta">
+                    <div class="date" title="Sat Apr 28 2018 00:56:53 CEST">Apr 28, 2018</div>
+                    
+                        
+                    
+                    <div class="reading-time middot">4 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <li class="middot"><a href="https://gokmengorgen.net/tags/coding">coding</a> </li>
+                          
+                            <li class="middot"><a href="https://gokmengorgen.net/tags/django">django</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
                 </div>
-
-                <ul>
-                    
-                        
-                        <li class="post-item">
-                            <a href="https://gokmengorgen.net/django-notlarim/01-baslangic/"><span>01 - Başlangıç</span></a>
-                        </li>
-                        
-                    
-                        
-                        <li class="post-item">
-                            <a href="https://gokmengorgen.net/django-notlarim/02-model-katmani/"><span>02 - Model Katmanı</span></a>
-                        </li>
-                        
-                        <li class="post-item">
-                            <a href="https://gokmengorgen.net/django-notlarim/03-admin-paneli/"><span>03 - Admin Paneli</span></a>
-                        </li>
-                        
-                        <li class="post-item">
-                            <a href="https://gokmengorgen.net/django-notlarim/04-template-motoru/"><span>04 - Template Motoru</span></a>
-                        </li>
-                        
-                    
-                </ul>
             </div>
+            <div class="markdown">
+                
+    
+    
+
+<p><em>Eğer içeriği dinamik oluşturuyorsak, ortak sayfa bileşenlerini tekrar tekrar yazmak istemiyorsak, Template katmanını biraz daha yakından tanımamız gerekiyor.</em></p>
+
+<h2 id="özet">Özet</h2>
+
+<ul>
+<li>Template katmanında layout kullanımına bir örnek göstereceğiz.</li>
+<li>Örnek bir template tag ve filter yazmayı deneyeceğiz.</li>
+<li>Admin panelimizde, göze hoş görünmesi için bir stil düzenlemesi yapacağız.</li>
+<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-04">buradan</a> erişebilirsiniz.</li>
+</ul>
+
+<h2 id="layout-kullanımı">Layout Kullanımı</h2>
+
+<p>Template dosyaları yazmaya başladıkça bir şeyleri tekrar etmeye başlayacaksınız. Birçoğunun içinde head ve body var, bir çoğunda ortak stil dosyalarını kullanacaksınız, hatta hangi sayfa olursa olsun bazı meta tagları hiç değişmeyecek. Her Template dosyasında bunları tekrar tekrar yazmak zor ve anlamsız. Onun yerine, <code>base.html</code> adında bir layout oluşturup diğer Template dosyalarımızda bu layout&rsquo;u kullanabiliriz. İşte biz bu tip işlevleri Django&rsquo;nun arkasındaki Template motoru sayesinde yapabiliyoruz.</p>
+
+<p>Django birden fazla Template motoru destekliyor. Varsayılan template motoru<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>, <a href="http://jinja.pocoo.org/">Jinja</a>&lsquo;ya çok benziyor; fakat Jinja&rsquo;nın tüm özelliklerini desteklemiyor. Ancak dilerseniz onu da tercih edebilirsiniz. Varsayılan Template motoru ile bir layout oluşturmayı deneyelim:</p>
+
+<pre><code class="language-html">&lt;!-- templates/base.html --&gt;
+
+&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;!-- block'un içini varsayılan bir değerle doldurabilirsiniz. --&gt;
+        &lt;!-- Örneğin burada varsayılan &quot;Hello&quot; --&gt;
+        &lt;title&gt;{% block title %}Hello{% endblock %}&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/main.css&quot;&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        {% block content %}{% endblock %}
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Basit bir layout örneği. İçinde iki block var ve bu block&rsquo;lar sayesinde içeriği doldurabiliyoruz:</p>
+
+<pre><code class="language-html">&lt;!-- templates/new.html --&gt;
+
+{% extends 'base.html' %}&lt;!-- Layout'u ilk satırda tanımlıyoruz. --&gt;
+&lt;!-- extends ilk satır olmak zorunda. --&gt;
+
+&lt;!-- title block'unun varsayılanını çağırmak için block.super kullanabilirsiniz. --&gt;
+{% block title %}{{ block.super }} - New{% endblock %}
+
+{% block content %}
+    &lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
+        ...
+{% endblock %}
+</code></pre>
+
+<h2 id="yardımcı-fonksiyonlar">Yardımcı Fonksiyonlar</h2>
+
+<p>Biz View katmanında, kullanıcılara göstermek istediğimiz içerik verisini hazırlayıp sonra Template katmanı içinde kullanıyoruz. İçerik verisini hazırlarken değer hesaplama, veritabanından veri alma gibi birtakım işlemler gerçekleştiriyoruz. Fakat bazen bu işlemler bir sayfayı ilgilendiren bir işlem değil de, tüm sayfalarda gerektiğinde kullanabileceğimiz bir işlem olabiliyor. Eğer bu işlem, doğrudan Template katmanını ilgilendiren bir işlemse biz burada <strong>Template Tag</strong> veya <strong>Template Filter</strong> gibi yöntemleri kullanmayı tercih ediyoruz. Örneğin <code>{% csrf_token %}</code>.</p>
+
+<p>Hatırlarsanız Palette uygulamamızda yeni resim yüklemek için hazırladığımız formda bu Template Tag&rsquo;i kullanmıştık. Başında ve sonunda <code>{%</code> ve <code>%}</code> olması onun bir Template Tag olduğunu gösterir. Aslında <strong>if</strong>, <strong>for</strong>, <strong>with</strong> gibi temel programlama dili anahtar kelimeleri de Template katmanında bir Tag olarak isimlendirilebilir. Ancak eğer <code>{{ color|default_if_none:&quot;#fff&quot; }}</code> şeklinde bir kullanım görürseniz, burada <code>default_if_none</code> adında bir Template Filter kullanıldığını anlayabilirsiniz. Filter&rsquo;in temel işlevi değişkenin kendisini modifiye etmek. Yani burada <strong>color</strong> değişkeni yoksa <strong>#fff</strong> değerini elde ederiz.</p>
+
+<p>Django&rsquo;yla birlikte kullanışlı birçok <a href="https://docs.djangoproject.com/en/2.0/ref/templates/builtins/">Template Tag ve Filter</a> geliyor. Fakat bazen özel ihtiyaçlar üçüncü parti bir Django eklentisi kullanmak gerekebiliyor veya kendimiz bu ihtiyacı gideren basit bir Template Tag veya Filter yazmak isteyebiliriz.</p>
+
+<p>Palette uygulamamıza dönelim ve renkleri kutu kutu göstermeyi deneyelim. Önce <strong>main.css</strong> dosyamıza basit bir stil ekleyelim:</p>
+
+<pre><code class="language-css">/* static/main.css */
+
+.colors {
+  margin: 25px 0;
+}
+
+.colors .color-item { /* renk kutuları */
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #eee;
+  background-color: #555;
+  margin-right: 20px;
+}
+</code></pre>
+
+<p>Sonra <strong>detail.html</strong> dosyasında renk kutuları göstermeye çalışalım:</p>
+
+<pre><code class="language-html">&lt;!-- templates/palette/detail.html --&gt;
+
+...
+&lt;div class=&quot;colors&quot;&gt;
+    {% for color in palette.colors %}
+        &lt;span class=&quot;color-item&quot; style=&quot;background-color: {{ color }};&quot; title=&quot;{{ color }}&quot;&gt;&lt;/span&gt;
+    {% endfor %}
+&lt;/div&gt;
+...
+</code></pre>
+
+<p>Bir sorunumuz var. <code>palette.colors</code> field&rsquo;imizin veri tipi liste değil. O sadece virgülle ayrılmış renk kodlarını içeren string. Bizim string&rsquo;i list&rsquo;e çevirecek bir filtreye ihtiyacımız var. Burada hemen ilk filtremizi yazmaya başlayabiliriz. hello_palette uygulamasının içinde <strong>templatetags</strong> dizini oluşturup içinde <strong>__init__.py</strong><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> ve <strong>palette_tags.py</strong> adında iki dosya oluşturalım ve ilk filtremizi yazalım:</p>
+
+<pre><code class="language-python"># hello_palette/templatetags/palette_tags.py
+
+from django import template
+
+register = template.Library()
+
+
+@register.filter
+def as_list(value):
+  return value.split(',')
+</code></pre>
+
+<p>Bu sayede renk listesini şu şekilde elde edebiliriz:</p>
+
+<pre><code class="language-html">&lt;!-- templates/palette/detail.html --&gt;
+
+...
+    {% for color in palette.colors|as_list %}
+    ...
+</code></pre>
+
+<p>Şimdi bir soru. Bu renk listesine sadece Template katmanında mı ihtiyaç duyacağız? Yani bir Template Filter fonksiyonunu Template katmanı dışında bir yerde kullanmak istesek ne kadar hoş olurdu? İleriye dönük düşünürsek bunu Model katmanında da çözebilirdik:</p>
+
+<pre><code class="language-python"># hello_palette/models.py
+
+class Palette(models.Model):
+    ...
+
+    @property
+    def colors_as_list(self):
+        return self.colors.split(',')
+</code></pre>
+
+<p>Böylece Template katmanında şu şekilde kullanabilirdik:</p>
+
+<pre><code class="language-html">&lt;!-- templates/palette/detail.html --&gt;
+
+...
+    {% for color in palette.colors_as_list %}
+    ...
+</code></pre>
+
+<p><a href="https://gokmengorgen.net/img/django-notlarim/color-boxes.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/color-boxes.png" src="https://gokmengorgen.net/img/django-notlarim/low/color-boxes.png" alt="Color boxes" title="Renk kutuları" /></figure>
+</a></p>
+
+<h2 id="admin-panelinde-stil-düzenlemesi">Admin Panelinde Stil Düzenlemesi</h2>
+
+<p>Admin panelinde de renk kodlarını güzel göstermek için SVG ile basit bir stil denemesi yapsak nasıl olur? Bunun için
+ilgili Admin class&rsquo;ında özel bir column fonksiyonu yazmamız gerekiyor:</p>
+
+<pre><code class="language-python"># hello_palette/admin.py
+
+...
+from django.utils.html import format_html
+...
+
+
+@admin.register(Palette)
+class PaletteAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'get_colors', 'created_at', 'is_deleted')  # colors'u sildik, fonskyionun adını yazdık.
+    ...
+
+    def get_colors(self, obj):
+        # buradaki obj aslında bir Palette instance'i. Böylece renk kodlarımıza erişebileceğiz.
+        # models.py'deki colors_as_list metodumuzu burada da kullanabiliyoruz.
+        # format_html, HTML tag'lerini HTML dosyasında doğru şekilde çevirebilmek için gerekli.
+        circle_template = '&lt;svg width=16 height=16&gt;&lt;circle cx=8 cy=8 r=5 style=&quot;fill: {};&quot;&gt;&lt;/circle&gt;&lt;/svg&gt;'
+        return format_html(''.join(circle_template.format(c) for c in obj.colors_as_list))
+
+    get_colors.short_description = &quot;Colors&quot;  # Column için isim veriyoruz.
+    get_colors.allow_tags = True  # HTML tag'i kullanımına izin veriyoruz.
+</code></pre>
+
+<p><a href="https://gokmengorgen.net/img/django-notlarim/admin-color-circles.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/admin-color-circles.png" src="https://gokmengorgen.net/img/django-notlarim/low/admin-color-circles.png" alt="Admin color circles" title="Admin panelinde renk çemberleri" /></figure>
+</a></p>
+
+<p>Şimdi biraz daha göze hoş geliyor, değil mi? Böylece basit bir uygulamamızı tamamlamış olduk. Bundan sonra farklı uygulamalarla sizi Django&rsquo;nun farklı güzellikleri konusunda bilgilendirmek istiyorum. Kısa zamanda tekrar görüşmek üzere.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="https://docs.djangoproject.com/en/2.0/ref/templates/">Buradan</a> Template diline hızlı başlangıç yapabilirsiniz.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Bir dizinin Python paketi olduğunu anlatabilmemiz için __init__.py dosyasına ihtiyacımız var.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+                <br>
+            </div>
+            
+            <div class="share">
+                <a href="" class="ssk ssk-facebook"></a>
+                <a href="" class="ssk ssk-twitter"></a>
+                <a href="" class="ssk ssk-google-plus"></a>
+                <a href="" class="ssk ssk-linkedin"></a>
+
+                
+                  <a href="mailto:gokmen@alageek.com" class="ssk ssk-email" title="Sorun, önerin, şikayetin varsa bana yazabilirsin."></a>
+                
+            </div>
+            
+
+
+
+<div id="mc_embed_signup">
+  <form action="https://gokmengorgen.us2.list-manage.com/subscribe/post?u=1f8579ae0ed781033db51f1b0&amp;id=4ce83a8b61" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+      <label for="mce-EMAIL">Yeni yazılarım için sana haber verebilirim!</label>
+      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Eposta adresin" required>
+      
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1f8579ae0ed781033db51f1b0_4ce83a8b61" tabindex="-1" value=""></div>
+      <div class="clear"><input type="submit" value="Abone ol" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
+                        <a href="https://gokmengorgen.net/django-notlarim/03-admin-paneli/">03 - Admin Paneli</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
         </div>
     </div>
 </div>
+
 <div class="footer column">
     <div class="container">
 

@@ -1130,7 +1130,9 @@ Quit the server with CTRL-BREAK.
 
 <p>Bu noktaya kadar geldiniz ve web tarayıcınızdan <a href="http://localhost:8000">http://localhost:8000</a> adresine girdiğinizde aşağıdaki gibi bir görüntü alıyorsanız, temel gereksinimlerimiz tamam demektir.</p>
 
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/installation.png" src="https://gokmengorgen.net/img/django-notlarim/low/installation.png" alt="Django installation" title="Tebrikler! Django hazır." /></p></figure>
+<p><a href="https://gokmengorgen.net/img/django-notlarim/installation.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/installation.png" src="https://gokmengorgen.net/img/django-notlarim/low/installation.png" alt="Django installation" title="Tebrikler! Django hazır." /></figure>
+</a></p>
 
 <h2 id="kodlamaya-geçmeden-bir-gözden-geçirelim">Kodlamaya Geçmeden, Bir Gözden Geçirelim</h2>
 
@@ -1195,7 +1197,9 @@ class HomeView(TemplateView):
 
 <p>Geliştirme sunucumuzu daha önce gösterdiğimiz şekilde çalıştırın ve sonucu beraber anlayalım:</p>
 
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/template-does-not-exist.png" src="https://gokmengorgen.net/img/django-notlarim/low/template-does-not-exist.png" alt="Template does not exist." title="View hazır; ama Template eksik." /></p></figure>
+<p><a href="https://gokmengorgen.net/img/django-notlarim/template-does-not-exist.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/template-does-not-exist.png" src="https://gokmengorgen.net/img/django-notlarim/low/template-does-not-exist.png" alt="Template does not exist." title="View hazır; ama Template eksik." /></figure>
+</a></p>
 
 <p>View class&rsquo;ımızda <code>home.html</code> dosyasını kullanacağımızı belirttik, Django bizim için birkaç yere bakmış ama Template&rsquo;i bulamamış. Biz bir dizin oluşturalım ve Template dosyamızı <code>hello_django/templates/home.html</code> olarak tutalım:</p>
 
@@ -1228,7 +1232,9 @@ TEMPLATES = [
 ...
 </code></pre>
 
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/say-hello.png" src="https://gokmengorgen.net/img/django-notlarim/low/say-hello.png" alt="Say hello!" title="View tamam, Template tamam. Sırada?" /></p></figure>
+<p><a href="https://gokmengorgen.net/img/django-notlarim/say-hello.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/say-hello.png" src="https://gokmengorgen.net/img/django-notlarim/low/say-hello.png" alt="Say hello!" title="View tamam, Template tamam. Sırada?" /></figure>
+</a></p>
 
 <p>Artık beklediğimiz sonucu görebiliyoruz. Son olarak sayfada bir stil düzenlemesi yaparak ilk yazımızı tamamlayalım. HTML dosyamızı oluştururken <code>/static/main.css</code> adında bir stil dosyamız varmış gibi tanımlamıştık. Bu dosyayı oluşturalım ve sonra <code>static</code> dizinimizi Template dizini için olduğu gibi <code>settings.py</code> dosyamızda tanımlayalım.</p>
 
@@ -1254,7 +1260,9 @@ STATICFILES_DIRS = [
 ]
 </code></pre>
 
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/hello-django-with-style.png" src="https://gokmengorgen.net/img/django-notlarim/low/hello-django-with-style.png" alt="black and white" title="Siyah Beyaz!" /></p></figure>
+<p><a href="https://gokmengorgen.net/img/django-notlarim/hello-django-with-style.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/hello-django-with-style.png" src="https://gokmengorgen.net/img/django-notlarim/low/hello-django-with-style.png" alt="Black and white" title="Siyah Beyaz!" /></figure>
+</a></p>
 
 <p>MTV&rsquo;nin Template ve View katmanlarına burada kısaca değinmiş olduk. Bir sonraki yazımda Model katmanı hakkında bilgi vereceğim ve bununla ilgili beraber bir alıştırma yapacağız. Hoşça kalın!</p>
 <div class="footnotes">

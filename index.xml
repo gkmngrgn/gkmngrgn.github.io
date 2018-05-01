@@ -169,7 +169,7 @@ Ben yazılımcıyım. Bağımsız çalışmak konusunda çok deneyimim yok. Bu k
       
       <guid>https://gokmengorgen.net/home/</guid>
       <description>Hello. I’m working as a software developer in Radity. I mostly use Python for Django, C# for .NET, and I improve myself about web and mobile technologies. Also, I’m interested in Java / Kotlin for Android, and I follow the news about machine learning, deep learning, artificial intelligence, etc.
-Currently I&amp;rsquo;m spending all my time on Coachfrog.ch and I live in Berlin. I am not interested in Hackathon but if you are looking for teammates on open source projects you can contact me or take a look at my my work page to see the list of my projects.</description>
+Currently I&amp;rsquo;m spending all my time on Coachfrog.ch and I live in Berlin. I am not interested in Hackathon but if you are looking for a teammate on your open source projects you can email me directly or here you can find more information about me.</description>
     </item>
     
     <item>
@@ -179,16 +179,6 @@ Currently I&amp;rsquo;m spending all my time on Coachfrog.ch and I live in Berli
       
       <guid>https://gokmengorgen.net/license/</guid>
       <description>Content licensed under the Creative Commons attribution-noncommercial-sharealike License. Please look at this url for more information.</description>
-    </item>
-    
-    <item>
-      <title>My Work</title>
-      <link>https://gokmengorgen.net/my-work/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/my-work/</guid>
-      <description>I&amp;rsquo;m coding Python for years and it&amp;rsquo;s still my primary language. I usually worked on the web projects with Django. Its admin panel is really awesome, do you know what I mean? Cool.
-Python is also in demand in data science, but it may not be a good idea to use the same language and the same tools in every project. Thus I&amp;rsquo;m not a fan of any programming language.</description>
     </item>
     
   </channel>

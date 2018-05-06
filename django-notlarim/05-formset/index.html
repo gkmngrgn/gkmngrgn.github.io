@@ -7,27 +7,27 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
-<meta name="description" content="Gökmen Görgen&#39;s writings about programming and remote-working style.">
+<meta name="description" content="Yeni uygulamayla yerelleştirme, yetkilendirme, kullanıcı bilgilendirme, unittest ve benzeri konulara değineceğiz. Önce formset.">
 <meta property="og:site_name" content="GKMNGRGN" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://gokmengorgen.net/tags/django/" />
-<meta property="og:title" content="Django" />
-<meta property="og:image" content="https://gokmengorgen.net/img/laughing-man.png" />
-<meta property="og:description" content="Gökmen Görgen&#39;s writings about programming and remote-working style." />
+<meta property="og:url" content="https://gokmengorgen.net/django-notlarim/05-formset/" />
+<meta property="og:title" content="05 - Formset" />
+<meta property="og:image" content="https://gokmengorgen.net/img/django-notlarim/django-notlarim.png" />
+<meta property="og:description" content="Yeni uygulamayla yerelleştirme, yetkilendirme, kullanıcı bilgilendirme, unittest ve benzeri konulara değineceğiz. Önce formset." />
 <meta property="twitter:site" content="@gokmengorgen" />
-<meta property="twitter:title" content="Django" />
-<meta property="twitter:image" content="https://gokmengorgen.net/img/laughing-man.png" />
+<meta property="twitter:title" content="05 - Formset" />
+<meta property="twitter:image" content="https://gokmengorgen.net/img/django-notlarim/django-notlarim.png" />
 <meta property="twitter:card" content="summary" />
-<meta property="twitter:description" content="Gökmen Görgen&#39;s writings about programming and remote-working style." />
+<meta property="twitter:description" content="Yeni uygulamayla yerelleştirme, yetkilendirme, kullanıcı bilgilendirme, unittest ve benzeri konulara değineceğiz. Önce formset." />
 
 <title>
 
 
-     GKMNGRGN - Django 
+     GKMNGRGN - 05 - Formset 
 
 </title>
-<link rel="canonical" href="https://gokmengorgen.net/tags/django/">
+<link rel="canonical" href="https://gokmengorgen.net/django-notlarim/05-formset/">
 
 
 <style media="screen">
@@ -1013,8 +1013,6 @@ margin-left: -4%;
 
 
 
-  <link href="https://gokmengorgen.net/tags/django/index.xml" rel="alternate" type="application/rss+xml" title="GKMNGRGN" />
-
 
 </head>
 
@@ -1041,48 +1039,254 @@ margin-left: -4%;
     </div>
 </div>
 
-<div class="main column">
+
+<div class="main post non-narrow zero-top-spacing column">
     <div class="container">
         <div class="content">
-            <div class="posts">
-                <div class="page-heading">Posts about Django</div>
-                <ul>
-                    
-                        <li class="post-item">
-    <span class="meta">Mar 30, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/01-baslangic/"><span>01 - Başlangıç</span></a>
-</li>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
 
-                    
-                        <li class="post-item">
-    <span class="meta">Apr 4, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/02-model-katmani/"><span>02 - Model Katmanı</span></a>
-</li>
+    05 - Formset
 
-                    
-                        <li class="post-item">
-    <span class="meta">Apr 22, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/03-admin-paneli/"><span>03 - Admin Paneli</span></a>
-</li>
+</div>
 
+                </div>
+                <div class="meta">
+                    <div class="date" title="Sun May 6 2018 14:30:19 CEST">May 6, 2018</div>
                     
-                        <li class="post-item">
-    <span class="meta">Apr 28, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/04-template-motoru/"><span>04 - Template Motoru</span></a>
-</li>
-
+                        
                     
-                        <li class="post-item">
-    <span class="meta">May 6, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/05-formset/"><span>05 - Formset</span></a>
-</li>
-
-                    
-                </ul>
+                    <div class="reading-time middot">5 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <li class="middot"><a href="https://gokmengorgen.net/tags/coding">coding</a> </li>
+                          
+                            <li class="middot"><a href="https://gokmengorgen.net/tags/django">django</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <div class="markdown">
+                
+    
+    
+
+<p><em>Palette uygulamasıyla MTV Katmanları ve Admin paneli ve CRUD ile ilgili giriş seviyesinde bilgiler edindik. Yeni uygulamamız <strong>Uptime</strong>. Bu uygulamayla yerelleştirme, sayfa isteklerini yönetme ve yetkilendirme, eposta veya sayfa içi bildirimlerle kullanıcıyı bilgilendirme, unittest, komut satırında çalışan scriptler ve bunlarla ilişkili birçok konuya değineceğiz. Formset ile başlıyoruz.</em></p>
+
+<h2 id="özet">Özet</h2>
+
+<ul>
+<li>Uptime uygulamasını yazmaya başlıyoruz. URL&rsquo;leri girmek için Formset kullanıyoruz.</li>
+<li>İhtiyacımızı görecek bir Django eklentisini yükleyip kullanacağız.</li>
+<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-05">buradan</a> erişebilirsiniz.</li>
+</ul>
+
+<h2 id="yeni-uygulamamız-uptime">Yeni Uygulamamız, Uptime</h2>
+
+<p>Uygulamamızın en temel işlevi, belirlediğimiz URL veya IP adreslerinin erişilebilirliğini belirli aralıklarla kontrol etmek. Piyasa bu işi yapan uptimerobot, pingdom gibi çeşitli hizmetler var. Biz de Django’yu öğrenmek için basit bir prototipini yapmış olacağız. Daha önce öğrendiklerimizi kullanarak şöyle bir başlangıç yapıyoruz:</p>
+
+<ul>
+<li><strong>hello_uptime</strong> adında yeni bir uygulama oluşturuyoruz (startapp).</li>
+<li><strong>templates/uptime/</strong> içinde Template katmanımızı oluşturuyoruz.</li>
+<li><strong>urls.py</strong> ile uygulama url’lerimizi tanımlıyoruz, bunun için gerekli View katmanlarımızı hazırlıyoruz.</li>
+<li><strong>Monitor</strong> adında ilk modelimizi oluşturuyoruz, model üzerinde denemelerimizi yapmak için Admin class’ımızı hazırlıyoruz.</li>
+</ul>
+
+<p>Yeni bir uygulama yazarken önce bir kabaca başlangıç yapmak size yardımcı olur. Yani hemen Template katmanının içini doldurmaya başlamayın, önce basit bir form olsun yeter. Modelinizi denemek mi istiyorsunuz? Admin panelini kullanın. Şimdi, depodan Article-05 dizinine girin, orada <strong>hello_uptime</strong> uygulamasını kullanıp hızlı bir başlangıç yapabilirsiniz.</p>
+
+<p>Uygulamamızı basit bir şekilde tasarlayalım. Sadece bir dashboard’ımız olsun. Orada URL veya IP girebileceğimiz bir formumuz olsun, formu kaydedebilelim ve yine aynı sayfada sonuçları izleyebileceğimiz bir ekranımız olsun.</p>
+
+<pre><code class="language-python"># hello_uptime/views.py
+...
+class UptimeDashboardView(FormView):
+    template_name = 'uptime/dashboard.html'  # Template dosyamız.
+    form_class = MonitorForm  # Monitor modeli için form.
+
+    def get_success_url(self):
+        # Form başarıyla kaydedilirse aynı sayfaya yönlendirilecek.
+        # Tek bir View katmanımız olacak. Her şey bir Dashboard'dan ibaret.
+        return reverse('uptime:dashboard')
+
+    def get_form_kwargs(self):
+        # Tekrar hatırlatıyorum, tek bir View katmanımız var. Daha önce kaydettiğimiz
+        # Bir Monitor object (instance) varsa onu kullanmaya devam edeceğiz.
+        # İstediğimizde tekrar düzenleyebileceğiz. Hepsi tek bir View katmanında.
+        kwargs = super().get_form_kwargs()
+        instance = Monitor.objects.first()
+        kwargs.update({
+            'instance': instance,
+        })
+        return kwargs
+
+    def form_valid(self, form):
+        # ModelForm'u mutlaka inceleyin: hello_uptime/forms.py
+        # save metodunun nereden geldiğini ve nasıl çalıştığını anlayın.
+        form.save()
+        return super().form_valid(form)
+</code></pre>
+
+<p>View kodumuzu üzerine yazdığım yorumlarla birlikte inceleyin. Şimdi burada bir sorun var. Bir sayfada tek bir Form kullanabiliyoruz. Birden fazla URL girmek istediğimizde ne yapacağız? <a href="http://localhost:8000/uptime/">http://localhost:8000/uptime/</a> üzerinden bir bakalım:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notlarim/uptime-form.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/uptime-form.png" src="https://gokmengorgen.net/img/django-notlarim/low/uptime-form.png" alt="Uptime form" title="Uptime form" /></figure>
+</a></p>
+
+<p>Tek form, tek monitor :-(. Şimdi Formset<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> zamanı.</p>
+
+<h2 id="formset-kullanımı-ve-don-t-repeat-yourself">Formset Kullanımı ve Don&rsquo;t Repeat Yourself</h2>
+
+<p>Uygulamamız henüz buna hazır değil; ama diyelim ki kullanıcılar projemizde hesap açsınlar ve her kullanıcının en fazla 10 URL&rsquo;i izleme hakkı olsun. Yani bizim uygulama arayüzümüzde 10 form içeren bir form kümesi olsun ve kullanıcılar tek seferde düzenleyebilsin.</p>
+
+<p><strong>UptimeDashboardView</strong> için miras aldığımız <strong>FormView</strong>, tek bir formu yönetebilmemiz için hazırlanmış kapsamlı bir View class&rsquo;ıdır. Bu durumda elimizde iki seçenek var. Bunlardan <u>birincisi</u>, FormView&rsquo;i kendi ihtiyacımıza göre özelleştirip yeni bir genel View class&rsquo;ı ve bu tip özel ihtiyaçlarda hep aynı class&rsquo;ı kullanmak. Mesela bu özelleştirilmiş class&rsquo;ın adı <strong>FormSetView</strong> olabilir.</p>
+
+<p>Ama <u>bir seçeneğimiz daha</u> var. Django büyük bir topluluk ve bizim ihtiyaç duyduğumuz şeye başkaları da ihtiyaç duymuş olabilir, hatta bu ihtiyacı birisi Django eklentisi haline getirmiş bile olabilir. <a href="https://pypi.org/project/django-extra-views/">PyPI</a>&lsquo;den arattığımda <strong>django-extra-views</strong><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>&lsquo;in aradığımız eklenti olduğunu gördüm. Hemen <strong>requirements.txt</strong>&lsquo;ye yeni bağımlılığımızı ekliyoruz, kuruyoruz ve View katmanımızı güncelliyoruz:</p>
+
+<pre><code class="language-python"># hello_uptime/views.py
+from django.urls import reverse_lazy
+from extra_views import ModelFormSetView
+
+from hello_uptime.models import Monitor
+from hello_uptime.utils import USER_MONITOR_LIMIT
+
+
+class UptimeDashboardView(ModelFormSetView):
+    # django-extra-views belgesinde deniliyor ki, ayrıca Form veya FormSet
+    # oluşturmaya gerek yok, bana modelini, kullanacağın field'ları, success_url'i
+    # söyle, gerisini ben hallederim. Halletsin bir zahmet, güzel bir eklenti olmuş.
+    fields = ('url', 'interval', 'is_active')
+    model = Monitor
+    success_url = reverse_lazy('uptime:dashboard')  # Neden reverse değil de reverse_lazy? Bana yazın. ;-)
+    template_name = 'uptime/dashboard.html'
+
+    def get_queryset(self):
+        return Monitor.objects.order_by('created_at')  # Sıra bozulmasın diye, oluşturulma sırasına göre aldık.
+
+    def get_factory_kwargs(self):
+        kwargs = super().get_factory_kwargs()
+        kwargs.update({
+            'extra': USER_MONITOR_LIMIT,  # Dashboard'da 10 input'un hepsini tek seferde göster.
+            'max_num': USER_MONITOR_LIMIT,  # Dashboard'da en fazla 10 input olabilir.
+        })
+        return kwargs
+
+    def form_valid(self, formset):
+        formset.save()
+        return super().form_valid(formset)
+</code></pre>
+
+<p>Eklenti kullanmasaydık, bu kod bu kadar basit ve temiz olmayacaktı. İyi ki topluluk var! Son bir işimiz kaldı, Template katmanımızı da formset kullanacak şekilde düzenlemeliyiz:</p>
+
+<pre><code class="language-html">&lt;!-- templates/uptime/dashboard.html --&gt;
+...
+{% block content %}
+    &lt;form action=&quot;{% url 'uptime:dashboard' %}&quot; method=&quot;POST&quot;&gt;
+        {% csrf_token %}  &lt;!-- Sahte istekleri önleyen CSRF template tag'ımız --&gt;
+        {{ formset.management_form }} &lt;!-- Formset'imiz ile ilgili max_num, total gibi gizli inputları ekledik. --&gt;
+        &lt;table&gt;
+            {% for form in formset %}
+                &lt;tr&gt;
+                    &lt;th&gt;&lt;/th&gt;
+                    &lt;td&gt;
+                        &lt;!-- blocktrans i18n template modülünden geliyor. Çeviriler için. --&gt;
+                        &lt;!-- Örnek bir blocktrans ve forloop.counter kullanımı --&gt;
+                        {% blocktrans with number=forloop.counter %}Monitor {{ number }}{% endblocktrans %}
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                {{ form.as_table }}
+            {% endfor %}
+            &lt;tr&gt;
+                &lt;th&gt;&lt;/th&gt;
+                &lt;td&gt;&lt;button type=&quot;submit&quot;&gt;{% trans &quot;Save&quot; %}&lt;/button&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/form&gt;
+{% endblock %}
+
+</code></pre>
+
+<p>Formsetimiz içinde 10 tane form var ve başlangıç datasıyla birlikte artık kullanıma hazır:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notlarim/uptime-formset.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/uptime-formset.png" src="https://gokmengorgen.net/img/django-notlarim/low/uptime-formset.png" alt="Uptime formset" title="Uptime formset" /></figure>
+</a></p>
+
+<p>Yalnız bir eksiklik var. Bu uptime uygulamasını kullanıcılarımızın bir hesap açarak kullanmasını istiyoruz ve her kullanıcının 10 ekran izleme hakkı olsun istiyoruz. Bunun için hesap oluşturma, email ile hesap doğrulama, parola yenileme gibi ekranlara ihtiyacımız var ve bu uptime panelini giriş yapan kullanıcıya göre biraz özelleştirmemiz gerekiyor. Sonraki yazımızda görüşmek üzere.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Daha önce söylediğim gibi, bilmediğiniz veya hatırlamadığınız konular için Django belgelerine sık sık bakmayı alışkanlık hale getirmeniz size çok şey kazandırır. <a href="https://docs.djangoproject.com/en/2.0/topics/forms/formsets/">Formsets</a> belgesine mutlaka bakın.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Bir eklentiyi bağımlılık olarak eklemeye karar vermeden önce bakımı iyi yapılıyor mu, unittestleri var mı, belgesi nasıl, kodu temiz mi bir bakmakta fayda var.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+                <br>
+            </div>
+            
+            <div class="share">
+                <a href="" class="ssk ssk-facebook"></a>
+                <a href="" class="ssk ssk-twitter"></a>
+                <a href="" class="ssk ssk-google-plus"></a>
+                <a href="" class="ssk ssk-linkedin"></a>
+
+                
+                  <a href="mailto:gokmen@alageek.com" class="ssk ssk-email" title="Sorun, önerin, şikayetin varsa bana yazabilirsin."></a>
+                
+            </div>
+            
+
+
+
+<div id="mc_embed_signup">
+  <form action="https://gokmengorgen.us2.list-manage.com/subscribe/post?u=1f8579ae0ed781033db51f1b0&amp;id=4ce83a8b61" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+      <label for="mce-EMAIL">Yeni yazılarım için sana haber verebilirim!</label>
+      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Eposta adresin" required>
+      
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1f8579ae0ed781033db51f1b0_4ce83a8b61" tabindex="-1" value=""></div>
+      <div class="clear"><input type="submit" value="Abone ol" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
+                        <a href="https://gokmengorgen.net/django-notlarim/04-template-motoru/">04 - Template Motoru</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
         </div>
     </div>
 </div>
+
 <div class="footer column">
     <div class="container">
 

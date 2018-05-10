@@ -6,10 +6,22 @@
     <description>Recent content on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 May 2018 14:30:19 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 10 May 2018 13:03:43 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Stres</title>
+      <link>https://gokmengorgen.net/blog/stres/</link>
+      <pubDate>Thu, 10 May 2018 13:03:43 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/stres/</guid>
+      <description>Üniversiteden arkadaşım derdi:
+ Yemeye vereceğin paraya acımayacaksın.
+ IT sektöründe çalışanlar masa başı tüm gün oturuyor olsalar da, sürekli zihin yoruyorlar, kafa patlatıyorlar. Epey stresli bir iş yapıyorlar. Kendim için söylediğim şeyleri arkadaşlarıma da söylerim. Gece zoraki çalışma olmaz, hiçbir şey uykundan etmemeli; stresini yönet, zamanını önceden planla, haftasonu neyi seviyorsan onu yap, tutamayacağın sözü verme.
+Hayatında eşinle, dostlarınla güzel bir yemek yemek seni stresinden uzaklaştıracaksa, o paraya ve zamana acımayacaksın.</description>
+    </item>
     
     <item>
       <title>05 - Formset</title>

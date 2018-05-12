@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gokmengorgen.net/django-notlarim/06-bildirimler-ve-ceviriler/</loc>
+    <lastmod>2018-05-10T14:36:49+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/stres/</loc>
     <lastmod>2018-05-10T13:03:43+02:00</lastmod>
   </url>
@@ -99,19 +104,19 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/coding/</loc>
-    <lastmod>2018-05-06T14:30:19+02:00</lastmod>
+    <lastmod>2018-05-10T14:36:49+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://gokmengorgen.net/tags/django/</loc>
-    <lastmod>2018-05-06T14:30:19+02:00</lastmod>
+    <lastmod>2018-05-10T14:36:49+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://gokmengorgen.net/django-notlarim/</loc>
-    <lastmod>2018-05-06T14:30:19+02:00</lastmod>
+    <lastmod>2018-05-10T14:36:49+02:00</lastmod>
   </url>
   
   <url>
@@ -122,7 +127,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/</loc>
-    <lastmod>2018-05-10T13:03:43+02:00</lastmod>
+    <lastmod>2018-05-10T14:36:49+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -160,7 +165,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/</loc>
-    <lastmod>2018-05-06T14:30:19+02:00</lastmod>
+    <lastmod>2018-05-10T14:36:49+02:00</lastmod>
     <priority>0</priority>
   </url>
   

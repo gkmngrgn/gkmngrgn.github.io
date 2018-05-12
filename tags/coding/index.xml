@@ -6,10 +6,20 @@
     <description>Recent content in Coding on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 May 2018 14:30:19 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 10 May 2018 14:36:49 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tags/coding/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>06 - Bildirimler ve çeviriler</title>
+      <link>https://gokmengorgen.net/django-notlarim/06-bildirimler-ve-ceviriler/</link>
+      <pubDate>Thu, 10 May 2018 14:36:49 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notlarim/06-bildirimler-ve-ceviriler/</guid>
+      <description>Uptime ekranımızda URL&amp;rsquo;lerimizi giriyoruz; ama kullanıcı ile bir etkileşim olmuyor. Gerçekten kaydetti mi, bir sorun mu oldu, ne oldu belli değil. Bir de uygulamayı İngilizce geliştiriyoruz; ama Türkçe yerelde Türkçe arayüz görmek istersek ne yapacağız? Birlikte deneyelim, görelim.
+Özet  Django&amp;rsquo;da bildirim altyapısını (Messages Framework1) uygulamamızda kullanacağız. Tüm sayfalarda bildirim mesajlarının nasıl çalıştığını inceleyerek Template katmanına sayfa bağımsız içerik nasıl enjekte ediliyor, bu konuya değineceğiz. Bildirim mesajlarını yerelleştireceğiz. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.</description>
+    </item>
     
     <item>
       <title>05 - Formset</title>

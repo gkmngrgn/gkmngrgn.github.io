@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gokmengorgen.net/django-notlarim/07-kullanici-dogrulama/</loc>
+    <lastmod>2018-05-18T23:46:49+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/django-notlarim/06-bildirimler-ve-ceviriler/</loc>
     <lastmod>2018-05-10T14:36:49+02:00</lastmod>
   </url>
@@ -104,19 +109,19 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/coding/</loc>
-    <lastmod>2018-05-10T14:36:49+02:00</lastmod>
+    <lastmod>2018-05-18T23:46:49+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://gokmengorgen.net/tags/django/</loc>
-    <lastmod>2018-05-10T14:36:49+02:00</lastmod>
+    <lastmod>2018-05-18T23:46:49+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://gokmengorgen.net/django-notlarim/</loc>
-    <lastmod>2018-05-10T14:36:49+02:00</lastmod>
+    <lastmod>2018-05-18T23:46:49+03:00</lastmod>
   </url>
   
   <url>
@@ -127,7 +132,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/</loc>
-    <lastmod>2018-05-10T14:36:49+02:00</lastmod>
+    <lastmod>2018-05-18T23:46:49+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -165,7 +170,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/</loc>
-    <lastmod>2018-05-10T14:36:49+02:00</lastmod>
+    <lastmod>2018-05-18T23:46:49+03:00</lastmod>
     <priority>0</priority>
   </url>
   

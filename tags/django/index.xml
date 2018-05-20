@@ -6,10 +6,20 @@
     <description>Recent content in Django on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 May 2018 14:36:49 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 18 May 2018 23:46:49 +0300</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tags/django/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>07 - Kullanıcı doğrulama</title>
+      <link>https://gokmengorgen.net/django-notlarim/07-kullanici-dogrulama/</link>
+      <pubDate>Fri, 18 May 2018 23:46:49 +0300</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notlarim/07-kullanici-dogrulama/</guid>
+      <description>Facebook, Twitter, Linkedin, Yemeksepeti, Markafoni, Hepsiburada, Sahibinden&amp;hellip; Hepsi bizim kim olduğumuzu bilmek isterler. Çünkü bize göre içerik üretirler, hizmet verirler, istediklerimizi sunarlar. Biz de ekranlarımızı kullanıcıya özel yapmak, herkes kendi ekranlarını görsün ve yönetsin istiyorsak, benzer bir kimlik doğrulama sistemi kullanmalıyız.
+Özet  Django&amp;rsquo;nun en önemli bileşenlerinden biri olan kimlik doğrulama sistemini kullanacağız. Kullanıcı giriş yaptı mı yapmadı mı bilgisini tüm Template katmanında layout dosyamızda tutacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.</description>
+    </item>
     
     <item>
       <title>06 - Bildirimler ve çeviriler</title>

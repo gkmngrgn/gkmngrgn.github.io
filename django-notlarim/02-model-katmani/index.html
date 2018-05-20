@@ -1058,11 +1058,11 @@ margin-left: -4%;
 
                 </div>
                 <div class="meta">
-                    <div class="date" title="Wed Apr 4 2018 00:12:24 CEST">Apr 4, 2018</div>
+                    <div class="date" title="Wed Apr 4 2018 00:12:24 &#43;0200">Apr 4, 2018</div>
                     
                         
                     
-                    <div class="reading-time middot">4 minute read</div>
+                    <div class="reading-time middot">5 minute read</div>
                     <div class="tags">
                         <ul>
                           
@@ -1215,7 +1215,7 @@ Migrations for 'hello_palette':
     - Create model Palette
 </code></pre>
 
-<p>Oldu! Elimizde veritabanında istediğimiz tabloları ve columnları oluşturacak bir script&rsquo;imiz var. Artık sıra veritabanında:</p>
+<p>Oldu! Elimizde veritabanında istediğimiz tabloları ve columnları oluşturacak bir script&rsquo;imiz var. Artık sıra veritabanında<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup>:</p>
 
 <pre><code class="language-bash"># terminal
 $ python manage.py migrate
@@ -1253,6 +1253,8 @@ Running migrations:
  <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
 <li id="fn:3">Object-Relational Mapping kısaltması ORM&rsquo;de temel amaç, kodumuzun içinde, kullandığımız programlama dilinin sağladığı kolaylıklardan sonuna kadar yararlanarak veritabanında çeşitli işlemler gerçekleştirmek.
  <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+<li id="fn:4">Projeyi ilk oluşturduğumuzda bazı uygulamalar önceden kurulu geldiği için beklediğimizden fazla migration çalıştı. Bu uygulamaların bir çoğuna daha sonra tekrar değineceğiz.
+ <a class="footnote-return" href="#fnref:4"><sup>[return]</sup></a></li>
 </ol>
 </div>
 

@@ -6,10 +6,21 @@
     <description>Recent content in Django on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 May 2018 23:46:49 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 27 May 2018 16:45:30 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tags/django/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Django modelinde selectbox kullanımı</title>
+      <link>https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/</link>
+      <pubDate>Sun, 27 May 2018 16:45:30 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/</guid>
+      <description>Bazen bir model field&amp;rsquo;ında kullanımı sınırlandırmak veya veriyi denetlemek için basit çözümlere ihtiyacımız var. Örneğin, bir araba markası sorulduğunda kullanıcının kafadan veri girişini engellemek veya Opel - opel gibi büyük - küçük farklarından dolayı oluşacak gereksiz seçenek bölünmelerini önlemek gerekir.
+Django notlarım&amp;lsquo;da sürekli dile getirdiğim konu var, bir şeye ihtiyaç duyduğunuzda:
+ Mutlaka Django&amp;rsquo;nun kendi dökümantasyonuna bir göz atın. Mutlaka başkaları nasıl çözmüş diye araştırın.  Django dökümantasyonundaki bir örneği alalım ve onun üzerinden gidelim:</description>
+    </item>
     
     <item>
       <title>07 - Kullanıcı doğrulama</title>

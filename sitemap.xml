@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/</loc>
+    <lastmod>2018-05-27T16:45:30+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/django-notlarim/07-kullanici-dogrulama/</loc>
     <lastmod>2018-05-18T23:46:49+03:00</lastmod>
   </url>
@@ -94,7 +99,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/blog/</loc>
-    <lastmod>2018-05-10T13:03:43+02:00</lastmod>
+    <lastmod>2018-05-27T16:45:30+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -109,13 +114,13 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/coding/</loc>
-    <lastmod>2018-05-18T23:46:49+03:00</lastmod>
+    <lastmod>2018-05-27T16:45:30+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://gokmengorgen.net/tags/django/</loc>
-    <lastmod>2018-05-18T23:46:49+03:00</lastmod>
+    <lastmod>2018-05-27T16:45:30+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -132,7 +137,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/</loc>
-    <lastmod>2018-05-18T23:46:49+03:00</lastmod>
+    <lastmod>2018-05-27T16:45:30+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -170,7 +175,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/</loc>
-    <lastmod>2018-05-18T23:46:49+03:00</lastmod>
+    <lastmod>2018-05-27T16:45:30+02:00</lastmod>
     <priority>0</priority>
   </url>
   

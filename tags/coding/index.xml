@@ -6,10 +6,20 @@
     <description>Recent content in Coding on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 May 2018 16:45:30 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 02 Jun 2018 02:05:05 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tags/coding/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>08 - Komutlar</title>
+      <link>https://gokmengorgen.net/django-notlarim/08-komutlar/</link>
+      <pubDate>Sat, 02 Jun 2018 02:05:05 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notlarim/08-komutlar/</guid>
+      <description>Web projelerinin en önemli bölümlerinden biri de teknik operasyonlar. Bazen birikmiş sessionları temizlemek, bazen çeviri dosyalarını oluşturmak, bazen de sadece arama motorlarına buradayım demek için komut satırı uygulamalarına ihtiyaç duyarız. Bizim de uptime uygulamasında, ekranları kontrol etmek için benzer bir komut satırı uygulamasına ihtiyacımız var.
+Özet  URL&amp;rsquo;lerin erişilebilir olup olmadığını anlayabileceğimiz bir komut yazacağız. Ekran durumlarını admin panelinden ve kullanıcı arayüzünden görünür hale getireceğiz. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.</description>
+    </item>
     
     <item>
       <title>Django modelinde selectbox kullanımı</title>

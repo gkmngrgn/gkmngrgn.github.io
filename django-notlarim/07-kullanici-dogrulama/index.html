@@ -777,30 +777,6 @@ kbd {
 }
 
 
-/* Mailchimp */
-#mc_embed_signup {
-    background: rgba(152, 152, 152, 0.07);
-    padding: 0 20px 20px 20px;
-}
-
-#mc_embed_signup label {
-    font-weight: bold;
-    display: block;
-    font-size: 20px;
-}
-
-#mc_embed_signup input.email {
-    width: 100%;
-    font-size: 14px;
-    padding: 10px;
-}
-
-#mc_embed_signup input.button {
-    font-size: 14px;
-    padding: 5px 20px;
-    margin-top: 7px;
-}
-
 </style>
 <style media="(min-width: 600px)">
   body {
@@ -953,11 +929,6 @@ div.main .content .navigation div {
 margin-top: 0em;
 }
 
-/* Mailchimp */
-#mc_embed_signup input.email {
-    width: 90%;
-}
-
 </style>
 <style media="(min-width: 769px)">
   div.main .content .markdown figure {
@@ -972,11 +943,6 @@ margin-left: -4%;
 div.main .content .markdown pre {
 width: 110%;
 margin-left: -4%;
-}
-
-/* Mailchimp */
-#mc_embed_signup input.email {
-    width: 80%;
 }
 
 </style>
@@ -1316,21 +1282,6 @@ class UptimeDashboardView(LoginRequiredMixin, ModelFormSetView):  # Yetki kontro
             
 
             
-<div id="mc_embed_signup">
-    <form action="https://gokmengorgen.us2.list-manage.com/subscribe/post?u=1f8579ae0ed781033db51f1b0&amp;id=4ce83a8b61" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-        <div id="mc_embed_signup_scroll">
-            <label for="mce-EMAIL">Yeni yazılarım için sana haber verebilirim!</label>
-            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Eposta adresin" required>
-            
-            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1f8579ae0ed781033db51f1b0_4ce83a8b61" tabindex="-1" value=""></div>
-            <div class="clear"><input type="submit" value="Abone ol" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-        </div>
-    </form>
-</div>
-
-
-
-            
                 <div class="navigation">
                     
                         <div>
@@ -1459,6 +1410,21 @@ ga('send', 'pageview');
   };
 </script>
 
+
+
+
+<script>
+    (function (m, a, i, l, e, r) {
+    m['MailerLiteObject'] = e; function f() {
+        var c = { a: arguments, q: [] }; var r = this.push(c); return "number" != typeof r ? r : f.bind(c.q);
+    }
+        f.q = f.q || []; m[e] = m[e] || f.bind(f.q); m[e].q = m[e].q || f.q; r = a.createElement(i);
+        var _ = a.getElementsByTagName(i)[0]; r.async = 1; r.src = l + '?v' + (~~(new Date().getTime() / 1000000));
+        _.parentNode.insertBefore(r, _);
+    })(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+
+    var ml_account = ml('accounts', '1180610', 'p6p1h3r0l3', 'load');
+</script>
 
 
 

@@ -6,10 +6,20 @@
     <description>Recent content on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Jun 2018 02:05:05 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 08 Jun 2018 02:00:39 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Daha güçlü PowerShell</title>
+      <link>https://gokmengorgen.net/blog/daha-guclu-powershell/</link>
+      <pubDate>Fri, 08 Jun 2018 02:00:39 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/daha-guclu-powershell/</guid>
+      <description>Uzun süre Linux dağıtımı kullanmış birisi için komut satırı uygulamaları ve komut istemi Windows&amp;rsquo;ta kanayan yara. Henüz aynı rahatlığı bulamamış olsam da, terminal emulator olarak ConEmu, Shell olarak PowerShell kullanıyorum. Tabi birkaç ayarlamayla birlikte.
+Sorunlar En çok kullandığım komut satırı uygulaması Git. Git, Windows&amp;rsquo;ta Bash ile birlikte geliyor. Henüz Windows&amp;rsquo;ta yeniyseniz, Git en iyi Bash ile birlikte çalışıyor, ona bir şans verin. Çünkü PowerShell&amp;rsquo;de ha deyip kullanamıyorsunuz. PowerShell&amp;rsquo;de kullanabilmek için yükleme aşamasında size sunulan seçenekleri ona göre seçmelisiniz.</description>
+    </item>
     
     <item>
       <title>08 - Komutlar</title>

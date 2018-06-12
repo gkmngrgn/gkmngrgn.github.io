@@ -7,21 +7,21 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
-<meta name="description" content="Gökmen Görgen&#39;s writings about programming and remote-working style.">
+<meta name="description" content="Celery kullanarak Uptime uygulamasında ekranları periyodik olarak kontrol edip, eğer erişilemeyen URL varsa kullanıcıyı uyarmalıyız.">
 <meta property="og:site_name" content="GKMNGRGN" />
 <meta property="og:locale" content="nn_NO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://gokmengorgen.net/tags/coding/" />
-<meta property="og:title" content="Coding" />
-<meta property="og:image" content="https://gokmengorgen.net/img/laughing-man.png" />
-<meta property="og:description" content="Gökmen Görgen&#39;s writings about programming and remote-working style." />
+<meta property="og:url" content="https://gokmengorgen.net/django-notlarim/09-celery-ile-periyodik-isler/" />
+<meta property="og:title" content="09 - Celery ile periyodik işler" />
+<meta property="og:image" content="https://gokmengorgen.net/img/django-notlarim/django-notlarim.png" />
+<meta property="og:description" content="Celery kullanarak Uptime uygulamasında ekranları periyodik olarak kontrol edip, eğer erişilemeyen URL varsa kullanıcıyı uyarmalıyız." />
 
     <meta property="twitter:site" content="@gokmengorgen">
 
-<meta property="twitter:title" content="Coding" />
-<meta property="twitter:image" content="https://gokmengorgen.net/img/laughing-man.png" />
+<meta property="twitter:title" content="09 - Celery ile periyodik işler" />
+<meta property="twitter:image" content="https://gokmengorgen.net/img/django-notlarim/django-notlarim.png" />
 <meta property="twitter:card" content="summary" />
-<meta property="twitter:description" content="Gökmen Görgen&#39;s writings about programming and remote-working style." />
+<meta property="twitter:description" content="Celery kullanarak Uptime uygulamasında ekranları periyodik olarak kontrol edip, eğer erişilemeyen URL varsa kullanıcıyı uyarmalıyız." />
 
     <meta name="flattr:id" content="62knje">
 
@@ -29,10 +29,10 @@
 <title>
 
 
-     GKMNGRGN - Coding 
+     GKMNGRGN - 09 - Celery ile periyodik işler 
 
 </title>
-<link rel="canonical" href="https://gokmengorgen.net/tags/coding/">
+<link rel="canonical" href="https://gokmengorgen.net/django-notlarim/09-celery-ile-periyodik-isler/">
 
 
 <style media="screen">
@@ -1056,8 +1056,6 @@ div.main .content .markdown pre {
 
 
 
-  <link href="https://gokmengorgen.net/tags/coding/index.xml" rel="alternate" type="application/rss+xml" title="GKMNGRGN" />
-
 
 </head>
 
@@ -1090,96 +1088,304 @@ div.main .content .markdown pre {
     </div>
 </div>
 
-<div class="main column">
+
+<div class="main post non-narrow zero-top-spacing column">
     <div class="container">
         <div class="content">
-            <div class="posts">
-                <div class="page-heading">Posts about Coding</div>
-                <ul>
-                    
-                        <li class="post-item">
-    <span class="meta">Apr 24, 2017</span>
-    <a href="https://gokmengorgen.net/blog/emacse-nereden-baslamali/"><span>Emacs&#39;e nereden başlamalı?</span></a>
-</li>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
 
-                    
-                        <li class="post-item">
-    <span class="meta">Jul 1, 2017</span>
-    <a href="https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/"><span>Vagrant ile proje geliştirme</span></a>
-</li>
+    09 - Celery ile periyodik işler
 
-                    
-                        <li class="post-item">
-    <span class="meta">Dec 10, 2017</span>
-    <a href="https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/"><span>Geliştiriciler için Windows 10 Pro</span></a>
-</li>
+</div>
 
+                </div>
+                <div class="meta">
+                    <div class="date" title="Sun Jun 10 2018 00:17:16 CEST">Jun 10, 2018</div>
                     
-                        <li class="post-item">
-    <span class="meta">Mar 30, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/01-baslangic/"><span>01 - Başlangıç</span></a>
-</li>
-
+                        
                     
-                        <li class="post-item">
-    <span class="meta">Apr 4, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/02-model-katmani/"><span>02 - Model Katmanı</span></a>
-</li>
-
-                    
-                        <li class="post-item">
-    <span class="meta">Apr 22, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/03-admin-paneli/"><span>03 - Admin Paneli</span></a>
-</li>
-
-                    
-                        <li class="post-item">
-    <span class="meta">Apr 28, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/04-template-motoru/"><span>04 - Template Motoru</span></a>
-</li>
-
-                    
-                        <li class="post-item">
-    <span class="meta">May 6, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/05-formset/"><span>05 - Formset</span></a>
-</li>
-
-                    
-                        <li class="post-item">
-    <span class="meta">May 10, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/06-bildirimler-ve-ceviriler/"><span>06 - Bildirimler ve çeviriler</span></a>
-</li>
-
-                    
-                        <li class="post-item">
-    <span class="meta">May 18, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/07-kullanici-dogrulama/"><span>07 - Kullanıcı doğrulama</span></a>
-</li>
-
-                    
-                        <li class="post-item">
-    <span class="meta">May 27, 2018</span>
-    <a href="https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/"><span>Django modelinde selectbox kullanımı</span></a>
-</li>
-
-                    
-                        <li class="post-item">
-    <span class="meta">Jun 2, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/08-komutlar/"><span>08 - Komutlar</span></a>
-</li>
-
-                    
-                        <li class="post-item">
-    <span class="meta">Jun 10, 2018</span>
-    <a href="https://gokmengorgen.net/django-notlarim/09-celery-ile-periyodik-isler/"><span>09 - Celery ile periyodik işler</span></a>
-</li>
-
-                    
-                </ul>
+                    <div class="reading-time middot">6 minute read</div>
+                    <div class="tags">
+                        <ul>
+                            
+                                <li class="middot"><a href="https://gokmengorgen.net/tags/coding">coding</a> </li>
+                            
+                                <li class="middot"><a href="https://gokmengorgen.net/tags/django">django</a> </li>
+                            
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <div class="markdown">
+                
+    
+    
+
+<p><em>En son, ekranlarımızı güncelleyen bir komut hazırlamıştık. Şimdi bu komutu periyodik olarak çalıştırmamız gerekiyor. Önceki yazımızda cron ile bunu nasıl yapabileceğimize dair değinmiştik; ama biz bunu Celery<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> ile yapmayı deneyeceğiz.</em></p>
+
+<h2 id="özet">Özet</h2>
+
+<ul>
+<li>Docker ile, Celery&rsquo;i kolayca kurup kullanabileceğimiz geliştirme ortamını hazırlayacağız.</li>
+<li>Django komutumuzu Celery görev fonksiyonunda kullanabilir hale getireceğiz.</li>
+<li>Admin panelinden görevlerin çalışma zamanlarını ayarlayacağız.</li>
+<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-09">buradan</a> erişebilirsiniz.</li>
+</ul>
+
+<h2 id="neden-celery-ve-neden-docker">Neden Celery ve neden Docker?</h2>
+
+<p>Önceki yazımızda hazırladığımız <strong>checkurls</strong> komutunu periyodik olarak çalıştırabilmek için bir görev yöneticisine ihtiyacımız var. Celery benim bu tip işler için en sık kullandığım araç. Celery ile görevleri yönetmek kolay, deployment süreçlerinde sunucuya daha az müdahale ediliyor, görev çalıştırma zamanlarını admin panelinden programlamak mümkün.</p>
+
+<p>Bir web projesi geliştirirken <strong>DEVELOPMENT</strong>, <strong>STAGING</strong>, <strong>PRODUCTION</strong> gibi farklı sunucu ortamları hazırlanır<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> ve bu ortamların birbirine olabildiğince benzemesi arzu edilir, böylece çevre farklılıklarından doğacak sorunları önlemiş oluruz. Bunu yapabilmek için sanallaştırmaya ihtiyacımız var ve bunun çeşitli yöntemleri var:</p>
+
+<ol>
+<li>Daha önce ben <strong>Vagrant</strong> üzerine bir yazı <a href="https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/">yazmıştım</a>. Alışıldığında oldukça pratik yöntemdir, hiçbir ayar yapmasanız bile elinizin altında <strong>PRODUCTION</strong> sunucunuza benzer geliştirme ortamınız olur.</li>
+<li><strong>Docker</strong> kullanabilirsiniz, alışması yeni başlayanlar için öğrenme süreci zaman alıyor. Ama uzun vadede hız ve esneklik kazanırsınız.</li>
+<li><strong><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL</a></strong>, <strong>VMware</strong> veya <strong>Virtualbox</strong> ile sanal işletim sistemi yükleme ve onun üzerinden geliştirme yapabilirsiniz. Olabilecek en kötü sanallaştırma yöntemidir, kısa vadede belki hız kazandırır; ama uzun vadede deployment süreçlerinde canınızı sıkabilir.</li>
+</ol>
+
+<p>Ben Docker&rsquo;i seçtim ve merak etmeyin, bu eğitimi devam ettirebilmek için Docker konusuna olabildiğince az değineceğim. Şimdilik <strong>Docker</strong> ve <strong>Docker Compose</strong>&lsquo;u yükleyin<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup> ve Docker servisinin başladığına emin olun. Sonra repomuzdan <strong>Article-09/hello_django</strong> dizinine girin ve aşağıdaki komutu çalıştırın:</p>
+
+<pre><code class="language-bash"># terminal
+$ docker-compose up --build -d
+Creating network &quot;hello_django_default&quot; with the default driver
+Building web
+Step 1/7 : FROM python:3.6
+ ---&gt; d69bc9d9b016
+...
+Creating hello_django_web_1  ... done
+Creating hello_django_amqp_1 ... done
+Creating hello_django_celery_1 ... done
+Creating hello_django_celery-beat_1 ... done
+</code></pre>
+
+<p>Uzun bir çıktı ve nihayetinde dört konteyner ile geliştirme ortamımız hazır. Her konteynerin içinde bir komut çalışıyor, örneğin web&rsquo;in içinde <code>python manage.py runserver 0:8000</code> komutu çalışıyor, Python yorumlayıcımız artık bu konteynerin içinde ve konteyner ayağa kalktığında <code>http://localhost:8000</code> bağlantısından projemize de erişebiliyor olacağız. Diğer üç konteynerin birinde Celery için gerekli <strong>AMQP</strong> hizmeti çalışıyor, diğer ikisinde de görevlerimizi çalıştıran bir <strong>Celery worker</strong> ve periyodik olarak görev emirlerini oluşturan <strong>Celery beat</strong> var.</p>
+
+<h2 id="celery-ile-ilk-görevin-tanımlanması">Celery ile ilk görevin tanımlanması</h2>
+
+<p>Docker konteynerlerimiz hazırlanırken <strong>requirements.txt</strong> dosyamızdan bağımlılıklarımız da okunuyor. Birkaç yeni bağımlılık ekledik:</p>
+
+<pre><code class="language-ini"># requirements.txt
+
+# Görev yönetimi için Celery
+celery==4.1.1
+# Görev zamanlarını Django Admin panelinden yönetmek
+# için ek bir bağımlılık daha
+django_celery_beat==1.1.1
+# Bu da ekranlarımızı filtrelerken kullanacağımız yardımcı bir bağımlılık
+python-dateutil==2.7.3
+</code></pre>
+
+<p>Şimdi Celery konteynerimizin nasıl çalıştığını ve hangi komutu çalıştırdığını anlayalım. Önce <strong>settings.py</strong> dosyamızda Celery ile ilgili kurulum ve ayarlarımızı ekledik:</p>
+
+<pre><code class="language-python"># settings.py
+...
+INSTALLED_APPS = [
+    ...
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django_celery_beat',  # Admin panelinde görev zamanlarını yönetmek için
+    'hello_palette',
+    ...
+]
+...
+CELERY_BROKER_URL = 'amqp'  # Docker konteynerimizin adını yazdık.
+CELERY_IMPORTS = [
+    'hello_uptime.tasks'  # Görevlerimizi bu modülde saklayacağız.
+]
+# Test mesajlarımız için basit bir email backend yapılandırması.
+# Emailleri konsolda göreceğiz.
+DEFAULT_FROM_EMAIL = 'hello_django@localhost'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+</code></pre>
+
+<p>Sonra, Celery uygulamamızı Django projemiz ile entegre çalışabilmesi için bir script hazırladık:</p>
+
+<pre><code class="language-python"># hello_django/celery.py
+from __future__ import absolute_import, unicode_literals
+import os
+from celery import Celery
+
+# Ayarları settings.py dosyamızdan alacak.
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hello_django.settings')
+
+app = Celery('hello_django')
+
+# Ayar değişkenlerimiz hep CELERY diye başlayacak.
+app.config_from_object('django.conf:settings', namespace='CELERY')
+
+# Tüm görev fonksiyonlarımızı Celery kendisi tespit edecek.
+app.autodiscover_tasks()
+</code></pre>
+
+<pre><code class="language-python"># hello_django/__init__.py
+from __future__ import absolute_import, unicode_literals
+
+# Bu aslında zorunlu değil; ama görevlerimizi tanımlarken `shared_task` yardımcı
+# fonksiyonunu kullanmak, uygulamayı bağımsız hale getiriyor. Örneğini sonra göreceğiz.
+from .celery import app as celery_app
+
+__all__ = ['celery_app']
+</code></pre>
+
+<p>Bunu her projede bir seferlik yapıyoruz. Bundan sonraki aşamadak artık görev fonksiyonları yazmak. Şimdi <strong>checkurls</strong> komutumuzu bir görev fonksiyonu haline getirelim:</p>
+
+<pre><code class="language-python"># hello_uptime/tasks.py
+from celery import shared_task
+from django.core.management import call_command
+
+
+@shared_task
+def check_monitors():
+    call_command('checkurls', mail_clients=True)
+</code></pre>
+
+<p>Django komutumuzu görev fonksiyonu içinde <code>--mail_clients</code> parametresiyle çalıştırmış olduk. Fakat önceki yazımızda parametre olarak sadece <strong>urls</strong> vardı ve onu da zorunlu yapmıştık. Şimdi <code>--mail_clients</code> parametresine ihtiyacımız var; çünkü herhangi bir ekran erişilemez olduğunda, kullanıcıya bir bildirim epostası göndermek istiyoruz. Komut satırında böyle bir ihtiyacımız yoktu, çünkü her şeyi zaten komut satırında görüyorduk:</p>
+
+<pre><code class="language-python"># hello_uptime/management/commands/checkurls.py
+...
+class Command(BaseCommand):
+    ...
+    def add_arguments(self, parser):
+        # urls parametresi artık zorunlu değil
+        parser.add_argument('urls', nargs=argparse.ZERO_OR_MORE, type=str)
+        # mail_clients parametresi de tercihe bağlı
+        parser.add_argument('--mail_clients', action='store_true', dest='mail_clients')
+
+    def handle(self, *args, **options):
+        now = timezone.now()
+        offline_urls = []
+
+        # Monitörler kaç dakikada bir kontrol edilmesi istendiyse, en az bir o kadar dakika kadar öncesine göre
+        # monitörleri filtreliyoruz. Bir de sadece aktif olanları tekrar kontrol edeceğiz.
+        available_monitors = Monitor.objects.filter(is_active=True).filter(
+            models.Q(interval=MonitoringInterval.MIN_5,
+                     checked_at__lt=now - relativedelta(seconds=MonitoringInterval.MIN_5)) |
+            ...
+            models.Q(interval=MonitoringInterval.HOUR_6,
+                     checked_at__lt=now - relativedelta(seconds=MonitoringInterval.HOUR_6)))
+        ...
+        # Burada da tüm erişilemeyen ekranlar için her kullanıcıya eposta göndereceğiz.
+        if options['mail_clients'] and offline_urls:
+            for url in offline_urls:
+                self.mail_clients(url, available_monitors)
+
+    def mail_clients(self, url, available_monitors):
+        subject = &quot;[Hello Uptime] Monitor is DOWN: {}&quot;.format(url)
+        for monitor in available_monitors.filter(url=url, user__isnull=False):
+            message_list = [
+                &quot;Hi {},&quot;.format(monitor.user.get_full_name()),
+                &quot;The monitor ({}) is currently DOWN.&quot;.format(url),
+            ]
+            send_mail(
+                subject, '\n'.join(message_list), from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[monitor.user.email])
+</code></pre>
+
+<h2 id="görevin-periyodik-olarak-çalıştırılması">Görevin periyodik olarak çalıştırılması</h2>
+
+<p>Artık sona yaklaşmak üzereyiz. Konteynerimizde <strong>checkurls</strong> komutumuzu şöyle çalıştırabiliriz:</p>
+
+<pre><code class="language-bash"># terminal
+$ docker-compose exec web python manage.py checkurls
+https://gokmengorgen.net - 2 monitor(s): online
+</code></pre>
+
+<p>Şimdi Celery ile görev fonksiyonumuzu çalıştıralım:</p>
+
+<pre><code class="language-bash"># terminal
+$ docker-compose exec web python manage.py shell
+Python 3.6.5 (default, May  5 2018, 03:09:35)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 6.4.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: from hello_uptime.tasks import check_monitors
+
+In [2]: check_monitors.delay()
+Out[2]: &lt;AsyncResult: c2f340dc-...f&gt;
+
+In [3]:
+</code></pre>
+
+<p>Görev asenkron çalıştığı için bir sonuç göremedik, onun için Celery konteynerindeki logları okumamız gerekiyor:</p>
+
+<pre><code class="language-bash"># terminal
+$ docker-compose logs -f --tail 100 celery
+celery_1  | [...] Received task: hello_uptime.tasks.check_monitors[31399a19-...e]
+celery_1  | [...] https://gokmengorgen.net - 2 monitor(s):
+celery_1  | [...] online
+celery_1  | [...] Task hello_uptime.tasks.check_monitors[31399a19-...e] succeeded in 0.8740212999982759s: None
+celery_1  | [...] Received task: hello_uptime.tasks.check_monitors[c2f340dc-...f]
+celery_1  | [...] Task hello_uptime.tasks.check_monitors[c2f340dc-...f] succeeded in 0.013204600007156841s: None
+</code></pre>
+
+<p>Logları sadeleştirdim yine de çirkin, bu konuya daha sonra değiniriz, ama başarılı bir şekilde çalıştığını gördük. Peki ama nasıl periyodik çalıştırılacak bu görev? Hemen Admin panelimizi açıp bir <strong>Interval</strong> girdisi oluşturalım:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notlarim/celery-admin-interval.jpg" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/celery-admin-interval.jpg" src="https://gokmengorgen.net/img/django-notlarim/low/celery-admin-interval.jpg" alt="Celery admin interval" title="Celery admin interval" /></figure>
+</a></p>
+
+<p>Ve bir de <strong>Periodic Task</strong> girdisi:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notlarim/celery-admin-periodic-task.jpg" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/celery-admin-periodic-task.jpg" src="https://gokmengorgen.net/img/django-notlarim/low/celery-admin-periodic-task.jpg" alt="Celery admin periodic task" title="Celery admin periodic task" /></figure>
+</a></p>
+
+<p>Şimdi tekrar Celery loglarımıza bakıp süreci takip edelim, gerçekten de dakikada bir çalışıyor mu:</p>
+
+<pre><code class="language-bash"># terminal
+$ docker-compose logs -f --tail 100 celery
+celery_1  | [2018-06-12 16:34:08,298: INFO] Received task: hello_uptime.tasks.check_monitors[92ef036c-...3]
+celery_1  | [2018-06-12 16:34:09,926: INFO] Task hello_uptime.tasks.check_monitors[92ef036c-5341-...3] succeeded in 1.6s: None
+celery_1  | [2018-06-12 16:35:08,298: INFO] Received task: hello_uptime.tasks.check_monitors[e9a53576-...c]
+celery_1  | [2018-06-12 16:35:08,305: INFO] Task hello_uptime.tasks.check_monitors[e9a53576-...c] succeeded in 0.01s: None
+celery_1  | [2018-06-12 16:36:08,298: INFO] Received task: hello_uptime.tasks.check_monitors[5574fbc6-...0]
+celery_1  | [2018-06-12 16:36:08,306: INFO] Task hello_uptime.tasks.check_monitors[5574fbc6-...0] succeeded in 0.01s: None
+</code></pre>
+
+<p>Gayet beklediğimiz gibi ilerliyor. Yazıyı 5 dakikaya sığdırmak epey zor oldu; ama seriyi devam ettirmeye enerjim var, merak etmeyin. Sonraki yazımızda görüşmek üzere.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="http://www.celeryproject.org/">Celery</a> websitesinde detaylı bilgi bulabilirsiniz.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Önce development konusunu uptime ile bitirelim, sonraki yazılarda deployment konusuna değineceğiz.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3"><a href="https://store.docker.com/search?type=edition&amp;offering=community">Buradan</a> indirebilirsiniz. MacOS, Windows, Ubuntu, hatta yerele kurmayıp AWS gibi cloud çözümler üzerinden bile Docker kullanmak mümkün.
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+            </div>
+            
+
+            
+                <div class="navigation">
+                    
+                        <div>
+                            <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
+                            <a href="https://gokmengorgen.net/django-notlarim/08-komutlar/">08 - Komutlar</a>
+                        </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                </div>
+            
         </div>
     </div>
 </div>
+
 <div class="footer column">
     <div class="container">
 

@@ -6,10 +6,20 @@
     <description>Recent content in Django Notlarım on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Jun 2018 02:05:05 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 10 Jun 2018 00:17:16 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/django-notlarim/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>09 - Celery ile periyodik işler</title>
+      <link>https://gokmengorgen.net/django-notlarim/09-celery-ile-periyodik-isler/</link>
+      <pubDate>Sun, 10 Jun 2018 00:17:16 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notlarim/09-celery-ile-periyodik-isler/</guid>
+      <description>En son, ekranlarımızı güncelleyen bir komut hazırlamıştık. Şimdi bu komutu periyodik olarak çalıştırmamız gerekiyor. Önceki yazımızda cron ile bunu nasıl yapabileceğimize dair değinmiştik; ama biz bunu Celery1 ile yapmayı deneyeceğiz.
+Özet  Docker ile, Celery&amp;rsquo;i kolayca kurup kullanabileceğimiz geliştirme ortamını hazırlayacağız. Django komutumuzu Celery görev fonksiyonunda kullanabilir hale getireceğiz. Admin panelinden görevlerin çalışma zamanlarını ayarlayacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.  Neden Celery ve neden Docker? Önceki yazımızda hazırladığımız checkurls komutunu periyodik olarak çalıştırabilmek için bir görev yöneticisine ihtiyacımız var.</description>
+    </item>
     
     <item>
       <title>08 - Komutlar</title>

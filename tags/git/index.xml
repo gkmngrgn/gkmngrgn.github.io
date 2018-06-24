@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/tags/git/</link>
+    <description>Recent content in Git on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Jun 2018 14:23:26 +0200</lastBuildDate>
+    
+	<atom:link href="https://gokmengorgen.net/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git iş akışı</title>
+      <link>https://gokmengorgen.net/blog/git-is-akisi/</link>
+      <pubDate>Sun, 24 Jun 2018 14:23:26 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/git-is-akisi/</guid>
+      <description>Çalıştığım projelerin çoğunda Git kullanıyoruz ve tüm sürüm çıkarma, projenin teste açılması, testten sonra production sürümünün hazırlanması, acil düzeltilmesi gereken işler olduğunda sürecin esnetilmesi ve bunun gibi birçok iş akışı Git reposu üzerinden yürüyor. Aşama aşama deneyimlerimi paylaşıyorum.
+1. Aşama: Prototipe odaklan Yeni bir projeye başlıyorsunuz, ekip henüz oluşturulmamış veya tek başınasınız ve derhal kabul edilebilir bir prototip1 hazırlamanız gerekiyor. Öncelikli kural, eğer hep aynı teknik araçları kullanıyorsanız bir öncekilerden iskelet yaratıp olduğu gibi yeni projeye aktarmanız.</description>
+    </item>
+    
+  </channel>
+</rss>

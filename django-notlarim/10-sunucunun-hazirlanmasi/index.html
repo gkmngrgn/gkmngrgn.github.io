@@ -156,12 +156,12 @@
 <ul>
 <li>Docker ile sunucumuzu hazırlayacağız.</li>
 <li>Ortama göre (development, production, test) sunucu ve proje ayarlarımızı değiştirebileceğimiz yapılandırma dosyaları oluşturacağız.</li>
-<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-10">buradan</a> erişebilirsiniz.</li>
+<li>Bu yazıyla ilgili kodlara <a href="https://bit.ly/2MVbToM-django-notes-article-10">buradan</a> erişebilirsiniz.</li>
 </ul>
 
 <h2 id="gerçekten-docker-a-gerek-var-mı">Gerçekten Docker&rsquo;a gerek var mı?</h2>
 
-<p>Elbette hayır. Hatta yeni bir sunucuya da ihtiyacımız yok, şimdiye kadar kullandığımız geliştirme sunucumuzu <a href="https://ngrok.com">ngrok</a> gibi basit bir tünelleme aracıyla dışarıdan erişilebilir hale getirip bilgisayarımızı 24 saat açık bırakabiliriz. Ama sunucuyla ilgili bizim birtakım beklentilerimiz var. Mesela sürekli erişilebilir durumda olmasını istiyoruz ve gelen isteklerin kesintisiz, hızlı ve mutlaka alınıp cevaplandırılmasını istiyoruz. Bunun için sunucunun sağlıklı çalışmasını sağlamak ve insan kusurunu <strong>en aza indirmemiz</strong> gerekiyor.</p>
+<p>Elbette hayır. Hatta yeni bir sunucuya da ihtiyacımız yok, şimdiye kadar kullandığımız geliştirme sunucumuzu <a href="https://bit.ly/2KidzH9-ngrok">ngrok</a> gibi basit bir tünelleme aracıyla dışarıdan erişilebilir hale getirip bilgisayarımızı 24 saat açık bırakabiliriz. Ama sunucuyla ilgili bizim birtakım beklentilerimiz var. Mesela sürekli erişilebilir durumda olmasını istiyoruz ve gelen isteklerin kesintisiz, hızlı ve mutlaka alınıp cevaplandırılmasını istiyoruz. Bunun için sunucunun sağlıklı çalışmasını sağlamak ve insan kusurunu <strong>en aza indirmemiz</strong> gerekiyor.</p>
 
 <p>Bizim veritabanı değişikliklerini uygulamak için bir script oluşturmamızın bir sebebi var, kaç farklı ortam ve sunucumuz olursa olsun, hata yapma olasılığımızı en aza indirmek. Bir önceki bölümde Docker ile sanallaştırma yaparken de amacımız buydu, production&rsquo;da olabilecek her türlü senaryoyu önce yerelimizde gerçekleştirmek ki deployment aşamasında herhangi bir sürprizle karşılaşmayalım.</p>
 
@@ -319,7 +319,7 @@ http {
 <p>Bu yazıyı konumuz olmadığı için uzatmamak adına, sizlerin VPS tercihinizi zaten yaptığınızı (DigitalOcean iyi seçim), zaten bir domain sahibi olduğunuzu veya bu tip konuları netleştirdiğinizi varsayıyorum. Yapacaklarınız çok basit:</p>
 
 <ol>
-<li>Sunucunuza bağlanın, yerelinizde olduğu gibi <a href="https://store.docker.com/search?type=edition&amp;offering=community">docker</a> ve <a href="https://docs.docker.com/compose/install/">docker-compose</a> kurulumunuzu yapın.</li>
+<li>Sunucunuza bağlanın, yerelinizde olduğu gibi <a href="https://bit.ly/2lA43nL-docker-store">docker</a> ve <a href="https://bit.ly/2tA1lSP-docker-compose-install">docker-compose</a> kurulumunuzu yapın.</li>
 <li>Kod reponuzu sunucunuza klonlayın, proje dizinine girin.</li>
 <li>Eğer NGINX servisi sunucunuzda çalışıyorsa kapatın, konteyner içinden kullanacağız.</li>
 <li>Ve konteynerları oluşturup çalıştırın.</li>
@@ -347,7 +347,7 @@ Creating hello_django_celery-beat_1 ... done
 <hr />
 
 <ol>
-<li id="fn:1">Docker-compose&rsquo;un Production için elverişli olup olmadığı konusunda arkadaşlarımın da bazı fikirleri var. Fakat ben küçük projelerde veya başlangıç açamasında çok ciddi bir sıkıntı olacağını düşünmüyorum. Bu konuyla ilgili daha fazla bilgi için mutlaka <a href="https://docs.docker.com/compose/production/">Docker dökümantasyonuna</a> bir göz atmanızı öneriyorum, Docker&rsquo;in ne kadar kapsamlı bir şey olduğunu anlamanızı isterim.
+<li id="fn:1">Docker-compose&rsquo;un Production için elverişli olup olmadığı konusunda arkadaşlarımın da bazı fikirleri var. Fakat ben küçük projelerde veya başlangıç açamasında çok ciddi bir sıkıntı olacağını düşünmüyorum. Bu konuyla ilgili daha fazla bilgi için mutlaka <a href="https://bit.ly/2K6aKg3-docker-compose-production">Docker dökümantasyonuna</a> bir göz atmanızı öneriyorum, Docker&rsquo;in ne kadar kapsamlı bir şey olduğunu anlamanızı isterim.
  <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
 </ol>
 </div>

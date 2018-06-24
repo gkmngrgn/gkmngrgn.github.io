@@ -6,10 +6,20 @@
     <description>Recent content on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 Jun 2018 23:38:57 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 24 Jun 2018 14:23:26 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git iş akışı</title>
+      <link>https://gokmengorgen.net/blog/git-is-akisi/</link>
+      <pubDate>Sun, 24 Jun 2018 14:23:26 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/git-is-akisi/</guid>
+      <description>Çalıştığım projelerin çoğunda Git kullanıyoruz ve tüm sürüm çıkarma, projenin teste açılması, testten sonra production sürümünün hazırlanması, acil düzeltilmesi gereken işler olduğunda sürecin esnetilmesi ve bunun gibi birçok iş akışı Git reposu üzerinden yürüyor. Aşama aşama deneyimlerimi paylaşıyorum.
+1. Aşama: Prototipe odaklan Yeni bir projeye başlıyorsunuz, ekip henüz oluşturulmamış veya tek başınasınız ve derhal kabul edilebilir bir prototip1 hazırlamanız gerekiyor. Öncelikli kural, eğer hep aynı teknik araçları kullanıyorsanız bir öncekilerden iskelet yaratıp olduğu gibi yeni projeye aktarmanız.</description>
+    </item>
     
     <item>
       <title>2018&#39;de keşfettiğim en iyi laptoplar</title>

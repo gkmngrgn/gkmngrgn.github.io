@@ -4,33 +4,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>GKMNGRGN - 05 - Formset</title>
+    <title>GKMNGRGN - 10 - Sunucunun hazırlanması</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="referrer" content="no-referrer">
-    <meta name="description" content="Yeni uygulamayla yerelleştirme, yetkilendirme, kullanıcı bilgilendirme, unittest ve benzeri konulara değineceğiz. Önce formset.">
+    <meta name="description" content="Bu noktaya kadar hep geliştirme aşamasındaydık, şimdi projemizi dışarıya nasıl açacağımızı birlikte ele alalım.">
     <meta property="og:site_name" content="GKMNGRGN" />
     <meta property="og:locale" content="nn_NO" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://gokmengorgen.net/django-notlarim/05-formset/" />
-    <meta property="og:title" content="05 - Formset" />
+    <meta property="og:url" content="https://gokmengorgen.net/django-notlarim/10-sunucunun-hazirlanmasi/" />
+    <meta property="og:title" content="10 - Sunucunun hazırlanması" />
     <meta property="og:image" content="https://gokmengorgen.net/img/django-notlarim/django-notlarim.png" />
-    <meta property="og:description" content="Yeni uygulamayla yerelleştirme, yetkilendirme, kullanıcı bilgilendirme, unittest ve benzeri konulara değineceğiz. Önce formset." />
+    <meta property="og:description" content="Bu noktaya kadar hep geliştirme aşamasındaydık, şimdi projemizi dışarıya nasıl açacağımızı birlikte ele alalım." />
 
     
         <meta property="twitter:site" content="@gokmengorgen">
     
 
-    <meta property="twitter:title" content="05 - Formset" />
+    <meta property="twitter:title" content="10 - Sunucunun hazırlanması" />
     <meta property="twitter:image" content="https://gokmengorgen.net/img/django-notlarim/django-notlarim.png" />
     <meta property="twitter:card" content="summary" />
-    <meta property="twitter:description" content="Yeni uygulamayla yerelleştirme, yetkilendirme, kullanıcı bilgilendirme, unittest ve benzeri konulara değineceğiz. Önce formset." />
+    <meta property="twitter:description" content="Bu noktaya kadar hep geliştirme aşamasındaydık, şimdi projemizi dışarıya nasıl açacağımızı birlikte ele alalım." />
 
     
         <meta name="flattr:id" content="62knje">
     
 
-    <link rel="canonical" href="https://gokmengorgen.net/django-notlarim/05-formset/">
+    <link rel="canonical" href="https://gokmengorgen.net/django-notlarim/10-sunucunun-hazirlanmasi/">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous" />
 
@@ -124,11 +124,11 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-10">
-                    <h1 class="mx-0 mx-md-4">05 - Formset</h1>
+                    <h1 class="mx-0 mx-md-4">10 - Sunucunun hazırlanması</h1>
 
                     <div class="mb-4 mb-md-5 meta">
-                        <span class="date" title="Sun May 6 2018 14:30:19 CEST">
-                            May 6, 2018
+                        <span class="date" title="Sun Jun 17 2018 01:57:58 CEST">
+                            Jun 17, 2018
                         </span>
 
                         <span class="reading-time middot">
@@ -149,155 +149,206 @@
     
     
 
-<p><em>Palette uygulamasıyla MTV Katmanları ve Admin paneli ve CRUD ile ilgili giriş seviyesinde bilgiler edindik. Yeni uygulamamız <strong>Uptime</strong>. Bu uygulamayla yerelleştirme, sayfa isteklerini yönetme ve yetkilendirme, eposta veya sayfa içi bildirimlerle kullanıcıyı bilgilendirme, unittest, komut satırında çalışan scriptler ve bunlarla ilişkili birçok konuya değineceğiz. Formset ile başlıyoruz.</em></p>
+<p><em>Buraya kadar hep geliştirme aşamasıyla ilgili konulara değindik. Şimdi backend development tarafından çıkıp biraz devops deployment konusunu ele alalım. Olabildiğince az müdahale ile projemizi dış dünyanın erişimine sunacağız.</em></p>
 
 <h2 id="özet">Özet</h2>
 
 <ul>
-<li>Uptime uygulamasını yazmaya başlıyoruz. URL&rsquo;leri girmek için Formset kullanıyoruz.</li>
-<li>İhtiyacımızı görecek bir Django eklentisini yükleyip kullanacağız.</li>
-<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-05">buradan</a> erişebilirsiniz.</li>
+<li>Docker ile sunucumuzu hazırlayacağız.</li>
+<li>Ortama göre (development, production, test) sunucu ve proje ayarlarımızı değiştirebileceğimiz yapılandırma dosyaları oluşturacağız.</li>
+<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-10">buradan</a> erişebilirsiniz.</li>
 </ul>
 
-<h2 id="yeni-uygulamamız-uptime">Yeni Uygulamamız, Uptime</h2>
+<h2 id="gerçekten-docker-a-gerek-var-mı">Gerçekten Docker&rsquo;a gerek var mı?</h2>
 
-<p>Uygulamamızın en temel işlevi, belirlediğimiz URL veya IP adreslerinin erişilebilirliğini belirli aralıklarla kontrol etmek. Piyasa bu işi yapan uptimerobot, pingdom gibi çeşitli hizmetler var. Biz de Django’yu öğrenmek için basit bir prototipini yapmış olacağız. Daha önce öğrendiklerimizi kullanarak şöyle bir başlangıç yapıyoruz:</p>
+<p>Elbette hayır. Hatta yeni bir sunucuya da ihtiyacımız yok, şimdiye kadar kullandığımız geliştirme sunucumuzu <a href="https://ngrok.com">ngrok</a> gibi basit bir tünelleme aracıyla dışarıdan erişilebilir hale getirip bilgisayarımızı 24 saat açık bırakabiliriz. Ama sunucuyla ilgili bizim birtakım beklentilerimiz var. Mesela sürekli erişilebilir durumda olmasını istiyoruz ve gelen isteklerin kesintisiz, hızlı ve mutlaka alınıp cevaplandırılmasını istiyoruz. Bunun için sunucunun sağlıklı çalışmasını sağlamak ve insan kusurunu <strong>en aza indirmemiz</strong> gerekiyor.</p>
 
-<ul>
-<li><strong>hello_uptime</strong> adında yeni bir uygulama oluşturuyoruz (startapp).</li>
-<li><strong>templates/uptime/</strong> içinde Template katmanımızı oluşturuyoruz.</li>
-<li><strong>urls.py</strong> ile uygulama url’lerimizi tanımlıyoruz, bunun için gerekli View katmanlarımızı hazırlıyoruz.</li>
-<li><strong>Monitor</strong> adında ilk modelimizi oluşturuyoruz, model üzerinde denemelerimizi yapmak için Admin class’ımızı hazırlıyoruz.</li>
-</ul>
+<p>Bizim veritabanı değişikliklerini uygulamak için bir script oluşturmamızın bir sebebi var, kaç farklı ortam ve sunucumuz olursa olsun, hata yapma olasılığımızı en aza indirmek. Bir önceki bölümde Docker ile sanallaştırma yaparken de amacımız buydu, production&rsquo;da olabilecek her türlü senaryoyu önce yerelimizde gerçekleştirmek ki deployment aşamasında herhangi bir sürprizle karşılaşmayalım.</p>
 
-<p>Yeni bir uygulama yazarken önce bir kabaca başlangıç yapmak size yardımcı olur. Yani hemen Template katmanının içini doldurmaya başlamayın, önce basit bir form olsun yeter. Modelinizi denemek mi istiyorsunuz? Admin panelini kullanın. Şimdi, depodan Article-05 dizinine girin, orada <strong>hello_uptime</strong> uygulamasını kullanıp hızlı bir başlangıç yapabilirsiniz.</p>
+<p>Peki deployment için bir script hazırlamak daha pratik olmaz mıydı? Olabilir elbette, benim halen daha basit projeler için kullandığım bir yöntemdir. Ancak benim size göstermek ve anlatmak istediğim şey, elle müdahaleye en aza indirmek ve bunu mümkün mertebe en kısa zamanda alışkanlık haline getirmek. Çok şey kazanırsınız. Çok yöntem var, hepsini anlatmam zor; ancak Docker ile başlayabiliriz.</p>
 
-<p>Uygulamamızı basit bir şekilde tasarlayalım. Sadece bir dashboard’ımız olsun. Orada URL veya IP girebileceğimiz bir formumuz olsun, formu kaydedebilelim ve yine aynı sayfada sonuçları izleyebileceğimiz bir ekranımız olsun.</p>
+<h2 id="ortama-göre-sunucu-ayarları">Ortama göre sunucu ayarları</h2>
 
-<pre><code class="language-python"># hello_uptime/views.py
+<p>Önceki yazımızda Docker ile geliştirme yapmaya başlamıştık. Bunun için docker-compose.yml dosyası oluşturup Celery, RabbitMQ ve web sunucumuzun otomatik başlamasını sağlamıştık. Ancak bu ayarlarımız tamamen geliştirme ortamına göre hazırlanmıştı. Şimdi bu yapılandırmada ortak kısımları yine <strong>docker-compose.yml</strong> dosyasında tutacağız, diğer ayarları sunucu ortamına göre ayrı dosyalarda tutacağız<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>:</p>
+
+<pre><code class="language-yml"># docker-compose.yml
+version: '3'
+
+services:
+  web:
+    build: .
+  celery:
+    build: .
+    command: celery worker -l info -A hello_django
+    depends_on:
+      - amqp
+  celery-beat:
+    build: .
+    command: celery beat -l info -A hello_django --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    depends_on:
+      - amqp
+      - celery
+  amqp:
+    image: rabbitmq:3.7
+</code></pre>
+
+<pre><code class="language-yml"># docker-compose.dev.yml
+version: '3'
+
+services:
+  web:  # Test ortamında geliştirme sunucusu kullanmamız bizim için yeterli.
+    command: python manage.py runserver 0:8000
+    volumes:  # Geliştirme aşamasında konteyner içindeki kodlarımıza kolayca müdahale edebilelim.
+      - .:/code
+    ports:  # İlgili portları açıyoruz ki projemize erişebilelim.
+      - 8000:8000
+  celery:
+    volumes:
+      - .:/code
+  celery-beat:
+    volumes:
+      - .:/code
+</code></pre>
+
+<pre><code class="language-yml"># docker-compose.prod.yml
+version: '3'
+
+services:
+  nginx:  # Production'da Nginx sunucusunu kullanacağız. 8000 portunu dinlemek için.
+    image: nginx
+    volumes:
+     - ./conf/nginx.prod.conf:/etc/nginx/nginx.conf
+     - ./assets/static:/assets/static  # Statik dosyalarımız Nginx tarafından sunulacak.
+     - ./assets/media:/assets/media  # Media dosyalarımız Nginx tarafından sunulacak.
+    restart: always  # Bir sebepten kapanırsa yeniden başlatması için.
+    ports:
+      - 80:80
+  web:  # Production'da geliştirme sunucusu yerine Gunicorn kullanacağız.
+    command: gunicorn hello_django.wsgi:application -b 0:8000
+    entrypoint: /code/entrypoint.sh  # Bu dosyayı ayrıca inceleyin, otomatik bazı komutları çalıştırmak için.
+    restart: always
+    volumes:
+      - ./db.sqlite3:/code/db.sqlite3
+      - ./assets/static:/assets/static
+      - ./assets/media:/assets/media
+  celery:
+    restart: always
+  celery-beat:
+    restart: always
+  amqp:
+    restart: always
+</code></pre>
+
+<p>Şunu da yapabilirdik, geliştirme aşamasında DB backend olarak SQLite3 kullanıp, Production&rsquo;da PostgreSQL tercih edebilirdik. Bunu pek önermiyorum, geliştirme ortamınız production&rsquo;u ne kadar iyi taklit ederse bizim için o kadar iyi. Peki bu değişiklikten sonra geliştirme ortamımızı nasıl çalıştıracağız?</p>
+
+<pre><code class="language-bash"># terminal
+$ docker-compose.exe -f docker-compose.yml -f docker-compose.dev.yml up -d
+Creating network &quot;hello_django_default&quot; with the default driver
+Creating hello_django_web_1    ... done
+Creating hello_django_amqp_1 ... done
+Creating hello_django_celery_1 ... done
+Creating hello_django_celery-beat_1 ... done
+</code></pre>
+
+<p>Güzel. Bu kısım Docker ayarlarımızın ortama göre ayrılması içindi. Ama bir de Django ayarlarımız var.</p>
+
+<h2 id="ortama-göre-proje-ayarları">Ortama göre proje ayarları</h2>
+
+<p>Bildiğiniz gibi proje ayarlarımızı <strong>settings.py</strong> dosyamızda saklıyoruz. Bazı öyle ayarlar var ki kesinlikle geliştirme ve production ortamlarında aynı olamaz. Örneğin <strong>DEBUG</strong> production ortamında kesinlikle <strong>False</strong> olmalı. Ben bu tip değişiklikleri bir JSON dosyasında saklamayı ve bu özel JSON dosyalarının repo&rsquo;ya yanlışlıkla gönderilmesini önlemek için de .gitignore dosyasına adının yazılmasını öneriyorum. Çünkü bu dosya sadece sunucu ayarları değil, sunucuya özel gizli bazı bilgileri de barındırabilecek. Örneğin <strong>SECRET_KEY</strong>, veritabanı erişim bilgileri, özel API anahtarları ve bunun gibi. Bunun için, <strong>settings.py</strong> dosyamıza basit bir kod ekliyoruz:</p>
+
+<pre><code class="language-python"># hello_django/settings.py
 ...
-class UptimeDashboardView(FormView):
-    template_name = 'uptime/dashboard.html'  # Template dosyamız.
-    form_class = MonitorForm  # Monitor modeli için form.
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-    def get_success_url(self):
-        # Form başarıyla kaydedilirse aynı sayfaya yönlendirilecek.
-        # Tek bir View katmanımız olacak. Her şey bir Dashboard'dan ibaret.
-        return reverse('uptime:dashboard')
+# 1. Önce proje dizinimizde env.json dosyası var mı araştır.
+# 2. Yoksa varsayılan conf/env.dev.json dosyamızı kullan.
+env_path = os.path.join(BASE_DIR, 'env.json')
+if not os.path.exists(env_path):
+    env_path = os.path.join(BASE_DIR, 'conf', 'env.dev.json')
+with open(env_path, 'r') as env_file:
+    env = json.loads(env_file.read())
 
-    def get_form_kwargs(self):
-        # Tekrar hatırlatıyorum, tek bir View katmanımız var. Daha önce kaydettiğimiz
-        # Bir Monitor object (instance) varsa onu kullanmaya devam edeceğiz.
-        # İstediğimizde tekrar düzenleyebileceğiz. Hepsi tek bir View katmanında.
-        kwargs = super().get_form_kwargs()
-        instance = Monitor.objects.first()
-        kwargs.update({
-            'instance': instance,
-        })
-        return kwargs
-
-    def form_valid(self, form):
-        # ModelForm'u mutlaka inceleyin: hello_uptime/forms.py
-        # save metodunun nereden geldiğini ve nasıl çalıştığını anlayın.
-        form.save()
-        return super().form_valid(form)
-</code></pre>
-
-<p>View kodumuzu üzerine yazdığım yorumlarla birlikte inceleyin. Şimdi burada bir sorun var. Bir sayfada tek bir Form kullanabiliyoruz. Birden fazla URL girmek istediğimizde ne yapacağız? <a href="http://localhost:8000/uptime/">http://localhost:8000/uptime/</a> üzerinden bir bakalım:</p>
-
-<p><a href="https://gokmengorgen.net/img/django-notlarim/uptime-form.png" target="_blank">
-  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/uptime-form.png" src="https://gokmengorgen.net/img/django-notlarim/low/uptime-form.png" alt="Uptime form" title="Uptime form" /></figure>
-</a></p>
-
-<p>Tek form, tek monitor :-(. Şimdi Formset<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> zamanı.</p>
-
-<h2 id="formset-kullanımı-ve-don-t-repeat-yourself">Formset Kullanımı ve Don&rsquo;t Repeat Yourself</h2>
-
-<p>Uygulamamız henüz buna hazır değil; ama diyelim ki kullanıcılar projemizde hesap açsınlar ve her kullanıcının en fazla 10 URL&rsquo;i izleme hakkı olsun. Yani bizim uygulama arayüzümüzde 10 form içeren bir form kümesi olsun ve kullanıcılar tek seferde düzenleyebilsin.</p>
-
-<p><strong>UptimeDashboardView</strong> için miras aldığımız <strong>FormView</strong>, tek bir formu yönetebilmemiz için hazırlanmış kapsamlı bir View class&rsquo;ıdır. Bu durumda elimizde iki seçenek var. Bunlardan <u>birincisi</u>, FormView&rsquo;i kendi ihtiyacımıza göre özelleştirip yeni bir genel View class&rsquo;ı ve bu tip özel ihtiyaçlarda hep aynı class&rsquo;ı kullanmak. Mesela bu özelleştirilmiş class&rsquo;ın adı <strong>FormSetView</strong> olabilir.</p>
-
-<p>Ama <u>bir seçeneğimiz daha</u> var. Django büyük bir topluluk ve bizim ihtiyaç duyduğumuz şeye başkaları da ihtiyaç duymuş olabilir, hatta bu ihtiyacı birisi Django eklentisi haline getirmiş bile olabilir. <a href="https://pypi.org/project/django-extra-views/">PyPI</a>&lsquo;den arattığımda <strong>django-extra-views</strong><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>&lsquo;in aradığımız eklenti olduğunu gördüm. Hemen <strong>requirements.txt</strong>&lsquo;ye yeni bağımlılığımızı ekliyoruz, kuruyoruz ve View katmanımızı güncelliyoruz:</p>
-
-<pre><code class="language-python"># hello_uptime/views.py
-from django.urls import reverse_lazy
-from extra_views import ModelFormSetView
-
-from hello_uptime.models import Monitor
-from hello_uptime.utils import USER_MONITOR_LIMIT
-
-
-class UptimeDashboardView(ModelFormSetView):
-    # django-extra-views belgesinde deniliyor ki, ayrıca Form veya FormSet
-    # oluşturmaya gerek yok, bana modelini, kullanacağın field'ları, success_url'i
-    # söyle, gerisini ben hallederim. Halletsin bir zahmet, güzel bir eklenti olmuş.
-    fields = ('url', 'interval', 'is_active')
-    model = Monitor
-    success_url = reverse_lazy('uptime:dashboard')  # Neden reverse değil de reverse_lazy? Bana yazın. ;-)
-    template_name = 'uptime/dashboard.html'
-
-    def get_queryset(self):
-        return Monitor.objects.order_by('created_at')  # Sıra bozulmasın diye, oluşturulma sırasına göre aldık.
-
-    def get_factory_kwargs(self):
-        kwargs = super().get_factory_kwargs()
-        kwargs.update({
-            'extra': USER_MONITOR_LIMIT,  # Dashboard'da 10 input'un hepsini tek seferde göster.
-            'max_num': USER_MONITOR_LIMIT,  # Dashboard'da en fazla 10 input olabilir.
-        })
-        return kwargs
-
-    def formset_valid(self, formset):  # form_valid formset_valid oldu.
-        formset.save()
-        return super().formset_valid(formset)
-</code></pre>
-
-<p>Eklenti kullanmasaydık, bu kod bu kadar basit ve temiz olmayacaktı. İyi ki topluluk var! Son bir işimiz kaldı, Template katmanımızı da formset kullanacak şekilde düzenlemeliyiz:</p>
-
-<pre><code class="language-html">&lt;!-- templates/uptime/dashboard.html --&gt;
+DEBUG = env['DEBUG']
 ...
-{% block content %}
-    &lt;form action=&quot;{% url 'uptime:dashboard' %}&quot; method=&quot;POST&quot;&gt;
-        {% csrf_token %}  &lt;!-- Sahte istekleri önleyen CSRF template tag'ımız --&gt;
-        {{ formset.management_form }} &lt;!-- Formset'imiz ile ilgili max_num, total gibi gizli inputları ekledik. --&gt;
-        &lt;table&gt;
-            {% for form in formset %}
-                &lt;tr&gt;
-                    &lt;th&gt;&lt;/th&gt;
-                    &lt;td&gt;
-                        &lt;!-- blocktrans i18n template modülünden geliyor. Çeviriler için. --&gt;
-                        &lt;!-- Örnek bir blocktrans ve forloop.counter kullanımı --&gt;
-                        {% blocktrans with number=forloop.counter %}Monitor {{ number }}{% endblocktrans %}
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-                {{ form.as_table }}
-            {% endfor %}
-            &lt;tr&gt;
-                &lt;th&gt;&lt;/th&gt;
-                &lt;td&gt;&lt;button type=&quot;submit&quot;&gt;{% trans &quot;Save&quot; %}&lt;/button&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-        &lt;/table&gt;
-    &lt;/form&gt;
-{% endblock %}
-
 </code></pre>
 
-<p>Formsetimiz içinde 10 tane form var ve başlangıç datasıyla birlikte artık kullanıma hazır:</p>
+<p>Böylece <strong>DEBUG</strong> ayarımız sunucuda oluşturacağımız <strong>env.json</strong> dosyasından gelecek, repomuzda örneği var:</p>
 
-<p><a href="https://gokmengorgen.net/img/django-notlarim/uptime-formset.png" target="_blank">
-  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notlarim/uptime-formset.png" src="https://gokmengorgen.net/img/django-notlarim/low/uptime-formset.png" alt="Uptime formset" title="Uptime formset" /></figure>
-</a></p>
+<pre><code class="language-json">{
+    &quot;DEBUG&quot;: false,
+    &quot;MEDIA_ROOT&quot;: &quot;/assets/media&quot;,
+    &quot;STATIC_ROOT&quot;: &quot;/assets/static&quot;
+}
+</code></pre>
 
-<p>Yalnız bir eksiklik var. Bu uptime uygulamasını kullanıcılarımızın bir hesap açarak kullanmasını istiyoruz ve her kullanıcının 10 ekran izleme hakkı olsun istiyoruz. Bunun için hesap oluşturma, email ile hesap doğrulama, parola yenileme gibi ekranlara ihtiyacımız var ve bu uptime panelini giriş yapan kullanıcıya göre biraz özelleştirmemiz gerekiyor. Sonraki yazımızda görüşmek üzere.</p>
+<p>Son bir şey daha, dikkatinizi çektiyse Production için hazırladığımız Docker Compose ayarlarımızda fazladan bir konteyner daha kullandık. Bizim 80 portuna erişebilmemiz, statik ve media dosyalarımıza erişebilmemiz için Nginx&rsquo;e ihtiyacımız var. Her sunucunun Nginx yapılandırması farklı olur, örnek olarak bunu inceleyelim:</p>
+
+<pre><code class="language-nginx"># conf/nginx.prod.json
+# detaylı hali repomuzda var.
+...
+http {
+    sendfile on;
+    include mime.types;
+
+    server {
+        listen 80;
+        server_name _;
+
+        ...
+        location /static/ {
+            root /assets;
+            ...
+        }
+
+        location /media/ {
+            root /assets;
+            ...
+        }
+
+        location / {
+            proxy_pass http://web:8000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+    }
+}
+</code></pre>
+
+<h2 id="artık-sunucuyu-ayağa-kaldırabiliriz">Artık sunucuyu ayağa kaldırabiliriz</h2>
+
+<p>Bu yazıyı konumuz olmadığı için uzatmamak adına, sizlerin VPS tercihinizi zaten yaptığınızı (DigitalOcean iyi seçim), zaten bir domain sahibi olduğunuzu veya bu tip konuları netleştirdiğinizi varsayıyorum. Yapacaklarınız çok basit:</p>
+
+<ol>
+<li>Sunucunuza bağlanın, yerelinizde olduğu gibi <a href="https://store.docker.com/search?type=edition&amp;offering=community">docker</a> ve <a href="https://docs.docker.com/compose/install/">docker-compose</a> kurulumunuzu yapın.</li>
+<li>Kod reponuzu sunucunuza klonlayın, proje dizinine girin.</li>
+<li>Eğer NGINX servisi sunucunuzda çalışıyorsa kapatın, konteyner içinden kullanacağız.</li>
+<li>Ve konteynerları oluşturup çalıştırın.</li>
+</ol>
+
+<p>Çalıştırmak için mutlaka production ayarlarımızı kullanacağız:</p>
+
+<pre><code class="language-bash"># terminal
+$ docker-compose.exe -f docker-compose.yml -f docker-compose.prod.yml up -d
+Creating network &quot;hello_django_default&quot; with the default driver
+Creating hello_django_amqp_1  ... done
+Creating hello_django_nginx_1  ... done
+Creating hello_django_web_1    ... done
+Creating hello_django_celery_1 ... done
+Creating hello_django_celery-beat_1 ... done
+</code></pre>
+
+<p>Artık sunucuya erişebiliyor olmalısınız.</p>
+
+<h2 id="sırada-ne-var">Sırada ne var?</h2>
+
+<p>10. yazımızı artık projemizi deploy edebilecek aşamada bitiriyoruz. İşlemediğimiz değinmediğimiz bir çok konu olduğunu biliyorsunuz. Bundan  sonraki aşamalarda biraz da sizden gelen isteklere göre seriyi sürdürmeyi düşünüyorum. Neyi atladıysam, neyi detaylandırmamı istiyorsanız bana ulaşın, destekte bulunun, ben de bu seriyi elimden geldiğince devam ettirmeye çalışacağım. Umarım sizler için güzel bir yardımcı kaynak olmuştur.</p>
 <div class="footnotes">
 
 <hr />
 
 <ol>
-<li id="fn:1">Daha önce söylediğim gibi, bilmediğiniz veya hatırlamadığınız konular için Django belgelerine sık sık bakmayı alışkanlık hale getirmeniz size çok şey kazandırır. <a href="https://docs.djangoproject.com/en/2.0/topics/forms/formsets/">Formsets</a> belgesine mutlaka bakın.
+<li id="fn:1">Docker-compose&rsquo;un Production için elverişli olup olmadığı konusunda arkadaşlarımın da bazı fikirleri var. Fakat ben küçük projelerde veya başlangıç açamasında çok ciddi bir sıkıntı olacağını düşünmüyorum. Bu konuyla ilgili daha fazla bilgi için mutlaka <a href="https://docs.docker.com/compose/production/">Docker dökümantasyonuna</a> bir göz atmanızı öneriyorum, Docker&rsquo;in ne kadar kapsamlı bir şey olduğunu anlamanızı isterim.
  <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:2">Bir eklentiyi bağımlılık olarak eklemeye karar vermeden önce bakımı iyi yapılıyor mu, unittestleri var mı, belgesi nasıl, kodu temiz mi bir bakmakta fayda var.
- <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
 </ol>
 </div>
 
@@ -312,16 +363,11 @@ class UptimeDashboardView(ModelFormSetView):
                                     
                                         <div class="mx-0 mx-md-4 mt-4 text-left">
                                             <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
-                                            <a href="https://gokmengorgen.net/django-notlarim/04-template-motoru/">04 - Template Motoru</a>
+                                            <a href="https://gokmengorgen.net/django-notlarim/09-celery-ile-periyodik-isler/">09 - Celery ile periyodik işler</a>
                                         </div>
                                     
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    
-                                        <div class="mx-0 mx-md-4 mt-4 text-right">
-                                            <a href="https://gokmengorgen.net/django-notlarim/06-bildirimler-ve-ceviriler/">06 - Bildirimler ve çeviriler</a>
-                                            <img class="icon" src="https://gokmengorgen.net/img/next.svg" alt="next" />
-                                        </div>
                                     
                                 </div>
                             </div>

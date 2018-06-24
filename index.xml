@@ -22,6 +22,16 @@
     </item>
     
     <item>
+      <title>10 - Sunucunun hazırlanması</title>
+      <link>https://gokmengorgen.net/django-notlarim/10-sunucunun-hazirlanmasi/</link>
+      <pubDate>Sun, 17 Jun 2018 01:57:58 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notlarim/10-sunucunun-hazirlanmasi/</guid>
+      <description>Buraya kadar hep geliştirme aşamasıyla ilgili konulara değindik. Şimdi backend development tarafından çıkıp biraz devops deployment konusunu ele alalım. Olabildiğince az müdahale ile projemizi dış dünyanın erişimine sunacağız.
+Özet  Docker ile sunucumuzu hazırlayacağız. Ortama göre (development, production, test) sunucu ve proje ayarlarımızı değiştirebileceğimiz yapılandırma dosyaları oluşturacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.  Gerçekten Docker&amp;rsquo;a gerek var mı? Elbette hayır. Hatta yeni bir sunucuya da ihtiyacımız yok, şimdiye kadar kullandığımız geliştirme sunucumuzu ngrok gibi basit bir tünelleme aracıyla dışarıdan erişilebilir hale getirip bilgisayarımızı 24 saat açık bırakabiliriz.</description>
+    </item>
+    
+    <item>
       <title>09 - Celery ile periyodik işler</title>
       <link>https://gokmengorgen.net/django-notlarim/09-celery-ile-periyodik-isler/</link>
       <pubDate>Sun, 10 Jun 2018 00:17:16 +0200</pubDate>

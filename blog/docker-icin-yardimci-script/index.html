@@ -4,33 +4,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Blog</title>
+    <title>Docker için yardımcı script</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="referrer" content="no-referrer">
-    <meta name="description" content="Gökmen Görgen&#39;s writings about programming and remote-working style.">
+    <meta name="description" content="Geliştirme ortamını yönetmek için yardımcı bir script yazdım. Kullanın, geliştirin, önerilerinizi eksik etmeyin.">
     <meta property="og:site_name" content="GKMNGRGN" />
     <meta property="og:locale" content="nn_NO" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://gokmengorgen.net/blog/" />
-    <meta property="og:title" content="Blog" />
+    <meta property="og:url" content="https://gokmengorgen.net/blog/docker-icin-yardimci-script/" />
+    <meta property="og:title" content="Docker için yardımcı script" />
     <meta property="og:image" content="https://gokmengorgen.net/img/laughing-man.png" />
-    <meta property="og:description" content="Gökmen Görgen&#39;s writings about programming and remote-working style." />
+    <meta property="og:description" content="Geliştirme ortamını yönetmek için yardımcı bir script yazdım. Kullanın, geliştirin, önerilerinizi eksik etmeyin." />
 
     
         <meta property="twitter:site" content="@gokmengorgen">
     
 
-    <meta property="twitter:title" content="Blog" />
+    <meta property="twitter:title" content="Docker için yardımcı script" />
     <meta property="twitter:image" content="https://gokmengorgen.net/img/laughing-man.png" />
     <meta property="twitter:card" content="summary" />
-    <meta property="twitter:description" content="Gökmen Görgen&#39;s writings about programming and remote-working style." />
+    <meta property="twitter:description" content="Geliştirme ortamını yönetmek için yardımcı bir script yazdım. Kullanın, geliştirin, önerilerinizi eksik etmeyin." />
 
     
         <meta name="flattr:id" content="62knje">
     
 
-    <link rel="canonical" href="https://gokmengorgen.net/blog/">
+    <link rel="canonical" href="https://gokmengorgen.net/blog/docker-icin-yardimci-script/">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous" />
 
@@ -47,8 +47,6 @@
     <link rel="shortcut icon"
         href="https://gokmengorgen.net/img/laughing-man-favicon.png">
 
-    
-        <link href="https://gokmengorgen.net/blog/index.xml" rel="alternate" type="application/rss+xml" title="GKMNGRGN" />
     
 
     <noscript>
@@ -126,155 +124,214 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-10">
+                    <h1 class="mx-0 mx-md-4">Docker için yardımcı script</h1>
+
+                    <div class="mb-4 mb-md-5 meta">
+                        <span class="date" title="Sun Aug 5 2018 12:11:27 CEST">
+                            Aug 5, 2018
+                        </span>
+
+                        
+                            
+                        
+
+                        <span class="reading-time middot">
+                            3 minute read
+                        </span>
+
+                        <div class="d-none d-md-inline tags">
+                            <ul class="list-unstyled d-inline">
+                                
+                                    <li class="d-inline middot">
+                                        <a href="https://gokmengorgen.net/tags/coding">coding</a>
+                                    </li>
+                                
+                                    <li class="d-inline middot">
+                                        <a href="https://gokmengorgen.net/tags/devops">devops</a>
+                                    </li>
+                                
+                            </ul>
+                        </div>
+
+                        <div class="d-none d-md-inline tags">
+                            <ul class="list-unstyled d-inline">
+                                
+                                
+                            </ul>
+                        </div>
+                    </div>
+
                     <div class="markdown">
                         
     
     
 
+<p><em>Docker&rsquo;da projenin çalıştırılacağı ortam sayısı arttıkça, konteynerler çoğaldıkça, yapılandırma dosyalarında satır sayısı uzadıkça komutlar da uzamaya, parametreler artmaya başlıyor. Django shell&rsquo;e nasıl bağlanılıyordu, çeviri dosyalarını nasıl güncelliyorduk, frontend sunucusu hazır mı değil mi nasıl anlıyorduk demek yerine, sık kullanılan komutları basit bir scriptle çalıştırırsak beni rahatlatır diye düşündüm ve internette bununla ilgili bir araştırma yaptım.</em></p>
+
+<p>Öncelikle bu tip işler için <strong>Makefile</strong> kullanma önerisi çok hoşuma gitti. Epey basit ve anlaşılır bir sözdizimi var, komut satırında çift tab yapıp autocomplete yapabiliyorsunuz ve bu tip yardımcı özellikler epey verimliliği artırıyor. Zaten amacımız verimliliği artırmak. Ama Windows kullananların Makefile&rsquo;i ayrıca yüklemesi gerekiyor.</p>
+
+<p>Makefile&rsquo;i yüklemek (veya yükletmek) bir problem değil; ama yine de alternatiflere bakma gereği duydum<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>. <strong>Docker compose</strong>&lsquo;da her bir komut için ayrı ayrı servis oluşturma fikri çok mantıklı gelmedi, bir de help çıktısı ile tüm komutları açıklamalarıyla birlikte görmek istiyordum. O nedenle basit bir <strong>shell scripting</strong> ile zaten bağımlılığımız olan eldeki araçları kullanarak bu işi yapabileceğimizi gördüm.</p>
+
+<h2 id="kısaca">Kısaca</h2>
+
+<ul>
+<li>Komutu parametresiz çalıştırdığımda bana nasıl kullanabileceğimi gösterecek.</li>
+<li>Sistemin production mu, yoksa geliştirme ortamı mı olduğunu ben belirleyeceğim.</li>
+<li>Komutu çalıştırırken emin olmak için ortamı ve hatırlatmak için asıl komutu gösterecek.</li>
+</ul>
+
+<pre><code class="language-bash">$ ./do.sh
+ Available environments
+   - DEV (default)
+   - PROD
+   - STAGING
+
+ Available commands
+   &gt; shell               Open Bash
+   &gt; start               Create and start containers
+   &gt; status              List containers
+   &gt; stop                Stop services
+</code></pre>
+
+<p>Öntanımlı ortam, <strong>DEV</strong>:</p>
+
+<pre><code class="language-bash">$ ./do.sh status
+Environment: development
+    Command: docker-compose -f docker-compose.yml -f docker-compose.dev.yml ps
+
+Name                  State      Ports
+----------------------------------------------------------------------------------------------
+prj_amqp_1            Up         15671/tcp, 15672/tcp, 25672/tcp, 4369/tcp, 5671/tcp, 5672/tcp
+prj_backend_1         Exit 137
+prj_celery-beat_1     Up
+prj_celery-worker_1   Up
+prj_db_1              Up         5432/tcp
+prj_es_1              Up         9200/tcp, 9300/tcp
+prj_frontend_1        Up         0.0.0.0:8080-&gt;8080/tcp
+</code></pre>
+
+<p><strong>STAGING</strong> ortamını kullanmak istersek:</p>
+
+<pre><code class="language-bash">$ ENV=STAGING ./do.sh shell
+Environment: staging
+    Command: docker-compose -f docker-compose.yml -f docker-compose.staging.yml up -d db frontend backend ...
+
+...
+</code></pre>
+
+<p>Windows <strong>PowerShell</strong>&lsquo;de kullanmak için:</p>
+
+<pre><code class="language-powershell">&gt; $env:ENV = &quot;PROD&quot;;
+&gt; bash do.sh status
+Environment: production
+    Command: docker-compose -f docker-compose.yml -f docker-compose.prod.yml ps
+...
+</code></pre>
+
+<p>Windows&rsquo;ta <strong>Git Bash</strong> kullanıyorsanız:</p>
+
+<pre><code class="language-bash">$ ENV=STAGING winpty bash do.sh status
+Environment: staging
+    Command: docker-compose -f docker-compose.yml -f docker-compose.staging.yml ps
+...
+</code></pre>
+
+<h2 id="örnek-script">Örnek script</h2>
+
+<p>Yannick PEREIRA-REIS<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>&lsquo;e teşekkürler. <a href="http://azmesai.net/">Az Mesai</a> slack grubuna da geribildirim için teşekkürler.</p>
+
+<pre><code class="language-bash">#!/usr/bin/env bash
+
+NORMAL=&quot;\\033[0;39m&quot;
+BLUE=&quot;\\033[1;34m&quot;
+
+print_help() {
+    echo -e &quot;$BLUE Available environments $NORMAL&quot;
+    echo &quot;   - DEV (default)&quot;
+    echo &quot;   - PROD&quot;
+    echo &quot;   - STAGING&quot;
+    echo &quot;&quot;
+    echo -e &quot;$BLUE Available commands $NORMAL&quot;
+    echo -e &quot;   &gt; shell \t\t Open Bash&quot;
+    echo -e &quot;   &gt; start \t\t Create and start containers&quot;
+    echo -e &quot;   &gt; status \t\t List containers&quot;
+    echo -e &quot;   &gt; stop \t\t Stop services&quot;
+}
+
+docker_command() {
+    if [ &quot;$ENV&quot; = &quot;PROD&quot; ]
+    then
+        env_str=&quot;production&quot;
+        command=&quot;docker-compose -f docker-compose.yml -f docker-compose.prod.yml $@&quot;
+    elif [ &quot;$ENV&quot; = &quot;STAGING&quot; ]
+    then
+        env_str=&quot;staging&quot;
+        command=&quot;docker-compose -f docker-compose.yml -f docker-compose.staging.yml $@&quot;
+    else
+        env_str=&quot;development&quot;
+        command=&quot;docker-compose -f docker-compose.yml -f docker-compose.dev.yml $@&quot;
+    fi
+
+    echo -e &quot;$BLUE \rEnvironment:$NORMAL $env_str&quot;
+    echo -e &quot;$BLUE \r    Command:$NORMAL $command&quot;
+    echo -e &quot;&quot;
+    eval $command
+}
+
+shell() {
+    docker_command run --rm backend_shell bash
+}
+
+status() {
+    docker_command ps
+}
+
+start() {
+    docker_command up -d db amqp es frontend celery-beat celery-worker backend
+}
+
+stop() {
+    docker_command stop
+}
+
+if [ -z &quot;$1&quot; ]
+then
+    print_help
+else
+    &quot;$@&quot;
+fi
+</code></pre>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Yannick PEREIRA-REIS - <a href="https://ypereirareis.github.io/blog/2015/05/04/docker-with-shell-script-or-makefile/">Docker with shell script or Makefile</a>
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
 
                     </div>
 
-                    <div class="mx-0 mx-md-4 posts">
-                        <h1>Blog posts</h1>
-                        <ul class="list-unstyled">
-                            
-                                <li class="groupby">Aug, 2018</li>
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">Aug 5, 2018</span>
-    <a href="https://gokmengorgen.net/blog/docker-icin-yardimci-script/"><span>Docker için yardımcı script</span></a>
-</li>
-
-                                
-                            
-                                <li class="groupby">Jun, 2018</li>
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">Jun 24, 2018</span>
-    <a href="https://gokmengorgen.net/blog/git-is-akisi/"><span>Git iş akışı</span></a>
-</li>
-
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">Jun 21, 2018</span>
-    <a href="https://gokmengorgen.net/blog/2018-en-iyi-laptoplar/"><span>2018&#39;de keşfettiğim en iyi laptoplar</span></a>
-</li>
-
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">Jun 8, 2018</span>
-    <a href="https://gokmengorgen.net/blog/daha-guclu-powershell/"><span>Daha güçlü PowerShell</span></a>
-</li>
-
-                                
-                            
-                                <li class="groupby">May, 2018</li>
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">May 27, 2018</span>
-    <a href="https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/"><span>Django modelinde selectbox kullanımı</span></a>
-</li>
-
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">May 10, 2018</span>
-    <a href="https://gokmengorgen.net/blog/stres/"><span>Stres</span></a>
-</li>
-
-                                
-                            
-                                <li class="groupby">Dec, 2017</li>
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">Dec 10, 2017</span>
-    <a href="https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/"><span>Geliştiriciler için Windows 10 Pro</span></a>
-</li>
-
-                                
-                            
-                                <li class="groupby">Jul, 2017</li>
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">Jul 1, 2017</span>
-    <a href="https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/"><span>Vagrant ile proje geliştirme</span></a>
-</li>
-
-                                
-                            
-                                <li class="groupby">Apr, 2017</li>
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">Apr 24, 2017</span>
-    <a href="https://gokmengorgen.net/blog/emacse-nereden-baslamali/"><span>Emacs&#39;e nereden başlamalı?</span></a>
-</li>
-
-                                
-                            
-                                <li class="groupby">Mar, 2017</li>
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">Mar 5, 2017</span>
-    <a href="https://gokmengorgen.net/blog/isverenlere-uzaktan-calisma-tavsiyesi/"><span>İşverenlere uzaktan çalışma tavsiyesi</span></a>
-</li>
-
-                                
-                            
-                                <li class="groupby">Oct, 2016</li>
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">Oct 1, 2016</span>
-    <a href="https://gokmengorgen.net/blog/goc/"><span>Göç</span></a>
-</li>
-
-                                
-                            
-                                <li class="groupby">Jul, 2016</li>
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">Jul 9, 2016</span>
-    <a href="https://gokmengorgen.net/blog/kitaplari-sanallastirmak/"><span>Kitapları sanallaştırmak</span></a>
-</li>
-
-                                
-                            
-                                <li class="groupby">May, 2016</li>
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">May 23, 2016</span>
-    <a href="https://gokmengorgen.net/blog/uzaktan-calismak/"><span>Uzaktan çalışmak</span></a>
-</li>
-
-                                
-                            
-                                <li class="groupby">Oct, 2015</li>
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">Oct 19, 2015</span>
-    <a href="https://gokmengorgen.net/blog/borsa-kumar-mi/"><span>Borsa kumar mı?</span></a>
-</li>
-
-                                
-                            
-                                <li class="groupby">Mar, 2015</li>
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">Mar 22, 2015</span>
-    <a href="https://gokmengorgen.net/blog/isletim-sistemi-tercihini-gelistiriciye-birakin/"><span>İşletim sistemi tercihini geliştiriciye bırakın</span></a>
-</li>
-
-                                
-                            
-                                <li class="groupby">Mar, 2012</li>
-                                
-                                    <li class="pl-3 post-item">
-    <span class="meta">Mar 24, 2012</span>
-    <a href="https://gokmengorgen.net/blog/gelistiriciden-isverene-dagitik-manifesto/"><span>Geliştiriciden işverene dağıtık manifesto</span></a>
-</li>
-
-                                
-                            
-                        </ul>
-                    </div>
+                    
+                        <div class="navigation">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    
+                                        <div class="mx-0 mx-md-4 mt-4 text-left">
+                                            <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
+                                            <a href="https://gokmengorgen.net/blog/git-is-akisi/">Git iş akışı</a>
+                                        </div>
+                                    
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
                 </div>
             </div>
         </div>

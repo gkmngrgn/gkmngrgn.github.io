@@ -6,10 +6,20 @@
     <description>Recent content in Coding on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Jun 2018 14:23:26 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 05 Aug 2018 12:11:27 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tags/coding/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker için yardımcı script</title>
+      <link>https://gokmengorgen.net/blog/docker-icin-yardimci-script/</link>
+      <pubDate>Sun, 05 Aug 2018 12:11:27 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/docker-icin-yardimci-script/</guid>
+      <description>Docker&amp;rsquo;da projenin çalıştırılacağı ortam sayısı arttıkça, konteynerler çoğaldıkça, yapılandırma dosyalarında satır sayısı uzadıkça komutlar da uzamaya, parametreler artmaya başlıyor. Django shell&amp;rsquo;e nasıl bağlanılıyordu, çeviri dosyalarını nasıl güncelliyorduk, frontend sunucusu hazır mı değil mi nasıl anlıyorduk demek yerine, sık kullanılan komutları basit bir scriptle çalıştırırsak beni rahatlatır diye düşündüm ve internette bununla ilgili bir araştırma yaptım.
+Öncelikle bu tip işler için Makefile kullanma önerisi çok hoşuma gitti. Epey basit ve anlaşılır bir sözdizimi var, komut satırında çift tab yapıp autocomplete yapabiliyorsunuz ve bu tip yardımcı özellikler epey verimliliği artırıyor.</description>
+    </item>
     
     <item>
       <title>Git iş akışı</title>

@@ -240,41 +240,46 @@ Environment: staging
 
 <p>Yannick PEREIRA-REIS<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>&lsquo;e teşekkürler. <a href="http://azmesai.net/">Az Mesai</a> slack grubuna da geribildirim için teşekkürler.</p>
 
-<pre><code class="language-bash">#!/usr/bin/env bash
+<script src="https://gist.github.com/gkmngrgn/48303742353b0b17ae0e5c2d1d24ec3e.js"></script>
 
-NORMAL=&quot;\\033[0;39m&quot;
-BLUE=&quot;\\033[1;34m&quot;
+<!--
+# BACKUP IS HERE #
+
+#!/usr/bin/env bash
+
+NORMAL="\\033[0;39m"
+BLUE="\\033[1;34m"
 
 print_help() {
-    echo -e &quot;$BLUE Available environments $NORMAL&quot;
-    echo &quot;   - DEV (default)&quot;
-    echo &quot;   - PROD&quot;
-    echo &quot;   - STAGING&quot;
-    echo &quot;&quot;
-    echo -e &quot;$BLUE Available commands $NORMAL&quot;
-    echo -e &quot;   &gt; shell \t\t Open Bash&quot;
-    echo -e &quot;   &gt; start \t\t Create and start containers&quot;
-    echo -e &quot;   &gt; status \t\t List containers&quot;
-    echo -e &quot;   &gt; stop \t\t Stop services&quot;
+    echo -e "$BLUE Available environments $NORMAL"
+    echo "   - DEV (default)"
+    echo "   - PROD"
+    echo "   - STAGING"
+    echo ""
+    echo -e "$BLUE Available commands $NORMAL"
+    echo -e "   > shell \t\t Open Bash"
+    echo -e "   > start \t\t Create and start containers"
+    echo -e "   > status \t\t List containers"
+    echo -e "   > stop \t\t Stop services"
 }
 
 docker_command() {
-    if [ &quot;$ENV&quot; = &quot;PROD&quot; ]
+    if [ "$ENV" = "PROD" ]
     then
-        env_str=&quot;production&quot;
-        command=&quot;docker-compose -f docker-compose.yml -f docker-compose.prod.yml $@&quot;
-    elif [ &quot;$ENV&quot; = &quot;STAGING&quot; ]
+        env_str="production"
+        command="docker-compose -f docker-compose.yml -f docker-compose.prod.yml $@"
+    elif [ "$ENV" = "STAGING" ]
     then
-        env_str=&quot;staging&quot;
-        command=&quot;docker-compose -f docker-compose.yml -f docker-compose.staging.yml $@&quot;
+        env_str="staging"
+        command="docker-compose -f docker-compose.yml -f docker-compose.staging.yml $@"
     else
-        env_str=&quot;development&quot;
-        command=&quot;docker-compose -f docker-compose.yml -f docker-compose.dev.yml $@&quot;
+        env_str="development"
+        command="docker-compose -f docker-compose.yml -f docker-compose.dev.yml $@"
     fi
 
-    echo -e &quot;$BLUE \rEnvironment:$NORMAL $env_str&quot;
-    echo -e &quot;$BLUE \r    Command:$NORMAL $command&quot;
-    echo -e &quot;&quot;
+    echo -e "$BLUE \rEnvironment:$NORMAL $env_str"
+    echo -e "$BLUE \r    Command:$NORMAL $command"
+    echo -e ""
     eval $command
 }
 
@@ -294,13 +299,13 @@ stop() {
     docker_command stop
 }
 
-if [ -z &quot;$1&quot; ]
+if [ -z "$1" ]
 then
     print_help
 else
-    &quot;$@&quot;
+    "$@"
 fi
-</code></pre>
+-->
 <div class="footnotes">
 
 <hr />

@@ -134,6 +134,10 @@
   </url>
   
   <url>
+    <loc>https://gokmengorgen.net/style-guide/csharp/</loc>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/categories/</loc>
     <priority>0</priority>
   </url>
@@ -188,6 +192,10 @@
   </url>
   
   <url>
+    <loc>https://gokmengorgen.net/style-guide/javascript/</loc>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/license/</loc>
   </url>
   
@@ -202,6 +210,10 @@
   </url>
   
   <url>
+    <loc>https://gokmengorgen.net/style-guide/python/</loc>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/remote/</loc>
     <lastmod>2016-05-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -211,6 +223,10 @@
     <loc>https://gokmengorgen.net/tags/software/</loc>
     <lastmod>2016-05-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/style-guide/</loc>
   </url>
   
   <url>

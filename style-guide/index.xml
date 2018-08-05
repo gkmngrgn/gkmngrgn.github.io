@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Style guide on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/style-guide/</link>
+    <description>Recent content in Style guide on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://gokmengorgen.net/style-guide/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C#</title>
+      <link>https://gokmengorgen.net/style-guide/csharp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/style-guide/csharp/</guid>
+      <description>Not ready yet.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>https://gokmengorgen.net/style-guide/javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/style-guide/javascript/</guid>
+      <description>Not ready yet.</description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://gokmengorgen.net/style-guide/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/style-guide/python/</guid>
+      <description>We usually follow PEP 8. Additionally we follow Django Coding Style in our Django projects.  But..  We allow up to 119 characters in a line, even if we don&amp;rsquo;t use Django in the project.  Python module sorter: isort In PyCharm you can sort imports alphabetically and separate them into sections (CTRL + SHIFT + O in Windows, with a default keymap). If your editor doesn&amp;rsquo;t have the same feature, you can use isort.</description>
+    </item>
+    
+  </channel>
+</rss>

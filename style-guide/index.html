@@ -2,36 +2,35 @@
 <html lang="en-us">
 
 <head>
-	<meta name="generator" content="Hugo 0.40.3" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>GKMNGRGN</title>
+    <title>Style guide</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="referrer" content="no-referrer">
-    <meta name="description" content="Gökmen Görgen&#39;s writings about programming and remote-working style.">
+    <meta name="description" content="Read my style guide notes before working with me. I didn&#39;t determine the rules by myself, we did it together, I am just a lead one of my team.">
     <meta property="og:site_name" content="GKMNGRGN" />
     <meta property="og:locale" content="nn_NO" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://gokmengorgen.net/" />
-    <meta property="og:title" content="GKMNGRGN" />
-    <meta property="og:image" content="https://gokmengorgen.net/img/laughing-man.png" />
-    <meta property="og:description" content="Gökmen Görgen&#39;s writings about programming and remote-working style." />
+    <meta property="og:url" content="https://gokmengorgen.net/style-guide/" />
+    <meta property="og:title" content="Style guide" />
+    <meta property="og:image" content="https://gokmengorgen.net/img/style-guide/code-part-pixelised.png" />
+    <meta property="og:description" content="Read my style guide notes before working with me. I didn&#39;t determine the rules by myself, we did it together, I am just a lead one of my team." />
 
     
         <meta property="twitter:site" content="@gokmengorgen">
     
 
-    <meta property="twitter:title" content="GKMNGRGN" />
-    <meta property="twitter:image" content="https://gokmengorgen.net/img/laughing-man.png" />
+    <meta property="twitter:title" content="Style guide" />
+    <meta property="twitter:image" content="https://gokmengorgen.net/img/style-guide/code-part-pixelised.png" />
     <meta property="twitter:card" content="summary" />
-    <meta property="twitter:description" content="Gökmen Görgen&#39;s writings about programming and remote-working style." />
+    <meta property="twitter:description" content="Read my style guide notes before working with me. I didn&#39;t determine the rules by myself, we did it together, I am just a lead one of my team." />
 
     
         <meta name="flattr:id" content="62knje">
     
 
-    <link rel="canonical" href="https://gokmengorgen.net/">
+    <link rel="canonical" href="https://gokmengorgen.net/style-guide/">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous" />
 
@@ -49,7 +48,7 @@
         href="https://gokmengorgen.net/img/laughing-man-favicon.png">
 
     
-        <link href="https://gokmengorgen.net/index.xml" rel="alternate" type="application/rss+xml" title="GKMNGRGN" />
+        <link href="https://gokmengorgen.net/style-guide/index.xml" rel="alternate" type="application/rss+xml" title="GKMNGRGN" />
     
 
     <noscript>
@@ -127,135 +126,102 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-10">
-                    
-                        <div class="markdown">
-                            
+                    <div class="markdown">
+                        
     
-    <p><strong>Hello.</strong> I’m working as a software developer in <a href="https://radity.com">Radity</a>. I mostly use Python for Django, C# for .NET, and I improve myself about web and mobile technologies. Also, I’m interested in Java / Kotlin for Android, and I follow the news about machine learning, deep learning, artificial intelligence, etc.</p>
+    
 
-<p><strong>Currently,</strong> I&rsquo;m spending all my time on <a href="https://coachfrog.ch">Coachfrog.ch</a> and I live in Berlin.
-I am not interested in Hackathon but if you are looking for a teammate on your <u>open source</u> projects you can
-<a href="mailto:gokmenATalageekDOTcom" onclick="this.href=this.href.replace(/AT/, '&#64;').replace(/DOT/, '&#46;')">email me</a>
-directly or <a href="https://1drv.ms/b/s!AsRMET0ye5r7g406YRsbW_37fa0Miw">here</a> you can find more information about me.</p>
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/style-guide/code-part-pixelised.png" src="https://gokmengorgen.net/img/style-guide/low/code-part-pixelised.png" alt="Style guide" title="Style guide" /></p></figure>
+
+<h2 id="editorconfig">EditorConfig</h2>
+
+<p>Please use <a href="https://editorconfig.org/">EditorConfig</a> extension in your preferred IDE or editor. And copy the following config to your project.</p>
+
+<pre><code class="language-ini"># .editorconfig
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[Makefile]
+indent_style = tab
+
+[*.go]
+indent_style = tab
+</code></pre>
+
+<h2 id="git-config">Git config</h2>
+
+<p>We want to see your fullname and email correctly. Also it would be nice if you use gravatar to see your profile picture in your commits.</p>
+
+<pre><code class="language-ini"># ~/.gitconfig
+[user]
+    name = {{ YOUR FULLNAME }}
+    email = {{ YOUR EMAIL }}
+[alias]
+    di = diff
+    st = status -s
+    ci = commit -v
+    co = checkout
+    br = branch
+    prune-all = !git remote | xargs -n 1 git remote prune
+    record = !git add -p &amp;&amp; git ci
+    amend-record = !git add -p &amp;&amp; git ci --amend
+    stoat = !toilet -f future STOATS
+    update-master = !git checkout master &amp;&amp; git pull -r
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+[core]
+    autocrlf = false
+    editor = nano
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    excludesfile = ~/.gitignore_global
+</code></pre>
+
+<p>Please ignore IDE, editor, and OS specific files in <strong>gitignore_global</strong>:</p>
+
+<pre><code class="language-ini"># ~/.gitignore_global
+.vscode
+.idea
+.vs
+
+*.elc
+.elisp/auto-complete
+.elisp/magit
+</code></pre>
 
 
 
-                        </div>
-                    
+                    </div>
 
-                    
-                        <div class="mx-0 mx-md-4 best-posts">
-                            <div class="page-heading">📌 Pinned</div>
-                            <ul>
-                                
-                                    <li>
-                                        <a href="https://gokmengorgen.net/django-notlarim/">Django notlarım</a>
-                                    </li>
-                                
-                                    <li>
-                                        <a href="https://gokmengorgen.net/style-guide/">Style guide</a>
-                                    </li>
-                                
-                            </ul>
-                        </div>
-                    
-
-                    
-                        <div class="mx-0 mx-md-4 posts">
+                    <div class="mx-0 mx-md-4 posts">
+                        <h1>Sections</h1>
+                        <ul>
                             
+                                <li>
+                                    <a href="https://gokmengorgen.net/style-guide/csharp/"><span>C#</span></a>
+                                </li>
                             
-                                <div class="page-heading">Latest posts</div>
-                                <ul class="px-0">
-                                    
-                                        <li class="groupby">Jun, 2018</li>
-                                        
-                                            <li class="pl-3 post-item">
-    <span class="meta">Jun 24, 2018</span>
-    <a href="https://gokmengorgen.net/blog/git-is-akisi/"><span>Git iş akışı</span></a>
-</li>
-
-                                        
-                                            <li class="pl-3 post-item">
-    <span class="meta">Jun 21, 2018</span>
-    <a href="https://gokmengorgen.net/blog/2018-en-iyi-laptoplar/"><span>2018&#39;de keşfettiğim en iyi laptoplar</span></a>
-</li>
-
-                                        
-                                            <li class="pl-3 post-item">
-    <span class="meta">Jun 8, 2018</span>
-    <a href="https://gokmengorgen.net/blog/daha-guclu-powershell/"><span>Daha güçlü PowerShell</span></a>
-</li>
-
-                                        
-                                    
-                                        <li class="groupby">May, 2018</li>
-                                        
-                                            <li class="pl-3 post-item">
-    <span class="meta">May 27, 2018</span>
-    <a href="https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/"><span>Django modelinde selectbox kullanımı</span></a>
-</li>
-
-                                        
-                                            <li class="pl-3 post-item">
-    <span class="meta">May 10, 2018</span>
-    <a href="https://gokmengorgen.net/blog/stres/"><span>Stres</span></a>
-</li>
-
-                                        
-                                    
-                                        <li class="groupby">Dec, 2017</li>
-                                        
-                                            <li class="pl-3 post-item">
-    <span class="meta">Dec 10, 2017</span>
-    <a href="https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/"><span>Geliştiriciler için Windows 10 Pro</span></a>
-</li>
-
-                                        
-                                    
-                                        <li class="groupby">Jul, 2017</li>
-                                        
-                                            <li class="pl-3 post-item">
-    <span class="meta">Jul 1, 2017</span>
-    <a href="https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/"><span>Vagrant ile proje geliştirme</span></a>
-</li>
-
-                                        
-                                    
-                                        <li class="groupby">Apr, 2017</li>
-                                        
-                                            <li class="pl-3 post-item">
-    <span class="meta">Apr 24, 2017</span>
-    <a href="https://gokmengorgen.net/blog/emacse-nereden-baslamali/"><span>Emacs&#39;e nereden başlamalı?</span></a>
-</li>
-
-                                        
-                                    
-                                        <li class="groupby">Mar, 2017</li>
-                                        
-                                            <li class="pl-3 post-item">
-    <span class="meta">Mar 5, 2017</span>
-    <a href="https://gokmengorgen.net/blog/isverenlere-uzaktan-calisma-tavsiyesi/"><span>İşverenlere uzaktan çalışma tavsiyesi</span></a>
-</li>
-
-                                        
-                                    
-                                        <li class="groupby">Oct, 2016</li>
-                                        
-                                            <li class="pl-3 post-item">
-    <span class="meta">Oct 1, 2016</span>
-    <a href="https://gokmengorgen.net/blog/goc/"><span>Göç</span></a>
-</li>
-
-                                        
-                                    
-                                </ul>
-
-                                
-                                    <a href="./blog/" class="font-italic mt-4 see-more">See more ...</a>
-                                
+                                <li>
+                                    <a href="https://gokmengorgen.net/style-guide/javascript/"><span>JavaScript</span></a>
+                                </li>
                             
-                        </div>
-                    
+                                <li>
+                                    <a href="https://gokmengorgen.net/style-guide/python/"><span>Python</span></a>
+                                </li>
+                            
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

@@ -267,6 +267,15 @@ Ben yazılımcıyım. Bağımsız çalışmak konusunda çok deneyimim yok. Bu k
     </item>
     
     <item>
+      <title>C#</title>
+      <link>https://gokmengorgen.net/style-guide/csharp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/style-guide/csharp/</guid>
+      <description>Not ready yet.</description>
+    </item>
+    
+    <item>
       <title>Certificates</title>
       <link>https://gokmengorgen.net/certificates/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -286,6 +295,15 @@ Currently, I&amp;rsquo;m spending all my time on Coachfrog.ch and I live in Berl
     </item>
     
     <item>
+      <title>JavaScript</title>
+      <link>https://gokmengorgen.net/style-guide/javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/style-guide/javascript/</guid>
+      <description>Not ready yet.</description>
+    </item>
+    
+    <item>
       <title>License</title>
       <link>https://gokmengorgen.net/license/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -302,6 +320,15 @@ Did you like my website theme? It&amp;rsquo;s Hugo static site generator with al
       
       <guid>https://gokmengorgen.net/live/</guid>
       <description>You can follow me to see how I play a game or code open source projects&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://gokmengorgen.net/style-guide/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/style-guide/python/</guid>
+      <description>We usually follow PEP 8. Additionally we follow Django Coding Style in our Django projects.  But..  We allow up to 119 characters in a line, even if we don&amp;rsquo;t use Django in the project.  Python module sorter: isort In PyCharm you can sort imports alphabetically and separate them into sections (CTRL + SHIFT + O in Windows, with a default keymap). If your editor doesn&amp;rsquo;t have the same feature, you can use isort.</description>
     </item>
     
   </channel>

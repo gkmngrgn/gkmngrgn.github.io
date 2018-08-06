@@ -128,7 +128,104 @@
                     <div class="markdown">
                         
     
-    <p>Not ready yet.</p>
+    
+
+<h1 id="javascript">JavaScript</h1>
+
+<h2 id="linting">Linting</h2>
+
+<ul>
+<li>We follow <a href="https://github.com/airbnb/javascript">Airbnb</a>&rsquo;s JavaScript style guide with <a href="https://eslint.org/docs/rules/">ESlint</a> integration.</li>
+<li>In <strong>Vue</strong> we use <strong>@vue/cli-plugin-eslint</strong> and <strong>@vue/eslint-config-prettier</strong>.</li>
+</ul>
+
+<h2 id="formatting">Formatting</h2>
+
+<ul>
+<li>We use <a href="https://prettier.io/">Prettier</a> and we configure it for works well with ESlint.</li>
+</ul>
+
+<h2 id="installing-dependencies">Installing dependencies</h2>
+
+<p>First we install <strong>ESlint</strong> + <strong>Prettier</strong>.</p>
+
+<pre><code class="language-bash">npm install -D eslint prettier
+</code></pre>
+
+<p>Then we install <strong>Airbnb config</strong>. Airbnb config has own dependencies like:</p>
+
+<pre><code class="language-bash">eslint-config-airbnb eslint eslint-plugin-jsx-a11y
+eslint-plugin-import eslint-plugin-react
+</code></pre>
+
+<p>instead of installing all these manually. We use:</p>
+
+<pre><code class="language-bash">npx install-peerdeps --dev eslint-config-airbnb
+</code></pre>
+
+<p>(For using <strong>npx</strong> you need to use <strong>npm 5+</strong> )</p>
+
+<p>After we install: <strong>eslint-config-prettier</strong> for disabling formatting for ESLint and <strong>eslint-plugin-prettier</strong> for allowing ESLint to show formatting
+errors.</p>
+
+<pre><code class="language-bash">npm install -D eslint-config-prettier eslint-plugin-prettier
+</code></pre>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>Our default <strong>.eslintrc</strong> file:</p>
+
+<pre><code class="language-json">{
+  &quot;extends&quot;: [&quot;airbnb&quot;, &quot;prettier&quot;],
+  &quot;plugins&quot;: [&quot;prettier&quot;],
+  &quot;parserOptions&quot;: {
+    &quot;sourceType&quot;: &quot;module&quot;,
+    &quot;ecmaFeatures&quot;: {
+      &quot;jsx&quot;: true
+    }
+  },
+  &quot;env&quot;: {
+    &quot;browser&quot;: true,
+    &quot;es6&quot;: true,
+    &quot;node&quot;: true
+  },
+  &quot;rules&quot;: {
+    &quot;prettier/prettier&quot;: &quot;error&quot;
+  }
+}
+</code></pre>
+
+<p>Our default .prettierrc file:</p>
+
+<pre><code class="language-json">{
+  &quot;printWidth&quot;: 100,
+  &quot;singleQuote&quot;: true,
+  &quot;trailingComma&quot;: &quot;all&quot;
+}
+</code></pre>
+
+<p>In package.json file:</p>
+
+<pre><code class="language-json">{
+  ...
+  &quot;scripts&quot;: {
+      &quot;lint&quot;: &quot;eslint .&quot;
+  },
+  ...
+}
+</code></pre>
+
+<h2 id="vs-code">VS Code</h2>
+
+<p>We use <a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier</a> and
+<a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a> extensions.</p>
+
+<p>And make sure to Prettier runs when on save. In <strong>user settings</strong> we set:</p>
+
+<pre><code class="language-json">&quot;[javascript]&quot;: {
+    &quot;editor.formatOnSave&quot;: true
+}
+</code></pre>
 
 
 

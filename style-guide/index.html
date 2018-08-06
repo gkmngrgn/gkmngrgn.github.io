@@ -131,11 +131,11 @@
     
     
 
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/style-guide/code-part-pixelised.png" src="https://gokmengorgen.net/img/style-guide/low/code-part-pixelised.png" alt="Style guide" title="Style guide" /></p></figure>
+<p><img src="https://gokmengorgen.net/img/style-guide/code-part-pixelised.png" alt="Style guide" title="Style guide" /></p>
 
 <h2 id="editorconfig">EditorConfig</h2>
 
-<p>Please use <a href="https://editorconfig.org/">EditorConfig</a> extension in your preferred IDE or editor. And copy the following config to your project.</p>
+<p>Please use <a href="https://editorconfig.org/">EditorConfig</a> extension in your preferred IDE or editor. And copy the following config into <strong>your project folder</strong>:</p>
 
 <pre><code class="language-ini"># .editorconfig
 root = true
@@ -143,7 +143,7 @@ root = true
 [*]
 charset = utf-8
 end_of_line = lf
-indent_size = 4
+indent_size = 2
 indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
@@ -153,6 +153,9 @@ indent_style = tab
 
 [*.go]
 indent_style = tab
+
+[*.py]
+indent_size = 4
 </code></pre>
 
 <h2 id="git-config">Git config</h2>

@@ -282,7 +282,7 @@ Ben yazılımcıyım. Bağımsız çalışmak konusunda çok deneyimim yok. Bu k
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://gokmengorgen.net/style-guide/csharp/</guid>
-      <description>Not ready yet.</description>
+      <description>We can follow this document for CSharp coding standards. Further more this article might be useful for EditorConfig file Another well explained article that you can add more config  VS 2017 .editorconfig file is supported since Visual Studio 2017. You can follow this instruction for how to make style guide configuration. After changes or creating .editorconfig file first time, use this key combination(CTRL-K, CTRL-D) or Edit &amp;gt; Advanced &amp;gt; Format Document for seeing config result on your *.</description>
     </item>
     
     <item>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/docker-icin-yardimci-script/</loc>
+    <lastmod>2018-08-05T12:11:27+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/git-is-akisi/</loc>
+    <lastmod>2018-06-24T14:23:26+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/2018-en-iyi-laptoplar/</loc>
+    <lastmod>2018-06-21T23:38:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/django-notlarim/10-sunucunun-hazirlanmasi/</loc>
+    <lastmod>2018-06-17T01:57:58+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/django-notlarim/09-celery-ile-periyodik-isler/</loc>
+    <lastmod>2018-06-10T00:17:16+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/daha-guclu-powershell/</loc>
+    <lastmod>2018-06-08T02:00:39+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/django-notlarim/08-komutlar/</loc>
+    <lastmod>2018-06-02T02:05:05+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/</loc>
+    <lastmod>2018-05-27T16:45:30+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/django-notlarim/07-kullanici-dogrulama/</loc>
+    <lastmod>2018-05-18T23:46:49+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/django-notlarim/06-bildirimler-ve-ceviriler/</loc>
+    <lastmod>2018-05-10T14:36:49+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/stres/</loc>
+    <lastmod>2018-05-10T13:03:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/django-notlarim/05-formset/</loc>
+    <lastmod>2018-05-06T14:30:19+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/django-notlarim/04-template-motoru/</loc>
+    <lastmod>2018-04-28T00:56:53+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/django-notlarim/03-admin-paneli/</loc>
+    <lastmod>2018-04-22T00:02:51+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/django-notlarim/02-model-katmani/</loc>
+    <lastmod>2018-04-04T00:12:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/django-notlarim/01-baslangic/</loc>
+    <lastmod>2018-03-30T19:22:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/</loc>
+    <lastmod>2017-12-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/</loc>
+    <lastmod>2017-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/emacse-nereden-baslamali/</loc>
+    <lastmod>2017-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/isverenlere-uzaktan-calisma-tavsiyesi/</loc>
+    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/goc/</loc>
+    <lastmod>2016-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/kitaplari-sanallastirmak/</loc>
+    <lastmod>2016-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/uzaktan-calismak/</loc>
+    <lastmod>2016-05-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/borsa-kumar-mi/</loc>
+    <lastmod>2015-10-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/isletim-sistemi-tercihini-gelistiriciye-birakin/</loc>
+    <lastmod>2015-03-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/gelistiriciden-isverene-dagitik-manifesto/</loc>
+    <lastmod>2012-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/</loc>
+    <lastmod>2018-08-05T12:11:27+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/style-guide/csharp/</loc>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/certificates/</loc>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/coding/</loc>
+    <lastmod>2018-08-05T12:11:27+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/devops/</loc>
+    <lastmod>2018-08-05T12:11:27+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/django/</loc>
+    <lastmod>2018-06-17T01:57:58+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/django-notlarim/</loc>
+    <lastmod>2018-06-17T01:57:58+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/emacs/</loc>
+    <lastmod>2017-04-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/git/</loc>
+    <lastmod>2018-06-24T14:23:26+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/istanbul/</loc>
+    <lastmod>2018-05-10T13:03:43+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/style-guide/javascript/</loc>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/life-style/</loc>
+    <lastmod>2018-05-10T13:03:43+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/license/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/license/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/license/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/live/</loc>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/</loc>
+    <lastmod>2018-08-05T12:11:27+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/style-guide/python/</loc>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/remote/</loc>
+    <lastmod>2016-05-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/software/</loc>
+    <lastmod>2016-05-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/style-guide/</loc>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/</loc>
+    <lastmod>2018-08-05T12:11:27+02:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/vagrant/</loc>
+    <lastmod>2017-07-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/windows/</loc>
+    <lastmod>2017-12-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hello on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/en/</link>
+    <description>Recent content in Hello on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="https://gokmengorgen.net/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>License</title>
+      <link>https://gokmengorgen.net/en/license/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/license/</guid>
+      <description>Content licensed under the Creative Commons attribution-noncommercial-sharealike License. Please look at this url for more information.
+Did you like my website theme? It&amp;rsquo;s Hugo static site generator with alaGeek theme.</description>
+    </item>
+    
+  </channel>
+</rss>

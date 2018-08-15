@@ -277,32 +277,12 @@ Ben yazılımcıyım. Bağımsız çalışmak konusunda çok deneyimim yok. Bu k
     </item>
     
     <item>
-      <title>C#</title>
-      <link>https://gokmengorgen.net/style-guide/csharp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/style-guide/csharp/</guid>
-      <description>We can follow this document for CSharp coding standards. Further more this article might be useful for EditorConfig file Another well explained article that you can add more config  VS 2017 .editorconfig file is supported since Visual Studio 2017. You can follow this instruction for how to make style guide configuration. After changes or creating .editorconfig file first time, use this key combination(CTRL-K, CTRL-D) or Edit &amp;gt; Advanced &amp;gt; Format Document for seeing config result on your *.</description>
-    </item>
-    
-    <item>
       <title>Certificates</title>
       <link>https://gokmengorgen.net/certificates/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://gokmengorgen.net/certificates/</guid>
       <description>Machine Learning Specialization 1. Machine Learning Foundations: A Case Study Approach  by Emily Fox, Carlos Guestrin April 2017 Certificate URL - Course URL  2. Machine Learning: Regression  by Emily Fox, Carlos Guestrin Not finished yet. Course URL  DataCamp 1. Intro to Python for Data Science  by Filip Schouwenaars May, 2017 Certificate URL - Course URL  2. Intermediate Python for Data Science  by Filip Schouwenaars May, 2017 Certificate URL - Course URL  3.</description>
-    </item>
-    
-    <item>
-      <title>JavaScript</title>
-      <link>https://gokmengorgen.net/style-guide/javascript/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/style-guide/javascript/</guid>
-      <description>JavaScript Linting  We follow Airbnb&amp;rsquo;s JavaScript style guide with ESlint integration. In Vue we use @vue/cli-plugin-eslint and @vue/eslint-config-prettier.  Formatting  We use Prettier and we configure it for works well with ESlint.  Installing dependencies First we install ESlint + Prettier.
-npm install -D eslint prettier  Then we install Airbnb config. Airbnb config has own dependencies like:
-eslint-config-airbnb eslint eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react  instead of installing all these manually.</description>
     </item>
     
     <item>
@@ -322,15 +302,6 @@ Sitemin temasını beğendin mi? Hugo ile birlikte alaGeek temasını kullanıyo
       
       <guid>https://gokmengorgen.net/live/</guid>
       <description>You can follow me to see how I play a game or code open source projects&amp;hellip;</description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://gokmengorgen.net/style-guide/python/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/style-guide/python/</guid>
-      <description>We usually follow PEP 8. Additionally we follow Django Coding Style in our Django projects.  But..  We allow up to 119 characters in a line, even if we don&amp;rsquo;t use Django in the project. Use kebab-style in urls. Use kebab-style in asset file names. Use double slash &amp;ldquo; only for translatable strings. Use single slash &amp;lsquo; as default.  Python module sorter: isort In PyCharm you can sort imports alphabetically and separate them into sections (CTRL + SHIFT + O in Windows, with a default keymap).</description>
     </item>
     
   </channel>

@@ -4,33 +4,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Django modelinde selectbox kullanımı - GKMNGRGN</title>
+    <title>05 - Formset - GKMNGRGN</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="referrer" content="no-referrer">
-    <meta name="description" content="Kodun okunaklığını koruyarak Django&#39;da genel bir selectbox çözümü için önerim var: Choice class.">
+    <meta name="description" content="Yeni uygulamayla yerelleştirme, yetkilendirme, kullanıcı bilgilendirme, unittest ve benzeri konulara değineceğiz. Önce formset.">
     <meta property="og:site_name" content="GKMNGRGN" />
     <meta property="og:locale" content="nn_NO" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/" />
-    <meta property="og:title" content="Django modelinde selectbox kullanımı" />
-    <meta property="og:image" content="https://gokmengorgen.net/img/django-choice-class.jpg" />
-    <meta property="og:description" content="Kodun okunaklığını koruyarak Django&#39;da genel bir selectbox çözümü için önerim var: Choice class." />
+    <meta property="og:url" content="https://gokmengorgen.net/django-notes/05-formset/" />
+    <meta property="og:title" content="05 - Formset" />
+    <meta property="og:image" content="https://gokmengorgen.net/img/django-notes/django-notes.png" />
+    <meta property="og:description" content="Yeni uygulamayla yerelleştirme, yetkilendirme, kullanıcı bilgilendirme, unittest ve benzeri konulara değineceğiz. Önce formset." />
 
     
         <meta property="twitter:site" content="@gokmengorgen">
     
 
-    <meta property="twitter:title" content="Django modelinde selectbox kullanımı" />
-    <meta property="twitter:image" content="https://gokmengorgen.net/img/django-choice-class.jpg" />
+    <meta property="twitter:title" content="05 - Formset" />
+    <meta property="twitter:image" content="https://gokmengorgen.net/img/django-notes/django-notes.png" />
     <meta property="twitter:card" content="summary" />
-    <meta property="twitter:description" content="Kodun okunaklığını koruyarak Django&#39;da genel bir selectbox çözümü için önerim var: Choice class." />
+    <meta property="twitter:description" content="Yeni uygulamayla yerelleştirme, yetkilendirme, kullanıcı bilgilendirme, unittest ve benzeri konulara değineceğiz. Önce formset." />
 
     
         <meta name="flattr:id" content="62knje">
     
 
-    <link rel="canonical" href="https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/">
+    <link rel="canonical" href="https://gokmengorgen.net/django-notes/05-formset/">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous" />
 
@@ -126,39 +126,22 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-10">
-                    <h1 class="mx-0 mx-md-4">Django modelinde selectbox kullanımı</h1>
+                    <h1 class="mx-0 mx-md-4">05 - Formset</h1>
 
                     <div class="mb-4 mb-md-5 meta">
-                        <span class="date" title="Sun May 27 2018 16:45:30 CEST">
-                            May 27, 2018
+                        <span class="date" title="Sun May 6 2018 14:30:19 CEST">
+                            May 6, 2018
                         </span>
-
-                        
-                            
-                        
 
                         <span class="reading-time middot">
-                            2 minute read
+                            5 minute read
                         </span>
 
                         <div class="d-none d-md-inline tags">
                             <ul class="list-unstyled d-inline">
-                                
-                                    <li class="d-inline middot">
-                                        <a href="https://gokmengorgen.net/tags/coding">coding</a>
-                                    </li>
-                                
-                                    <li class="d-inline middot">
-                                        <a href="https://gokmengorgen.net/tags/django">django</a>
-                                    </li>
-                                
-                            </ul>
-                        </div>
-
-                        <div class="d-none d-md-inline tags">
-                            <ul class="list-unstyled d-inline">
-                                
-                                
+                                <li class="d-inline middot">
+                                    <a href="https://gokmengorgen.net/django-notes/">Django notlarım</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -166,125 +149,159 @@
                     <div class="markdown">
                         
     
-    <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-choice-class.jpg" src="https://gokmengorgen.net/img/low/django-choice-class.jpg" alt="" /></p></figure>
+    
 
-<p>Bazen bir model field&rsquo;ında kullanımı sınırlandırmak veya veriyi denetlemek için basit çözümlere ihtiyacımız var. Örneğin, bir araba markası sorulduğunda kullanıcının kafadan veri girişini engellemek veya Opel - opel gibi büyük - küçük farklarından dolayı oluşacak gereksiz seçenek bölünmelerini önlemek gerekir.</p>
+<p><em>Palette uygulamasıyla MTV Katmanları ve Admin paneli ve CRUD ile ilgili giriş seviyesinde bilgiler edindik. Yeni uygulamamız <strong>Uptime</strong>. Bu uygulamayla yerelleştirme, sayfa isteklerini yönetme ve yetkilendirme, eposta veya sayfa içi bildirimlerle kullanıcıyı bilgilendirme, unittest, komut satırında çalışan scriptler ve bunlarla ilişkili birçok konuya değineceğiz. Formset ile başlıyoruz.</em></p>
 
-<p><a href="https://gokmengorgen.net/django-notes/">Django notlarım</a>&lsquo;da sürekli dile getirdiğim konu var, bir şeye ihtiyaç duyduğunuzda:</p>
+<h2 id="özet">Özet</h2>
+
+<ul>
+<li>Uptime uygulamasını yazmaya başlıyoruz. URL&rsquo;leri girmek için Formset kullanıyoruz.</li>
+<li>İhtiyacımızı görecek bir Django eklentisini yükleyip kullanacağız.</li>
+<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-05">buradan</a> erişebilirsiniz.</li>
+</ul>
+
+<h2 id="yeni-uygulamamız-uptime">Yeni Uygulamamız, Uptime</h2>
+
+<p>Uygulamamızın en temel işlevi, belirlediğimiz URL veya IP adreslerinin erişilebilirliğini belirli aralıklarla kontrol etmek. Piyasa bu işi yapan uptimerobot, pingdom gibi çeşitli hizmetler var. Biz de Django’yu öğrenmek için basit bir prototipini yapmış olacağız. Daha önce öğrendiklerimizi kullanarak şöyle bir başlangıç yapıyoruz:</p>
+
+<ul>
+<li><strong>hello_uptime</strong> adında yeni bir uygulama oluşturuyoruz (startapp).</li>
+<li><strong>templates/uptime/</strong> içinde Template katmanımızı oluşturuyoruz.</li>
+<li><strong>urls.py</strong> ile uygulama url’lerimizi tanımlıyoruz, bunun için gerekli View katmanlarımızı hazırlıyoruz.</li>
+<li><strong>Monitor</strong> adında ilk modelimizi oluşturuyoruz, model üzerinde denemelerimizi yapmak için Admin class’ımızı hazırlıyoruz.</li>
+</ul>
+
+<p>Yeni bir uygulama yazarken önce bir kabaca başlangıç yapmak size yardımcı olur. Yani hemen Template katmanının içini doldurmaya başlamayın, önce basit bir form olsun yeter. Modelinizi denemek mi istiyorsunuz? Admin panelini kullanın. Şimdi, depodan Article-05 dizinine girin, orada <strong>hello_uptime</strong> uygulamasını kullanıp hızlı bir başlangıç yapabilirsiniz.</p>
+
+<p>Uygulamamızı basit bir şekilde tasarlayalım. Sadece bir dashboard’ımız olsun. Orada URL veya IP girebileceğimiz bir formumuz olsun, formu kaydedebilelim ve yine aynı sayfada sonuçları izleyebileceğimiz bir ekranımız olsun.</p>
+
+<pre><code class="language-python"># hello_uptime/views.py
+...
+class UptimeDashboardView(FormView):
+    template_name = 'uptime/dashboard.html'  # Template dosyamız.
+    form_class = MonitorForm  # Monitor modeli için form.
+
+    def get_success_url(self):
+        # Form başarıyla kaydedilirse aynı sayfaya yönlendirilecek.
+        # Tek bir View katmanımız olacak. Her şey bir Dashboard'dan ibaret.
+        return reverse('uptime:dashboard')
+
+    def get_form_kwargs(self):
+        # Tekrar hatırlatıyorum, tek bir View katmanımız var. Daha önce kaydettiğimiz
+        # Bir Monitor object (instance) varsa onu kullanmaya devam edeceğiz.
+        # İstediğimizde tekrar düzenleyebileceğiz. Hepsi tek bir View katmanında.
+        kwargs = super().get_form_kwargs()
+        instance = Monitor.objects.first()
+        kwargs.update({
+            'instance': instance,
+        })
+        return kwargs
+
+    def form_valid(self, form):
+        # ModelForm'u mutlaka inceleyin: hello_uptime/forms.py
+        # save metodunun nereden geldiğini ve nasıl çalıştığını anlayın.
+        form.save()
+        return super().form_valid(form)
+</code></pre>
+
+<p>View kodumuzu üzerine yazdığım yorumlarla birlikte inceleyin. Şimdi burada bir sorun var. Bir sayfada tek bir Form kullanabiliyoruz. Birden fazla URL girmek istediğimizde ne yapacağız? <a href="http://localhost:8000/uptime/">http://localhost:8000/uptime/</a> üzerinden bir bakalım:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/uptime-form.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/uptime-form.png" src="https://gokmengorgen.net/img/django-notes/low/uptime-form.png" alt="Uptime form" title="Uptime form" /></figure>
+</a></p>
+
+<p>Tek form, tek monitor :-(. Şimdi Formset<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> zamanı.</p>
+
+<h2 id="formset-kullanımı-ve-don-t-repeat-yourself">Formset Kullanımı ve Don&rsquo;t Repeat Yourself</h2>
+
+<p>Uygulamamız henüz buna hazır değil; ama diyelim ki kullanıcılar projemizde hesap açsınlar ve her kullanıcının en fazla 10 URL&rsquo;i izleme hakkı olsun. Yani bizim uygulama arayüzümüzde 10 form içeren bir form kümesi olsun ve kullanıcılar tek seferde düzenleyebilsin.</p>
+
+<p><strong>UptimeDashboardView</strong> için miras aldığımız <strong>FormView</strong>, tek bir formu yönetebilmemiz için hazırlanmış kapsamlı bir View class&rsquo;ıdır. Bu durumda elimizde iki seçenek var. Bunlardan <u>birincisi</u>, FormView&rsquo;i kendi ihtiyacımıza göre özelleştirip yeni bir genel View class&rsquo;ı ve bu tip özel ihtiyaçlarda hep aynı class&rsquo;ı kullanmak. Mesela bu özelleştirilmiş class&rsquo;ın adı <strong>FormSetView</strong> olabilir.</p>
+
+<p>Ama <u>bir seçeneğimiz daha</u> var. Django büyük bir topluluk ve bizim ihtiyaç duyduğumuz şeye başkaları da ihtiyaç duymuş olabilir, hatta bu ihtiyacı birisi Django eklentisi haline getirmiş bile olabilir. <a href="https://pypi.org/project/django-extra-views/">PyPI</a>&lsquo;den arattığımda <strong>django-extra-views</strong><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>&lsquo;in aradığımız eklenti olduğunu gördüm. Hemen <strong>requirements.txt</strong>&lsquo;ye yeni bağımlılığımızı ekliyoruz, kuruyoruz ve View katmanımızı güncelliyoruz:</p>
+
+<pre><code class="language-python"># hello_uptime/views.py
+from django.urls import reverse_lazy
+from extra_views import ModelFormSetView
+
+from hello_uptime.models import Monitor
+from hello_uptime.utils import USER_MONITOR_LIMIT
+
+
+class UptimeDashboardView(ModelFormSetView):
+    # django-extra-views belgesinde deniliyor ki, ayrıca Form veya FormSet
+    # oluşturmaya gerek yok, bana modelini, kullanacağın field'ları, success_url'i
+    # söyle, gerisini ben hallederim. Halletsin bir zahmet, güzel bir eklenti olmuş.
+    fields = ('url', 'interval', 'is_active')
+    model = Monitor
+    success_url = reverse_lazy('uptime:dashboard')  # Neden reverse değil de reverse_lazy? Bana yazın. ;-)
+    template_name = 'uptime/dashboard.html'
+
+    def get_queryset(self):
+        return Monitor.objects.order_by('created_at')  # Sıra bozulmasın diye, oluşturulma sırasına göre aldık.
+
+    def get_factory_kwargs(self):
+        kwargs = super().get_factory_kwargs()
+        kwargs.update({
+            'extra': USER_MONITOR_LIMIT,  # Dashboard'da 10 input'un hepsini tek seferde göster.
+            'max_num': USER_MONITOR_LIMIT,  # Dashboard'da en fazla 10 input olabilir.
+        })
+        return kwargs
+
+    def formset_valid(self, formset):  # form_valid formset_valid oldu.
+        formset.save()
+        return super().formset_valid(formset)
+</code></pre>
+
+<p>Eklenti kullanmasaydık, bu kod bu kadar basit ve temiz olmayacaktı. İyi ki topluluk var! Son bir işimiz kaldı, Template katmanımızı da formset kullanacak şekilde düzenlemeliyiz:</p>
+
+<pre><code class="language-html">&lt;!-- templates/uptime/dashboard.html --&gt;
+...
+{% block content %}
+    &lt;form action=&quot;{% url 'uptime:dashboard' %}&quot; method=&quot;POST&quot;&gt;
+        {% csrf_token %}  &lt;!-- Sahte istekleri önleyen CSRF template tag'ımız --&gt;
+        {{ formset.management_form }} &lt;!-- Formset'imiz ile ilgili max_num, total gibi gizli inputları ekledik. --&gt;
+        &lt;table&gt;
+            {% for form in formset %}
+                &lt;tr&gt;
+                    &lt;th&gt;&lt;/th&gt;
+                    &lt;td&gt;
+                        &lt;!-- blocktrans i18n template modülünden geliyor. Çeviriler için. --&gt;
+                        &lt;!-- Örnek bir blocktrans ve forloop.counter kullanımı --&gt;
+                        {% blocktrans with number=forloop.counter %}Monitor {{ number }}{% endblocktrans %}
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                {{ form.as_table }}
+            {% endfor %}
+            &lt;tr&gt;
+                &lt;th&gt;&lt;/th&gt;
+                &lt;td&gt;&lt;button type=&quot;submit&quot;&gt;{% trans &quot;Save&quot; %}&lt;/button&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/form&gt;
+{% endblock %}
+
+</code></pre>
+
+<p>Formsetimiz içinde 10 tane form var ve başlangıç datasıyla birlikte artık kullanıma hazır:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/uptime-formset.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/uptime-formset.png" src="https://gokmengorgen.net/img/django-notes/low/uptime-formset.png" alt="Uptime formset" title="Uptime formset" /></figure>
+</a></p>
+
+<p>Yalnız bir eksiklik var. Bu uptime uygulamasını kullanıcılarımızın bir hesap açarak kullanmasını istiyoruz ve her kullanıcının 10 ekran izleme hakkı olsun istiyoruz. Bunun için hesap oluşturma, email ile hesap doğrulama, parola yenileme gibi ekranlara ihtiyacımız var ve bu uptime panelini giriş yapan kullanıcıya göre biraz özelleştirmemiz gerekiyor. Sonraki yazımızda görüşmek üzere.</p>
+<div class="footnotes">
+
+<hr />
 
 <ol>
-<li>Mutlaka Django&rsquo;nun <a href="https://docs.djangoproject.com/">kendi dökümantasyonuna</a> bir göz atın.</li>
-<li>Mutlaka başkaları nasıl çözmüş diye araştırın.</li>
+<li id="fn:1">Daha önce söylediğim gibi, bilmediğiniz veya hatırlamadığınız konular için Django belgelerine sık sık bakmayı alışkanlık hale getirmeniz size çok şey kazandırır. <a href="https://docs.djangoproject.com/en/2.0/topics/forms/formsets/">Formsets</a> belgesine mutlaka bakın.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Bir eklentiyi bağımlılık olarak eklemeye karar vermeden önce bakımı iyi yapılıyor mu, unittestleri var mı, belgesi nasıl, kodu temiz mi bir bakmakta fayda var.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
 </ol>
-
-<p>Django dökümantasyonundaki <a href="https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.Field.choices">bir örneği</a> alalım ve onun üzerinden gidelim:</p>
-
-<pre><code class="language-python">class Student(models.Model):
-    FRESHMAN = 'FR'
-    SOPHOMORE = 'SO'
-    JUNIOR = 'JR'
-    SENIOR = 'SR'
-    YEAR_IN_SCHOOL_CHOICES = (
-        (FRESHMAN, 'Freshman'),
-        (SOPHOMORE, 'Sophomore'),
-        (JUNIOR, 'Junior'),
-        (SENIOR, 'Senior'),
-    )
-    year_in_school = models.CharField(max_length=2, choices=YEAR_IN_SCHOOL_CHOICES, default=FRESHMAN)
-
-    def is_upperclass(self):
-        return self.year_in_school in (self.JUNIOR, self.SENIOR)
-</code></pre>
-
-<p>Bazen öyle şeyler oluyor ki, bir modele ihtiyaç duymadan bu seçeneklere çeşitli katmanlarda erişmek gerekebiliyor veya bu tip seçenekleri herhangi bir model tanımlamadan, örneğin formda kullanmak durumunda kalabiliyorsunuz, o zaman da &ldquo;Bunu <strong>models.py</strong>&lsquo;de tuttuk, öbürünü niye <strong>forms.py</strong>&lsquo;ye yazdık?&rdquo; diye kendinize sorabilirsiniz. Ben bu tip ortak kullanılan şeyleri, ilgili uygulama içinde <strong>choices.py</strong> veya <strong>utils.py</strong> gibi bir dosya oluşturup kullanıyorum. Örneğin:</p>
-
-<pre><code class="language-python"># hello_student/utils.py
-
-class StudentChoice(object):
-    FRESHMAN = 'FR'
-    SOPHOMORE = 'SO'
-    JUNIOR = 'JR'
-    SENIOR = 'SR'
-
-    @classmethod
-    def get_choices(cls):
-        choices = (
-            (cls.FRESHMAN, &quot;Freshman&quot;),
-            (cls.SOPHOMORE, &quot;Sophomore&quot;),
-            (cls.JUNIOR, &quot;Junior&quot;),
-            (cls.SENIOR, &quot;Senior&quot;),
-        )
-        return choices
-</code></pre>
-
-<pre><code class="language-python"># hello_student/models.py
-from hello_student.utils import StudentChoice
-
-
-class Student(models.Model):
-    year_in_school = models.CharField(
-        max_length=2, choices=StudentChoice.get_choices(), default=StudentChoice.FRESHMAN)
-
-    def is_upperclass(self):
-        return self.year_in_school in (StudentChoice.JUNIOR, StudentChoice.SENIOR)
-</code></pre>
-
-<p>Form&rsquo;da da kullansak, View katmanında da kullansak benim yöntemim hep bu. Seçenekleri gruplamak istersek:</p>
-
-<pre><code class="language-python"># hello_student/utils.py
-class StudentChoice(object):
-    ...
-    @classmethod
-    def get_choices(cls):
-        choices = (
-            (&quot;Starting class&quot;, (
-                (cls.FRESHMAN, &quot;Freshman&quot;),
-                (cls.SOPHOMORE, &quot;Sophomore&quot;),
-            )),
-            (&quot;Upper class&quot;, (
-                (cls.JUNIOR, &quot;Junior&quot;),
-                (cls.SENIOR, &quot;Senior&quot;),
-            ))
-        )
-        return choices
-</code></pre>
-
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/hello-student-choices.gif" src="https://gokmengorgen.net/img/low/hello-student-choices.gif" alt="Grouped choices" title="Gruplanmış seçenekler" /></p></figure>
-
-<p>Peki, seçenekleri taşıdık, varsayılan seçenek ayarını da aynı yerde tutsak?</p>
-
-<pre><code class="language-python"># hello_student/utils.py
-class StudentChoice(object):
-    ...
-    @classmethod
-    def get_default(cls):
-        return cls.FRESHMAN
-</code></pre>
-
-<pre><code class="language-python"># hello_student/models.py
-
-class Student(models.Model):
-    year_in_school = models.CharField(
-        max_length=2, choices=StudentChoice.get_choices(), default=StudentChoice.get_default())
-</code></pre>
-
-<p>Hatta bir şey daha yapalım, seçenekle ilgili yardımcı fonksiyonları da aynı yerden yönetelim:</p>
-
-<pre><code class="language-python"># hello_student/utils.py
-
-class StudentChoice(object):
-    ...
-    @classmethod
-    def is_upperclass(cls, choice):
-        return choice in (cls.JUNIOR, cls.SENIOR)
-</code></pre>
-
-<p>Bu durumda üst sınıf olup olmadığı kontrolünü şöyle yapardık:</p>
-
-<pre><code class="language-python">is_upperclass = StudentChoice.is_upperclass(student.year_in_school)
-</code></pre>
-
-<p>Böylece <strong>models.py</strong> dosyamızı biraz daha temiz tutmuş olduk. Bunu alışkanlık haline getirirsek, projenin herhangi bir yerinde selectbox, multiple selectbox ve benzeri bir şey ihtiyacımız olduğunda nereye bakacağımızı bilmiş oluruz.</p>
+</div>
 
 
 
@@ -297,14 +314,14 @@ class StudentChoice(object):
                                     
                                         <div class="mx-0 mx-md-4 mt-4 text-left">
                                             <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
-                                            <a href="https://gokmengorgen.net/blog/stres/">Stres</a>
+                                            <a href="https://gokmengorgen.net/django-notes/04-template-motoru/">04 - Template Motoru</a>
                                         </div>
                                     
                                 </div>
                                 <div class="col-12 col-md-6">
                                     
                                         <div class="mx-0 mx-md-4 mt-4 text-right">
-                                            <a href="https://gokmengorgen.net/blog/daha-guclu-powershell/">Daha güçlü PowerShell</a>
+                                            <a href="https://gokmengorgen.net/django-notes/06-bildirimler-ve-ceviriler/">06 - Bildirimler ve çeviriler</a>
                                             <img class="icon" src="https://gokmengorgen.net/img/next.svg" alt="next" />
                                         </div>
                                     

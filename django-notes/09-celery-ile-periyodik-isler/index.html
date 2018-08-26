@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>09 - Celery ile periyodik işler - GKMNGRGN</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Celery kullanarak Uptime uygulamasında ekranları periyodik olarak kontrol edip, eğer erişilemeyen URL varsa kullanıcıyı uyarmalıyız.">
+    <meta property="og:site_name" content="GKMNGRGN" />
+    <meta property="og:locale" content="nn_NO" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://gokmengorgen.net/django-notes/09-celery-ile-periyodik-isler/" />
+    <meta property="og:title" content="09 - Celery ile periyodik işler" />
+    <meta property="og:image" content="https://gokmengorgen.net/img/django-notes/django-notes.png" />
+    <meta property="og:description" content="Celery kullanarak Uptime uygulamasında ekranları periyodik olarak kontrol edip, eğer erişilemeyen URL varsa kullanıcıyı uyarmalıyız." />
+
+    
+        <meta property="twitter:site" content="@gokmengorgen">
+    
+
+    <meta property="twitter:title" content="09 - Celery ile periyodik işler" />
+    <meta property="twitter:image" content="https://gokmengorgen.net/img/django-notes/django-notes.png" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:description" content="Celery kullanarak Uptime uygulamasında ekranları periyodik olarak kontrol edip, eğer erişilemeyen URL varsa kullanıcıyı uyarmalıyız." />
+
+    
+        <meta name="flattr:id" content="62knje">
+    
+
+    <link rel="canonical" href="https://gokmengorgen.net/django-notes/09-celery-ile-periyodik-isler/">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://gokmengorgen.net/css/main.css" />
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css" integrity="sha256-w6kCMnFvhY2tI1OnsYR/rb5DG9yFGodJknvFZOkp51E=" crossorigin="anonymous" />
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/progressively/1.2.5/progressively.min.css" integrity="sha256-xbqLYBMsjpuCihs+3Fgp/MFMtPdo2SWKoOjEWOqR4X0=" crossorigin="anonymous" />
+    
+
+    <link rel="shortcut icon"
+        href="https://gokmengorgen.net/img/laughing-man-favicon.png">
+
+    
+
+    <noscript>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
+    </noscript>
+</head>
+
+<body>
+    
+    <div class="my-4 my-md-5 header">
+    <div class="container">
+        <div class="row">
+            <div class="col-auto offset-md-1 d-none d-md-block">
+                
+                    <a href="https://gokmengorgen.net/">
+                        <img class="ml-md-4 logo" src="https://gokmengorgen.net/img/laughing-man.png" alt="logo">
+                    </a>
+                
+            </div>
+            <div class="col-auto align-self-center mr-auto">
+                <a href="https://gokmengorgen.net/">
+                    <h1 class="font-weight-bold name">GKMNGRGN</h1>
+                </a>
+
+                <ul class="nav nav-primary">
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase nav-link text-blog" href="https://gokmengorgen.net/blog/">
+                                
+                                Blog
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase nav-link text-my-work" href="https://alageek.com">
+                                
+                                My work
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase nav-link text-live" href="https://gokmengorgen.net/live/">
+                                📹
+                                Live
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <ul class="nav nav-secondary">
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase font-weight-bold nav-link text-patreon" href="https://www.patreon.com/bePatron?u=10637849">
+                                
+                                Become a patron
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase font-weight-bold nav-link text-bmc" href="https://www.buymeacoffee.com/gokmen">
+                                
+                                Buy me a coffee
+                            </a>
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-10">
+                    <h1 class="mx-0 mx-md-4">09 - Celery ile periyodik işler</h1>
+
+                    <div class="mb-4 mb-md-5 meta">
+                        <span class="date" title="Sun Jun 10 2018 00:17:16 CEST">
+                            Jun 10, 2018
+                        </span>
+
+                        <span class="reading-time middot">
+                            6 minute read
+                        </span>
+
+                        <div class="d-none d-md-inline tags">
+                            <ul class="list-unstyled d-inline">
+                                <li class="d-inline middot">
+                                    <a href="https://gokmengorgen.net/django-notes/">Django notlarım</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="markdown">
+                        
+    
+    
+
+<p><em>En son, ekranlarımızı güncelleyen bir komut hazırlamıştık. Şimdi bu komutu periyodik olarak çalıştırmamız gerekiyor. Önceki yazımızda cron ile bunu nasıl yapabileceğimize dair değinmiştik; ama biz bunu Celery<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> ile yapmayı deneyeceğiz.</em></p>
+
+<h2 id="özet">Özet</h2>
+
+<ul>
+<li>Docker ile, Celery&rsquo;i kolayca kurup kullanabileceğimiz geliştirme ortamını hazırlayacağız.</li>
+<li>Django komutumuzu Celery görev fonksiyonunda kullanabilir hale getireceğiz.</li>
+<li>Admin panelinden görevlerin çalışma zamanlarını ayarlayacağız.</li>
+<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-09">buradan</a> erişebilirsiniz.</li>
+</ul>
+
+<h2 id="neden-celery-ve-neden-docker">Neden Celery ve neden Docker?</h2>
+
+<p>Önceki yazımızda hazırladığımız <strong>checkurls</strong> komutunu periyodik olarak çalıştırabilmek için bir görev yöneticisine ihtiyacımız var. Celery benim bu tip işler için en sık kullandığım araç. Celery ile görevleri yönetmek kolay, deployment süreçlerinde sunucuya daha az müdahale ediliyor, görev çalıştırma zamanlarını admin panelinden programlamak mümkün.</p>
+
+<p>Bir web projesi geliştirirken <strong>DEVELOPMENT</strong>, <strong>STAGING</strong>, <strong>PRODUCTION</strong> gibi farklı sunucu ortamları hazırlanır<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> ve bu ortamların birbirine olabildiğince benzemesi arzu edilir, böylece çevre farklılıklarından doğacak sorunları önlemiş oluruz. Bunu yapabilmek için sanallaştırmaya ihtiyacımız var ve bunun çeşitli yöntemleri var:</p>
+
+<ol>
+<li>Daha önce ben <strong>Vagrant</strong> üzerine bir yazı <a href="https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/">yazmıştım</a>. Alışıldığında oldukça pratik yöntemdir, hiçbir ayar yapmasanız bile elinizin altında <strong>PRODUCTION</strong> sunucunuza benzer geliştirme ortamınız olur.</li>
+<li><strong>Docker</strong> kullanabilirsiniz, alışması yeni başlayanlar için öğrenme süreci zaman alıyor. Ama uzun vadede hız ve esneklik kazanırsınız.</li>
+<li><strong><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL</a></strong>, <strong>VMware</strong> veya <strong>Virtualbox</strong> ile sanal işletim sistemi yükleme ve onun üzerinden geliştirme yapabilirsiniz. Olabilecek en kötü sanallaştırma yöntemidir, kısa vadede belki hız kazandırır; ama uzun vadede deployment süreçlerinde canınızı sıkabilir.</li>
+</ol>
+
+<p>Ben Docker&rsquo;i seçtim ve merak etmeyin, bu eğitimi devam ettirebilmek için Docker konusuna olabildiğince az değineceğim. Şimdilik <strong>Docker</strong> ve <strong>Docker Compose</strong>&lsquo;u yükleyin<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup> ve Docker servisinin başladığına emin olun. Sonra repomuzdan <strong>Article-09/hello_django</strong> dizinine girin ve aşağıdaki komutu çalıştırın:</p>
+
+<pre><code class="language-bash"># terminal
+$ docker-compose up --build -d
+Creating network &quot;hello_django_default&quot; with the default driver
+Building web
+Step 1/7 : FROM python:3.6
+ ---&gt; d69bc9d9b016
+...
+Creating hello_django_web_1  ... done
+Creating hello_django_amqp_1 ... done
+Creating hello_django_celery_1 ... done
+Creating hello_django_celery-beat_1 ... done
+</code></pre>
+
+<p>Uzun bir çıktı ve nihayetinde dört konteyner ile geliştirme ortamımız hazır. Her konteynerin içinde bir komut çalışıyor, örneğin web&rsquo;in içinde <code>python manage.py runserver 0:8000</code> komutu çalışıyor, Python yorumlayıcımız artık bu konteynerin içinde ve konteyner ayağa kalktığında <code>http://localhost:8000</code> bağlantısından projemize de erişebiliyor olacağız. Diğer üç konteynerin birinde Celery için gerekli <strong>AMQP</strong> hizmeti çalışıyor, diğer ikisinde de görevlerimizi çalıştıran bir <strong>Celery worker</strong> ve periyodik olarak görev emirlerini oluşturan <strong>Celery beat</strong> var.</p>
+
+<h2 id="celery-ile-ilk-görevin-tanımlanması">Celery ile ilk görevin tanımlanması</h2>
+
+<p>Docker konteynerlerimiz hazırlanırken <strong>requirements.txt</strong> dosyamızdan bağımlılıklarımız da okunuyor. Birkaç yeni bağımlılık ekledik:</p>
+
+<pre><code class="language-ini"># requirements.txt
+
+# Görev yönetimi için Celery
+celery==4.1.1
+# Görev zamanlarını Django Admin panelinden yönetmek
+# için ek bir bağımlılık daha
+django_celery_beat==1.1.1
+# Bu da ekranlarımızı filtrelerken kullanacağımız yardımcı bir bağımlılık
+python-dateutil==2.7.3
+</code></pre>
+
+<p>Şimdi Celery konteynerimizin nasıl çalıştığını ve hangi komutu çalıştırdığını anlayalım. Önce <strong>settings.py</strong> dosyamızda Celery ile ilgili kurulum ve ayarlarımızı ekledik:</p>
+
+<pre><code class="language-python"># settings.py
+...
+INSTALLED_APPS = [
+    ...
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django_celery_beat',  # Admin panelinde görev zamanlarını yönetmek için
+    'hello_palette',
+    ...
+]
+...
+CELERY_BROKER_URL = 'amqp'  # Docker konteynerimizin adını yazdık.
+CELERY_IMPORTS = [
+    'hello_uptime.tasks'  # Görevlerimizi bu modülde saklayacağız.
+]
+# Test mesajlarımız için basit bir email backend yapılandırması.
+# Emailleri konsolda göreceğiz.
+DEFAULT_FROM_EMAIL = 'hello_django@localhost'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+</code></pre>
+
+<p>Sonra, Celery uygulamamızı Django projemiz ile entegre çalışabilmesi için bir script hazırladık:</p>
+
+<pre><code class="language-python"># hello_django/celery.py
+from __future__ import absolute_import, unicode_literals
+import os
+from celery import Celery
+
+# Ayarları settings.py dosyamızdan alacak.
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hello_django.settings')
+
+app = Celery('hello_django')
+
+# Ayar değişkenlerimiz hep CELERY diye başlayacak.
+app.config_from_object('django.conf:settings', namespace='CELERY')
+
+# Tüm görev fonksiyonlarımızı Celery kendisi tespit edecek.
+app.autodiscover_tasks()
+</code></pre>
+
+<pre><code class="language-python"># hello_django/__init__.py
+from __future__ import absolute_import, unicode_literals
+
+# Bu aslında zorunlu değil; ama görevlerimizi tanımlarken `shared_task` yardımcı
+# fonksiyonunu kullanmak, uygulamayı bağımsız hale getiriyor. Örneğini sonra göreceğiz.
+from .celery import app as celery_app
+
+__all__ = ['celery_app']
+</code></pre>
+
+<p>Bunu her projede bir seferlik yapıyoruz. Bundan sonraki aşamadak artık görev fonksiyonları yazmak. Şimdi <strong>checkurls</strong> komutumuzu bir görev fonksiyonu haline getirelim:</p>
+
+<pre><code class="language-python"># hello_uptime/tasks.py
+from celery import shared_task
+from django.core.management import call_command
+
+
+@shared_task
+def check_monitors():
+    call_command('checkurls', mail_clients=True)
+</code></pre>
+
+<p>Django komutumuzu görev fonksiyonu içinde <code>--mail_clients</code> parametresiyle çalıştırmış olduk. Fakat önceki yazımızda parametre olarak sadece <strong>urls</strong> vardı ve onu da zorunlu yapmıştık. Şimdi <code>--mail_clients</code> parametresine ihtiyacımız var; çünkü herhangi bir ekran erişilemez olduğunda, kullanıcıya bir bildirim epostası göndermek istiyoruz. Komut satırında böyle bir ihtiyacımız yoktu, çünkü her şeyi zaten komut satırında görüyorduk:</p>
+
+<pre><code class="language-python"># hello_uptime/management/commands/checkurls.py
+...
+class Command(BaseCommand):
+    ...
+    def add_arguments(self, parser):
+        # urls parametresi artık zorunlu değil
+        parser.add_argument('urls', nargs=argparse.ZERO_OR_MORE, type=str)
+        # mail_clients parametresi de tercihe bağlı
+        parser.add_argument('--mail_clients', action='store_true', dest='mail_clients')
+
+    def handle(self, *args, **options):
+        now = timezone.now()
+        offline_urls = []
+
+        # Monitörler kaç dakikada bir kontrol edilmesi istendiyse, en az bir o kadar dakika kadar öncesine göre
+        # monitörleri filtreliyoruz. Bir de sadece aktif olanları tekrar kontrol edeceğiz.
+        available_monitors = Monitor.objects.filter(is_active=True).filter(
+            models.Q(interval=MonitoringInterval.MIN_5,
+                     checked_at__lt=now - relativedelta(seconds=MonitoringInterval.MIN_5)) |
+            ...
+            models.Q(interval=MonitoringInterval.HOUR_6,
+                     checked_at__lt=now - relativedelta(seconds=MonitoringInterval.HOUR_6)))
+        ...
+        # Burada da tüm erişilemeyen ekranlar için her kullanıcıya eposta göndereceğiz.
+        if options['mail_clients'] and offline_urls:
+            for url in offline_urls:
+                self.mail_clients(url, available_monitors)
+
+    def mail_clients(self, url, available_monitors):
+        subject = &quot;[Hello Uptime] Monitor is DOWN: {}&quot;.format(url)
+        for monitor in available_monitors.filter(url=url, user__isnull=False):
+            message_list = [
+                &quot;Hi {},&quot;.format(monitor.user.get_full_name()),
+                &quot;The monitor ({}) is currently DOWN.&quot;.format(url),
+            ]
+            send_mail(
+                subject, '\n'.join(message_list), from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[monitor.user.email])
+</code></pre>
+
+<h2 id="görevin-periyodik-olarak-çalıştırılması">Görevin periyodik olarak çalıştırılması</h2>
+
+<p>Artık sona yaklaşmak üzereyiz. Konteynerimizde <strong>checkurls</strong> komutumuzu şöyle çalıştırabiliriz:</p>
+
+<pre><code class="language-bash"># terminal
+$ docker-compose exec web python manage.py checkurls
+https://gokmengorgen.net - 2 monitor(s): online
+</code></pre>
+
+<p>Şimdi Celery ile görev fonksiyonumuzu çalıştıralım:</p>
+
+<pre><code class="language-bash"># terminal
+$ docker-compose exec web python manage.py shell
+Python 3.6.5 (default, May  5 2018, 03:09:35)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 6.4.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: from hello_uptime.tasks import check_monitors
+
+In [2]: check_monitors.delay()
+Out[2]: &lt;AsyncResult: c2f340dc-...f&gt;
+
+In [3]:
+</code></pre>
+
+<p>Görev asenkron çalıştığı için bir sonuç göremedik, onun için Celery konteynerindeki logları okumamız gerekiyor:</p>
+
+<pre><code class="language-bash"># terminal
+$ docker-compose logs -f --tail 100 celery
+celery_1  | [...] Received task: hello_uptime.tasks.check_monitors[31399a19-...e]
+celery_1  | [...] https://gokmengorgen.net - 2 monitor(s):
+celery_1  | [...] online
+celery_1  | [...] Task hello_uptime.tasks.check_monitors[31399a19-...e] succeeded in 0.8740212999982759s: None
+celery_1  | [...] Received task: hello_uptime.tasks.check_monitors[c2f340dc-...f]
+celery_1  | [...] Task hello_uptime.tasks.check_monitors[c2f340dc-...f] succeeded in 0.013204600007156841s: None
+</code></pre>
+
+<p>Logları sadeleştirdim yine de çirkin, bu konuya daha sonra değiniriz, ama başarılı bir şekilde çalıştığını gördük. Peki ama nasıl periyodik çalıştırılacak bu görev? Hemen Admin panelimizi açıp bir <strong>Interval</strong> girdisi oluşturalım:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/celery-admin-interval.jpg" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/celery-admin-interval.jpg" src="https://gokmengorgen.net/img/django-notes/low/celery-admin-interval.jpg" alt="Celery admin interval" title="Celery admin interval" /></figure>
+</a></p>
+
+<p>Ve bir de <strong>Periodic Task</strong> girdisi:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/celery-admin-periodic-task.jpg" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/celery-admin-periodic-task.jpg" src="https://gokmengorgen.net/img/django-notes/low/celery-admin-periodic-task.jpg" alt="Celery admin periodic task" title="Celery admin periodic task" /></figure>
+</a></p>
+
+<p>Şimdi tekrar Celery loglarımıza bakıp süreci takip edelim, gerçekten de dakikada bir çalışıyor mu:</p>
+
+<pre><code class="language-bash"># terminal
+$ docker-compose logs -f --tail 100 celery
+celery_1  | [2018-06-12 16:34:08,298: INFO] Received task: hello_uptime.tasks.check_monitors[92ef036c-...3]
+celery_1  | [2018-06-12 16:34:09,926: INFO] Task hello_uptime.tasks.check_monitors[92ef036c-5341-...3] succeeded in 1.6s: None
+celery_1  | [2018-06-12 16:35:08,298: INFO] Received task: hello_uptime.tasks.check_monitors[e9a53576-...c]
+celery_1  | [2018-06-12 16:35:08,305: INFO] Task hello_uptime.tasks.check_monitors[e9a53576-...c] succeeded in 0.01s: None
+celery_1  | [2018-06-12 16:36:08,298: INFO] Received task: hello_uptime.tasks.check_monitors[5574fbc6-...0]
+celery_1  | [2018-06-12 16:36:08,306: INFO] Task hello_uptime.tasks.check_monitors[5574fbc6-...0] succeeded in 0.01s: None
+</code></pre>
+
+<p>Gayet beklediğimiz gibi ilerliyor. Yazıyı 5 dakikaya sığdırmak epey zor oldu; ama seriyi devam ettirmeye enerjim var, merak etmeyin. Sonraki yazımızda görüşmek üzere.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="http://www.celeryproject.org/">Celery</a> websitesinde detaylı bilgi bulabilirsiniz.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Önce development konusunu uptime ile bitirelim, sonraki yazılarda deployment konusuna değineceğiz.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3"><a href="https://store.docker.com/search?type=edition&amp;offering=community">Buradan</a> indirebilirsiniz. MacOS, Windows, Ubuntu, hatta yerele kurmayıp AWS gibi cloud çözümler üzerinden bile Docker kullanmak mümkün.
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+
+                    </div>
+
+                    
+                        <div class="navigation">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    
+                                        <div class="mx-0 mx-md-4 mt-4 text-left">
+                                            <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
+                                            <a href="https://gokmengorgen.net/django-notes/08-komutlar/">08 - Komutlar</a>
+                                        </div>
+                                    
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    
+                                        <div class="mx-0 mx-md-4 mt-4 text-right">
+                                            <a href="https://gokmengorgen.net/django-notes/10-sunucunun-hazirlanmasi/">10 - Sunucunun hazırlanması</a>
+                                            <img class="icon" src="https://gokmengorgen.net/img/next.svg" alt="next" />
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-4 footer">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-5">
+                
+                    <div class="mx-0 mx-md-4 text-left">
+                        
+                            <a href="https://gokmengorgen.net/license">© 2018 by Gökmen Görgen.</a>
+                        
+                    </div>
+                
+            </div>
+            <div class="col-sm-12 col-md-5">
+                <div class="mx-0 mx-md-4 text-right">
+                    
+
+                    
+
+                    
+
+                    
+                        <a href="https://github.com/gkmngrgn" target="_blank">
+                            <img class="icon" src="https://gokmengorgen.net/img/github.svg" alt="github" />
+                        </a>
+                    
+
+                    
+                        <a href="https://twitter.com/gokmengorgen" target="_blank">
+                            <img class="icon" src="https://gokmengorgen.net/img/twitter.svg" alt="twitter" />
+                        </a>
+                    
+
+                    
+                        <a href="https://www.linkedin.com/in/gokmengorgen" target="_blank">
+                            <img class="icon" src="https://gokmengorgen.net/img/linkedin.svg" alt="linkedin" />
+                        </a>
+                    
+
+                    
+                        <a href="mailto:gokmen@alageek.com">
+                            <img class="icon" src="https://gokmengorgen.net/img/email.svg" alt="email" />
+                        </a>
+                    
+
+                    
+                        <a href="https://gokmengorgen.net/index.xml" class="mr-0">
+                            <img class="icon" src="https://gokmengorgen.net/img/rss.svg" alt="rss" />
+                        </a>
+                    
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha256-xaF9RpdtRxzwYMWg4ldJoyPWqyDPCRD0Cv7YEEe6Ie8=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ['Raleway:400,600,700', 'Merriweather:300,300i,700,700i']
+            }
+        });
+    </script>
+
+    
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/cs.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/css.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/diff.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/django.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/nginx.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/powershell.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js" defer></script>
+        
+        <script>
+            window.addEventListener('load', function() {
+                hljs.initHighlighting();
+            }, true);
+        </script>
+    
+
+    
+        <script src="//cdnjs.cloudflare.com/ajax/libs/progressively/1.2.5/progressively.min.js" integrity="sha256-LvFVlLdfGI3WeEH+8Ni4kxLm02g2GlOfeGCGLXfRk/U=" crossorigin="anonymous"></script>
+        <script>
+            window.addEventListener('load', function() {
+                progressively.init({delay: 30, throttle: 50});
+            }, true);
+        </script>
+    
+
+    
+
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-54304543-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+<script>
+    (function (m, a, i, l, e, r) {
+        m['MailerLiteObject'] = e; function f() {
+            var c = { a: arguments, q: [] }; var r = this.push(c); return "number" != typeof r ? r : f.bind(c.q);
+        }
+        f.q = f.q || []; m[e] = m[e] || f.bind(f.q); m[e].q = m[e].q || f.q; r = a.createElement(i);
+        var _ = a.getElementsByTagName(i)[0]; r.async = 1; r.src = l + '?v' + (~~(new Date().getTime() / 1000000));
+        _.parentNode.insertBefore(r, _);
+    })(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+
+    var ml_account = ml('accounts', '1180610', 'p6p1h3r0l3', 'load');
+</script>
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55bfede7196e342d"></script>
+
+</body>
+
+</html>

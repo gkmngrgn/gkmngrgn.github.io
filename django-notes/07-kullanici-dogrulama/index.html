@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>07 - Kullanıcı doğrulama - GKMNGRGN</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Uptime uygulamamıza kullanıcı girişi zorunluluğu getirip kullanıcıya göre özelleştireceğiz. Her kullanıcının kendi ekranları ayrı olacak.">
+    <meta property="og:site_name" content="GKMNGRGN" />
+    <meta property="og:locale" content="nn_NO" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://gokmengorgen.net/django-notes/07-kullanici-dogrulama/" />
+    <meta property="og:title" content="07 - Kullanıcı doğrulama" />
+    <meta property="og:image" content="https://gokmengorgen.net/img/django-notes/django-notes.png" />
+    <meta property="og:description" content="Uptime uygulamamıza kullanıcı girişi zorunluluğu getirip kullanıcıya göre özelleştireceğiz. Her kullanıcının kendi ekranları ayrı olacak." />
+
+    
+        <meta property="twitter:site" content="@gokmengorgen">
+    
+
+    <meta property="twitter:title" content="07 - Kullanıcı doğrulama" />
+    <meta property="twitter:image" content="https://gokmengorgen.net/img/django-notes/django-notes.png" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:description" content="Uptime uygulamamıza kullanıcı girişi zorunluluğu getirip kullanıcıya göre özelleştireceğiz. Her kullanıcının kendi ekranları ayrı olacak." />
+
+    
+        <meta name="flattr:id" content="62knje">
+    
+
+    <link rel="canonical" href="https://gokmengorgen.net/django-notes/07-kullanici-dogrulama/">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://gokmengorgen.net/css/main.css" />
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css" integrity="sha256-w6kCMnFvhY2tI1OnsYR/rb5DG9yFGodJknvFZOkp51E=" crossorigin="anonymous" />
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/progressively/1.2.5/progressively.min.css" integrity="sha256-xbqLYBMsjpuCihs+3Fgp/MFMtPdo2SWKoOjEWOqR4X0=" crossorigin="anonymous" />
+    
+
+    <link rel="shortcut icon"
+        href="https://gokmengorgen.net/img/laughing-man-favicon.png">
+
+    
+
+    <noscript>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
+    </noscript>
+</head>
+
+<body>
+    
+    <div class="my-4 my-md-5 header">
+    <div class="container">
+        <div class="row">
+            <div class="col-auto offset-md-1 d-none d-md-block">
+                
+                    <a href="https://gokmengorgen.net/">
+                        <img class="ml-md-4 logo" src="https://gokmengorgen.net/img/laughing-man.png" alt="logo">
+                    </a>
+                
+            </div>
+            <div class="col-auto align-self-center mr-auto">
+                <a href="https://gokmengorgen.net/">
+                    <h1 class="font-weight-bold name">GKMNGRGN</h1>
+                </a>
+
+                <ul class="nav nav-primary">
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase nav-link text-blog" href="https://gokmengorgen.net/blog/">
+                                
+                                Blog
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase nav-link text-my-work" href="https://alageek.com">
+                                
+                                My work
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase nav-link text-live" href="https://gokmengorgen.net/live/">
+                                📹
+                                Live
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <ul class="nav nav-secondary">
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase font-weight-bold nav-link text-patreon" href="https://www.patreon.com/bePatron?u=10637849">
+                                
+                                Become a patron
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase font-weight-bold nav-link text-bmc" href="https://www.buymeacoffee.com/gokmen">
+                                
+                                Buy me a coffee
+                            </a>
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-10">
+                    <h1 class="mx-0 mx-md-4">07 - Kullanıcı doğrulama</h1>
+
+                    <div class="mb-4 mb-md-5 meta">
+                        <span class="date" title="Fri May 18 2018 23:46:49 &#43;0300">
+                            May 18, 2018
+                        </span>
+
+                        <span class="reading-time middot">
+                            4 minute read
+                        </span>
+
+                        <div class="d-none d-md-inline tags">
+                            <ul class="list-unstyled d-inline">
+                                <li class="d-inline middot">
+                                    <a href="https://gokmengorgen.net/django-notes/">Django notlarım</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="markdown">
+                        
+    
+    
+
+<p><em>Facebook, Twitter, Linkedin, Yemeksepeti, Markafoni, Hepsiburada, Sahibinden&hellip; Hepsi bizim kim olduğumuzu bilmek isterler. Çünkü bize göre içerik üretirler, hizmet verirler, istediklerimizi sunarlar. Biz de ekranlarımızı kullanıcıya özel yapmak, herkes kendi ekranlarını görsün ve yönetsin istiyorsak, benzer bir kimlik doğrulama sistemi kullanmalıyız.</em></p>
+
+<h2 id="özet">Özet</h2>
+
+<ul>
+<li>Django&rsquo;nun en önemli bileşenlerinden biri olan kimlik doğrulama sistemini kullanacağız.</li>
+<li>Kullanıcı giriş yaptı mı yapmadı mı bilgisini tüm Template katmanında layout dosyamızda tutacağız.</li>
+<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-07">buradan</a> erişebilirsiniz.</li>
+</ul>
+
+<h2 id="kullanıcı-modelimiz">Kullanıcı modelimiz</h2>
+
+<p>Peki bu kadar çok ihtiyaç duyulan bir bileşen için her projede tekrar tekrar yazmak ne kadar doğru olurdu? Django, bazı çok ihtiyaç duyulan şeyleri projenin içinde tutup geliştiriyor, bazen de <a href="https://github.com/django/django-contrib-comments">django-contrib-comments</a> gibi projeden ayırıyor. Django auth<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>, en temel gereksinimleri içeren ve geliştirilmeye uygun bir kullanıcı modelini içinde barındırıyor; giriş - çıkış sayfaları, hesap doğrulama, parola sıfırlama gibi temel View katmanlarını da içeriyor ve sadece Template katmanını oluşturarak hızlıca bu sayfaları hazırlayabiliyorsunuz.</p>
+
+<p>Önce ne yapmak istediğimizi netleştirelim:</p>
+
+<ol>
+<li>Kullanıcı uptime uygulamasına gittiğinde -giriş yapmamışsa- giriş sayfasına yönlendireceğiz.</li>
+<li>Her kullanıcı sadece kendi ekranlarını görecek ve yönetecek.</li>
+<li>Çıkış yaptığında anasayfaya yönlendirilecek.</li>
+</ol>
+
+<p>Uygulamayı kurmaya her zaman olduğu gibi <strong>settings.py</strong> dosyasından başlıyoruz:</p>
+
+<pre><code class="language-python"># settings.py
+...
+from django.urls import reverse_lazy  # öncekilerden farklı olarak reverse yerine reverse_lazy
+...
+INSTALLED_APPS = [
+    ...
+    'django.contrib.auth',  # uygulamamız zaten kuruluydu.
+    ...
+]
+...
+# Auth settings
+LOGIN_REDIRECT_URL = reverse_lazy('uptime:dashboard')  # kullanıcıyı giriş yapması için buraya yönlendireceğiz.
+LOGOUT_REDIRECT_URL = reverse_lazy('home')  # kullanıcı çıkış yaptığında ise buraya yönlendireceğiz.
+</code></pre>
+
+<p>İlk migrationları çalıştırdığımızda hatırlarsanız, epey bir çıktı <a href="https://gokmengorgen.net/django-notes/02-model-katmani/#fnref:4">görmüştük</a>. Django auth projeyle birlikte kurulu geldiği için aslında veritabanımzda bir <strong>User</strong> modelimiz var. Zaten olmasa, Admin panelinde giriş yapabilmek için gerekli <strong>super user</strong>&lsquo;i oluşturamazdık.</p>
+
+<p>Django auth ile birlikte gelen View katmanımızı kullanabilmek için URL&rsquo;leri bağlamayı unutmayalım:</p>
+
+<pre><code class="language-python"># hello_django/urls.py
+...
+urlpatterns = [
+    ...
+    path('accounts/', include(('django.contrib.auth.urls', 'auth'), namespace='auth')),
+    ...
+]
+...
+</code></pre>
+
+<h2 id="model-katmanındaki-değişiklik">Model katmanındaki değişiklik</h2>
+
+<p>Şimdi uptime uygulamasının Monitor modeline <strong>user</strong> adında bir field ekleyelim, gerekli migration dosyamızı oluşturup çalıştıralım:</p>
+
+<pre><code class="language-python"># hello_uptime/models.py
+...
+from django.conf import settings
+...
+class Monitor(models.Model):
+    user = models.ForeignKey(
+        verbose_name=_(&quot;User&quot;), to=settings.AUTH_USER_MODEL, related_name='monitors', on_delete=models.CASCADE,
+        null=True)
+    url = models.URLField(verbose_name=_(&quot;URL&quot;))
+
+    class Meta:
+        ...
+        unique_together = ('user', 'url')
+    ...
+</code></pre>
+
+<p>Yaptığımız değişiklikleri anlayalım:</p>
+
+<ol>
+<li>Öncelikle <strong>url</strong> field&rsquo;inden <strong>unique</strong> attribute&rsquo;unu kaldırdık. Eskiden uygulamamızı ziyaret eden herkes tek bir ekran ekleyebiliyorken, şimdi her kullanıcı kendi ekran panelinden aynı URL&rsquo;i takip edebilecek. Ama yine de her kullanıcının kendi panelinde aynı domainin takip edilmesini engellemek için <strong>unique_together</strong> kullandık.</li>
+<li><strong>user</strong> field&rsquo;i için ForeignKey kullandık, User modelini tanımlarken <strong>AUTH_USER_MODEL</strong> tanımlamamızı kullandık, eğer Django&rsquo;nun içindeki User modeli bize uymasaydı ve kendimiz bir User model hazırlamış olsaydık, <strong>settings.py</strong> dosyamızdan <strong>AUTH_USER_MODEL</strong> tanımlamamız gerekecekti. Şimdilik varsayılan <code>auth.User</code>.</li>
+<li><strong>related_name</strong> olarak <strong>monitors</strong> yazdık, kodun içinde elimizde <code>user</code> olursa, o kullanıcının ekranlarına <code>user.monitors.all()</code> diyerek erişebileceğiz.</li>
+<li><strong>on_delete</strong> CASCADE, kullanıcımız veritabanından silinirse, ekranları da beraberinde silinecek.</li>
+<li><strong>null</strong> neden True dedik? Çünkü bu zamana kadar uygulamayı hep <strong>user</strong> field olmadan kullandık, ya migration için öntanımlı bir kullanıcı tanımlamamız gerekiyordu, ya da Model katmanında <strong>user</strong> field&rsquo;inin boş olmasına izin verecektik. En kolayı şuan için buna izin vermek.</li>
+</ol>
+
+<pre><code class="language-bash"># terminal
+$ python manage.py makemigrations hello_uptime
+Migrations for 'hello_uptime':
+  hello_uptime/migrations/0002_auto_20180519_1203.py
+    - Add field user to monitor
+    - Alter field url on monitor
+    - Alter unique_together for monitor (1 constraint(s))
+</code></pre>
+
+<pre><code class="language-bash"># terminal
+$ python manage.py migrate hello_uptime
+Operations to perform:
+  Apply all migrations: hello_uptime
+Running migrations:
+  Applying hello_uptime.0002_auto_20180519_1203... OK
+</code></pre>
+
+<h2 id="template-katmanındaki-değişiklik">Template katmanındaki değişiklik</h2>
+
+<p>Tüm sayfalarda kullanıcının giriş yapıp yapmadığı bilgisini gösterebilmek için <strong>base.html</strong> layout dosyamızda değişiklik yapıyoruz:</p>
+
+<pre><code class="language-html">&lt;!-- templates/base.html --&gt;
+{% load i18n %}  &lt;!-- trans ve bloctrans template tag'ı buradan geliyor. Çeviri yapabilmemiz için gerekli. --&gt;
+
+{% block header %} &lt;!-- Neden header block'una aldık? Çünkü bazı sayfalarda bu block'u boş göstereceğiz. --&gt;
+    &lt;header&gt;
+        &lt;!-- context_processors konusunu hatırlayın, user tüm sayfalarda tanımlı. --&gt;
+        {% if user.is_authenticated %}
+            &lt;!-- işte size tek satırda örnek blocktrans, with, get_full_name ve default kullanımı. --&gt;
+            {% blocktrans with name=user.get_full_name|default:user.username %}Hello,  {{ name }}!{% endblocktrans %}
+            &lt;a href=&quot;{% url 'auth:logout' %}&quot;&gt;{% trans &quot;Log out&quot; %}&lt;/a&gt;
+        {% else %}
+            &lt;a href=&quot;{% url 'auth:login' %}&quot;&gt;{% trans &quot;Log in&quot; %}&lt;/a&gt;
+        {% endif %}
+    &lt;/header&gt;
+{% endblock %}
+</code></pre>
+
+<p>Django auth içindeki Login View katmanı, <strong>registration/login.html</strong> adında bir Template dosyası arıyor. Kendimiz basit bir form oluşturalım:</p>
+
+<pre><code class="language-html">&lt;!-- templates/registration/login.html --&gt;
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}{{ block.super }} - Log in{% endblock %}
+
+{% block header %}{% endblock %} &lt;!-- Bunun içinde zaten bu sayfaya yönlendiren bir link var sadece, gereksiz. --&gt;
+
+{% block content %}
+    &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;
+        {% csrf_token %}
+
+        &lt;fieldset&gt;
+            &lt;legend&gt;{% trans &quot;Log in&quot; %}&lt;/legend&gt;
+
+            &lt;table&gt;
+                &lt;tbody&gt;
+                {{ form.as_table }}
+                &lt;tr&gt;
+                    &lt;th&gt;&lt;/th&gt;
+                    &lt;td&gt;
+                        &lt;button type=&quot;submit&quot;&gt;{% trans &quot;Log in&quot; %}&lt;/button&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/fieldset&gt;
+    &lt;/form&gt;
+{% endblock %}
+</code></pre>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/login-page.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/login-page.png" src="https://gokmengorgen.net/img/django-notes/low/login-page.png" alt="Login page" title="Giriş ekranı" /></figure>
+</a></p>
+
+<h2 id="view-katmanında-değişiklik">View katmanında değişiklik</h2>
+
+<p>Model&rsquo;imiz hazır, Template&rsquo;imiz hazır. Şimdi View katmanımızı kullanıcının giriş yapması için kısıtlamalıyız. Giriş yapmayan kullanıcı uptime uygulamasını göremeyecek, onun yerine login ekranımıza yönlendirilecek, giriş yaptıktan sonra tekrar uptime uygulamasına yönlendirilecek. Bir diğer kural, her kullanıcı kendi ekranlarını görecek, düzenleyecek:</p>
+
+<pre><code class="language-python"># hello_uptime/views.py
+...
+from django.contrib.auth.mixins import LoginRequiredMixin
+...
+class UptimeDashboardView(LoginRequiredMixin, ModelFormSetView):  # Yetki kontrolü bundan ibaret :-)
+    ...
+    def get_queryset(self):
+        return Monitor.objects.filter(user=self.request.user).order_by('id')
+    ...
+    def formset_valid(self, formset):
+        monitors = formset.save()
+        for monitor in monitors:
+            monitor.user = self.request.user
+            monitor.save()
+        ...
+    ...
+</code></pre>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/uptime-with-auth.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/uptime-with-auth.png" src="https://gokmengorgen.net/img/django-notes/low/uptime-with-auth.png" alt="Uptime with auth" title="Giriş yapılmış kullanıcıyla Uptime uygulaması" /></figure>
+</a></p>
+
+<p>Bundan sonraki yazımızda Django ile komut satırı uygulaması yazıp URL&rsquo;lerin durumunu kontrol edeceğiz. Kalın sağlıcakla.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="https://docs.djangoproject.com/en/2.0/topics/auth/default/">Django kimlik doğrulama sistemi</a>
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+
+                    </div>
+
+                    
+                        <div class="navigation">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    
+                                        <div class="mx-0 mx-md-4 mt-4 text-left">
+                                            <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
+                                            <a href="https://gokmengorgen.net/django-notes/06-bildirimler-ve-ceviriler/">06 - Bildirimler ve çeviriler</a>
+                                        </div>
+                                    
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    
+                                        <div class="mx-0 mx-md-4 mt-4 text-right">
+                                            <a href="https://gokmengorgen.net/django-notes/08-komutlar/">08 - Komutlar</a>
+                                            <img class="icon" src="https://gokmengorgen.net/img/next.svg" alt="next" />
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-4 footer">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-5">
+                
+                    <div class="mx-0 mx-md-4 text-left">
+                        
+                            <a href="https://gokmengorgen.net/license">© 2018 by Gökmen Görgen.</a>
+                        
+                    </div>
+                
+            </div>
+            <div class="col-sm-12 col-md-5">
+                <div class="mx-0 mx-md-4 text-right">
+                    
+
+                    
+
+                    
+
+                    
+                        <a href="https://github.com/gkmngrgn" target="_blank">
+                            <img class="icon" src="https://gokmengorgen.net/img/github.svg" alt="github" />
+                        </a>
+                    
+
+                    
+                        <a href="https://twitter.com/gokmengorgen" target="_blank">
+                            <img class="icon" src="https://gokmengorgen.net/img/twitter.svg" alt="twitter" />
+                        </a>
+                    
+
+                    
+                        <a href="https://www.linkedin.com/in/gokmengorgen" target="_blank">
+                            <img class="icon" src="https://gokmengorgen.net/img/linkedin.svg" alt="linkedin" />
+                        </a>
+                    
+
+                    
+                        <a href="mailto:gokmen@alageek.com">
+                            <img class="icon" src="https://gokmengorgen.net/img/email.svg" alt="email" />
+                        </a>
+                    
+
+                    
+                        <a href="https://gokmengorgen.net/index.xml" class="mr-0">
+                            <img class="icon" src="https://gokmengorgen.net/img/rss.svg" alt="rss" />
+                        </a>
+                    
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha256-xaF9RpdtRxzwYMWg4ldJoyPWqyDPCRD0Cv7YEEe6Ie8=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ['Raleway:400,600,700', 'Merriweather:300,300i,700,700i']
+            }
+        });
+    </script>
+
+    
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/cs.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/css.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/diff.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/django.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/nginx.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/powershell.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js" defer></script>
+        
+        <script>
+            window.addEventListener('load', function() {
+                hljs.initHighlighting();
+            }, true);
+        </script>
+    
+
+    
+        <script src="//cdnjs.cloudflare.com/ajax/libs/progressively/1.2.5/progressively.min.js" integrity="sha256-LvFVlLdfGI3WeEH+8Ni4kxLm02g2GlOfeGCGLXfRk/U=" crossorigin="anonymous"></script>
+        <script>
+            window.addEventListener('load', function() {
+                progressively.init({delay: 30, throttle: 50});
+            }, true);
+        </script>
+    
+
+    
+
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-54304543-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+<script>
+    (function (m, a, i, l, e, r) {
+        m['MailerLiteObject'] = e; function f() {
+            var c = { a: arguments, q: [] }; var r = this.push(c); return "number" != typeof r ? r : f.bind(c.q);
+        }
+        f.q = f.q || []; m[e] = m[e] || f.bind(f.q); m[e].q = m[e].q || f.q; r = a.createElement(i);
+        var _ = a.getElementsByTagName(i)[0]; r.async = 1; r.src = l + '?v' + (~~(new Date().getTime() / 1000000));
+        _.parentNode.insertBefore(r, _);
+    })(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+
+    var ml_account = ml('accounts', '1180610', 'p6p1h3r0l3', 'load');
+</script>
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55bfede7196e342d"></script>
+
+</body>
+
+</html>

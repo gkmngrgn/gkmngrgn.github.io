@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>03 - Admin Paneli - GKMNGRGN</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Django&#39;nun en önemli bileşenlerinden biri olan admin paneline değiniyoruz.">
+    <meta property="og:site_name" content="GKMNGRGN" />
+    <meta property="og:locale" content="nn_NO" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://gokmengorgen.net/django-notes/03-admin-paneli/" />
+    <meta property="og:title" content="03 - Admin Paneli" />
+    <meta property="og:image" content="https://gokmengorgen.net/img/django-notes/django-notes.png" />
+    <meta property="og:description" content="Django&#39;nun en önemli bileşenlerinden biri olan admin paneline değiniyoruz." />
+
+    
+        <meta property="twitter:site" content="@gokmengorgen">
+    
+
+    <meta property="twitter:title" content="03 - Admin Paneli" />
+    <meta property="twitter:image" content="https://gokmengorgen.net/img/django-notes/django-notes.png" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:description" content="Django&#39;nun en önemli bileşenlerinden biri olan admin paneline değiniyoruz." />
+
+    
+        <meta name="flattr:id" content="62knje">
+    
+
+    <link rel="canonical" href="https://gokmengorgen.net/django-notes/03-admin-paneli/">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://gokmengorgen.net/css/main.css" />
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css" integrity="sha256-w6kCMnFvhY2tI1OnsYR/rb5DG9yFGodJknvFZOkp51E=" crossorigin="anonymous" />
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/progressively/1.2.5/progressively.min.css" integrity="sha256-xbqLYBMsjpuCihs+3Fgp/MFMtPdo2SWKoOjEWOqR4X0=" crossorigin="anonymous" />
+    
+
+    <link rel="shortcut icon"
+        href="https://gokmengorgen.net/img/laughing-man-favicon.png">
+
+    
+
+    <noscript>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
+    </noscript>
+</head>
+
+<body>
+    
+    <div class="my-4 my-md-5 header">
+    <div class="container">
+        <div class="row">
+            <div class="col-auto offset-md-1 d-none d-md-block">
+                
+                    <a href="https://gokmengorgen.net/">
+                        <img class="ml-md-4 logo" src="https://gokmengorgen.net/img/laughing-man.png" alt="logo">
+                    </a>
+                
+            </div>
+            <div class="col-auto align-self-center mr-auto">
+                <a href="https://gokmengorgen.net/">
+                    <h1 class="font-weight-bold name">GKMNGRGN</h1>
+                </a>
+
+                <ul class="nav nav-primary">
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase nav-link text-blog" href="https://gokmengorgen.net/blog/">
+                                
+                                Blog
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase nav-link text-my-work" href="https://alageek.com">
+                                
+                                My work
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase nav-link text-live" href="https://gokmengorgen.net/live/">
+                                📹
+                                Live
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <ul class="nav nav-secondary">
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase font-weight-bold nav-link text-patreon" href="https://www.patreon.com/bePatron?u=10637849">
+                                
+                                Become a patron
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase font-weight-bold nav-link text-bmc" href="https://www.buymeacoffee.com/gokmen">
+                                
+                                Buy me a coffee
+                            </a>
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-10">
+                    <h1 class="mx-0 mx-md-4">03 - Admin Paneli</h1>
+
+                    <div class="mb-4 mb-md-5 meta">
+                        <span class="date" title="Sun Apr 22 2018 00:02:51 CEST">
+                            Apr 22, 2018
+                        </span>
+
+                        <span class="reading-time middot">
+                            5 minute read
+                        </span>
+
+                        <div class="d-none d-md-inline tags">
+                            <ul class="list-unstyled d-inline">
+                                <li class="d-inline middot">
+                                    <a href="https://gokmengorgen.net/django-notes/">Django notlarım</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="markdown">
+                        
+    
+    
+
+<p><em>Model objemizi oluşturduktan sonra hemen veri girişi yapsak, denesek, kontrol etsek nasıl olurdu? Django&rsquo;nun en güzel yanlarından biri olan <strong>Django Admin&rsquo;e</strong> el atalım mı? Önce modelimizde biraz değişiklik yapmamız gerek.</em></p>
+
+<h2 id="özet">Özet</h2>
+
+<ul>
+<li>İkinci bir migration script oluşturma denemesi yapacağız.</li>
+<li>Model katmanında ilk sinyal denememizi yapacağız.</li>
+<li>Palette modelimizi <strong>Django Admin</strong> panelinde göreceğiz.</li>
+<li>Resim yükleyebilmek için form sayfası, resmin renk kodlarını görüntüleyebilmek için detay sayfası hazırlayacağız.</li>
+<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-03">buradan</a> erişebilirsiniz.</li>
+</ul>
+
+<h2 id="bir-migration-daha">Bir Migration Daha</h2>
+
+<p>Önceki konuyu pekiştirmek için <strong>Palette</strong> modelimizde birkaç değişiklik yapıp yeni bir migration script oluşturalım. Önce <code>is_deleted</code> adında yeni bir field ekleyelim:</p>
+
+<pre><code class="language-python"># hello_palette/models.py
+...
+class Palette(models.Model):
+    ...
+    colors = models.TextField(verbose_name=_(&quot;Colors&quot;), editable=False)  # Bunu admin panelinden düzenlenemez hale getirdik.
+    is_deleted = models.BooleanField(verbose_name=_(&quot;Is deleted?&quot;), blank=True, default=False)  # işte yeni field'imiz.
+    ...
+
+    def __str__(self):  # Bunu hatırlayın, admin panelinde kullanacağız.
+        return self.image.name
+</code></pre>
+
+<pre><code class="language-bash"># terminal
+$ python manage.py makemigrations hello_palette
+Migrations for 'hello_palette':
+  hello_palette/migrations/0002_auto_20180422_0757.py
+    - Add field is_deleted to palette
+    - Alter field colors on palette
+</code></pre>
+
+<pre><code class="language-bash"># terminal
+$ python manage.py migrate hello_palette
+Operations to perform:
+  Apply all migrations: hello_palette
+Running migrations:
+  Applying hello_palette.0002_auto_20180422_0757... OK
+</code></pre>
+
+<p><strong>Neden <code>colors</code> field&rsquo;i düzenlenemez yapıldı?</strong> Çünkü Admin panelinden veya herhangi bir arayüzden bu fieldin değiştirilmesini, doldurulmasını istemiyoruz. Bu uygulamada amacımız bir resim dosyasının renk paletini otomatik olarak oluşturmak. <strong>hello_palette</strong> uygulaması içindeki <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-03/hello_django/hello_palette/color_parser.py"><strong>color_parser.py</strong></a> bize bu konuda yardımcı olacak; ancak <strong>colorific</strong> adında bir bağımlılığı var, onu kurmayı unutmayalım:</p>
+
+<pre><code class="language-bash"># requirements.txt
+...
+colorific==0.3
+</code></pre>
+
+<p>Peki bu <strong>color_parser</strong> modülümüzü nasıl kullanacağız? Biz istiyoruz ki yeni bir resim yüklendiğinde, <strong>ilk kez</strong> kaydedildiğinde renk paleti oluşturulsun. Yani, bizim bir model objesinin kaydetme aşamasını yakalamamız ve o an ek bir işlem daha yaptırmamız gerekiyor. İşte bunu biz sinyal metodlarıyla<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> yapıyoruz:</p>
+
+<pre><code class="language-python"># hello_palette/models.py
+...
+from django.dispatch import receiver
+from hello_palette.color_parser import ColorParser
+...
+@receiver(models.signals.post_save, sender=Palette)
+def parse_colors(sender, instance, created, **kwargs):
+    if not created:
+        return  # don't do anything
+
+    instance.colors = ColorParser(image_path=instance.image.path).parse_colors()
+    instance.save()
+</code></pre>
+
+<p>Eğer ilk kez bir Palette objesi kaydediliyor veya oluşturuluyorsa, <strong>colors</strong> field&rsquo;imizin içi HEX kodlarıyla doldurulacak. Şimdi admin paneline geçmeden önce son bir şey daha yapmamız gerekiyor.</p>
+
+<h1 id="media-ayarlarımız">Media Ayarlarımız</h1>
+
+<p>Static ve Media arasındaki temel fark; static adı üzerinde statiktir, genellikle frontend dosyalarımızı ve içeriği veya konumu değişmeyen dosyalar için kullanırız. Ancak bir de dışarıdan uygulama için yüklediğimiz dosyalar var. Bunlar media dosyalarıdır ve bunlar için ayrıca ayar yapmamız gerekiyor:</p>
+
+<pre><code class="language-python"># settings.py
+...
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+</code></pre>
+
+<pre><code class="language-python"># django_palette/urls.py
+from django.conf import settings
+from django.conf.urls.static import static
+...
+
+urlpatterns = [
+    ...
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+</code></pre>
+
+<h1 id="django-admin">Django Admin</h1>
+
+<p>Bir proje oluşturduğunuzda Django Admin kurulu geliyor. Bizim şuan tek yapmamız gereken, bir tam yetkili kullanıcı oluşturmak. Bu sayede Admin paneline giriş yapabileceğiz:</p>
+
+<pre><code class="language-bash"># terminal
+$ python manage.py createsuperuser
+Username (leave blank to use 'gokmen'):
+Email address: gokmen@alageek.com
+Password:
+Password (again):
+Superuser created successfully.
+</code></pre>
+
+<p>Geliştirme sunucumuzu çalıştırıp <code>https://localhost:8000/admin/</code> adresine gidelim ve girişimizi yapalım:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/django-admin.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/django-admin.png" src="https://gokmengorgen.net/img/django-notes/low/django-admin.png" alt="Django admin panel" title="Django Admin panelimiz" /></figure>
+</a></p>
+
+<p>Admin panelini ilk açtığınızda sadece <strong>Users</strong> ve <strong>Groups</strong> olacak, <strong>Palette</strong> modelimizi de ekleyebilmek için bizim bir admin kaydı yapmamız gerekiyor:</p>
+
+<pre><code class="language-python"># hello_palette/admin.py
+from django.contrib import admin
+from hello_palette.models import Palette
+
+
+@admin.register(Palette)
+class PaletteAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'colors', 'created_at', 'is_deleted')
+    list_filter = ('is_deleted',)
+    date_hierarchy = 'created_at'
+</code></pre>
+
+<p>Şimdi buna bir göz atalım, biz dedik ki:</p>
+
+<ul>
+<li>Resim dosyası adı, renkler, ve resmin yüklenme tarihini admin panelinde kolon olarak göster. <code>__str__</code> metodunu modelimizde görebilirsiniz, tekrar inceleyin, resim dosyası adını döndürüyor.</li>
+<li>Resmin silinip silinmediğine göre filtrelememe izin ver. Dışarıdan bir kullanıcının gerçekten veri silmesine izin vermeyeceğiz, <strong>soft delete</strong>.</li>
+<li>Resimlerin yüklenme tarihine göre filtrelememe de izin ver.</li>
+</ul>
+
+<p>Böylece admin panelinde yeni bir Palette objesi eklemek istediğimizde biraz daha özelleştirilmiş bir panel göreceğiz:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/palette-in-admin.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/palette-in-admin.png" src="https://gokmengorgen.net/img/django-notes/low/palette-in-admin.png" alt="Palette in admin" title="Palette Admin Paneli'nde" /></figure>
+</a></p>
+
+<p>Renk kodlarımızı görebiliyoruz! Fakat admin paneli normal kullanıcılar için değil, biz burada sadece modelimizi test etmek istedik. Normal yetkisiz kullanıcılar için MTV konusunu hatırlayarak birkaç View yazmamız gerekiyor.</p>
+
+<h2 id="mtv">MTV</h2>
+
+<p>Bir kullanıcının bir resim yükleyip renk paletini oluşturması için bir form sayfası, bir de sonucu gösterebileceğimiz detay sayfasına ihtiyacımız var, önce View katmanı hazırmış gibi url&rsquo;leri yazıyoruz:</p>
+
+<pre><code class="language-python"># hello_django/urls.py
+...
+urlpatterns = [
+    path('', view=HomeView.as_view(), name='home'),
+    path('palette/', include('hello_palette.urls', namespace='palette')),  # namespace'in palette olmasına dikkat
+    ...
+</code></pre>
+
+<p>Palette uygulamamıza <strong><a href="http://localhost:8000/palette/">http://localhost:8000/palette/</a></strong> üzerinden erişebileceğiz.</p>
+
+<pre><code class="language-python"># hello_palette/urls.py
+from django.urls import path
+from hello_palette.views import PaletteDetailView, PaletteFormView
+
+app_name = 'palette'
+
+urlpatterns = [
+    path('', view=PaletteFormView.as_view(), name='new'),  # namespace `palette`, name `new`
+    path('&lt;int:pk&gt;/', view=PaletteDetailView.as_view(), name='detail'),  # namespace `palette`, name `detail`
+]
+</code></pre>
+
+<p><strong>PaletteFormView&rsquo;in</strong> daha önceki View katmanı örneğinden farklı bir URL yapısı yok, ancak <strong>PaletteDetailView</strong> için <strong>pk</strong> değerine ihtiyacımız var. Bu değer ile istediğimiz <strong>Palette</strong> model objesine erişebileceğiz. <strong>PaletteFormView</strong> önceki örnekten farklı olarak bir forma<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> ihtiyacı var:</p>
+
+<pre><code class="language-python">from django import forms
+from hello_palette.models import Palette
+
+
+class PaletteForm(forms.ModelForm):
+    class Meta:
+        model = Palette  # ModelForm'un güzelliği, model fieldlarımızdan form üretmek.
+        exclude = ('is_deleted',)  # bu field sadece admin için gerekli, kullanıcı için gereksiz.
+</code></pre>
+
+<p>View katmanımız:</p>
+
+<pre><code class="language-python"># hello_palette/views.py
+from django.shortcuts import get_object_or_404, redirect
+from django.views.generic import DetailView, FormView
+from hello_palette.models import Palette
+from hello_palette.forms import PaletteForm
+
+
+class PaletteFormView(FormView):
+    template_name = 'palette/new.html'  # template dosyamızı sonra oluşturacağız.
+    form_class = PaletteForm
+
+    def form_valid(self, form):
+        palette = form.save()  # form başarılıysa, kaydet.
+        return redirect('palette:detail', palette.pk)  # namespace ve name'ları işte burada kullanıyoruz.
+
+
+class PaletteDetailView(DetailView):
+    template_name = 'palette/detail.html'  # template dosyamızı sonra oluşturacağız.
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')  # URL'deki pk'i hatırladınız mı?
+        return get_object_or_404(Palette, pk=pk, is_deleted=False)
+</code></pre>
+
+<p>Model katmanı tamam, View katmanı tamam, şimdi Template katmanımızı tamamlamamız gerekiyor:</p>
+
+<pre><code class="language-html">&lt;!-- templates/palette/new.html --&gt;
+...
+&lt;body&gt;
+    &lt;!-- enctype resim dosyası yükleyebilmek için --&gt;
+    &lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
+        {% csrf_token %} &lt;!-- Cross Site Request Forgery Protection --&gt;
+        &lt;ul&gt;
+            {{ form.as_ul }} &lt;!-- PaletteForm burada --&gt;
+        &lt;/ul&gt;
+        &lt;button type=&quot;submit&quot;&gt;Upload&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+...
+</code></pre>
+
+<pre><code class="language-html">&lt;!-- templates/palette/detail.html --&gt;
+...
+&lt;body&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;{{ palette.image.url }}&quot; height=250 /&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;{{ palette.colors }}&lt;/p&gt;
+&lt;/body&gt;
+...
+</code></pre>
+
+<p>Şimdi resim yükleyip renk kodu almayı deneyebiliriz, bunun için super user olmaya ihtiyacımız yok. Biraz işlevsiz bir arayüz; ancak MTV için yeterli:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/palette-1.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/palette-1.png" src="https://gokmengorgen.net/img/django-notes/low/palette-1.png" alt="Palette form view" title="Palette form ekranı" /></figure>
+</a></p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/palette-2.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/palette-2.png" src="https://gokmengorgen.net/img/django-notes/low/palette-2.png" alt="Palette detail view" title="Palette detay ekranı" /></figure>
+</a></p>
+
+<p>View katmanımızı <a href="https://github.com/gkmngrgn/django-notes/blob/master/Article-03/hello_django/hello_palette/views.py">repo&rsquo;dan</a> inceleyin, orada bir Delete View örneği daha göreceksiniz. Bir sonraki yazımızda Template dosyalarımızın üzerinden bir kez daha geçelim.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><strong>Signals</strong> konusunda daha fazla bilgi için Django&rsquo;nun <a href="https://docs.djangoproject.com/en/2.0/topics/signals/">kendi dökümantasyonuna</a> gözatmanızı öneririm.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">CSRF, sunucuya sahte isteklerin gönderilmesini veya gerçek isteklerin gönderilirken değiştirilmesini engellemek için bir tür yöntemdir. Django dökümantasyonunda bu konuyla ilgili <a href="https://docs.djangoproject.com/en/2.0/ref/csrf/">detaylı bilgi</a> var.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+
+                    </div>
+
+                    
+                        <div class="navigation">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    
+                                        <div class="mx-0 mx-md-4 mt-4 text-left">
+                                            <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
+                                            <a href="https://gokmengorgen.net/django-notes/02-model-katmani/">02 - Model Katmanı</a>
+                                        </div>
+                                    
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    
+                                        <div class="mx-0 mx-md-4 mt-4 text-right">
+                                            <a href="https://gokmengorgen.net/django-notes/04-template-motoru/">04 - Template Motoru</a>
+                                            <img class="icon" src="https://gokmengorgen.net/img/next.svg" alt="next" />
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-4 footer">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-5">
+                
+                    <div class="mx-0 mx-md-4 text-left">
+                        
+                            <a href="https://gokmengorgen.net/license">© 2018 by Gökmen Görgen.</a>
+                        
+                    </div>
+                
+            </div>
+            <div class="col-sm-12 col-md-5">
+                <div class="mx-0 mx-md-4 text-right">
+                    
+
+                    
+
+                    
+
+                    
+                        <a href="https://github.com/gkmngrgn" target="_blank">
+                            <img class="icon" src="https://gokmengorgen.net/img/github.svg" alt="github" />
+                        </a>
+                    
+
+                    
+                        <a href="https://twitter.com/gokmengorgen" target="_blank">
+                            <img class="icon" src="https://gokmengorgen.net/img/twitter.svg" alt="twitter" />
+                        </a>
+                    
+
+                    
+                        <a href="https://www.linkedin.com/in/gokmengorgen" target="_blank">
+                            <img class="icon" src="https://gokmengorgen.net/img/linkedin.svg" alt="linkedin" />
+                        </a>
+                    
+
+                    
+                        <a href="mailto:gokmen@alageek.com">
+                            <img class="icon" src="https://gokmengorgen.net/img/email.svg" alt="email" />
+                        </a>
+                    
+
+                    
+                        <a href="https://gokmengorgen.net/index.xml" class="mr-0">
+                            <img class="icon" src="https://gokmengorgen.net/img/rss.svg" alt="rss" />
+                        </a>
+                    
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha256-xaF9RpdtRxzwYMWg4ldJoyPWqyDPCRD0Cv7YEEe6Ie8=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ['Raleway:400,600,700', 'Merriweather:300,300i,700,700i']
+            }
+        });
+    </script>
+
+    
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/cs.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/css.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/diff.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/django.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/nginx.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/powershell.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js" defer></script>
+        
+        <script>
+            window.addEventListener('load', function() {
+                hljs.initHighlighting();
+            }, true);
+        </script>
+    
+
+    
+        <script src="//cdnjs.cloudflare.com/ajax/libs/progressively/1.2.5/progressively.min.js" integrity="sha256-LvFVlLdfGI3WeEH+8Ni4kxLm02g2GlOfeGCGLXfRk/U=" crossorigin="anonymous"></script>
+        <script>
+            window.addEventListener('load', function() {
+                progressively.init({delay: 30, throttle: 50});
+            }, true);
+        </script>
+    
+
+    
+
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-54304543-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+<script>
+    (function (m, a, i, l, e, r) {
+        m['MailerLiteObject'] = e; function f() {
+            var c = { a: arguments, q: [] }; var r = this.push(c); return "number" != typeof r ? r : f.bind(c.q);
+        }
+        f.q = f.q || []; m[e] = m[e] || f.bind(f.q); m[e].q = m[e].q || f.q; r = a.createElement(i);
+        var _ = a.getElementsByTagName(i)[0]; r.async = 1; r.src = l + '?v' + (~~(new Date().getTime() / 1000000));
+        _.parentNode.insertBefore(r, _);
+    })(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+
+    var ml_account = ml('accounts', '1180610', 'p6p1h3r0l3', 'load');
+</script>
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55bfede7196e342d"></script>
+
+</body>
+
+</html>

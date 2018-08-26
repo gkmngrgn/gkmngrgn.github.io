@@ -4,33 +4,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Django modelinde selectbox kullanımı - GKMNGRGN</title>
+    <title>06 - Bildirimler ve çeviriler - GKMNGRGN</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="referrer" content="no-referrer">
-    <meta name="description" content="Kodun okunaklığını koruyarak Django&#39;da genel bir selectbox çözümü için önerim var: Choice class.">
+    <meta name="description" content="Kullanıcıya, veride yaptığı değişiklikler hakkında bilgi vermek gerekir. Django&#39;nun bildirim sistemini çeviri yaparak uygulamamızda kullanacağız.">
     <meta property="og:site_name" content="GKMNGRGN" />
     <meta property="og:locale" content="nn_NO" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/" />
-    <meta property="og:title" content="Django modelinde selectbox kullanımı" />
-    <meta property="og:image" content="https://gokmengorgen.net/img/django-choice-class.jpg" />
-    <meta property="og:description" content="Kodun okunaklığını koruyarak Django&#39;da genel bir selectbox çözümü için önerim var: Choice class." />
+    <meta property="og:url" content="https://gokmengorgen.net/django-notes/06-bildirimler-ve-ceviriler/" />
+    <meta property="og:title" content="06 - Bildirimler ve çeviriler" />
+    <meta property="og:image" content="https://gokmengorgen.net/img/django-notes/django-notes.png" />
+    <meta property="og:description" content="Kullanıcıya, veride yaptığı değişiklikler hakkında bilgi vermek gerekir. Django&#39;nun bildirim sistemini çeviri yaparak uygulamamızda kullanacağız." />
 
     
         <meta property="twitter:site" content="@gokmengorgen">
     
 
-    <meta property="twitter:title" content="Django modelinde selectbox kullanımı" />
-    <meta property="twitter:image" content="https://gokmengorgen.net/img/django-choice-class.jpg" />
+    <meta property="twitter:title" content="06 - Bildirimler ve çeviriler" />
+    <meta property="twitter:image" content="https://gokmengorgen.net/img/django-notes/django-notes.png" />
     <meta property="twitter:card" content="summary" />
-    <meta property="twitter:description" content="Kodun okunaklığını koruyarak Django&#39;da genel bir selectbox çözümü için önerim var: Choice class." />
+    <meta property="twitter:description" content="Kullanıcıya, veride yaptığı değişiklikler hakkında bilgi vermek gerekir. Django&#39;nun bildirim sistemini çeviri yaparak uygulamamızda kullanacağız." />
 
     
         <meta name="flattr:id" content="62knje">
     
 
-    <link rel="canonical" href="https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/">
+    <link rel="canonical" href="https://gokmengorgen.net/django-notes/06-bildirimler-ve-ceviriler/">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous" />
 
@@ -126,39 +126,22 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-10">
-                    <h1 class="mx-0 mx-md-4">Django modelinde selectbox kullanımı</h1>
+                    <h1 class="mx-0 mx-md-4">06 - Bildirimler ve çeviriler</h1>
 
                     <div class="mb-4 mb-md-5 meta">
-                        <span class="date" title="Sun May 27 2018 16:45:30 CEST">
-                            May 27, 2018
+                        <span class="date" title="Thu May 10 2018 14:36:49 CEST">
+                            May 10, 2018
                         </span>
-
-                        
-                            
-                        
 
                         <span class="reading-time middot">
-                            2 minute read
+                            4 minute read
                         </span>
 
                         <div class="d-none d-md-inline tags">
                             <ul class="list-unstyled d-inline">
-                                
-                                    <li class="d-inline middot">
-                                        <a href="https://gokmengorgen.net/tags/coding">coding</a>
-                                    </li>
-                                
-                                    <li class="d-inline middot">
-                                        <a href="https://gokmengorgen.net/tags/django">django</a>
-                                    </li>
-                                
-                            </ul>
-                        </div>
-
-                        <div class="d-none d-md-inline tags">
-                            <ul class="list-unstyled d-inline">
-                                
-                                
+                                <li class="d-inline middot">
+                                    <a href="https://gokmengorgen.net/django-notes/">Django notlarım</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -166,125 +149,210 @@
                     <div class="markdown">
                         
     
-    <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-choice-class.jpg" src="https://gokmengorgen.net/img/low/django-choice-class.jpg" alt="" /></p></figure>
+    
 
-<p>Bazen bir model field&rsquo;ında kullanımı sınırlandırmak veya veriyi denetlemek için basit çözümlere ihtiyacımız var. Örneğin, bir araba markası sorulduğunda kullanıcının kafadan veri girişini engellemek veya Opel - opel gibi büyük - küçük farklarından dolayı oluşacak gereksiz seçenek bölünmelerini önlemek gerekir.</p>
+<p><em>Uptime ekranımızda URL&rsquo;lerimizi giriyoruz; ama kullanıcı ile bir etkileşim olmuyor. Gerçekten kaydetti mi, bir sorun mu oldu, ne oldu belli değil. Bir de uygulamayı İngilizce geliştiriyoruz; ama Türkçe yerelde Türkçe arayüz görmek istersek ne yapacağız? Birlikte deneyelim, görelim.</em></p>
 
-<p><a href="https://gokmengorgen.net/django-notes/">Django notlarım</a>&lsquo;da sürekli dile getirdiğim konu var, bir şeye ihtiyaç duyduğunuzda:</p>
+<h2 id="özet">Özet</h2>
+
+<ul>
+<li>Django&rsquo;da bildirim altyapısını (Messages Framework<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>) uygulamamızda kullanacağız.</li>
+<li>Tüm sayfalarda bildirim mesajlarının nasıl çalıştığını inceleyerek Template katmanına sayfa bağımsız içerik nasıl enjekte ediliyor, bu konuya değineceğiz.</li>
+<li>Bildirim mesajlarını yerelleştireceğiz.</li>
+<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-06">buradan</a> erişebilirsiniz.</li>
+</ul>
+
+<h2 id="messages-framework">Messages Framework</h2>
+
+<p>Django admin panelinde dikkatinizi çekti mi, bir Monitor eklemek, düzenlemek veya silmek istediğimizde aşağıdaki gibi bir bildirim alıyoruz:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/admin-notification.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/admin-notification.png" src="https://gokmengorgen.net/img/django-notes/low/admin-notification.png" alt="Notification in admin panel" title="Admin panelinde bildirim" /></figure>
+</a></p>
+
+<p>Aynısını Uptime ekranında kullanmak için, Django ile birlikte gelen Messages Framework&rsquo;e ihtiyacımız var. İlk kez Django projesi kurduğumuzda bildirimler kullanıma hazır haldedir. Önce basit bir stil düzeltmesi yapalım, bildirim bir hata mesajı mı, yoksa olumlu bir bilgi mi içeriyor, renkle anlaşılsın:</p>
+
+<pre><code class="language-css">/* static/main.css */
+...
+ul.messages {
+  margin: 0 0 20px 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+ul.messages li {
+    margin-bottom: 5px;
+    padding: 15px 20px;
+    background-color: #eaeaea;
+    color: #222;
+}
+
+ul.messages li.error { /* Bildirim tag'ı error ise arkaplan kırmızı */
+    background-color: #f7e4e1;
+}
+
+ul.messages li.success { /* Bildirim tag'ı success ise arkaplan yeşil */
+    background-color: #e1faea;
+}
+</code></pre>
+
+<p>Şimdi Template katmanımızı güncelleyelim. Yalnız hangi dosyayı düzenlediğimize dikkat edin, bildirimler tek bir sayfada olmayacak. Yani tüm sayfalarda kullandığımız layout dosyasına bir kod ekleyeceğiz ve hangi sayfa olursa olsun bildirimler tutarlı görünecek:</p>
+
+<pre><code class="language-html">&lt;!-- templates/base.html --&gt;
+...
+{% if messages %}
+    &lt;ul class=&quot;messages&quot;&gt;
+        {% for message in messages %}
+            &lt;li{% if message.tags %} class=&quot;{{ message.tags }}&quot;{% endif %}&gt;{{ message }}&lt;/li&gt;
+        {% endfor %}
+    &lt;/ul&gt;
+{% endif %}
+...
+</code></pre>
+
+<p>Şimdi View katmanımızı güncelleyeceğiz. Yalnız bir şeye dikkat etmenizi istiyorum. Form geçerli veya geçersiz olduğunda bir bildirim mesajı ekliyoruz; ama hiç <code>messages</code> diye bir içerik verisi tanımlamadığımız halde bu değişkeni tüm Template dosyalarımızda <strong>ortak</strong> kullanabiliyoruz. Yani <code>messages</code> değişkenimiz, Template katmanımız yorumlanırken bir şekilde içine enjekte ediliyor:</p>
+
+<pre><code class="language-python"># hello_uptime/views.py
+...
+from django.contrib import messages
+...
+
+class UptimeDashboardView(ModelFormSetView):
+    ...
+
+    def formset_valid(self, formset):
+        formset.save()
+        # Formlarımızda sorun yoksa bu metod çalışacak.
+        # Bildirimimizi messages.success ile ekleyeceğiz.
+        messages.success(self.request, _(&quot;The monitors have been updated.&quot;))
+        return super().formset_valid(formset)
+
+    def formset_invalid(self, formset):
+        # Formlarımızda sorun varsa bu metod çalışacak.
+        # Bir hata mesajı göstermek istediğimiz için messages.error kullanıyoruz.
+        messages.error(self.request, _(&quot;The monitors could not be updated, please check the form.&quot;))
+        return super().formset_invalid(formset)
+</code></pre>
+
+<p>Hiç <code>get_context_data</code> metoduna dokunmadık, hiç <code>messages</code> diye içerik verisi eklemedik; ama çalışıyor, nasıl?</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/notification-error.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/notification-error.png" src="https://gokmengorgen.net/img/django-notes/low/notification-error.png" alt="Error message" title="Hata mesajı" /></figure>
+</a></p>
+
+<p>Sorumuzun cevabı proje ayarlarında gizli:</p>
+
+<pre><code class="language-python"># settings.py
+...
+TEMPLATES = [
+    {
+        ...
+        'OPTIONS': {
+            'context_processors': [
+                ...
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+...
+</code></pre>
+
+<p>Context Processors konusuna daha sonra bizzat kendimiz bir örnek yazarak tekrar değineceğiz, şimdilik bu kadarıyla yetinebiliriz<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>.</p>
+
+<h2 id="çeviriler">Çeviriler</h2>
+
+<p>Tarayıcımın dili Türkçe olduğunda, bildirimleri de Türkçe görmek için bizim yerelleştirme<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup> yapmamız gerekiyor. Çeviriler yerelleştirmenin bir konusu; ancak bunun dışında tarih biçimleri, parayı ifade eden sayıların yazılışı, sayı ayraçları da yerelleştirmenin konusudur.</p>
+
+<p>Önce proje ayarlarında çeviri için gerekli birkaç ayar yapmamız gerekiyor:</p>
+
+<pre><code class="language-python"># settings.py
+...
+MIDDLEWARE = [
+    ...
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # Sıra önemli.
+    'django.middleware.common.CommonMiddleware',
+    ...
+]
+...
+LANGUAGE_CODE = 'en'
+
+LANGUAGES = [
+    ('en', &quot;English&quot;),
+    ('tr', &quot;Türkçe&quot;),
+]
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+...
+</code></pre>
+
+<p>Django çeviri için gettext<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup> kullanıyor. Projemizde <strong>locale</strong> dizinini oluşturduktan sonra aşağıdaki komutu çalıştırın:</p>
+
+<pre><code class="language-bash"># terminal
+$ mkdir locale
+$ python manage.py makemessages -l tr
+processing locale tr
+$ ls locale/tr/LC_MESSAGES/
+django.po
+</code></pre>
+
+<p>Şimdi <strong>django.po</strong> dosyasını herhangi bir çeviri editörüyle<sup class="footnote-ref" id="fnref:5"><a href="#fn:5">5</a></sup> açın ve dosya içeriğini inceleyin. Daha önce uygulamanın bir çok yerinde kullandığımız tanıdık kelimeler göreceğiz:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/poedit.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/poedit.png" src="https://gokmengorgen.net/img/django-notes/low/poedit.png" alt="Poedit" title="Poedit ile çeviri" /></figure>
+</a></p>
+
+<p>Peki, <code>makemessages</code> komutu bizim çevirilebilir mesajlarımızı nasıl bulabildi? View katmanındaki kodumuzda <code>_()</code> kullanımına dikkat edin, projenin başından beri hep çevrilebilir mesajları ugettext metodunu kullanarak yazdık:</p>
+
+<pre><code class="language-python"># hello_uptime/views.py
+...
+from django.utils.translation import ugettext as _
+...
+
+class UptimeDashboardView(ModelFormSetView):
+    ...
+    def formset_valid(self, formset):
+        ...
+        messages.success(self.request, _(&quot;The monitors have been updated.&quot;))
+...
+</code></pre>
+
+<p>Çevrilebilir mesajlarımızı projede kullanabilmemiz için son bir adım kaldı. Aşağıdaki komutla derleme yapmamız gerekiyor:</p>
+
+<pre><code class="language-bash"># terminal
+$ python manage.py compilemessages
+processing file django.po in C:\Users...\hello_django\locale\tr\LC_MESSAGES
+</code></pre>
+
+<p>Geliştirme sunucusunu tekrar çalıştırın, Türkçe yerelini kullanan bir tarayıcıyla uptime uygulamasına gidin ve sadece Kaydet düğmesine basın:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/translation.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/translation.png" src="https://gokmengorgen.net/img/django-notes/low/translation.png" alt="Turkish notification message" title="Türkçe bildirim mesajı" /></figure>
+</a></p>
+
+<p>Bildirim mesajı artık Türkçe. Böylece nasıl çeviri yapabileceğimizi öğrenmiş olduk. Elbette bu konu bununla sınırlı değil, tekil - çoğul ayrımı, çevirilerin kullanıcı tercihleriyle ilişkilendirilmesi, kodu güncelledikçe değişen cümleler ve daha bir çok detay var. Onun için, her zaman Django&rsquo;nun kendi belgesine de bir göz atmakta fayda var. İleride biz de gerektikçe örneklendireceğiz.</p>
+
+<p>Bir sonraki konumuz, kullanıcı modelleri oluşturup uptime uygulamasını kullanıcıyla ilişkilendirmek olacak.</p>
+<div class="footnotes">
+
+<hr />
 
 <ol>
-<li>Mutlaka Django&rsquo;nun <a href="https://docs.djangoproject.com/">kendi dökümantasyonuna</a> bir göz atın.</li>
-<li>Mutlaka başkaları nasıl çözmüş diye araştırın.</li>
+<li id="fn:1">Messages Framework ile ilgili detaylı bilgiyi <a href="https://docs.djangoproject.com/en/2.0/ref/contrib/messages/">burada</a> bulabilirsiniz.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Örnek bir context processors metodu <a href="https://github.com/django/django/blob/master/django/contrib/messages/context_processors.py">burada</a>.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">Çeviriler ile ilgili detaylı bilgiye <a href="https://docs.djangoproject.com/en/2.0/topics/i18n/translation/">buradan</a> erişebilirsiniz.
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+<li id="fn:4">Gettext&rsquo;i <a href="https://www.gnu.org/software/gettext/">buradan</a> indirip yükleyin, çeviri dosyası oluşturmamız için gerekiyor.
+ <a class="footnote-return" href="#fnref:4"><sup>[return]</sup></a></li>
+<li id="fn:5">Ben <a href="https://poedit.net/">Poedit</a> kullanıyorum, epey iş görüyor.
+ <a class="footnote-return" href="#fnref:5"><sup>[return]</sup></a></li>
 </ol>
-
-<p>Django dökümantasyonundaki <a href="https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.Field.choices">bir örneği</a> alalım ve onun üzerinden gidelim:</p>
-
-<pre><code class="language-python">class Student(models.Model):
-    FRESHMAN = 'FR'
-    SOPHOMORE = 'SO'
-    JUNIOR = 'JR'
-    SENIOR = 'SR'
-    YEAR_IN_SCHOOL_CHOICES = (
-        (FRESHMAN, 'Freshman'),
-        (SOPHOMORE, 'Sophomore'),
-        (JUNIOR, 'Junior'),
-        (SENIOR, 'Senior'),
-    )
-    year_in_school = models.CharField(max_length=2, choices=YEAR_IN_SCHOOL_CHOICES, default=FRESHMAN)
-
-    def is_upperclass(self):
-        return self.year_in_school in (self.JUNIOR, self.SENIOR)
-</code></pre>
-
-<p>Bazen öyle şeyler oluyor ki, bir modele ihtiyaç duymadan bu seçeneklere çeşitli katmanlarda erişmek gerekebiliyor veya bu tip seçenekleri herhangi bir model tanımlamadan, örneğin formda kullanmak durumunda kalabiliyorsunuz, o zaman da &ldquo;Bunu <strong>models.py</strong>&lsquo;de tuttuk, öbürünü niye <strong>forms.py</strong>&lsquo;ye yazdık?&rdquo; diye kendinize sorabilirsiniz. Ben bu tip ortak kullanılan şeyleri, ilgili uygulama içinde <strong>choices.py</strong> veya <strong>utils.py</strong> gibi bir dosya oluşturup kullanıyorum. Örneğin:</p>
-
-<pre><code class="language-python"># hello_student/utils.py
-
-class StudentChoice(object):
-    FRESHMAN = 'FR'
-    SOPHOMORE = 'SO'
-    JUNIOR = 'JR'
-    SENIOR = 'SR'
-
-    @classmethod
-    def get_choices(cls):
-        choices = (
-            (cls.FRESHMAN, &quot;Freshman&quot;),
-            (cls.SOPHOMORE, &quot;Sophomore&quot;),
-            (cls.JUNIOR, &quot;Junior&quot;),
-            (cls.SENIOR, &quot;Senior&quot;),
-        )
-        return choices
-</code></pre>
-
-<pre><code class="language-python"># hello_student/models.py
-from hello_student.utils import StudentChoice
-
-
-class Student(models.Model):
-    year_in_school = models.CharField(
-        max_length=2, choices=StudentChoice.get_choices(), default=StudentChoice.FRESHMAN)
-
-    def is_upperclass(self):
-        return self.year_in_school in (StudentChoice.JUNIOR, StudentChoice.SENIOR)
-</code></pre>
-
-<p>Form&rsquo;da da kullansak, View katmanında da kullansak benim yöntemim hep bu. Seçenekleri gruplamak istersek:</p>
-
-<pre><code class="language-python"># hello_student/utils.py
-class StudentChoice(object):
-    ...
-    @classmethod
-    def get_choices(cls):
-        choices = (
-            (&quot;Starting class&quot;, (
-                (cls.FRESHMAN, &quot;Freshman&quot;),
-                (cls.SOPHOMORE, &quot;Sophomore&quot;),
-            )),
-            (&quot;Upper class&quot;, (
-                (cls.JUNIOR, &quot;Junior&quot;),
-                (cls.SENIOR, &quot;Senior&quot;),
-            ))
-        )
-        return choices
-</code></pre>
-
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/hello-student-choices.gif" src="https://gokmengorgen.net/img/low/hello-student-choices.gif" alt="Grouped choices" title="Gruplanmış seçenekler" /></p></figure>
-
-<p>Peki, seçenekleri taşıdık, varsayılan seçenek ayarını da aynı yerde tutsak?</p>
-
-<pre><code class="language-python"># hello_student/utils.py
-class StudentChoice(object):
-    ...
-    @classmethod
-    def get_default(cls):
-        return cls.FRESHMAN
-</code></pre>
-
-<pre><code class="language-python"># hello_student/models.py
-
-class Student(models.Model):
-    year_in_school = models.CharField(
-        max_length=2, choices=StudentChoice.get_choices(), default=StudentChoice.get_default())
-</code></pre>
-
-<p>Hatta bir şey daha yapalım, seçenekle ilgili yardımcı fonksiyonları da aynı yerden yönetelim:</p>
-
-<pre><code class="language-python"># hello_student/utils.py
-
-class StudentChoice(object):
-    ...
-    @classmethod
-    def is_upperclass(cls, choice):
-        return choice in (cls.JUNIOR, cls.SENIOR)
-</code></pre>
-
-<p>Bu durumda üst sınıf olup olmadığı kontrolünü şöyle yapardık:</p>
-
-<pre><code class="language-python">is_upperclass = StudentChoice.is_upperclass(student.year_in_school)
-</code></pre>
-
-<p>Böylece <strong>models.py</strong> dosyamızı biraz daha temiz tutmuş olduk. Bunu alışkanlık haline getirirsek, projenin herhangi bir yerinde selectbox, multiple selectbox ve benzeri bir şey ihtiyacımız olduğunda nereye bakacağımızı bilmiş oluruz.</p>
+</div>
 
 
 
@@ -297,14 +365,14 @@ class StudentChoice(object):
                                     
                                         <div class="mx-0 mx-md-4 mt-4 text-left">
                                             <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
-                                            <a href="https://gokmengorgen.net/blog/stres/">Stres</a>
+                                            <a href="https://gokmengorgen.net/django-notes/05-formset/">05 - Formset</a>
                                         </div>
                                     
                                 </div>
                                 <div class="col-12 col-md-6">
                                     
                                         <div class="mx-0 mx-md-4 mt-4 text-right">
-                                            <a href="https://gokmengorgen.net/blog/daha-guclu-powershell/">Daha güçlü PowerShell</a>
+                                            <a href="https://gokmengorgen.net/django-notes/07-kullanici-dogrulama/">07 - Kullanıcı doğrulama</a>
                                             <img class="icon" src="https://gokmengorgen.net/img/next.svg" alt="next" />
                                         </div>
                                     

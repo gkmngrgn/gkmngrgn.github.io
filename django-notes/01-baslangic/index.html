@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>01 - Başlangıç - GKMNGRGN</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Django&#39;yu öğrenmeye başlıyoruz. Detaylarda boğulmak yok, motivasyonumuzu yüksek tutuyoruz.">
+    <meta property="og:site_name" content="GKMNGRGN" />
+    <meta property="og:locale" content="nn_NO" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://gokmengorgen.net/django-notes/01-baslangic/" />
+    <meta property="og:title" content="01 - Başlangıç" />
+    <meta property="og:image" content="https://gokmengorgen.net/img/django-notes/django-notes.png" />
+    <meta property="og:description" content="Django&#39;yu öğrenmeye başlıyoruz. Detaylarda boğulmak yok, motivasyonumuzu yüksek tutuyoruz." />
+
+    
+        <meta property="twitter:site" content="@gokmengorgen">
+    
+
+    <meta property="twitter:title" content="01 - Başlangıç" />
+    <meta property="twitter:image" content="https://gokmengorgen.net/img/django-notes/django-notes.png" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:description" content="Django&#39;yu öğrenmeye başlıyoruz. Detaylarda boğulmak yok, motivasyonumuzu yüksek tutuyoruz." />
+
+    
+        <meta name="flattr:id" content="62knje">
+    
+
+    <link rel="canonical" href="https://gokmengorgen.net/django-notes/01-baslangic/">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://gokmengorgen.net/css/main.css" />
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css" integrity="sha256-w6kCMnFvhY2tI1OnsYR/rb5DG9yFGodJknvFZOkp51E=" crossorigin="anonymous" />
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/progressively/1.2.5/progressively.min.css" integrity="sha256-xbqLYBMsjpuCihs+3Fgp/MFMtPdo2SWKoOjEWOqR4X0=" crossorigin="anonymous" />
+    
+
+    <link rel="shortcut icon"
+        href="https://gokmengorgen.net/img/laughing-man-favicon.png">
+
+    
+
+    <noscript>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
+    </noscript>
+</head>
+
+<body>
+    
+    <div class="my-4 my-md-5 header">
+    <div class="container">
+        <div class="row">
+            <div class="col-auto offset-md-1 d-none d-md-block">
+                
+                    <a href="https://gokmengorgen.net/">
+                        <img class="ml-md-4 logo" src="https://gokmengorgen.net/img/laughing-man.png" alt="logo">
+                    </a>
+                
+            </div>
+            <div class="col-auto align-self-center mr-auto">
+                <a href="https://gokmengorgen.net/">
+                    <h1 class="font-weight-bold name">GKMNGRGN</h1>
+                </a>
+
+                <ul class="nav nav-primary">
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase nav-link text-blog" href="https://gokmengorgen.net/blog/">
+                                
+                                Blog
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase nav-link text-my-work" href="https://alageek.com">
+                                
+                                My work
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase nav-link text-live" href="https://gokmengorgen.net/live/">
+                                📹
+                                Live
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <ul class="nav nav-secondary">
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase font-weight-bold nav-link text-patreon" href="https://www.patreon.com/bePatron?u=10637849">
+                                
+                                Become a patron
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="text-uppercase font-weight-bold nav-link text-bmc" href="https://www.buymeacoffee.com/gokmen">
+                                
+                                Buy me a coffee
+                            </a>
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-10">
+                    <h1 class="mx-0 mx-md-4">01 - Başlangıç</h1>
+
+                    <div class="mb-4 mb-md-5 meta">
+                        <span class="date" title="Fri Mar 30 2018 19:22:15 CEST">
+                            Mar 30, 2018
+                        </span>
+
+                        <span class="reading-time middot">
+                            4 minute read
+                        </span>
+
+                        <div class="d-none d-md-inline tags">
+                            <ul class="list-unstyled d-inline">
+                                <li class="d-inline middot">
+                                    <a href="https://gokmengorgen.net/django-notes/">Django notlarım</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="markdown">
+                        
+    
+    
+
+<p><em>Web Framework&rsquo;leri, bir web projesinde duyulabilecek temel ihtiyaçları belli bir amaç doğrultusunda, belli yöntemlerle karşılamaya çalışırlar. Bugüne kadar geliştirilmiş binlerce framework var ve tercihi nasıl yapacağınız konusu tamamen size bağlı. Kararınız Django ise veya Django&rsquo;ya meraklıysanız, bu yazı dizisini sizler için hazırladım. Elimden geldiğince hızlı bir başlangıç yapacağım, <u>detaylara boğmak yok</u>, motivasyonunuzu da <strong>yüksek tutmaya</strong> çalışacağım.</em></p>
+
+<h2 id="özet">Özet</h2>
+
+<ul>
+<li>Django geliştirme ortamımızı kuracağız.</li>
+<li>Geliştirme sunucusunu nasıl kullanacağımızı öğreneceğiz.</li>
+<li>Dizin ve dosya yapımızı inceleyeceğiz, MVC ve MTV konularına kısaca değineceğiz.</li>
+<li>Anasayfamızı çok basit bir tasarımla birlikte sunacağız.</li>
+<li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-01">buradan</a> erişebilirsiniz.</li>
+</ul>
+
+<h2 id="en-temel-gereksinimler">En Temel Gereksinimler</h2>
+
+<p>En temel gereksinimimiz Django&rsquo;nun geliştirildiği dil olan Python. Yani öncelikle bizim Python3<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> yorumlayıcısına ihtiyacımız var. Sitesine girip kurduktan sonra beraberinde pip paket yükleme aracınızı da kurmuş olacaksınız. Bu araçla Django&rsquo;yu kuracağız. Kullandığınız herhangi bir terminal uygulamasını açın ve şu komutu çalıştırın:</p>
+
+<pre><code class="language-bash">$ pip install Django==2.0.3
+</code></pre>
+
+<pre><code class="language-bash">Collecting Django==2.0.3
+  Downloading Django-2.0.3-py3-none-any.whl (7.1MB)
+    100% |████████████████████████████████| 7.1MB 127kB/s
+Collecting pytz (from Django==2.0.3)
+  Downloading pytz-2018.3-py2.py3-none-any.whl (509kB)
+    100% |████████████████████████████████| 512kB 776kB/s
+Installing collected packages: pytz, Django
+Successfully installed Django-2.0.3 pytz-2018.3
+</code></pre>
+
+<p>Django kurulduktan sonra, artık Django projelerini yönetebilmek için bir yeni bir komutumuz var, <code>django-admin</code>. Hemen bir websitesi projesini oluşturalım ve geliştirme sunucusunu çalıştıralım:</p>
+
+<pre><code class="language-bash">$ django-admin.exe startproject hello_django
+$ cd hello_django
+$ python manage.py runserver 0:8000  # Bunu hatırlayın, çok sık kullanacağız.
+</code></pre>
+
+<pre><code class="language-bash">Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 14 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+March 30, 2018 - 22:14:18
+Django version 2.0.3, using settings 'hello_django.settings'
+Starting development server at http://0:8000/
+Quit the server with CTRL-BREAK.
+</code></pre>
+
+<p>Bu noktaya kadar geldiniz ve web tarayıcınızdan <a href="http://localhost:8000">http://localhost:8000</a> adresine girdiğinizde aşağıdaki gibi bir görüntü alıyorsanız, temel gereksinimlerimiz tamam demektir.</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/installation.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/installation.png" src="https://gokmengorgen.net/img/django-notes/low/installation.png" alt="Django installation" title="Tebrikler! Django hazır." /></figure>
+</a></p>
+
+<h2 id="kodlamaya-geçmeden-bir-gözden-geçirelim">Kodlamaya Geçmeden, Bir Gözden Geçirelim</h2>
+
+<p>Projemizin dizin / dosya yapısını bir gözden geçirelim. Ne nerede, önce onu bilelim:</p>
+
+<pre><code>hello_django/
+  __pycache__
+  settings.py
+  urls.py
+  wsgi.py
+  __init__.py
+db.sqlite3
+manage.py
+</code></pre>
+
+<p>Eksikler çok; ama başlamak için yeterince basit. En önemlilerinden başlayalım:</p>
+
+<ul>
+<li><code>db.sqlite3</code>, adından belli. Veritabanı dosyamız, varsayılan veritabanı hizmetini <a href="https://sqlite.org/">SQLite</a>&lsquo;ten alıyoruz.</li>
+<li><code>manage.py</code>, <code>django-admin</code> komutumuzla benzer bir işlevi var; ancak içinde barındırıldığı projeye göre özelleştirilmiş, yapılandırılmış.</li>
+<li><code>settings.py</code>, proje ayarlarımızı içeren bir Python dosyası.</li>
+<li><code>urls.py</code>, tüm url tanımlamalarımızı içeriyor.</li>
+<li><code>wsgi.py</code>, <a href="https://wsgi.readthedocs.io/en/latest/what.html">WSGI</a> yapılandırmamızı içeriyor.</li>
+</ul>
+
+<p>WSGI&rsquo;ye daha sonra bakacağız, onu bir kenara bırakalım ve <code>runserver</code> ile ne olduğunu anlayalım:</p>
+
+<ol>
+<li>Önce proje ortamındaki değişkenlerimiz <code>manage.py</code> ile tanımlanıyor.</li>
+<li>Ayarlarımız <code>settings.py</code> dosyasından alınıyor, uygulanıyor. Veritabanımız da bu noktada ayarlanmış oluyor.</li>
+<li>Web adreslerimiz <code>urls.py</code> üzerinden tanımlanıyor. Böylece burada tanımlanan adreslere tarayıcımızdan ulaşabiliyoruz.</li>
+</ol>
+
+<p>Buraya kadar projenin nasıl çalıştığını anladıysak, artık kod yazmaya ve MTV (Model - Template - View) kullanarak ilk
+sayfamızı oluşturmaya hazırız.</p>
+
+<h2 id="mtv-nedir-birlikte-deneyelim">MTV nedir? Birlikte Deneyelim</h2>
+
+<p>Bir web sitesi ziyaretçisinin isteklerinin değerlendirilmesi ve cevaplandırılması için yazılımda çeşitli tasarımlar bulunuyor ve bunlardan biri <strong>MVC</strong><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>. Model - View - Controller sayesinde, ziyaretçinin istekleri alınıyor, View katmanında değerlendiriliyor; veri gerektiğinde Model katmanından elde ediliyor ve Controller üzerinden bu iki katman arasında iletişim sağlanıyor.</p>
+
+<p>Fakat Django&rsquo;da biz bu yapıyı farklı şekilde kullanıyoruz ve <strong>MTV</strong> (Model - Template - View) olarak isimlendiriyoruz. Bir Controller yerine merkeze View katmanını koyuyoruz, veriyi Model katmanından alıyoruz, Template katmanında da kullanıcıya bir sonuç gösteriyoruz. URL adresi tanımlarken de hep View katmanını kullanıyoruz. Bunu bizzat deneyip görelim. Yapacağımız şey, anasayfada farklı bir mesaj göstermek. Önce <code>hello_django/hello_django/urls.py</code> dosyasını açın ve ilk sayfamızı bağlayalım:</p>
+
+<pre><code class="language-python">...
+from django.contrib import admin
+from django.urls import path
+from hello_django.views import HomeView  # Bunu ekledik.
+
+urlpatterns = [
+    path('', view=HomeView.as_view(), name='home'),  # Bunu ekledik.
+    path('admin/', admin.site.urls),
+]
+</code></pre>
+
+<p>Burada anasayfaya ziyaret edildiğinde hangi View class&rsquo;ının karşılayacağını belirtmiş olduk; fakat View henüz hazır değil. <code>hello_django/hello_django/views.py</code> dosyası oluşturup yeni bir tane yazalım:</p>
+
+<pre><code class="language-python">from django.views.generic import TemplateView
+
+
+class HomeView(TemplateView):
+    template_name = 'home.html'
+</code></pre>
+
+<p>Geliştirme sunucumuzu daha önce gösterdiğimiz şekilde çalıştırın ve sonucu beraber anlayalım:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/template-does-not-exist.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/template-does-not-exist.png" src="https://gokmengorgen.net/img/django-notes/low/template-does-not-exist.png" alt="Template does not exist." title="View hazır; ama Template eksik." /></figure>
+</a></p>
+
+<p>View class&rsquo;ımızda <code>home.html</code> dosyasını kullanacağımızı belirttik, Django bizim için birkaç yere bakmış ama Template&rsquo;i bulamamış. Biz bir dizin oluşturalım ve Template dosyamızı <code>hello_django/templates/home.html</code> olarak tutalım:</p>
+
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;Hello, Django!&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/main.css&quot;&gt; &lt;!-- Buna dikkat! --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Hello, Django!&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Son bir şey kaldı. Django&rsquo;ya Template dizinimizin nerede olduğunu haber vermemiz gerekiyor. <code>settings.py</code> dosyasını açın ve aşağıdaki değişikliği yapın:</p>
+
+<pre><code class="language-python">...
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Bunu değiştirdik.
+        'APP_DIRS': True,
+        'OPTIONS': {
+            ...
+        },
+    },
+]
+...
+</code></pre>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/say-hello.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/say-hello.png" src="https://gokmengorgen.net/img/django-notes/low/say-hello.png" alt="Say hello!" title="View tamam, Template tamam. Sırada?" /></figure>
+</a></p>
+
+<p>Artık beklediğimiz sonucu görebiliyoruz. Son olarak sayfada bir stil düzenlemesi yaparak ilk yazımızı tamamlayalım. HTML dosyamızı oluştururken <code>/static/main.css</code> adında bir stil dosyamız varmış gibi tanımlamıştık. Bu dosyayı oluşturalım ve sonra <code>static</code> dizinimizi Template dizini için olduğu gibi <code>settings.py</code> dosyamızda tanımlayalım.</p>
+
+<p><code>static/main.css</code> dosyamız:</p>
+
+<pre><code class="language-css">body {
+  background-color: #222;
+  color: #fff;
+  font-size: 48px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+</code></pre>
+
+<p><code>settings.py</code> dosyamızda yapılan değişiklik:</p>
+
+<pre><code class="language-python">...
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.0/howto/static-files/
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+</code></pre>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/hello-django-with-style.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/hello-django-with-style.png" src="https://gokmengorgen.net/img/django-notes/low/hello-django-with-style.png" alt="Black and white" title="Siyah Beyaz!" /></figure>
+</a></p>
+
+<p>MTV&rsquo;nin Template ve View katmanlarına burada kısaca değinmiş olduk. Bir sonraki yazımda Model katmanı hakkında bilgi vereceğim ve bununla ilgili beraber bir alıştırma yapacağız. Hoşça kalın!</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Python3 <a href="https://www.python.org/downloads/">buradan</a> indirebilirsiniz.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">MVC hakkında daha fazla bilgi için <a href="https://tr.wikipedia.org/wiki/Model-View-Controller">buraya</a> bakın.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+
+                    </div>
+
+                    
+                        <div class="navigation">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    
+                                        <div class="mx-0 mx-md-4 mt-4 text-right">
+                                            <a href="https://gokmengorgen.net/django-notes/02-model-katmani/">02 - Model Katmanı</a>
+                                            <img class="icon" src="https://gokmengorgen.net/img/next.svg" alt="next" />
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-4 footer">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-5">
+                
+                    <div class="mx-0 mx-md-4 text-left">
+                        
+                            <a href="https://gokmengorgen.net/license">© 2018 by Gökmen Görgen.</a>
+                        
+                    </div>
+                
+            </div>
+            <div class="col-sm-12 col-md-5">
+                <div class="mx-0 mx-md-4 text-right">
+                    
+
+                    
+
+                    
+
+                    
+                        <a href="https://github.com/gkmngrgn" target="_blank">
+                            <img class="icon" src="https://gokmengorgen.net/img/github.svg" alt="github" />
+                        </a>
+                    
+
+                    
+                        <a href="https://twitter.com/gokmengorgen" target="_blank">
+                            <img class="icon" src="https://gokmengorgen.net/img/twitter.svg" alt="twitter" />
+                        </a>
+                    
+
+                    
+                        <a href="https://www.linkedin.com/in/gokmengorgen" target="_blank">
+                            <img class="icon" src="https://gokmengorgen.net/img/linkedin.svg" alt="linkedin" />
+                        </a>
+                    
+
+                    
+                        <a href="mailto:gokmen@alageek.com">
+                            <img class="icon" src="https://gokmengorgen.net/img/email.svg" alt="email" />
+                        </a>
+                    
+
+                    
+                        <a href="https://gokmengorgen.net/index.xml" class="mr-0">
+                            <img class="icon" src="https://gokmengorgen.net/img/rss.svg" alt="rss" />
+                        </a>
+                    
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha256-xaF9RpdtRxzwYMWg4ldJoyPWqyDPCRD0Cv7YEEe6Ie8=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ['Raleway:400,600,700', 'Merriweather:300,300i,700,700i']
+            }
+        });
+    </script>
+
+    
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/cs.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/css.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/diff.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/django.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/nginx.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/powershell.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js" defer></script>
+        
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js" defer></script>
+        
+        <script>
+            window.addEventListener('load', function() {
+                hljs.initHighlighting();
+            }, true);
+        </script>
+    
+
+    
+        <script src="//cdnjs.cloudflare.com/ajax/libs/progressively/1.2.5/progressively.min.js" integrity="sha256-LvFVlLdfGI3WeEH+8Ni4kxLm02g2GlOfeGCGLXfRk/U=" crossorigin="anonymous"></script>
+        <script>
+            window.addEventListener('load', function() {
+                progressively.init({delay: 30, throttle: 50});
+            }, true);
+        </script>
+    
+
+    
+
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-54304543-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+<script>
+    (function (m, a, i, l, e, r) {
+        m['MailerLiteObject'] = e; function f() {
+            var c = { a: arguments, q: [] }; var r = this.push(c); return "number" != typeof r ? r : f.bind(c.q);
+        }
+        f.q = f.q || []; m[e] = m[e] || f.bind(f.q); m[e].q = m[e].q || f.q; r = a.createElement(i);
+        var _ = a.getElementsByTagName(i)[0]; r.async = 1; r.src = l + '?v' + (~~(new Date().getTime() / 1000000));
+        _.parentNode.insertBefore(r, _);
+    })(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+
+    var ml_account = ml('accounts', '1180610', 'p6p1h3r0l3', 'load');
+</script>
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55bfede7196e342d"></script>
+
+</body>
+
+</html>

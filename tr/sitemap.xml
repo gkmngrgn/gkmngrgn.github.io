@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gokmengorgen.net/blog/komutlar-icin-yardimci-script/</loc>
+    <lastmod>2018-09-07T22:46:31+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/docker-icin-yardimci-script/</loc>
     <lastmod>2018-08-05T12:11:27+02:00</lastmod>
   </url>
@@ -133,8 +138,14 @@
   </url>
   
   <url>
+    <loc>https://gokmengorgen.net/tags/bash/</loc>
+    <lastmod>2018-09-07T22:46:31+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/</loc>
-    <lastmod>2018-08-05T12:11:27+02:00</lastmod>
+    <lastmod>2018-09-07T22:46:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -159,13 +170,13 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/coding/</loc>
-    <lastmod>2018-08-05T12:11:27+02:00</lastmod>
+    <lastmod>2018-09-07T22:46:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://gokmengorgen.net/tags/devops/</loc>
-    <lastmod>2018-08-05T12:11:27+02:00</lastmod>
+    <lastmod>2018-09-07T22:46:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -224,7 +235,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/</loc>
-    <lastmod>2018-08-05T12:11:27+02:00</lastmod>
+    <lastmod>2018-09-07T22:46:31+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -251,7 +262,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/</loc>
-    <lastmod>2018-08-05T12:11:27+02:00</lastmod>
+    <lastmod>2018-09-07T22:46:31+02:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

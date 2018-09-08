@@ -6,10 +6,22 @@
     <description>Recent content in Coding on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 05 Aug 2018 12:11:27 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 07 Sep 2018 22:46:31 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tags/coding/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sık kullanılan komutlar için yardımcı script</title>
+      <link>https://gokmengorgen.net/blog/komutlar-icin-yardimci-script/</link>
+      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/komutlar-icin-yardimci-script/</guid>
+      <description>Projeler büyüdükçe operasyonlar artıyor, operasyonları koda döktükçe komutlar, parametreler artıyor. Bunları yardımcı bir scriptle kontrol altına alabiliriz.
+Yazının sonunda bu yönteme dair eleştirim ve alternatif önerim var.
+Bir projede frontend geliştiricisinin her bildiğini backend geliştirici bilmek, backend geliştiricisinin her bildiğini devops takımı bilmek zorunda değil. Ve farklı pozisyondaki geliştiricilerin birbirlerini aynı konular için sürekli meşgul etmemesi arzu edilir. Bunun için süreçleri olabildiğince belgelemek ve otomatikleştirmek gerekiyor.
+Basit bir amacım var.</description>
+    </item>
     
     <item>
       <title>Docker için yardımcı script</title>

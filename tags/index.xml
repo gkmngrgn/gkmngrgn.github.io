@@ -6,15 +6,24 @@
     <description>Recent content in Tags on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 05 Aug 2018 12:11:27 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 07 Sep 2018 22:46:31 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Bash</title>
+      <link>https://gokmengorgen.net/tags/bash/</link>
+      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Coding</title>
       <link>https://gokmengorgen.net/tags/coding/</link>
-      <pubDate>Sun, 05 Aug 2018 12:11:27 +0200</pubDate>
+      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
       
       <guid>https://gokmengorgen.net/tags/coding/</guid>
       <description></description>
@@ -23,7 +32,7 @@
     <item>
       <title>Devops</title>
       <link>https://gokmengorgen.net/tags/devops/</link>
-      <pubDate>Sun, 05 Aug 2018 12:11:27 +0200</pubDate>
+      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
       
       <guid>https://gokmengorgen.net/tags/devops/</guid>
       <description></description>

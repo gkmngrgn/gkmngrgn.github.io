@@ -6,10 +6,20 @@
     <description>Recent content in Merhaba on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 07 Sep 2018 22:46:31 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 04 Dec 2018 11:04:36 +0100</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Müşteri memnuniyeti</title>
+      <link>https://gokmengorgen.net/blog/musteri-memnuniyeti/</link>
+      <pubDate>Tue, 04 Dec 2018 11:04:36 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/musteri-memnuniyeti/</guid>
+      <description>Aşağıda alternatif iletişim yollarını kullanarak çözdüğüm problemleri ve başvurularımı yazıyorum. Dünyanın neresinde olursak olalım, hiçbir hizmet kusursuz değil. Önemli olan bir sorun olduğunda, sorunların nasıl ve ne kadar sürede çözüldüğü, alternatif iletişim kanallarının olup olmadığı.
+ PayPal: Uzun zaman önce açtığım hesabı, mail adresim aynı olmasına rağmen, telefon numaram değiştiği için kurtaramamıştım. Açıklayıcı bir mail attıktan sonra bir otomatik mail geldi, etkisi oldu mu bilmem ama telefonla veya anahtar sorularla doğrulama şartı kalktı.</description>
+    </item>
     
     <item>
       <title>Sık kullanılan komutlar için yardımcı script</title>

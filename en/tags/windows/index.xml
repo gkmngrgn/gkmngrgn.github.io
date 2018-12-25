@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hello on GKMNGRGN</title>
-    <link>https://gokmengorgen.net/en/</link>
-    <description>Recent content in Hello on GKMNGRGN</description>
+    <title>Windows on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/en/tags/windows/</link>
+    <description>Recent content in Windows on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 25 Dec 2018 21:25:57 +0100</lastBuildDate>
     
-	<atom:link href="https://gokmengorgen.net/en/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://gokmengorgen.net/en/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,16 +20,6 @@
       <description>PowerShell and Git encoding problems To make git log command output properly display on Windows, we need to set a variable named LC_ALL:
 LC_ALL=&amp;quot;C.UTF-8&amp;quot;  Incorrect home folder in Emacs This problem is not only about Emacs. If you try to find a file from HOME variable, you may need to define the variable first:
 LC_ALL=&amp;quot;C:\Users\username&amp;quot;  ;; place all backup files in one directory (setq backup-directory-alist `((&amp;quot;.*&amp;quot; . ,temporary-file-directory))) (setq auto-save-file-name-transforms `((&amp;quot;.</description>
-    </item>
-    
-    <item>
-      <title>License</title>
-      <link>https://gokmengorgen.net/en/license/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/en/license/</guid>
-      <description>Content licensed under the Creative Commons attribution-noncommercial-sharealike License. Please look at this url for more information.
-Did you like my website theme? It&amp;rsquo;s Hugo static site generator with alaGeek theme.</description>
     </item>
     
   </channel>

@@ -152,6 +152,16 @@
     <loc>https://gokmengorgen.net/blog/</loc>
     <lastmod>2018-12-04T11:04:36+01:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/blog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/blog/"
+                />
   </url>
   
   <url>
@@ -291,6 +301,16 @@
     <loc>https://gokmengorgen.net/tags/windows/</loc>
     <lastmod>2017-12-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/tags/windows/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/tags/windows/"
+                />
   </url>
   
 </urlset>

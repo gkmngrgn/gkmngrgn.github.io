@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gokmengorgen.net/blog/zincirsiz/</loc>
+    <lastmod>2018-12-29T20:46:59+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/musteri-memnuniyeti/</loc>
     <lastmod>2018-12-04T11:04:36+01:00</lastmod>
   </url>
@@ -150,7 +155,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/blog/</loc>
-    <lastmod>2018-12-04T11:04:36+01:00</lastmod>
+    <lastmod>2018-12-29T20:46:59+01:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -226,7 +231,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/life-style/</loc>
-    <lastmod>2018-12-04T11:04:36+01:00</lastmod>
+    <lastmod>2018-12-29T20:46:59+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -250,7 +255,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/</loc>
-    <lastmod>2018-12-04T11:04:36+01:00</lastmod>
+    <lastmod>2018-12-29T20:46:59+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bash on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/en/tags/bash/</link>
+    <description>Recent content in Bash on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 30 Dec 2018 15:06:17 +0100</lastBuildDate>
+    
+	<atom:link href="https://gokmengorgen.net/en/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How do I publish my articles?</title>
+      <link>https://gokmengorgen.net/en/blog/how-do-i-publish-my-articles/</link>
+      <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/blog/how-do-i-publish-my-articles/</guid>
+      <description>With just a command:
+# terminal $ ENV=PROD ./do.sh deploy  I have many projects using my script named DOSH and the parameters are mostly in common; deploy, start, stop, runtests, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like this one but I run all the projects with the same command: dosh start.
+In Windows, the command may be a bit longer than in the other operating systems.</description>
+    </item>
+    
+  </channel>
+</rss>

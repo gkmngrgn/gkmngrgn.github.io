@@ -151,6 +151,16 @@
     <loc>https://gokmengorgen.net/tags/bash/</loc>
     <lastmod>2018-09-07T22:46:31+02:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/tags/bash/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/tags/bash/"
+                />
   </url>
   
   <url>
@@ -198,6 +208,16 @@
     <loc>https://gokmengorgen.net/tags/devops/</loc>
     <lastmod>2018-09-07T22:46:31+02:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/tags/devops/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/tags/devops/"
+                />
   </url>
   
   <url>

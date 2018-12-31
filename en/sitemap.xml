@@ -3,13 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gokmengorgen.net/en/blog/how-do-i-publish-my-articles/</loc>
+    <lastmod>2018-12-30T15:06:17+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/en/blog/important-windows-environment-variables/</loc>
     <lastmod>2018-12-25T21:25:57+01:00</lastmod>
   </url>
   
   <url>
+    <loc>https://gokmengorgen.net/en/tags/bash/</loc>
+    <lastmod>2018-12-30T15:06:17+01:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/tags/bash/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/tags/bash/"
+                />
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/en/blog/</loc>
-    <lastmod>2018-12-25T21:25:57+01:00</lastmod>
+    <lastmod>2018-12-30T15:06:17+01:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -39,8 +60,24 @@
   </url>
   
   <url>
+    <loc>https://gokmengorgen.net/en/tags/devops/</loc>
+    <lastmod>2018-12-30T15:06:17+01:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/tags/devops/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/tags/devops/"
+                />
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/en/</loc>
-    <lastmod>2018-12-25T21:25:57+01:00</lastmod>
+    <lastmod>2018-12-30T15:06:17+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
@@ -68,7 +105,14 @@
   </url>
   
   <url>
+    <loc>https://gokmengorgen.net/en/tags/powershell/</loc>
+    <lastmod>2018-12-30T15:06:17+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/en/tags/</loc>
+    <lastmod>2018-12-30T15:06:17+01:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

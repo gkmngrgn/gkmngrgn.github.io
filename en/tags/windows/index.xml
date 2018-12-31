@@ -19,7 +19,7 @@
       <guid>https://gokmengorgen.net/en/blog/important-windows-environment-variables/</guid>
       <description>PowerShell and Git encoding problems To make git log command output properly display on Windows, we need to set a variable named LC_ALL:
 LC_ALL=&amp;quot;C.UTF-8&amp;quot;  Incorrect home folder in Emacs This problem is not only about Emacs. If you try to find a file from HOME variable, you may need to define the variable first:
-LC_ALL=&amp;quot;C:\Users\username&amp;quot;  ;; place all backup files in one directory (setq backup-directory-alist `((&amp;quot;.*&amp;quot; . ,temporary-file-directory))) (setq auto-save-file-name-transforms `((&amp;quot;.</description>
+HOME=&amp;quot;%USERPROFILE%&amp;quot;  ;; place all backup files in one directory (setq backup-directory-alist `((&amp;quot;.*&amp;quot; . ,temporary-file-directory))) (setq auto-save-file-name-transforms `((&amp;quot;.</description>
     </item>
     
   </channel>

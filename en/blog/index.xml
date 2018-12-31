@@ -6,10 +6,21 @@
     <description>Recent content in Blog on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Dec 2018 21:25:57 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 30 Dec 2018 15:06:17 +0100</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/en/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How do I publish my articles?</title>
+      <link>https://gokmengorgen.net/en/blog/how-do-i-publish-my-articles/</link>
+      <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/blog/how-do-i-publish-my-articles/</guid>
+      <description>With just a command:
+# terminal $ ENV=PROD ./do.sh deploy  I have many projects using my script named DOSH and the parameters are mostly in common; deploy, start, stop, runtests, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like this one but I run all the projects with the same command: dosh start.
+In Windows, the command may be a bit longer than in the other operating systems.</description>
+    </item>
     
     <item>
       <title>Important Windows environment variables</title>
@@ -19,7 +30,7 @@
       <guid>https://gokmengorgen.net/en/blog/important-windows-environment-variables/</guid>
       <description>PowerShell and Git encoding problems To make git log command output properly display on Windows, we need to set a variable named LC_ALL:
 LC_ALL=&amp;quot;C.UTF-8&amp;quot;  Incorrect home folder in Emacs This problem is not only about Emacs. If you try to find a file from HOME variable, you may need to define the variable first:
-LC_ALL=&amp;quot;C:\Users\username&amp;quot;  ;; place all backup files in one directory (setq backup-directory-alist `((&amp;quot;.*&amp;quot; . ,temporary-file-directory))) (setq auto-save-file-name-transforms `((&amp;quot;.</description>
+HOME=&amp;quot;%USERPROFILE%&amp;quot;  ;; place all backup files in one directory (setq backup-directory-alist `((&amp;quot;.*&amp;quot; . ,temporary-file-directory))) (setq auto-save-file-name-transforms `((&amp;quot;.</description>
     </item>
     
   </channel>

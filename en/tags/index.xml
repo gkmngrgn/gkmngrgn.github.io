@@ -6,9 +6,37 @@
     <description>Recent content in Tags on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Sun, 30 Dec 2018 15:06:17 +0100</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/en/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bash</title>
+      <link>https://gokmengorgen.net/en/tags/bash/</link>
+      <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops</title>
+      <link>https://gokmengorgen.net/en/tags/devops/</link>
+      <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Powershell</title>
+      <link>https://gokmengorgen.net/en/tags/powershell/</link>
+      <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/tags/powershell/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Windows</title>

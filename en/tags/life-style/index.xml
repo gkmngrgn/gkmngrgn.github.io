@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Life Style on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/en/tags/life-style/</link>
+    <description>Recent content in Life Style on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 02 Jan 2019 17:30:49 +0100</lastBuildDate>
+    
+	<atom:link href="https://gokmengorgen.net/en/tags/life-style/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spreadsheet applications</title>
+      <link>https://gokmengorgen.net/en/blog/spreasheet-apps/</link>
+      <pubDate>Wed, 02 Jan 2019 17:30:49 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/blog/spreasheet-apps/</guid>
+      <description>Spreadsheet applications are the most functional applications I&amp;rsquo;ve used. Excel, Gnumeric, Google Sheet, OpenOffice Calc or whatever, it doesn&amp;rsquo;t matter. You can use it as task management like Trello, make daily - weekly - monthly plans, store and transfer data, and follow your financial situation. It&amp;rsquo;s like a Swiss army knife and not a new invention.
+I&amp;rsquo;ll update this article when I find a more functional application.</description>
+    </item>
+    
+  </channel>
+</rss>

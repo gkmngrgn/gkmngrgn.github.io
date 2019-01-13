@@ -217,6 +217,16 @@
     <loc>https://gokmengorgen.net/tags/coding/</loc>
     <lastmod>2018-09-07T22:46:31+02:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/tags/coding/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/tags/coding/"
+                />
   </url>
   
   <url>

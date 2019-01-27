@@ -162,6 +162,14 @@
 <li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-09">buradan</a> erişebilirsiniz.</li>
 </ul>
 
+<div class="alert alert-danger" role="alert">
+  <h4>Yazıyla ilgili önemli bir uyarı</h4>
+
+  <p>Konuyu uzatmamak için bir Django komutunu doğrudan Celery görev fonksiyonları içinde kullandım; ama bu çok doğru bir yöntem <strong>olmayabilir</strong>. Örneğin, komutun zorunlu olmayan parametreleri kod içinde farklı yorumlanabilir, <code>None</code> beklerken boş bir string alabilirsiniz.</p>
+
+  <p>Bunun yerine, hem Django komutu, hem de Celery fonksiyonunda kullanabileceğiniz <strong>ortak bir kod</strong> yazmanız daha mantıklıdır.</p>
+</div>
+
 <h2 id="neden-celery-ve-neden-docker">Neden Celery ve neden Docker?</h2>
 
 <p>Önceki yazımızda hazırladığımız <strong>checkurls</strong> komutunu periyodik olarak çalıştırabilmek için bir görev yöneticisine ihtiyacımız var. Celery benim bu tip işler için en sık kullandığım araç. Celery ile görevleri yönetmek kolay, deployment süreçlerinde sunucuya daha az müdahale ediliyor, görev çalıştırma zamanlarını admin panelinden programlamak mümkün.</p>

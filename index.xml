@@ -100,7 +100,7 @@ Güncellemeler  Monster Tulpar T5 için görüş eklendi. Anlatım bozukluğu d�
       
       <guid>https://gokmengorgen.net/django-notes/09-celery-ile-periyodik-isler/</guid>
       <description>En son, ekranlarımızı güncelleyen bir komut hazırlamıştık. Şimdi bu komutu periyodik olarak çalıştırmamız gerekiyor. Önceki yazımızda cron ile bunu nasıl yapabileceğimize dair değinmiştik; ama biz bunu Celery1 ile yapmayı deneyeceğiz.
-Özet  Docker ile, Celery&amp;rsquo;i kolayca kurup kullanabileceğimiz geliştirme ortamını hazırlayacağız. Django komutumuzu Celery görev fonksiyonunda kullanabilir hale getireceğiz. Admin panelinden görevlerin çalışma zamanlarını ayarlayacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.  Neden Celery ve neden Docker? Önceki yazımızda hazırladığımız checkurls komutunu periyodik olarak çalıştırabilmek için bir görev yöneticisine ihtiyacımız var.</description>
+Özet  Docker ile, Celery&amp;rsquo;i kolayca kurup kullanabileceğimiz geliştirme ortamını hazırlayacağız. Django komutumuzu Celery görev fonksiyonunda kullanabilir hale getireceğiz. Admin panelinden görevlerin çalışma zamanlarını ayarlayacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.  Yazıyla ilgili önemli bir uyarı Konuyu uzatmamak için bir Django komutunu doğrudan Celery görev fonksiyonları içinde kullandım; ama bu çok doğru bir yöntem olmayabilir.</description>
     </item>
     
     <item>

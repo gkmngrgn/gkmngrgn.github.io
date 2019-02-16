@@ -96,6 +96,20 @@
   </url>
   
   <url>
+    <loc>https://gokmengorgen.net/en/comment-policy/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/yorum-politikasi/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/comment-policy/"
+                />
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/en/tags/devops/</loc>
     <lastmod>2018-12-30T15:06:17+01:00</lastmod>
     <priority>0</priority>

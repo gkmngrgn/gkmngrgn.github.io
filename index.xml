@@ -334,7 +334,7 @@ Ben yazılımcıyım. Bağımsız çalışmak konusunda çok deneyimim yok. Bu k
       
       <guid>https://gokmengorgen.net/lisans/</guid>
       <description>İçerik Commons attribution-noncommercial-sharealike lisansı ile lisanslanmıştır. Daha fazla bilgi için lütfen buraya bir göz atın.
-Sitemin temasını beğendin mi? Hugo ile birlikte alaGeek temasını kullanıyorum. Tema için bana ulaşın.</description>
+Sitemin temasını beğendin mi? Hugo ile birlikte alaGeek temasını kullanıyorum.</description>
     </item>
     
     <item>
@@ -344,6 +344,16 @@ Sitemin temasını beğendin mi? Hugo ile birlikte alaGeek temasını kullanıyo
       
       <guid>https://gokmengorgen.net/live/</guid>
       <description>You can follow me to see how I play a game or code open source projects&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Yorum politikası</title>
+      <link>https://gokmengorgen.net/yorum-politikasi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/yorum-politikasi/</guid>
+      <description>Yorumlarınızla yazılarıma katkıda bulunmanızı isterim. Gerektiğinde yorumlarınızı alıntılayıp yazıya aktarabilirim veya gelen eleştirilere göre yazıyı güncelleyebilirim. Eğer yorumunuz yayınlanmadıysa, ya küfür ve benzeri yasaklı bir kelime içermektedir; ya da aşağıdaki kurallara uyulmamıştır:
+ Irkçılık, seksizm, homofobik söylemler yasak. Yorumunuz, yazının konusu ile ilgili olmalı. Trollere cevap vermeyin. Konu bağlamında tartışmak serbest, ama saygısızlık yapmamalısınız. Kendi reklamınızı yapabilirsiniz; ama bana mail olarak iletmeniz daha uygun olur.  Sanırım bu kadar kural yeterli.</description>
     </item>
     
   </channel>

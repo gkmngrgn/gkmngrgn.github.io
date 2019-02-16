@@ -373,4 +373,18 @@
                 />
   </url>
   
+  <url>
+    <loc>https://gokmengorgen.net/yorum-politikasi/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/comment-policy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/yorum-politikasi/"
+                />
+  </url>
+  
 </urlset>

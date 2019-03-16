@@ -6,13 +6,23 @@
     <description>Recent content in Windows on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Dec 2018 21:25:57 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 16 Mar 2019 19:35:51 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/en/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Important Windows environment variables</title>
+      <title>Configure Windows for Development</title>
+      <link>https://gokmengorgen.net/en/blog/configure-windows-for-development/</link>
+      <pubDate>Sat, 16 Mar 2019 19:35:51 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/blog/configure-windows-for-development/</guid>
+      <description>Environment Variables I still use some development tools that are used by most Linux users and these tools need some environment variables like LC_ALL, HOME, etc. When I have a new PC with Windows 10, I start to use with defining these variables. Take a look at this post for more detail.
+PowerShell Core It&amp;rsquo;s possible to use BASH on Windows indeed, but I think PowerShell Core is a good alternative.</description>
+    </item>
+    
+    <item>
+      <title>Important Windows Environment Variables</title>
       <link>https://gokmengorgen.net/en/blog/important-windows-environment-variables/</link>
       <pubDate>Tue, 25 Dec 2018 21:25:57 +0100</pubDate>
       

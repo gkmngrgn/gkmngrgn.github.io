@@ -225,10 +225,6 @@
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/certificates/</loc>
-  </url>
-  
-  <url>
     <loc>https://gokmengorgen.net/tags/coding/</loc>
     <lastmod>2018-09-07T22:46:31+02:00</lastmod>
     <priority>0</priority>
@@ -336,18 +332,6 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://gokmengorgen.net/tags/remote/</loc>
-    <lastmod>2016-05-23T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://gokmengorgen.net/tags/software/</loc>
-    <lastmod>2016-05-23T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

@@ -8,8 +8,18 @@
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/python-design-patterns/</loc>
-    <lastmod>2019-03-10T20:12:54+02:00</lastmod>
+    <loc>https://gokmengorgen.net/en/blog/consumer/</loc>
+    <lastmod>2019-02-27T20:53:04+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/blog/tuketici/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/blog/consumer/"
+                />
   </url>
   
   <url>
@@ -181,7 +191,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/en/tags/life-style/</loc>
-    <lastmod>2019-02-16T23:47:58+01:00</lastmod>
+    <lastmod>2019-02-27T20:53:04+01:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -196,8 +206,22 @@
   </url>
   
   <url>
+    <loc>https://gokmengorgen.net/en/live/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/canli-yayin/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/live/"
+                />
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/en/tags/powershell/</loc>
-    <lastmod>2018-12-30T15:06:17+01:00</lastmod>
+    <lastmod>2019-03-16T19:35:51+02:00</lastmod>
     <priority>0</priority>
   </url>
   

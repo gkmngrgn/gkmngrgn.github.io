@@ -22,12 +22,13 @@ PowerShell Core It&amp;rsquo;s possible to use BASH on Windows indeed, but I thi
     </item>
     
     <item>
-      <title>Python Design Patterns</title>
-      <link>https://gokmengorgen.net/en/python-design-patterns/</link>
-      <pubDate>Sun, 10 Mar 2019 20:12:54 +0200</pubDate>
+      <title>Consumer</title>
+      <link>https://gokmengorgen.net/en/blog/consumer/</link>
+      <pubDate>Wed, 27 Feb 2019 20:53:04 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/en/python-design-patterns/</guid>
-      <description>TODO</description>
+      <guid>https://gokmengorgen.net/en/blog/consumer/</guid>
+      <description>For good things in life, you need labour, patience, and time.
+ To draw a picture, To play an instrument, To program software, Or to produce something, Even to complete a book, To translate a text, To tell the troubles, To write what you think, To prepare a broadcast, For everything.  Just sharing something in social media and consuming it is easy.</description>
     </item>
     
     <item>
@@ -101,6 +102,15 @@ HOME=&amp;quot;%USERPROFILE%&amp;quot;  ;; place all backup files in one directo
       <guid>https://gokmengorgen.net/en/license/</guid>
       <description>Content licensed under the Creative Commons attribution-noncommercial-sharealike License. Please look at this url for more information.
 Did you like my website theme? It&amp;rsquo;s Hugo static site generator with alaGeek theme.</description>
+    </item>
+    
+    <item>
+      <title>Live stream</title>
+      <link>https://gokmengorgen.net/en/live/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/live/</guid>
+      <description>You can follow me to see how I play a game or code open source projects&amp;hellip;</description>
     </item>
     
   </channel>

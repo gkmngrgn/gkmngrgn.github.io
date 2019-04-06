@@ -75,13 +75,6 @@
                 <ul class="nav nav-primary">
                     
                         <li class="nav-item">
-                            <a class="text-uppercase nav-link text-blog" href="https://gokmengorgen.net/blog/">
-                                
-                                Blog
-                            </a>
-                        </li>
-                    
-                        <li class="nav-item">
                             <a class="text-uppercase nav-link text-my-work" href="https://alageek.com">
                                 
                                 My work
@@ -89,7 +82,7 @@
                         </li>
                     
                         <li class="nav-item">
-                            <a class="text-uppercase nav-link text-live" href="https://gokmengorgen.net/live/">
+                            <a class="text-uppercase nav-link text-live" href="https://gokmengorgen.net/en/live/">
                                 📹
                                 Live
                             </a>
@@ -148,6 +141,10 @@
                                         <a href="https://gokmengorgen.net/en/tags/windows">windows</a>
                                     </li>
                                 
+                                    <li class="d-inline middot">
+                                        <a href="https://gokmengorgen.net/en/tags/powershell">powershell</a>
+                                    </li>
+                                
                             </ul>
                         </div>
 
@@ -174,10 +171,21 @@
 
 <pre><code class="language-powershell"># Extensions
 Import-Module posh-git
+Import-Module PSReadLine
 
 # DOSH settings
 $env:ENV = &quot;DEV&quot;
 Set-Alias dosh .\do.ps1
+
+# Readline settings
+Set-PSReadLineOption -EditMode Emacs
+
+# Git prompt settings
+$GitPromptSettings.DefaultPromptPath.ForegroundColor = 0xFFA500
+$GitPromptSettings.DefaultPromptWriteStatusFirst = $true
+$GitPromptSettings.DefaultPromptBeforeSuffix.Text = '`n$([DateTime]::now.ToString(&quot;MM-dd HH:mm:ss&quot;))'
+$GitPromptSettings.DefaultPromptBeforeSuffix.ForegroundColor = 0x808080
+$GitPromptSettings.DefaultPromptSuffix = ' $((Get-History -Count 1).id + 1)$(&quot; &gt;&quot; * ($nestedPromptLevel + 1)) '
 
 # Helper commands
 function which ($command) {
@@ -189,7 +197,9 @@ function touch ($filename) {
 }
 </code></pre>
 
-<p>But, what if we want to use a Linux command-line app? Like Nano? Indeed, it&rsquo;s possible to use it as a default git-commit editor but, let&rsquo;s consider it&rsquo;s a program that only available in Linux. I use WSL for that case. Just install Ubuntu or another Linux distro with WSL, open PowerShell and run this command:</p>
+<p><strong>Readline</strong> is a familiar extension for BASH users. If you want to use Emacs key bindings in PowerShell, I suggest you add Readline to the dependencies list.</p>
+
+<p>What if we want to use a Linux command-line app? Like Nano? Indeed, it&rsquo;s possible to use it as a default git-commit editor but, let&rsquo;s consider it&rsquo;s a program that only available in Linux. I use WSL for that case. Just install Ubuntu or another Linux distro with WSL, open PowerShell and run this command:</p>
 
 <pre><code class="language-powershell">&gt; wsl -e nano README.md
 </code></pre>
@@ -214,7 +224,7 @@ function touch ($filename) {
                                     
                                         <div class="mx-0 mx-md-4 mt-4 text-left">
                                             <img class="icon" src="https://gokmengorgen.net/img/back.svg" alt="back" />
-                                            <a href="https://gokmengorgen.net/en/blog/what-age-do-we-live/">What age do we live?</a>
+                                            <a href="https://gokmengorgen.net/en/blog/consumer/">Consumer</a>
                                         </div>
                                     
                                 </div>
@@ -258,13 +268,22 @@ function touch ($filename) {
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-12 col-md-5">
-                
-                    <div class="mx-0 mx-md-4 mb-2 text-center text-md-left">
+                <div class="mx-0 mx-md-4 mb-2 text-center text-md-left">
+                    
+                        <div>
+                            <a class="mx-1 mr-md-2 ml-md-0  text-tags" href="https://gokmengorgen.net/en/tags/">
+                                
+                                Tags
+                            </a>
+                        </div>
+                    
+
+                    
                         
                             <a href="https://gokmengorgen.net/en/license/">© 2018 - 2019 by Gökmen Görgen.</a>
                         
-                    </div>
-                
+                    
+                </div>
             </div>
             <div class="col-sm-12 col-md-5">
                 <div class="mx-0 mx-md-4 text-center text-md-right">

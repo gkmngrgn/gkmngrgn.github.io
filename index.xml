@@ -6,10 +6,20 @@
     <description>Recent content in Merhaba on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 16 Feb 2019 23:48:02 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 27 Feb 2019 20:49:26 +0100</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tüketici</title>
+      <link>https://gokmengorgen.net/blog/tuketici/</link>
+      <pubDate>Wed, 27 Feb 2019 20:49:26 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/tuketici/</guid>
+      <description>Hayatta iyi şeyler için emek, sabır ve zaman gerekiyor.
+ Resim çizmek; Enstrüman çalmak; Yazılım üretmek; Veya herhangi bir şey üretmek; Hatta kitap bitirmek; Çeviri yapmak; Dert anlatmak; Yazı yazmak; Görsel yayın hazırlamak; Her şey.  Bir tek sosyal medya paylaşımı yapmak ve onu tüketmek kolay.</description>
+    </item>
     
     <item>
       <title>Hangi çağda yaşıyoruz?</title>
@@ -341,11 +351,11 @@ Sitemin temasını beğendin mi? Hugo ile birlikte alaGeek temasını kullanıyo
     
     <item>
       <title>Live stream</title>
-      <link>https://gokmengorgen.net/live/</link>
+      <link>https://gokmengorgen.net/canli-yayin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/live/</guid>
-      <description>You can follow me to see how I play a game or code open source projects&amp;hellip;</description>
+      <guid>https://gokmengorgen.net/canli-yayin/</guid>
+      <description>Oyun ve programlama zamanlarımda bana katılabilirsiniz&amp;hellip;</description>
     </item>
     
     <item>

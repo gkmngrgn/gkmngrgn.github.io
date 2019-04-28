@@ -6,76 +6,31 @@
     <description>Recent content in Tags on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 07 Sep 2018 22:46:31 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 28 Apr 2019 11:18:33 +0000</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Bash</title>
-      <link>https://gokmengorgen.net/tags/bash/</link>
-      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/tags/bash/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Coding</title>
+      <title>coding</title>
       <link>https://gokmengorgen.net/tags/coding/</link>
-      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
+      <pubDate>Sun, 28 Apr 2019 11:18:33 +0000</pubDate>
       
       <guid>https://gokmengorgen.net/tags/coding/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Devops</title>
-      <link>https://gokmengorgen.net/tags/devops/</link>
-      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/tags/devops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Django</title>
+      <title>django</title>
       <link>https://gokmengorgen.net/tags/django/</link>
-      <pubDate>Sun, 17 Jun 2018 01:57:58 +0200</pubDate>
+      <pubDate>Sun, 28 Apr 2019 11:18:33 +0000</pubDate>
       
       <guid>https://gokmengorgen.net/tags/django/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Emacs</title>
-      <link>https://gokmengorgen.net/tags/emacs/</link>
-      <pubDate>Mon, 24 Apr 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/tags/emacs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://gokmengorgen.net/tags/git/</link>
-      <pubDate>Sun, 24 Jun 2018 14:23:26 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Istanbul</title>
-      <link>https://gokmengorgen.net/tags/istanbul/</link>
-      <pubDate>Thu, 10 May 2018 13:03:43 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/tags/istanbul/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Life Style</title>
+      <title>life style</title>
       <link>https://gokmengorgen.net/tags/life-style/</link>
       <pubDate>Sat, 06 Apr 2019 12:42:17 +0200</pubDate>
       
@@ -84,7 +39,52 @@
     </item>
     
     <item>
-      <title>Vagrant</title>
+      <title>bash</title>
+      <link>https://gokmengorgen.net/tags/bash/</link>
+      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>https://gokmengorgen.net/tags/devops/</link>
+      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://gokmengorgen.net/tags/git/</link>
+      <pubDate>Sun, 24 Jun 2018 14:23:26 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>istanbul</title>
+      <link>https://gokmengorgen.net/tags/istanbul/</link>
+      <pubDate>Thu, 10 May 2018 13:03:43 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tags/istanbul/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>https://gokmengorgen.net/tags/windows/</link>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vagrant</title>
       <link>https://gokmengorgen.net/tags/vagrant/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
       
@@ -93,11 +93,11 @@
     </item>
     
     <item>
-      <title>Windows</title>
-      <link>https://gokmengorgen.net/tags/windows/</link>
-      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      <title>emacs</title>
+      <link>https://gokmengorgen.net/tags/emacs/</link>
+      <pubDate>Mon, 24 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://gokmengorgen.net/tags/windows/</guid>
+      <guid>https://gokmengorgen.net/tags/emacs/</guid>
       <description></description>
     </item>
     

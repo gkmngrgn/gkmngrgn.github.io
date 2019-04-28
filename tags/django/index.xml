@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Django on GKMNGRGN</title>
+    <title>django on GKMNGRGN</title>
     <link>https://gokmengorgen.net/tags/django/</link>
-    <description>Recent content in Django on GKMNGRGN</description>
+    <description>Recent content in django on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 17 Jun 2018 01:57:58 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 28 Apr 2019 11:18:33 +0000</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tags/django/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Django CMS için HTML Tags eklentisi</title>
+      <link>https://gokmengorgen.net/blog/djangocms-icin-html-tags-eklentisi/</link>
+      <pubDate>Sun, 28 Apr 2019 11:18:33 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/djangocms-icin-html-tags-eklentisi/</guid>
+      <description>Django ile yazılmış içerik yönetim sistemi deyince aklımıza ilk Django CMS geliyor. Oldukça kapsamlı ve geliştirici açısından öğrenmesi biraz zaman alan; fakat öğrenince de CMS gerektiren işleri kolay ve eğlenceli hale getiren açık kaynak bir yazılımdır. Kurulumu kolay, Divio1&amp;lsquo;nun bulut sistemlerinde Django CMS&amp;rsquo;e tam desteği var; ama isterseniz kendi VPN sunucunuza da kurabiliyorsunuz. Eğer bu işlerle ilgili ilgilenecek ekibiniz yoksa, Divio&amp;rsquo;nun Türkiye&amp;rsquo;deki tek partneri Radity&amp;rsquo;den destek alabilirsiniz.
+HTML Tags, adından da anlaşılacağı üzere, HTML kodlarını CMS paneli üzerinden sayfaya tek tek ekleme imkanı sunan bir Django CMS eklentisidir.</description>
+    </item>
     
     <item>
       <title>10 - Sunucunun hazırlanması</title>

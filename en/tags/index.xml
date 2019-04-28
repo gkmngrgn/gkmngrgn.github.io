@@ -6,49 +6,13 @@
     <description>Recent content in Tags on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Dec 2018 15:06:17 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 16 Mar 2019 19:35:51 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/en/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Bash</title>
-      <link>https://gokmengorgen.net/en/tags/bash/</link>
-      <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
-      
-      <guid>https://gokmengorgen.net/en/tags/bash/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Coding</title>
-      <link>https://gokmengorgen.net/en/tags/coding/</link>
-      <pubDate>Sat, 12 Jan 2019 23:59:02 +0100</pubDate>
-      
-      <guid>https://gokmengorgen.net/en/tags/coding/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Devops</title>
-      <link>https://gokmengorgen.net/en/tags/devops/</link>
-      <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
-      
-      <guid>https://gokmengorgen.net/en/tags/devops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Life Style</title>
-      <link>https://gokmengorgen.net/en/tags/life-style/</link>
-      <pubDate>Wed, 27 Feb 2019 20:53:04 +0100</pubDate>
-      
-      <guid>https://gokmengorgen.net/en/tags/life-style/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Powershell</title>
+      <title>powershell</title>
       <link>https://gokmengorgen.net/en/tags/powershell/</link>
       <pubDate>Sat, 16 Mar 2019 19:35:51 +0200</pubDate>
       
@@ -57,7 +21,34 @@
     </item>
     
     <item>
-      <title>Python</title>
+      <title>windows</title>
+      <link>https://gokmengorgen.net/en/tags/windows/</link>
+      <pubDate>Sat, 16 Mar 2019 19:35:51 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>life-style</title>
+      <link>https://gokmengorgen.net/en/tags/life-style/</link>
+      <pubDate>Wed, 27 Feb 2019 20:53:04 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/tags/life-style/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coding</title>
+      <link>https://gokmengorgen.net/en/tags/coding/</link>
+      <pubDate>Sat, 12 Jan 2019 23:59:02 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/tags/coding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
       <link>https://gokmengorgen.net/en/tags/python/</link>
       <pubDate>Sat, 12 Jan 2019 23:59:02 +0100</pubDate>
       
@@ -66,11 +57,20 @@
     </item>
     
     <item>
-      <title>Windows</title>
-      <link>https://gokmengorgen.net/en/tags/windows/</link>
-      <pubDate>Sat, 16 Mar 2019 19:35:51 +0200</pubDate>
+      <title>bash</title>
+      <link>https://gokmengorgen.net/en/tags/bash/</link>
+      <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/en/tags/windows/</guid>
+      <guid>https://gokmengorgen.net/en/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>https://gokmengorgen.net/en/tags/devops/</link>
+      <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/tags/devops/</guid>
       <description></description>
     </item>
     

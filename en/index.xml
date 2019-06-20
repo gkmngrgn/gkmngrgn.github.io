@@ -6,10 +6,20 @@
     <description>Recent content in Hello on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 16 Mar 2019 19:35:51 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 20 Jun 2019 13:33:38 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My First Wrong After The Vacation</title>
+      <link>https://gokmengorgen.net/en/blog/my-first-wrong-after-the-vacation/</link>
+      <pubDate>Thu, 20 Jun 2019 13:33:38 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/blog/my-first-wrong-after-the-vacation/</guid>
+      <description>At the end of my three-week vacation, I was asked for a seemingly easy task. We were going to release the new version of the project we developed:
+ Is today is the last working of the week? No. Is there any problem with the unit tests? No. Are all changes confirmed by the product manager, in the staging server? Yes.  I always note everything, and so I write this article to remind this experience.</description>
+    </item>
     
     <item>
       <title>Configure Windows for Development</title>

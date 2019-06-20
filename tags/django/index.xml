@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>django on GKMNGRGN</title>
+    <title>Django on GKMNGRGN</title>
     <link>https://gokmengorgen.net/tags/django/</link>
-    <description>Recent content in django on GKMNGRGN</description>
+    <description>Recent content in Django on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 28 Apr 2019 11:18:33 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 Jun 2019 13:33:38 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tags/django/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tatilden Sonraki İlk Hatam</title>
+      <link>https://gokmengorgen.net/blog/tatilden-sonraki-ilk-hatam/</link>
+      <pubDate>Thu, 20 Jun 2019 13:33:38 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/tatilden-sonraki-ilk-hatam/</guid>
+      <description>Üç haftalık tatilimin sonunda görünürde basit bir iş talep edildi. Geliştirdiğimiz projenin yeni sürümünü yayınlayacaktık:
+ Bugün haftanın son çalışma günü mü? Hayır. Unit testlerde sorun var mı? Hayır. Yapılan tüm değişiklikler test sunucusunda ürün yöneticisi tarafından onaylandı mı? Evet.  Ben her şeyi not ederim ve bu yazıyı da aynı amaçla, bu deneyimimi hatırlamak için yazıyorum. Bir diğer alışkanlığım, dosh ile sık kullandığım komutları tüm projelerimde ortak belli başlı alt-komutlar altında toplamak.</description>
+    </item>
     
     <item>
       <title>Django CMS için HTML Tags eklentisi</title>

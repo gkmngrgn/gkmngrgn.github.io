@@ -6,58 +6,13 @@
     <description>Recent content in Tags on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 16 Mar 2019 19:35:51 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 30 Dec 2018 15:06:17 +0100</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/en/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>powershell</title>
-      <link>https://gokmengorgen.net/en/tags/powershell/</link>
-      <pubDate>Sat, 16 Mar 2019 19:35:51 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/en/tags/powershell/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>windows</title>
-      <link>https://gokmengorgen.net/en/tags/windows/</link>
-      <pubDate>Sat, 16 Mar 2019 19:35:51 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/en/tags/windows/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>life-style</title>
-      <link>https://gokmengorgen.net/en/tags/life-style/</link>
-      <pubDate>Wed, 27 Feb 2019 20:53:04 +0100</pubDate>
-      
-      <guid>https://gokmengorgen.net/en/tags/life-style/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>coding</title>
-      <link>https://gokmengorgen.net/en/tags/coding/</link>
-      <pubDate>Sat, 12 Jan 2019 23:59:02 +0100</pubDate>
-      
-      <guid>https://gokmengorgen.net/en/tags/coding/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://gokmengorgen.net/en/tags/python/</link>
-      <pubDate>Sat, 12 Jan 2019 23:59:02 +0100</pubDate>
-      
-      <guid>https://gokmengorgen.net/en/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bash</title>
+      <title>Bash</title>
       <link>https://gokmengorgen.net/en/tags/bash/</link>
       <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
       
@@ -66,11 +21,65 @@
     </item>
     
     <item>
-      <title>devops</title>
+      <title>Coding</title>
+      <link>https://gokmengorgen.net/en/tags/coding/</link>
+      <pubDate>Sat, 12 Jan 2019 23:59:02 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/tags/coding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops</title>
       <link>https://gokmengorgen.net/en/tags/devops/</link>
-      <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
+      <pubDate>Thu, 20 Jun 2019 13:33:38 +0200</pubDate>
       
       <guid>https://gokmengorgen.net/en/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Django</title>
+      <link>https://gokmengorgen.net/en/tags/django/</link>
+      <pubDate>Thu, 20 Jun 2019 13:33:38 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Life Style</title>
+      <link>https://gokmengorgen.net/en/tags/life-style/</link>
+      <pubDate>Wed, 27 Feb 2019 20:53:04 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/tags/life-style/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Powershell</title>
+      <link>https://gokmengorgen.net/en/tags/powershell/</link>
+      <pubDate>Sat, 16 Mar 2019 19:35:51 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/tags/powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://gokmengorgen.net/en/tags/python/</link>
+      <pubDate>Sat, 12 Jan 2019 23:59:02 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>https://gokmengorgen.net/en/tags/windows/</link>
+      <pubDate>Sat, 16 Mar 2019 19:35:51 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/tags/windows/</guid>
       <description></description>
     </item>
     

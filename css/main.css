@@ -18,15 +18,15 @@ a:hover {
 
 /* Partial: Colors */
 .text-patreon {
-    color: #F96854 !important;
+    color: #f96854 !important;
 }
 
 .text-ko-fi {
-    color: #DF5000 !important;
+    color: #df5000 !important;
 }
 
 .text-bmc {
-    color: #FF813F !important;
+    color: #ff813f !important;
 }
 
 /* Partial: Header */
@@ -131,24 +131,23 @@ a:hover {
 .content .markdown > ol,
 .content .markdown > dl,
 .content .markdown > blockquote {
-    margin-left: 1.5rem;  /* equal to mx-md-4 in bootstrap */
+    margin-left: 1.5rem; /* equal to mx-md-4 in bootstrap */
     margin-right: 1.5rem;
 }
 
 .content .markdown p + p {
-  text-indent: 1.5rem;
+    text-indent: 1.5rem;
 }
 
 .content .markdown code,
 .content .markdown pre {
     font-family: "Menlo", monospace;
     font-size: 0.98rem;
-    background-color: #f7f7f7;
 }
 
-.content .markdown code {
+.content .markdown pre .hljs {
     /* enclosed by single backtick (`) */
-    padding: 0.15em 0.5em;
+    padding: 1rem;
     border-radius: 2px;
 }
 
@@ -157,7 +156,6 @@ a:hover {
     display: block;
     margin-top: 1rem;
     margin-bottom: 2rem;
-    padding: 1rem;
     line-height: 1.5em;
     white-space: pre;
     word-break: break-all;
@@ -245,7 +243,7 @@ a:hover {
     opacity: 0.8;
 }
 
-.footer a .icon {
+.footer a.icon {
     width: 16px;
     height: 16px;
 }
@@ -275,5 +273,45 @@ a:hover {
     .content .markdown > blockquote {
         margin-left: 0;
         margin-right: 0;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #efefef;
+    }
+
+    a,
+    a:hover {
+        color: #17bf63;
+    }
+
+    .content .markdown {
+        color: #e0e0e0;
+    }
+
+    .header h1.name {
+        color: #efefef;
+    }
+
+    .header ul.nav li a {
+        color: #eaeaea;
+    }
+
+    .content .page-heading {
+        color: #efefef;
+    }
+
+    .content .see-more {
+        color: #aaa;
+    }
+
+    .content .see-more:hover {
+        color: #aaa;
+    }
+
+    .footer a.icon {
+        fill: currentColor;
     }
 }

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programlama on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/tags/programlama/</link>
+    <description>Recent content in Programlama on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 28 Apr 2019 11:18:33 +0000</lastBuildDate>
+    
+	<atom:link href="https://gokmengorgen.net/tags/programlama/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Django CMS için HTML Tags eklentisi</title>
+      <link>https://gokmengorgen.net/blog/djangocms-icin-html-tags-eklentisi/</link>
+      <pubDate>Sun, 28 Apr 2019 11:18:33 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/djangocms-icin-html-tags-eklentisi/</guid>
+      <description>Django ile yazılmış içerik yönetim sistemi deyince aklımıza ilk Django CMS geliyor. Oldukça kapsamlı ve geliştirici açısından öğrenmesi biraz zaman alan; fakat öğrenince de CMS gerektiren işleri kolay ve eğlenceli hale getiren açık kaynak bir yazılımdır. Kurulumu kolay, Divio1&amp;lsquo;nun bulut sistemlerinde Django CMS&amp;rsquo;e tam desteği var; ama isterseniz kendi VPN sunucunuza da kurabiliyorsunuz. Eğer bu işlerle ilgili ilgilenecek ekibiniz yoksa, Divio&amp;rsquo;nun Türkiye&amp;rsquo;deki tek partneri Radity&amp;rsquo;den destek alabilirsiniz.
+HTML Tags, adından da anlaşılacağı üzere, HTML kodlarını CMS paneli üzerinden sayfaya tek tek ekleme imkanı sunan bir Django CMS eklentisidir.</description>
+    </item>
+    
+    <item>
+      <title>Sık kullanılan komutlar için yardımcı script</title>
+      <link>https://gokmengorgen.net/blog/komutlar-icin-yardimci-script/</link>
+      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/komutlar-icin-yardimci-script/</guid>
+      <description>Projeler büyüdükçe operasyonlar artıyor, operasyonları koda döktükçe komutlar, parametreler artıyor. Bunları yardımcı bir scriptle kontrol altına alabiliriz.
+Yazının sonunda bu yönteme dair eleştirim ve alternatif önerim var.
+Bir projede frontend geliştiricisinin her bildiğini backend geliştirici bilmek, backend geliştiricisinin her bildiğini devops takımı bilmek zorunda değil. Ve farklı pozisyondaki geliştiricilerin birbirlerini aynı konular için sürekli meşgul etmemesi arzu edilir. Bunun için süreçleri olabildiğince belgelemek ve otomatikleştirmek gerekiyor.
+Basit bir amacım var.</description>
+    </item>
+    
+    <item>
+      <title>Docker için yardımcı script</title>
+      <link>https://gokmengorgen.net/blog/docker-icin-yardimci-script/</link>
+      <pubDate>Sun, 05 Aug 2018 12:11:27 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/docker-icin-yardimci-script/</guid>
+      <description>Docker&amp;rsquo;da projenin çalıştırılacağı ortam sayısı arttıkça, konteynerler çoğaldıkça, yapılandırma dosyalarında satır sayısı uzadıkça komutlar da uzamaya, parametreler artmaya başlıyor. Django shell&amp;rsquo;e nasıl bağlanılıyordu, çeviri dosyalarını nasıl güncelliyorduk, frontend sunucusu hazır mı değil mi nasıl anlıyorduk demek yerine, sık kullanılan komutları basit bir scriptle çalıştırırsak beni rahatlatır diye düşündüm ve internette bununla ilgili bir araştırma yaptım.
+Öncelikle bu tip işler için Makefile kullanma önerisi çok hoşuma gitti. Epey basit ve anlaşılır bir sözdizimi var, komut satırında çift tab yapıp autocomplete yapabiliyorsunuz ve bu tip yardımcı özellikler epey verimliliği artırıyor.</description>
+    </item>
+    
+    <item>
+      <title>Git iş akışı</title>
+      <link>https://gokmengorgen.net/blog/git-is-akisi/</link>
+      <pubDate>Sun, 24 Jun 2018 14:23:26 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/git-is-akisi/</guid>
+      <description>Çalıştığım projelerin çoğunda Git kullanıyoruz ve tüm sürüm çıkarma, projenin teste açılması, testten sonra production sürümünün hazırlanması, acil düzeltilmesi gereken işler olduğunda sürecin esnetilmesi ve bunun gibi birçok iş akışı Git reposu üzerinden yürüyor. Aşama aşama deneyimlerimi paylaşıyorum.
+1. Aşama: Prototipe odaklan Yeni bir projeye başlıyorsunuz, ekip henüz oluşturulmamış veya tek başınasınız ve derhal kabul edilebilir bir prototip1 hazırlamanız gerekiyor. Öncelikli kural, eğer hep aynı teknik araçları kullanıyorsanız bir öncekilerden iskelet yaratıp olduğu gibi yeni projeye aktarmanız.</description>
+    </item>
+    
+    <item>
+      <title>10 - Sunucunun hazırlanması</title>
+      <link>https://gokmengorgen.net/django-notes/10-sunucunun-hazirlanmasi/</link>
+      <pubDate>Sun, 17 Jun 2018 01:57:58 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notes/10-sunucunun-hazirlanmasi/</guid>
+      <description>Buraya kadar hep geliştirme aşamasıyla ilgili konulara değindik. Şimdi backend development tarafından çıkıp biraz devops deployment konusunu ele alalım. Olabildiğince az müdahale ile projemizi dış dünyanın erişimine sunacağız.
+Özet  Docker ile sunucumuzu hazırlayacağız. Ortama göre (development, production, test) sunucu ve proje ayarlarımızı değiştirebileceğimiz yapılandırma dosyaları oluşturacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.  Gerçekten Docker&amp;rsquo;a gerek var mı? Elbette hayır. Hatta yeni bir sunucuya da ihtiyacımız yok, şimdiye kadar kullandığımız geliştirme sunucumuzu ngrok gibi basit bir tünelleme aracıyla dışarıdan erişilebilir hale getirip bilgisayarımızı 24 saat açık bırakabiliriz.</description>
+    </item>
+    
+    <item>
+      <title>09 - Celery ile periyodik işler</title>
+      <link>https://gokmengorgen.net/django-notes/09-celery-ile-periyodik-isler/</link>
+      <pubDate>Sun, 10 Jun 2018 00:17:16 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notes/09-celery-ile-periyodik-isler/</guid>
+      <description>En son, ekranlarımızı güncelleyen bir komut hazırlamıştık. Şimdi bu komutu periyodik olarak çalıştırmamız gerekiyor. Önceki yazımızda cron ile bunu nasıl yapabileceğimize dair değinmiştik; ama biz bunu Celery1 ile yapmayı deneyeceğiz.
+Özet  Docker ile, Celery&amp;rsquo;i kolayca kurup kullanabileceğimiz geliştirme ortamını hazırlayacağız. Django komutumuzu Celery görev fonksiyonunda kullanabilir hale getireceğiz. Admin panelinden görevlerin çalışma zamanlarını ayarlayacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.  Yazıyla ilgili önemli bir uyarı Konuyu uzatmamak için bir Django komutunu doğrudan Celery görev fonksiyonları içinde kullandım; ama bu çok doğru bir yöntem olmayabilir.</description>
+    </item>
+    
+    <item>
+      <title>08 - Komutlar</title>
+      <link>https://gokmengorgen.net/django-notes/08-komutlar/</link>
+      <pubDate>Sat, 02 Jun 2018 02:05:05 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notes/08-komutlar/</guid>
+      <description>Web projelerinin en önemli bölümlerinden biri de teknik operasyonlar. Bazen birikmiş sessionları temizlemek, bazen çeviri dosyalarını oluşturmak, bazen de sadece arama motorlarına buradayım demek için komut satırı uygulamalarına ihtiyaç duyarız. Bizim de uptime uygulamasında, ekranları kontrol etmek için benzer bir komut satırı uygulamasına ihtiyacımız var.
+Özet  URL&amp;rsquo;lerin erişilebilir olup olmadığını anlayabileceğimiz bir komut yazacağız. Ekran durumlarını admin panelinden ve kullanıcı arayüzünden görünür hale getireceğiz. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>Django modelinde selectbox kullanımı</title>
+      <link>https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/</link>
+      <pubDate>Sun, 27 May 2018 16:45:30 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/</guid>
+      <description>Bazen bir model field&amp;rsquo;ında kullanımı sınırlandırmak veya veriyi denetlemek için basit çözümlere ihtiyacımız var. Örneğin, bir araba markası sorulduğunda kullanıcının kafadan veri girişini engellemek veya Opel - opel gibi büyük - küçük farklarından dolayı oluşacak gereksiz seçenek bölünmelerini önlemek gerekir.
+Django notlarım&amp;lsquo;da sürekli dile getirdiğim konu var, bir şeye ihtiyaç duyduğunuzda:
+ Mutlaka Django&amp;rsquo;nun kendi dökümantasyonuna bir göz atın. Mutlaka başkaları nasıl çözmüş diye araştırın.  Django dökümantasyonundaki bir örneği alalım ve onun üzerinden gidelim:</description>
+    </item>
+    
+    <item>
+      <title>07 - Kullanıcı doğrulama</title>
+      <link>https://gokmengorgen.net/django-notes/07-kullanici-dogrulama/</link>
+      <pubDate>Fri, 18 May 2018 23:46:49 +0300</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notes/07-kullanici-dogrulama/</guid>
+      <description>Facebook, Twitter, Linkedin, Yemeksepeti, Markafoni, Hepsiburada, Sahibinden&amp;hellip; Hepsi bizim kim olduğumuzu bilmek isterler. Çünkü bize göre içerik üretirler, hizmet verirler, istediklerimizi sunarlar. Biz de ekranlarımızı kullanıcıya özel yapmak, herkes kendi ekranlarını görsün ve yönetsin istiyorsak, benzer bir kimlik doğrulama sistemi kullanmalıyız.
+Özet  Django&amp;rsquo;nun en önemli bileşenlerinden biri olan kimlik doğrulama sistemini kullanacağız. Kullanıcı giriş yaptı mı yapmadı mı bilgisini tüm Template katmanında layout dosyamızda tutacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>06 - Bildirimler ve çeviriler</title>
+      <link>https://gokmengorgen.net/django-notes/06-bildirimler-ve-ceviriler/</link>
+      <pubDate>Thu, 10 May 2018 14:36:49 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notes/06-bildirimler-ve-ceviriler/</guid>
+      <description>Uptime ekranımızda URL&amp;rsquo;lerimizi giriyoruz; ama kullanıcı ile bir etkileşim olmuyor. Gerçekten kaydetti mi, bir sorun mu oldu, ne oldu belli değil. Bir de uygulamayı İngilizce geliştiriyoruz; ama Türkçe yerelde Türkçe arayüz görmek istersek ne yapacağız? Birlikte deneyelim, görelim.
+Özet  Django&amp;rsquo;da bildirim altyapısını (Messages Framework1) uygulamamızda kullanacağız. Tüm sayfalarda bildirim mesajlarının nasıl çalıştığını inceleyerek Template katmanına sayfa bağımsız içerik nasıl enjekte ediliyor, bu konuya değineceğiz. Bildirim mesajlarını yerelleştireceğiz. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>05 - Formset</title>
+      <link>https://gokmengorgen.net/django-notes/05-formset/</link>
+      <pubDate>Sun, 06 May 2018 14:30:19 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notes/05-formset/</guid>
+      <description>Palette uygulamasıyla MTV Katmanları ve Admin paneli ve CRUD ile ilgili giriş seviyesinde bilgiler edindik. Yeni uygulamamız Uptime. Bu uygulamayla yerelleştirme, sayfa isteklerini yönetme ve yetkilendirme, eposta veya sayfa içi bildirimlerle kullanıcıyı bilgilendirme, unittest, komut satırında çalışan scriptler ve bunlarla ilişkili birçok konuya değineceğiz. Formset ile başlıyoruz.
+Özet  Uptime uygulamasını yazmaya başlıyoruz. URL&amp;rsquo;leri girmek için Formset kullanıyoruz. İhtiyacımızı görecek bir Django eklentisini yükleyip kullanacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>04 - Template Motoru</title>
+      <link>https://gokmengorgen.net/django-notes/04-template-motoru/</link>
+      <pubDate>Sat, 28 Apr 2018 00:56:53 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notes/04-template-motoru/</guid>
+      <description>Eğer içeriği dinamik oluşturuyorsak, ortak sayfa bileşenlerini tekrar tekrar yazmak istemiyorsak, Template katmanını biraz daha yakından tanımamız gerekiyor.
+Özet  Template katmanında layout kullanımına bir örnek göstereceğiz. Örnek bir template tag ve filter yazmayı deneyeceğiz. Admin panelimizde, göze hoş görünmesi için bir stil düzenlemesi yapacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.  Layout Kullanımı Template dosyaları yazmaya başladıkça bir şeyleri tekrar etmeye başlayacaksınız. Birçoğunun içinde head ve body var, bir çoğunda ortak stil dosyalarını kullanacaksınız, hatta hangi sayfa olursa olsun bazı meta tagları hiç değişmeyecek.</description>
+    </item>
+    
+    <item>
+      <title>03 - Admin Paneli</title>
+      <link>https://gokmengorgen.net/django-notes/03-admin-paneli/</link>
+      <pubDate>Sun, 22 Apr 2018 00:02:51 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notes/03-admin-paneli/</guid>
+      <description>Model objemizi oluşturduktan sonra hemen veri girişi yapsak, denesek, kontrol etsek nasıl olurdu? Django&amp;rsquo;nun en güzel yanlarından biri olan Django Admin&amp;rsquo;e el atalım mı? Önce modelimizde biraz değişiklik yapmamız gerek.
+Özet  İkinci bir migration script oluşturma denemesi yapacağız. Model katmanında ilk sinyal denememizi yapacağız. Palette modelimizi Django Admin panelinde göreceğiz. Resim yükleyebilmek için form sayfası, resmin renk kodlarını görüntüleyebilmek için detay sayfası hazırlayacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.</description>
+    </item>
+    
+    <item>
+      <title>02 - Model Katmanı</title>
+      <link>https://gokmengorgen.net/django-notes/02-model-katmani/</link>
+      <pubDate>Wed, 04 Apr 2018 00:12:24 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notes/02-model-katmani/</guid>
+      <description>Şimdi MTV&amp;rsquo;nin Model katmanına giriş yapacağız; ama bu konuya tek bir yazı yetmeyecek. Bu yazıyı okurken öğrendiklerinizi pekiştirmek için alıştırmaları yapmaya özen gösterirseniz, bir sonraki konuya daha kolay ısınırsınız.
+Özet  Django&amp;rsquo;da uygulama oluşturacağız, bundle yapısına kısaca değineceğiz. Model katmanını içerecek basit bir uygulama yazacağız. Model migration script&amp;rsquo;leri oluşturacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.  Oluştur, Oku, Güncelle, Sil Veritabanında veri ile ilgili yapılabilecek dört temel işlemin baş harflerinden oluşuyor CRUD: Create - Read - Update - Delete.</description>
+    </item>
+    
+    <item>
+      <title>01 - Başlangıç</title>
+      <link>https://gokmengorgen.net/django-notes/01-baslangic/</link>
+      <pubDate>Fri, 30 Mar 2018 19:22:15 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/django-notes/01-baslangic/</guid>
+      <description>Web Framework&amp;rsquo;leri, bir web projesinde duyulabilecek temel ihtiyaçları belli bir amaç doğrultusunda, belli yöntemlerle karşılamaya çalışırlar. Bugüne kadar geliştirilmiş binlerce framework var ve tercihi nasıl yapacağınız konusu tamamen size bağlı. Kararınız Django ise veya Django&amp;rsquo;ya meraklıysanız, bu yazı dizisini sizler için hazırladım. Elimden geldiğince hızlı bir başlangıç yapacağım, detaylara boğmak yok, motivasyonunuzu da yüksek tutmaya çalışacağım.
+Özet  Django geliştirme ortamımızı kuracağız. Geliştirme sunucusunu nasıl kullanacağımızı öğreneceğiz. Dizin ve dosya yapımızı inceleyeceğiz, MVC ve MTV konularına kısaca değineceğiz.</description>
+    </item>
+    
+    <item>
+      <title>Geliştiriciler için Windows 10 Pro</title>
+      <link>https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/</link>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/</guid>
+      <description>Bu yazıda sözünü ettiğim işletim sistemi ve sürümü Windows 10 Pro’dur. Amacım yazılım geliştiriciler için Windows 10 Pro’nun alternatif bir geliştirme ortamı olduğunu anlatmaktır. Windows 8 değil, Windows 10 Home da değil, sadece Windows 10 Pro. Karar elbette sizin.
+Genel Görünüm Uzun süre Linux dağıtımı ve MacOS kullanan birisi olarak ilk Windows izlenimim çok kötüydü. Font rendering Ubuntu’dan bile kötüydü. Masaüstü ortamı KDE’den bile karışıktı. Klavye kısayollarını yeni baştan öğrenmem, alışmam gerekecekti.</description>
+    </item>
+    
+    <item>
+      <title>Vagrant ile proje geliştirme</title>
+      <link>https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/</link>
+      <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/</guid>
+      <description>Monolitik yapıda bir web projesinin iskeletini oluşturup, projeyi geliştirmek için bir geliştirme ortamına ihtiyacımız var. Geliştirme ortamını hazırlarken bazı ayrıntıları göz önünde bulundurmak gerekir:
+ Projede tek başıma mı olacağım? Tek başıma değilsem ekip arkadaşlarım kurulumda sorun yaşarlar mı? Tek başıma bile olsam, yerelimde yaşamadığım bir sorunu sunucuda yaşarsam bununla nasıl başa çıkacağım veya bu ihtimalın olmaması için ne yapabilirim? Bağımlılıklarda sürüm çakışması yaşarsam bunu nasıl çözeceğim? Geliştirme ortamımı diğerlerinden nasıl izole edebilirim?</description>
+    </item>
+    
+    <item>
+      <title>Emacs&#39;e nereden başlamalı?</title>
+      <link>https://gokmengorgen.net/blog/emacse-nereden-baslamali/</link>
+      <pubDate>Mon, 24 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/emacse-nereden-baslamali/</guid>
+      <description>Yazılım dünyasının en eski editörlerinden Emacs, günümüzdeki diğer popüler editörlerden farklı bir kullanma ve öğrenme disiplini istiyor. Bazı temel özelliklerini öğrenmeden editörde bir dosya açmak bile zor. O nedenle Emacs’in kendi içinde gelen tutorial’ını en azından bir kez okumak, öğrendiklerini uygulamak ve birkaç hafta sabırla kullanmak gerekiyor.
+Emacs Linux, Windows ve macOS işletim sistemlerinde çalışıyor. Yükleyip editörü açtığınızda ilk hali muhtemelen arzu ettiğiniz gibi görünmeyecek. Bir yandan Emacs’i öğrenirken, bir yandan da kendi zevkinize göre özelleştirmeye başlamanızı öneriyorum.</description>
+    </item>
+    
+  </channel>
+</rss>

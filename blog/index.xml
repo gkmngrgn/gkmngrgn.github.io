@@ -6,10 +6,20 @@
     <description>Recent content in Blog on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 03 Aug 2019 15:24:01 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 11 Aug 2019 13:43:00 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Altın Rehber</title>
+      <link>https://gokmengorgen.net/blog/altin-rehber/</link>
+      <pubDate>Sun, 11 Aug 2019 13:43:00 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/altin-rehber/</guid>
+      <description>Bağımlılıklardan nefret ediyorum. Bu nedenle sahip olduğum her eşya için kendime bazı sorular soruyorum. Bu bir araba, bilgisayar veya bir internet hizmeti olabilir:
+ Ne kadar süre kullanmayı düşünüyorum? İşimi gerçekten görüyor mu? Hangi sorunumu çözecek ve daha önce nasıl çözüyordum? Birçok alternatif varken bunu niye tercih ettim? Bozulursa ne yapacağım?  Bu konuya girmeden önce kendimden bir şey anlatmak istiyorum. Adından olsa gerek, her Kurban bayramı, Kurban grubunu hatırlarım. Bana enstrümanı sevdiren, üniversitemin renkli geçmesine vesile olan, hayatı türlü türlü deneyimlediğim bir grup.</description>
+    </item>
     
     <item>
       <title>iPad Üzerine İlk İncelemem</title>

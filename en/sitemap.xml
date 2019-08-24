@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/en/blog/</loc>
-    <lastmod>2019-08-03T15:24:01+02:00</lastmod>
+    <lastmod>2019-08-25T01:04:49+02:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -19,23 +19,13 @@
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/blog/first-review-on-my-ipad/</loc>
-    <lastmod>2019-08-03T15:24:01+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tr"
-                href="https://gokmengorgen.net/blog/ipad-uzerine-ilk-incelemem/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://gokmengorgen.net/en/blog/first-review-on-my-ipad/"
-                />
+    <loc>https://gokmengorgen.net/en/blog/data-types-in-programming/</loc>
+    <lastmod>2019-08-25T01:04:49+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://gokmengorgen.net/en/</loc>
-    <lastmod>2019-08-03T15:24:01+02:00</lastmod>
+    <lastmod>2019-08-25T01:04:49+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
@@ -50,7 +40,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/en/tags/</loc>
-    <lastmod>2019-08-03T15:24:01+02:00</lastmod>
+    <lastmod>2019-08-25T01:04:49+02:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -61,6 +51,27 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://gokmengorgen.net/en/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/en/tags/programming/</loc>
+    <lastmod>2019-08-25T01:04:49+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/en/blog/first-review-on-my-ipad/</loc>
+    <lastmod>2019-08-03T15:24:01+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/blog/ipad-uzerine-ilk-incelemem/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/blog/first-review-on-my-ipad/"
                 />
   </url>
   
@@ -187,12 +198,6 @@
   <url>
     <loc>https://gokmengorgen.net/en/blog/string-quotes-in-pep8/</loc>
     <lastmod>2019-01-12T23:59:02+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gokmengorgen.net/en/tags/programming/</loc>
-    <lastmod>2019-01-12T23:59:02+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

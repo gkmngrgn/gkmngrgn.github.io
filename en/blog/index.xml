@@ -6,10 +6,20 @@
     <description>Recent content in Blog on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 03 Aug 2019 15:24:01 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 25 Aug 2019 01:04:49 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/en/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Types in Programming</title>
+      <link>https://gokmengorgen.net/en/blog/data-types-in-programming/</link>
+      <pubDate>Sun, 25 Aug 2019 01:04:49 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/blog/data-types-in-programming/</guid>
+      <description>I started to take a look at C++ courses to understand Rust better because it helps me to see the advantages of Rust. The following images are from a Linkedin course, the instructor is Bill Weinman, and his courses are perfect if you want to program with C++.
+If you have a photographic memory to remind something quickly, then you may like these images explaining data types in programming.</description>
+    </item>
     
     <item>
       <title>First Review on My iPad</title>

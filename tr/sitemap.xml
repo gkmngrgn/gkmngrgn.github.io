@@ -3,13 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://gokmengorgen.net/blog/altin-rehber/</loc>
-    <lastmod>2019-08-11T13:43:00+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://gokmengorgen.net/blog/</loc>
-    <lastmod>2019-08-11T13:43:00+02:00</lastmod>
+    <lastmod>2019-08-29T10:49:37+02:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -25,7 +20,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/</loc>
-    <lastmod>2019-08-11T13:43:00+02:00</lastmod>
+    <lastmod>2019-08-29T10:49:37+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -40,7 +35,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/</loc>
-    <lastmod>2019-08-11T13:43:00+02:00</lastmod>
+    <lastmod>2019-08-29T10:49:37+02:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -52,6 +47,22 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/uzaktan-calisma-ile-ilgili-sorular/</loc>
+    <lastmod>2019-08-29T10:49:37+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/uzaktan-%C3%A7al%C4%B1%C5%9Fma/</loc>
+    <lastmod>2019-08-29T10:49:37+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/altin-rehber/</loc>
+    <lastmod>2019-08-11T13:43:00+02:00</lastmod>
   </url>
   
   <url>

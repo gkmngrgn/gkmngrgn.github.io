@@ -5,7 +5,6 @@
   <url>
     <loc>https://gokmengorgen.net/blog/</loc>
     <lastmod>2019-08-29T10:49:37+02:00</lastmod>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -36,7 +35,6 @@
   <url>
     <loc>https://gokmengorgen.net/tags/</loc>
     <lastmod>2019-08-29T10:49:37+02:00</lastmod>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -50,14 +48,13 @@
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/blog/uzaktan-calisma-ile-ilgili-sorular/</loc>
+    <loc>https://gokmengorgen.net/tags/uzaktan-%C3%A7al%C4%B1%C5%9Fma/</loc>
     <lastmod>2019-08-29T10:49:37+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/tags/uzaktan-%C3%A7al%C4%B1%C5%9Fma/</loc>
+    <loc>https://gokmengorgen.net/blog/uzaktan-calisma-ile-ilgili-sorular/</loc>
     <lastmod>2019-08-29T10:49:37+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -68,7 +65,6 @@
   <url>
     <loc>https://gokmengorgen.net/tags/d%C3%BC%C5%9F%C3%BCnce/</loc>
     <lastmod>2019-08-11T13:43:00+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -83,6 +79,36 @@
                 rel="alternate"
                 hreflang="tr"
                 href="https://gokmengorgen.net/blog/ipad-uzerine-ilk-incelemem/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/devops/</loc>
+    <lastmod>2019-06-20T13:33:38+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/tags/devops/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/tags/devops/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/django/</loc>
+    <lastmod>2019-06-20T13:33:38+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://gokmengorgen.net/en/tags/django/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/tags/django/"
                 />
   </url>
   
@@ -102,38 +128,6 @@
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/tags/devops/</loc>
-    <lastmod>2019-06-20T13:33:38+02:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://gokmengorgen.net/en/tags/devops/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tr"
-                href="https://gokmengorgen.net/tags/devops/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://gokmengorgen.net/tags/django/</loc>
-    <lastmod>2019-06-20T13:33:38+02:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://gokmengorgen.net/en/tags/django/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tr"
-                href="https://gokmengorgen.net/tags/django/"
-                />
-  </url>
-  
-  <url>
     <loc>https://gokmengorgen.net/blog/djangocms-icin-html-tags-eklentisi/</loc>
     <lastmod>2019-04-28T11:18:33+00:00</lastmod>
   </url>
@@ -141,7 +135,6 @@
   <url>
     <loc>https://gokmengorgen.net/tags/programlama/</loc>
     <lastmod>2019-04-28T11:18:33+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -152,7 +145,6 @@
   <url>
     <loc>https://gokmengorgen.net/tags/opinion/</loc>
     <lastmod>2019-04-06T12:42:17+02:00</lastmod>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -221,14 +213,8 @@
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/blog/komutlar-icin-yardimci-script/</loc>
-    <lastmod>2018-09-07T22:46:31+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://gokmengorgen.net/tags/bash/</loc>
     <lastmod>2018-09-07T22:46:31+02:00</lastmod>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -242,19 +228,23 @@
   </url>
   
   <url>
+    <loc>https://gokmengorgen.net/blog/komutlar-icin-yardimci-script/</loc>
+    <lastmod>2018-09-07T22:46:31+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/docker-icin-yardimci-script/</loc>
     <lastmod>2018-08-05T12:11:27+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/blog/git-is-akisi/</loc>
+    <loc>https://gokmengorgen.net/tags/git/</loc>
     <lastmod>2018-06-24T14:23:26+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/tags/git/</loc>
+    <loc>https://gokmengorgen.net/blog/git-is-akisi/</loc>
     <lastmod>2018-06-24T14:23:26+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -340,7 +330,6 @@
   <url>
     <loc>https://gokmengorgen.net/tags/windows/</loc>
     <lastmod>2017-12-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -354,25 +343,23 @@
   </url>
   
   <url>
+    <loc>https://gokmengorgen.net/tags/vagrant/</loc>
+    <lastmod>2017-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/</loc>
     <lastmod>2017-07-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/tags/vagrant/</loc>
-    <lastmod>2017-07-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://gokmengorgen.net/tags/emacs/</loc>
+    <lastmod>2017-04-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://gokmengorgen.net/blog/emacse-nereden-baslamali/</loc>
     <lastmod>2017-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gokmengorgen.net/tags/emacs/</loc>
-    <lastmod>2017-04-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -412,7 +399,6 @@
   
   <url>
     <loc>https://gokmengorgen.net/categories/</loc>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"

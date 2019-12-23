@@ -402,6 +402,87 @@ Ben yazılımcıyım. Bağımsız çalışmak konusunda çok deneyimim yok. Bu k
     </item>
     
     <item>
+      <title>Python’da Karakter Dizisi İşlemleri</title>
+      <link>https://gokmengorgen.net/python-deneyimlerimiz/pythonda-karakter-dizisi-islemleri/</link>
+      <pubDate>Fri, 24 Apr 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/python-deneyimlerimiz/pythonda-karakter-dizisi-islemleri/</guid>
+      <description>(http://www.gokmengorgen.net adresinden alıntıdır.)
+Geçenlerde bir arkadaşım, Python 3′te gettext modülünün nasıl kullanılacağını sormuştu, ben de henüz 3.* sürümünü denemediğim için bir cevap verememiştim. Hala da verebilecek aşamada değilim; ama bu konu üzerinde biraz araştırma yaparken, ilginç bir internet sayfasıyla1 karşılaştım. Aşağıda paylaşacağım kodların ve bilgilerin Python 2.* serisinde çalışmaması söz konusu olabilir.
+Python’da karakter dizilerini iki biçimde çağırabiliyoruz:
+ Karakter dizileri için % işleyicisi2. string.Template modülü3  % işleyicisiyle kullanım örneği, Python belgelerinde verilmiş:</description>
+    </item>
+    
+    <item>
+      <title>Django Notları - 3</title>
+      <link>https://gokmengorgen.net/python-deneyimlerimiz/django-notlar-3/</link>
+      <pubDate>Thu, 11 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/python-deneyimlerimiz/django-notlar-3/</guid>
+      <description>Django&amp;rsquo;da şablon kavramını anlatmadan önce, şablondan ne anlamamız gerektiği konusunu belirginleştirelim. Örneğin, cep telefonlarımızda hazır mesajlar yazıp kaydedebiliyoruz veya daha önce kaydedilmiş olanları gerektiğinde kullanabiliyoruz. &amp;ldquo;İşteyim, döneceğim&amp;rdquo;, &amp;ldquo;Beni 10 dakika sonra ara.&amp;rdquo; gibi bence gereksiz olan bu hazır mesajlar şablon diye geçiyor.
+Ama Django&amp;rsquo;daki şablonlarımız, projemizin çok önemli bir parçası olarak karşımıza çıkıyor. Bir veya birkaç değişkene, bütün veya parça halinde html kodlarını yazmak; tanımladığımız fonksiyonları o değişkene çağırmak ve bu kodu yorumlatmak, kodu hem çirkinleştirecek; hem de projenin gelişimini çok zorlaştıracaktır.</description>
+    </item>
+    
+    <item>
+      <title>Django Notları - 2</title>
+      <link>https://gokmengorgen.net/python-deneyimlerimiz/django-notlar-2_09/</link>
+      <pubDate>Tue, 09 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/python-deneyimlerimiz/django-notlar-2_09/</guid>
+      <description>Bir içerik düşünün, bulunduğunuz sayfanın linki ile ilişkilendirilmiş. Çağrılan sayfanın adresine göre, tanımladığınız fonksiyonları kullanmak, o sayfada görüntülemek istiyorsunuz. Peki bunu nasıl yapabiliriz? Önceki örneğimizde, fonksiyonlarımızı nerede tanımlayıp (views.py), adresleri nerede tanımlayacağımızı (urls.py) öğrenmiş olduk. Bu araçları kullanarak, web tarayıcımızda zaman bilgilerini göstermeyi başardık.
+Şimdiki örneğimiz ise, dinamik internet sayfalarını nasıl oluşturacağımız ile ilgili. Amacımız basit; adresteki dizin numarasıyla sayfamızdaki saat bilgisini ilişkilendirmek; yani dizin numarası kaçsa, sayfamız da o kadar saat ileriyi gösterecek.</description>
+    </item>
+    
+    <item>
+      <title>Django Notları - 1</title>
+      <link>https://gokmengorgen.net/python-deneyimlerimiz/djangoya-balamak_06/</link>
+      <pubDate>Sat, 06 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/python-deneyimlerimiz/djangoya-balamak_06/</guid>
+      <description>Girizgah Merhabalar. Bu belge, Django&amp;rsquo;yu öğrenirken DjangoBook1 sitesinden aldığım, biriktirdiğim notlardan oluşmuştur. Belgenin tamamen kusursuz olduğu veya anlatımının çok iyi olduğu konusunda bir garanti vermiyorum; fakat yine de size yardımcı olabilecek notlar bulabileceğinizi umuyorum. Ayrıca, belge ile ilgili bir yanlışlık veya anlatmamı istediğiniz bir nokta olursa, eposta adresimi kullanarak benimle iletişime geçebilirsiniz:
+Not: Django&amp;rsquo;nun ne olduğu, neden onu seçmemiz gerektiği; bu projenin hangi amaçla ortaya çıkarıldığı ve gelişimi hakkında bilgiler, belgeyi kısa tutmak için verilmemiştir.</description>
+    </item>
+    
+    <item>
+      <title>Turşular ve Birkaç Os Fonksiyonu - 1</title>
+      <link>https://gokmengorgen.net/python-deneyimlerimiz/turular-ve-birka-os-fonksiyonu-1/</link>
+      <pubDate>Wed, 27 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/python-deneyimlerimiz/turular-ve-birka-os-fonksiyonu-1/</guid>
+      <description>Python kodlaması yaparken, terminalde çok sık kullandığım birçok komutu birer parametreyle halledebileceğim bir program yazmıştım ve geçenlerde de duyurmuştum: Tiss. Parametresiz haliyle, sadece uzantılarına göre silmesini istediğim dosyaları, boş dizinleri ve python programı inşa ederken ortaya çıkan inşa dizinini siliyor. Örneğin, hede.txt dosyasını Vim&amp;rsquo;de yazıp tekrar kaydettiğimde, aynı dizinde hede.txt~ dosyası oluşuyor. Bir tane olsa hadi neyse; ama bazen .pyc, #, ~, .db gibi bir sürü gereksiz dosya öyle birikiyor ki, gerçekten tek bir komuta ihtiyacınız olabiliyor.</description>
+    </item>
+    
+    <item>
+      <title>Tisssss, Tisssss!</title>
+      <link>https://gokmengorgen.net/python-deneyimlerimiz/tisssss-tisssss/</link>
+      <pubDate>Tue, 19 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/python-deneyimlerimiz/tisssss-tisssss/</guid>
+      <description>Python&amp;rsquo;da programlama yaparken işleri terminalden yürütmek açıkçası bana çok fazla zaman kazandırıyor; ama bazen feci yanlışlar yaptığım oluyor. Mesela, yanlışlıkla *.pyc&amp;rsquo;leri de svn&amp;rsquo;ye aktarmak (özellikle bkz: Mirat Can Bayrak), build dizinini silmek yerine src dizinini svn&amp;rsquo;ye atamadan yanlışlıkla silmek vesaire..
+Bu tip felaketlerin üstesinden gelmek için, ben de ilk başlarda &amp;ldquo;silgi&amp;rdquo; diye bir program yapmıştım. Amacım boş dizinleri ve inşa dosyalarının bulunduğu &amp;ldquo;build&amp;rdquo; dizinlerini silmek, *.pyc, *~, *#, *.db ve benzeri işime yaramayacak dosyaları tek seferde yok etmekti.</description>
+    </item>
+    
+    <item>
+      <title>Kurtar Beni Lambda</title>
+      <link>https://gokmengorgen.net/python-deneyimlerimiz/tek-satrlk-dng/</link>
+      <pubDate>Fri, 15 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/python-deneyimlerimiz/tek-satrlk-dng/</guid>
+      <description>Bazen öyle şeylere ihtiyaç duyuyorum ki, &amp;ldquo;Bunun için de şimdi bilmem kaç satır döngü oluşturmaya değer mi?&amp;rdquo; diye düşünmeden olmuyor. Mesela XfceP&amp;rsquo;i yaparken de öyle bir olayla karşılaşmıştım.
+Sizi bilmem ama, böylesi basit bir şey için döngü oluşturmayı da fazlasıyla lüks buldum, o nedenle de lambda bazı yerlerde gerçekten işe yarayan bir araç. Özellikle, for döngüsü içinde birkaç tane daha döngü kurunca, bir tiksinti kaplıyor içimi, şu linkte1 anlatıldığı gibi:</description>
+    </item>
+    
+    <item>
+      <title>Kodlarken</title>
+      <link>https://gokmengorgen.net/python-deneyimlerimiz/ilk-setuppy-kullanrken/</link>
+      <pubDate>Thu, 14 Aug 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/python-deneyimlerimiz/ilk-setuppy-kullanrken/</guid>
+      <description>Python ile programlama yaparken proje arkadaşım Mirat&amp;rsquo;le beraber (hatta ona çaktırmadan) bir kural listesi oluşturmuştum. Paylaşayım dedim:
+ Programın anadili İngilizce olmalı. Noktalama işaretlerinden önce boşluk bırakılmaz, sonra bırakılır. Operatörlerden hem önce, hem de sonra boşluk bırakılır. (), {} ve []&amp;lsquo;lerden önce boşluk bırakılmaz, sonra bırakılır; hatta bir alt satıra konulur. Eğer çıktı ekrana yazdırılacaksa &amp;ldquo; &amp;ldquo;; yazdırılmayacaksa &amp;lsquo; &amp;rsquo; kullan. Her fonksiyonun altına açıklama gir. Türkçe&amp;rsquo;mizi güzel kullanalım, trafik kurallarına uyalım.</description>
+    </item>
+    
+    <item>
       <title>Lisans</title>
       <link>https://gokmengorgen.net/lisans/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

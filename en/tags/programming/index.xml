@@ -6,10 +6,20 @@
     <description>Recent content in programming on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Aug 2019 01:04:49 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 31 Dec 2019 13:20:00 +0100</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/en/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Being a Polyglot Developer</title>
+      <link>https://gokmengorgen.net/en/blog/being-a-polyglot-developer/</link>
+      <pubDate>Tue, 31 Dec 2019 13:20:00 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/en/blog/being-a-polyglot-developer/</guid>
+      <description>My objective for the year 2019 was joining one more programming language community after Python and Lisp. I followed .NET Core in my first six months and did some projects using C# and F#. But then, I decided that learning Rust is a better idea. Some of the Python and Django developers I&amp;rsquo;ve followed have had a significant impact on my decision.
+Python is a programming language that easy to learn, it has a significant and active community, and I believe that it will keep its popularity for a longer time.</description>
+    </item>
     
     <item>
       <title>Data Types in Programming</title>

@@ -3,13 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://gokmengorgen.net/python-deneyimlerimiz/</loc>
-    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://gokmengorgen.net/blog/</loc>
-    <lastmod>2019-08-29T10:49:37+02:00</lastmod>
+    <lastmod>2020-01-05T23:10:15+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -23,8 +18,18 @@
   </url>
   
   <url>
+    <loc>https://gokmengorgen.net/blog/elifin-okuzu-ya-da-surprizler-kitabi/</loc>
+    <lastmod>2020-01-05T23:10:15+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/kitap/</loc>
+    <lastmod>2020-01-05T23:10:15+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/</loc>
-    <lastmod>2019-08-29T10:49:37+02:00</lastmod>
+    <lastmod>2020-01-05T23:10:15+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -39,7 +44,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/tags/</loc>
-    <lastmod>2019-08-29T10:49:37+02:00</lastmod>
+    <lastmod>2020-01-05T23:10:15+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -50,6 +55,11 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/python-deneyimlerimiz/</loc>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>

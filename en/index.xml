@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hello on GKMNGRGN</title>
@@ -17,8 +17,29 @@
       <pubDate>Tue, 31 Dec 2019 13:20:00 +0100</pubDate>
       
       <guid>https://gokmengorgen.net/en/blog/being-a-polyglot-developer/</guid>
-      <description>My objective for the year 2019 was joining one more programming language community after Python and Lisp. I followed .NET Core in my first six months and did some projects using C# and F#. But then, I decided that learning Rust is a better idea. Some of the Python and Django developers I&amp;rsquo;ve followed have had a significant impact on my decision.
-Python is a programming language that easy to learn, it has a significant and active community, and I believe that it will keep its popularity for a longer time.</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/commodore.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;My objective for the year 2019 was joining one more programming language
+community after Python and Lisp. I followed .NET Core in my first six months and
+did some projects using C# and F#. But then, I decided that learning Rust is a
+better idea. Some of the Python and Django developers I&amp;rsquo;ve followed have had a
+significant impact on my decision.&lt;/p&gt;
+
+&lt;p&gt;Python is a programming language that easy to learn, it has a significant and
+active community, and I believe that it will keep its popularity for a longer
+time. Therefore, when choosing another programming language, I make sure that it
+has different features and priorities. I&amp;rsquo;m not sure, but I think that that&amp;rsquo;s why
+I couldn&amp;rsquo;t continue with .NET community. I already produce microservices, REST
+API, gRPC server, or even classifying things using machine learning libraries in
+Python. But I would not have preferred Python if I want to make a mobile
+application, that would not make sense. Or I would use Rust for embedded or
+blockchain projects; I would code data or text mining tools in Lisp, for
+example.&lt;/p&gt;
+
+&lt;p&gt;In the past, being a full-stack developer was an extremely wanted job
+position. Now I don&amp;rsquo;t know how it is, but I suggest you stay away and become a
+polyglot developer instead.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -27,8 +48,24 @@ Python is a programming language that easy to learn, it has a significant and ac
       <pubDate>Sun, 25 Aug 2019 01:04:49 +0200</pubDate>
       
       <guid>https://gokmengorgen.net/en/blog/data-types-in-programming/</guid>
-      <description>I started to take a look at C++ courses to understand Rust better because it helps me to see the advantages of Rust. The following images are from a Linkedin course, the instructor is Bill Weinman, and his courses are perfect if you want to program with C++.
-If you have a photographic memory to remind something quickly, then you may like these images explaining data types in programming.</description>
+      <description>&lt;p&gt;I started to take a look at C++ courses to understand Rust better because it helps me to see the advantages of Rust. The following images are from a Linkedin course, the instructor is &lt;a href=&#34;https://www.linkedin.com/learning/c-plus-plus-essential-training-2/&#34;&gt;Bill Weinman&lt;/a&gt;, and his courses are perfect if you want to program with C++.&lt;/p&gt;
+
+&lt;p&gt;If you have a photographic memory to remind something quickly, then you may like these images explaining data types in programming.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-iostream.jpg&#34; alt=&#34;IOStream&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-list.jpg&#34; alt=&#34;List&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-map.jpg&#34; alt=&#34;Map&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-queue.jpg&#34; alt=&#34;Queue&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-set.jpg&#34; alt=&#34;Set&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-string.jpg&#34; alt=&#34;String&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-vector.jpg&#34; alt=&#34;Vector&#34; /&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -37,8 +74,40 @@ If you have a photographic memory to remind something quickly, then you may like
       <pubDate>Sat, 03 Aug 2019 15:24:01 +0200</pubDate>
       
       <guid>https://gokmengorgen.net/en/blog/first-review-on-my-ipad/</guid>
-      <description>I started using an iPad instead of a second laptop for more effective use. Although it is excellent for reading things, answering emails, checking tasks, it is still not possible to use as a laptop with these devices.
-So I tried to connect to my primary PC remotely. But this was not satisfactory for me either. I took some notes to compare when iOS 13 and some updates came.</description>
+      <description>
+
+&lt;p&gt;&lt;em&gt;I started using an iPad instead of a second laptop for more effective use. Although it is excellent for reading things, answering emails, checking tasks, it is still not possible to use as a laptop with these devices.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;So I tried to connect to my primary PC remotely. But this was not satisfactory for me either. I took some notes to compare when iOS 13 and some updates came.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/ipad-remote-desktop.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;pros&#34;&gt;Pros&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;In tablet mode, all screens are full-sized automatically.&lt;/li&gt;
+&lt;li&gt;The density of UI components is more comfortable to manage cursor with touching.&lt;/li&gt;
+&lt;li&gt;Firefox has a tablet mode; it supports touch scrolling, easy to click bookmarks.&lt;/li&gt;
+&lt;li&gt;The virtual keyboard is great! I didn’t need to use the iPad’s native on-screen keyboard.&lt;/li&gt;
+&lt;li&gt;We can’t see the running apps in the taskbar in tablet mode, but it&amp;rsquo;s possible to use the gestures to show all running apps.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;cons&#34;&gt;Cons&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You need a remote desktop or a server. It&amp;rsquo;s impossible to work offline.&lt;/li&gt;
+&lt;li&gt;If you decide to use a remote desktop and you are obsessed about fonts, there&amp;rsquo;s no way to fix screen quality.&lt;/li&gt;
+&lt;li&gt;I&amp;rsquo;m not sure that I can code with iPad for hours even I have a good physical keyboard.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;so&#34;&gt;So..&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;With the new updates in macOS and iOS 13, it will be possible to run iPad applications on macOS. So iPadOS may affect the quality and variety of applications.&lt;/li&gt;
+&lt;li&gt;I’m still waiting for a new version of Microsoft Surface or Surface Go that using ARM CPU, has Thunderbolt 3 and USB-C ports.&lt;/li&gt;
+&lt;li&gt;I still didn’t investigate how Google Pixelbook is but seems a good alternative.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -47,8 +116,65 @@ So I tried to connect to my primary PC remotely. But this was not satisfactory f
       <pubDate>Thu, 20 Jun 2019 13:33:38 +0200</pubDate>
       
       <guid>https://gokmengorgen.net/en/blog/my-first-wrong-after-the-vacation/</guid>
-      <description>At the end of my three-week vacation, I was asked for a seemingly easy task. We were going to release the new version of the project we developed:
- Is today is the last working of the week? No. Is there any problem with the unit tests? No. Are all changes confirmed by the product manager, in the staging server? Yes.  I always note everything, and so I write this article to remind this experience.</description>
+      <description>&lt;p&gt;At the end of my three-week vacation, I was asked for a seemingly easy task. We were going to release the new version of the project we developed:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Is today is the last working of the week? &lt;strong&gt;No&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Is there any problem with the unit tests? &lt;strong&gt;No&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Are all changes confirmed by the product manager, in the staging server? &lt;strong&gt;Yes&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I always note everything, and so I write this article to remind this experience. My other habit is to define &lt;a href=&#34;https://gokmengorgen.net/en/blog/how-do-i-publish-my-articles/&#34;&gt;&lt;strong&gt;dosh&lt;/strong&gt;&lt;/a&gt; sub-commands to access frequently used commands in my whole projects. It doesn&amp;rsquo;t matter if the project is written in .NET Core or used Django;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I know that the project will start in my development environment with &lt;code&gt;dosh start&lt;/code&gt;,&lt;/li&gt;
+&lt;li&gt;I know that the project will build with &lt;code&gt;dosh build&lt;/code&gt;,&lt;/li&gt;
+&lt;li&gt;I know that &lt;code&gt;dosh deploy&lt;/code&gt; command will be running if I push my commits to some specific git branches. All these things are common sub-commands in my projects.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So what was not a standard?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/server-updates.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I manage everything in a project except the server maintenance. Today the site was offline about an hour because of the communication failure. Sometimes there are small but critical upgrades on the servers, and one of them broke SSL module of the project&amp;rsquo;s &lt;strong&gt;psycopg2&lt;/strong&gt; dependency. I had only these logs:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;DAMN ! worker 1 (pid: 28018) died :( trying respawn ...
+Respawned uWSGI worker 1 (new pid: 28021)
+!!! uWSGI process 27988 got Segmentation Fault !!!
+*** backtrace of 27988 ***
+/usr/bin/uwsgi-core(uwsgi_backtrace+0x2a) [0x55a0ad5c498a]
+/usr/bin/uwsgi-core(uwsgi_segfault+0x23) [0x55a0ad5c4d73]
+/lib/x86_64-linux-gnu/libc.so.6(+0x3ef20) [0x7f4811ecaf20]
+/project/venv/lib/python3.6/site-packages/psycopg2/.libs/./libssl-8bb9b3dd.so.1.0.2o(ssl3_cleanup_key_block+0xb) [0x7f480a747cbb]
+/project/venv/lib/python3.6/site-packages/psycopg2/.libs/./libssl-8bb9b3dd.so.1.0.2o(ssl3_clear+0x16) [0x7f480a7455b6]
+/project/venv/lib/python3.6/site-packages/psycopg2/.libs/./libssl-8bb9b3dd.so.1.0.2o(tls1_clear+0x9) [0x7f480a751229]
+/usr/lib/x86_64-linux-gnu/libssl.so.1.1(SSL_new+0x3f2) [0x7f4812b429d2]
+/project/venv/lib/python3.6/site-packages/psycopg2/.libs/libpq-239f9ac8.so.5.10(+0x23399) [0x7f480a9dc399]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You may know &lt;strong&gt;Segmentation Fault&lt;/strong&gt; if you coded in C or if you worked with a package manager. Some included libraries that are coming with psycopg2 binary package are linked to the old version of libssl, so the last server update &lt;mark&gt;broke the dependencies&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/mark&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lib/python3.6/site-packages/psycopg2/.libs/libssl-8bb9b3dd.so.1.0.2o   # from 1.0
+lib/python3.6/site-packages/psycopg2/.libs/libssl-7a80b951.so.1.1.1b   # to 1.1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In some projects, it’s not possible to solve the problems as we wanted because of some regulations and source limits. I could find prevention for that case, but somehow, I forgot to check the updates in the source code and server packages and tried to make the deployment. And the worst thing, I didn’t realise the problem until someone warned me.&lt;/p&gt;
+
+&lt;p&gt;So, I added one more rule for myself to make a deployment:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Is today the first day after the vacation? &lt;strong&gt;Yes (so, don&amp;rsquo;t touch it.)&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;&amp;ldquo;Don&amp;rsquo;t break the dependencies&amp;rdquo;, I missed contributing a Linux distro like Pardus.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
@@ -57,8 +183,60 @@ So I tried to connect to my primary PC remotely. But this was not satisfactory f
       <pubDate>Sat, 16 Mar 2019 19:35:51 +0200</pubDate>
       
       <guid>https://gokmengorgen.net/en/blog/configure-windows-for-development/</guid>
-      <description>Environment Variables I still use some development tools that are used by most Linux users and these tools need some environment variables like LC_ALL, HOME, etc. When I have a new PC with Windows 10, I start to use with defining these variables. Take a look at this post for more detail.
-PowerShell Core It&amp;rsquo;s possible to use BASH on Windows indeed, but I think PowerShell Core is a good alternative.</description>
+      <description>
+
+&lt;h2 id=&#34;environment-variables&#34;&gt;Environment Variables&lt;/h2&gt;
+
+&lt;p&gt;I still use some development tools that are used by most Linux users and these tools need some environment variables like &lt;strong&gt;LC_ALL&lt;/strong&gt;, &lt;strong&gt;HOME&lt;/strong&gt;, etc. When I have a new PC with Windows 10, I start to use with defining these variables. Take a look at &lt;a href=&#34;https://gokmengorgen.net/en/blog/important-windows-environment-variables/&#34;&gt;this post&lt;/a&gt; for more detail.&lt;/p&gt;
+
+&lt;h2 id=&#34;powershell-core&#34;&gt;PowerShell Core&lt;/h2&gt;
+
+&lt;p&gt;It&amp;rsquo;s possible to use BASH on Windows indeed, but I think PowerShell Core is a good alternative. Git integration is working well, defining aliases and functions is easy:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-powershell&#34;&gt;# Extensions
+Import-Module posh-git
+Import-Module PSReadLine
+
+# DOSH settings
+$env:ENV = &amp;quot;DEV&amp;quot;
+Set-Alias dosh .\do.ps1
+
+# Readline settings
+Set-PSReadLineOption -EditMode Emacs
+
+# Git prompt settings
+$GitPromptSettings.DefaultPromptPath.ForegroundColor = 0xFFA500
+$GitPromptSettings.DefaultPromptWriteStatusFirst = $true
+$GitPromptSettings.DefaultPromptBeforeSuffix.Text = &#39;`n$([DateTime]::now.ToString(&amp;quot;MM-dd HH:mm:ss&amp;quot;))&#39;
+$GitPromptSettings.DefaultPromptBeforeSuffix.ForegroundColor = 0x808080
+$GitPromptSettings.DefaultPromptSuffix = &#39; $((Get-History -Count 1).id + 1)$(&amp;quot; &amp;gt;&amp;quot; * ($nestedPromptLevel + 1)) &#39;
+
+# Helper commands
+function which ($command) {
+    Get-Command $command | Select-Object -ExpandProperty Definition
+}
+
+function touch ($filename) {
+    $null &amp;gt; $filename
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Readline&lt;/strong&gt; is a familiar extension for BASH users. If you want to use Emacs key bindings in PowerShell, I suggest you add Readline to the dependencies list.&lt;/p&gt;
+
+&lt;p&gt;What if we want to use a Linux command-line app? Like Nano? Indeed, it&amp;rsquo;s possible to use it as a default git-commit editor but, let&amp;rsquo;s consider it&amp;rsquo;s a program that only available in Linux. I use WSL for that case. Just install Ubuntu or another Linux distro with WSL, open PowerShell and run this command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-powershell&#34;&gt;&amp;gt; wsl -e nano README.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So you can reach all Ubuntu programs using this magic command. There&amp;rsquo;s only a little problem here, you have to keep your configuration files (like &lt;strong&gt;.nanorc&lt;/strong&gt;) in your WSL instead of in your local. You can find my configuration repo &lt;a href=&#34;https://github.com/gkmngrgn/config/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;git-apply-eol-problem&#34;&gt;Git-apply EOL Problem&lt;/h2&gt;
+
+&lt;p&gt;If you don&amp;rsquo;t ignore space changes in your patch command, you will get an error because the whitespaces in Linux environments. To solve this problem, use &lt;strong&gt;git-apply&lt;/strong&gt; with these parameters:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ git apply --ignore-space-change --ignore-whitespace a.diff
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
     <item>
@@ -67,8 +245,23 @@ PowerShell Core It&amp;rsquo;s possible to use BASH on Windows indeed, but I thi
       <pubDate>Wed, 27 Feb 2019 20:53:04 +0100</pubDate>
       
       <guid>https://gokmengorgen.net/en/blog/consumer/</guid>
-      <description>For good things in life, you need labour, patience, and time.
- To draw a picture, To play an instrument, To program software, Or to produce something, Even to complete a book, To translate a text, To tell the troubles, To write what you think, To prepare a broadcast, For everything.  Just sharing something in social media and consuming it is easy.</description>
+      <description>&lt;p&gt;For good things in life, you need labour, patience, and time.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;To draw a picture,&lt;/li&gt;
+&lt;li&gt;To play an instrument,&lt;/li&gt;
+&lt;li&gt;To program software,&lt;/li&gt;
+&lt;li&gt;Or to produce something,&lt;/li&gt;
+&lt;li&gt;Even to complete a book,&lt;/li&gt;
+&lt;li&gt;To translate a text,&lt;/li&gt;
+&lt;li&gt;To tell the troubles,&lt;/li&gt;
+&lt;li&gt;To write what you think,&lt;/li&gt;
+&lt;li&gt;To prepare a broadcast,&lt;/li&gt;
+&lt;li&gt;For everything.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Just sharing something in social media and consuming it is easy.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -77,9 +270,13 @@ PowerShell Core It&amp;rsquo;s possible to use BASH on Windows indeed, but I thi
       <pubDate>Sat, 16 Feb 2019 23:47:58 +0100</pubDate>
       
       <guid>https://gokmengorgen.net/en/blog/what-age-do-we-live/</guid>
-      <description> Our technology is not so advanced to be an eye or an ear for us.
-Or we&amp;rsquo;re not in an age where we don&amp;rsquo;t need our body yet.
- </description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/train-station.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Our technology is not so advanced to be an eye or an ear for us.&lt;br /&gt;
+Or we&amp;rsquo;re not in an age where we don&amp;rsquo;t need our body yet.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
     </item>
     
     <item>
@@ -88,8 +285,12 @@ Or we&amp;rsquo;re not in an age where we don&amp;rsquo;t need our body yet.
       <pubDate>Sat, 12 Jan 2019 23:59:02 +0100</pubDate>
       
       <guid>https://gokmengorgen.net/en/blog/string-quotes-in-pep8/</guid>
-      <description>I use PEP8 in my Python projects except for a few rules.
-I think &amp;lsquo;single-quote&amp;rsquo; and &amp;ldquo;double-quote&amp;rdquo; characters should NOT be the same. It could be better if these two characters had different counterparts in the Python language parser system. So we could use one of them for the template-strings (or f-strings). It doesn&amp;rsquo;t provide readability, causes inconsistency instead. Until now, I used string-quotes for the variable definitions and double-quotes for the visible texts.</description>
+      <description>&lt;p&gt;I use PEP8 in my Python projects except for &lt;a href=&#34;https://www.python.org/dev/peps/pep-0008/#string-quotes&#34;&gt;a few rules&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/pep8-string-quotes.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I think &amp;lsquo;single-quote&amp;rsquo; and &amp;ldquo;double-quote&amp;rdquo; characters should &lt;strong&gt;NOT&lt;/strong&gt; be the same. It could be better if these two characters had different counterparts in the Python language parser system. So we could use one of them for the template-strings (or f-strings). It doesn&amp;rsquo;t provide readability, causes inconsistency instead. Until now, I used string-quotes for the variable definitions and double-quotes for the visible texts. &lt;a href=&#34;https://github.com/gkmngrgn/style-guide/blob/master/python.md&#34;&gt;But now&lt;/a&gt;, I plan to use always double-quote as in many other programming languages.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -98,8 +299,12 @@ I think &amp;lsquo;single-quote&amp;rsquo; and &amp;ldquo;double-quote&amp;rdquo
       <pubDate>Wed, 02 Jan 2019 17:30:49 +0100</pubDate>
       
       <guid>https://gokmengorgen.net/en/blog/spreasheet-apps/</guid>
-      <description>Spreadsheet applications are the most functional applications I&amp;rsquo;ve used. Excel, Gnumeric, Google Sheet, OpenOffice Calc or whatever, it doesn&amp;rsquo;t matter. You can use it as task management like Trello, make daily - weekly - monthly plans, store and transfer data, and follow your financial situation. It&amp;rsquo;s like a Swiss army knife and not a new invention.
-I&amp;rsquo;ll update this article when I find a more functional application.</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/spreadsheet-apps.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Spreadsheet applications are the most functional applications I&amp;rsquo;ve used. Excel, Gnumeric, Google Sheet, OpenOffice Calc or whatever, it doesn&amp;rsquo;t matter. You can use it as task management like Trello, make daily - weekly - monthly plans, store and transfer data, and follow your financial situation. It&amp;rsquo;s like a Swiss army knife and not a new invention.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll update this article when I find a more functional application.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -108,9 +313,220 @@ I&amp;rsquo;ll update this article when I find a more functional application.</d
       <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
       
       <guid>https://gokmengorgen.net/en/blog/how-do-i-publish-my-articles/</guid>
-      <description>With just a command:
-# terminal $ ENV=PROD ./do.sh deploy  I have many projects using my script named DOSH and the parameters are mostly in common; deploy, start, stop, runtests, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like this one but I run all the projects with the same command: dosh start.
-In Windows, the command may be a bit longer than in the other operating systems.</description>
+      <description>
+
+&lt;p&gt;With just a command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# terminal
+$ ENV=PROD ./do.sh deploy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I have many projects using my script named &lt;a href=&#34;https://gist.github.com/gkmngrgn/48303742353b0b17ae0e5c2d1d24ec3e&#34;&gt;DOSH&lt;/a&gt; and the parameters are mostly in common; &lt;code&gt;deploy&lt;/code&gt;, &lt;code&gt;start&lt;/code&gt;, &lt;code&gt;stop&lt;/code&gt;, &lt;code&gt;runtests&lt;/code&gt;, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like &lt;a href=&#34;https://gohugo.io/&#34;&gt;this one&lt;/a&gt; but I run all the projects with the same command: &lt;code&gt;dosh start&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In Windows, the command may be a bit longer than in the other operating systems. So it&amp;rsquo;s a good idea to shorten the command using some aliases, the default environment is &lt;code&gt;DEV&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# ~/.bash_profile
+alias dosh=&amp;quot;winpty bash do.sh&amp;quot;  # or just type &amp;quot;./do.sh&amp;quot; in Linux or MacOS.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# terminal
+$ dosh start  # in DEV
+$ ENV=PROD dosh deploy  # in PROD, my deploy parameter works only in production.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Do you use PowerShell? No problem, I think it&amp;rsquo;s better to do the same thing in PowerShell, you can find the sample codes below, but let me show you how I use that, it&amp;rsquo;s a bit different than BASH:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-powershell&#34;&gt;# powershell
+~\Workspace\website [master ≡]&amp;gt; $env:ENV = &amp;quot;PROD&amp;quot;
+~\Workspace\website [master ≡]&amp;gt; dosh deploy
+Environment: production
+Deploying updates to GitHub...
+Building sites …
+                   | EN | TR
++------------------+----+----+
+  Pages            | 13 | 67
+  Paginator pages  |  0 |  0
+  Non-page files   |  0 |  0
+  Static files     | 63 | 63
+  Processed images |  0 |  0
+  Aliases          |  1 | 12
+  Sitemaps         |  2 |  1
+  Cleaned          |  0 |  0
+
+Total in 748 ms
+[master 1686121] rebuilding site 12/30/2018 15:02:32
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 628 bytes | 628.00 KiB/s, done.
+Total 5 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:gkmngrgn/gkmngrgn.github.io.git
+   733793b..1686121  master -&amp;gt; master
+DONE.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;code-samples&#34;&gt;Code samples&lt;/h2&gt;
+
+&lt;p&gt;You can find many sample codes here to write a deployment script and I didn&amp;rsquo;t think of this idea &lt;strong&gt;first&lt;/strong&gt; but still, I&amp;rsquo;m sharing my scripts to be an alternative:&lt;/p&gt;
+
+&lt;h3 id=&#34;do-sh&#34;&gt;./do.sh&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/usr/bin/env bash
+
+BLUE=&amp;quot;\\033[1;34m&amp;quot;
+GREEN=&amp;quot;\\033[1;32m&amp;quot;
+NORMAL=&amp;quot;\\033[0;39m&amp;quot;
+RED=&amp;quot;\\033[1;31m&amp;quot;
+
+print_help() {
+    echo -e &amp;quot;${BLUE}Available environments${NORMAL}&amp;quot;
+    echo &amp;quot;  - DEV (default)&amp;quot;
+    echo &amp;quot;  - PROD&amp;quot;
+    echo &amp;quot;  - STAGING&amp;quot;
+    echo &amp;quot;&amp;quot;
+    echo -e &amp;quot;${BLUE}Available commands${NORMAL}&amp;quot;
+    echo -e &amp;quot;  &amp;gt; deploy [:message]      Deploy the changes&amp;quot;
+    echo -e &amp;quot;  &amp;gt; start                  Run development server&amp;quot;
+}
+
+deploy() {
+    case ${ENV} in
+        &amp;quot;PROD&amp;quot;)
+            echo -e &amp;quot;${BLUE}Deploying updates to GitHub...${NORMAL}&amp;quot;
+            ;;
+        *)
+            echo -e &amp;quot;${RED}This command only works in production.${NORMAL}&amp;quot;
+            exit
+            ;;
+    esac
+
+    if [ $# -eq 1 ]
+    then msg=&amp;quot;${1}&amp;quot;
+    else msg=&amp;quot;rebuilding site `date`&amp;quot;
+    fi
+
+    hugo
+    cd public
+    git add .
+    git commit -m &amp;quot;${msg}&amp;quot;
+    git push origin master
+    cd ..
+    echo -e &amp;quot;${GREEN}DONE.${NORMAL}&amp;quot;
+}
+
+start() {
+    hugo server -D
+}
+
+if [ -z &amp;quot;$1&amp;quot; ]
+then
+    print_help
+else
+    case $ENV in
+        &amp;quot;PROD&amp;quot;)
+            env_str=&amp;quot;production&amp;quot;
+            ;;
+        &amp;quot;STAGING&amp;quot;)
+            env_str=&amp;quot;staging&amp;quot;
+            ;;
+        *)
+            env_str=&amp;quot;development&amp;quot;
+            ;;
+    esac
+    echo -e &amp;quot;${BLUE}Environment:${NORMAL} $env_str&amp;quot;
+    &amp;quot;$@&amp;quot;
+fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;do-ps1&#34;&gt;./do.ps1&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-powershell&#34;&gt;&amp;lt;# Variables #&amp;gt;
+if ($env:ENV -eq &amp;quot;PROD&amp;quot;) {
+    $env_str = &amp;quot;production&amp;quot;
+}
+elseif ($env:ENV -eq &amp;quot;STAGING&amp;quot;) {
+    $env_str = &amp;quot;staging&amp;quot;
+}
+else {
+    if ($env:ENV -ne &amp;quot;DEV&amp;quot;) {
+        $env:ENV = &amp;quot;DEV&amp;quot;
+    }
+    $env_str = &amp;quot;development&amp;quot;
+}
+
+&amp;lt;# Functions #&amp;gt;
+function Get-Help {
+    Write-Host -ForegroundColor Cyan &amp;quot;Available Environments&amp;quot;
+    Write-Output &amp;quot;  - DEV (default)&amp;quot;
+    Write-Output &amp;quot;  - PROD&amp;quot;
+    Write-Output &amp;quot;  - STAGING&amp;quot;
+    Write-Output &amp;quot;&amp;quot;
+
+    Write-Host -ForegroundColor Cyan &amp;quot;Available commands&amp;quot;
+    Write-Output &amp;quot;  &amp;gt; deploy [:message]      Deploy the changes&amp;quot;
+    Write-Output &amp;quot;  &amp;gt; start                  Run development server&amp;quot;
+}
+
+function Start-Deploy ([string] $subParams) {
+    if ($env:ENV -eq &amp;quot;PROD&amp;quot;) {
+        Write-Host -ForegroundColor Blue &amp;quot;Deploying updates to GitHub...&amp;quot;
+    }
+    else {
+        Write-Host -ForegroundColor Red &amp;quot;This command only works in production.&amp;quot;
+        exit
+    }
+
+    if ($subParams -eq &amp;quot;&amp;quot;) {
+        $msg = &amp;quot;rebuilding site $(Get-Date)&amp;quot;
+    } else {
+        $msg = $subParams
+    }
+
+    Invoke-Expression &amp;quot;hugo&amp;quot;
+    Invoke-Expression &amp;quot;cd public&amp;quot;
+    Invoke-Expression &amp;quot;git add .&amp;quot;
+    Invoke-Expression &amp;quot;git commit -m &#39;$msg&#39;&amp;quot;
+    Invoke-Expression &amp;quot;git push origin master&amp;quot;
+    Invoke-Expression &amp;quot;cd ..&amp;quot;
+    Write-Host -ForegroundColor Green &amp;quot;DONE.&amp;quot;
+}
+
+function Start-Server () {
+    Invoke-Expression &amp;quot;hugo server -D&amp;quot;
+}
+
+&amp;lt;# Set default parameter as help. #&amp;gt;
+if ($args.Length -eq 0) {
+    $param = &amp;quot;help&amp;quot;
+    $subParams = &amp;quot;&amp;quot;
+}
+else {
+    $param, $subParams = $args
+}
+
+if ($param -ne &amp;quot;help&amp;quot;) {
+    Write-Host -ForegroundColor Cyan -NoNewLine &amp;quot;Environment: &amp;quot;
+    Write-Output $env_str
+}
+
+&amp;lt;# We use switch instead of alias because there are some constant variables like `start`. #&amp;gt;
+switch ($param) {
+    &amp;quot;deploy&amp;quot; { Start-Deploy $subParams }
+    &amp;quot;start&amp;quot; { Start-Server }
+    Default { Get-Help }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Don&amp;rsquo;t forget to set the alias in your config file, for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-powershell&#34;&gt;# ~\Documents\PowerShell\profile.ps1
+$env:ENV = &amp;quot;DEV&amp;quot;
+Set-Alias dosh .\do.ps1
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
     <item>
@@ -119,9 +535,36 @@ In Windows, the command may be a bit longer than in the other operating systems.
       <pubDate>Tue, 25 Dec 2018 21:25:57 +0100</pubDate>
       
       <guid>https://gokmengorgen.net/en/blog/important-windows-environment-variables/</guid>
-      <description>PowerShell and Git encoding problems To make git log command output properly display on Windows, we need to set a variable named LC_ALL:
-LC_ALL=&amp;quot;C.UTF-8&amp;quot;  Incorrect home folder in Emacs This problem is not only about Emacs. If you try to find a file from HOME variable, you may need to define the variable first:
-HOME=&amp;quot;%USERPROFILE%&amp;quot;  ;; place all backup files in one directory (setq backup-directory-alist `((&amp;quot;.*&amp;quot; . ,temporary-file-directory))) (setq auto-save-file-name-transforms `((&amp;quot;.</description>
+      <description>
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/windows-env-variables.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;powershell-and-git-encoding-problems&#34;&gt;PowerShell and Git encoding problems&lt;/h2&gt;
+
+&lt;p&gt;To make &lt;code&gt;git log&lt;/code&gt; command output properly display on Windows, we need to set a variable named &lt;code&gt;LC_ALL&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;LC_ALL=&amp;quot;C.UTF-8&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/powershell-git-encoding-problem.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;incorrect-home-folder-in-emacs&#34;&gt;Incorrect home folder in Emacs&lt;/h2&gt;
+
+&lt;p&gt;This problem is not only about Emacs. If you try to find a file from &lt;code&gt;HOME&lt;/code&gt; variable, you may need to define the variable first:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;HOME=&amp;quot;%USERPROFILE%&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;;; place all backup files in one directory
+(setq backup-directory-alist `((&amp;quot;.*&amp;quot; . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms `((&amp;quot;.*&amp;quot; ,temporary-file-directory t)))
+(setq default-directory (concat (getenv &amp;quot;HOME&amp;quot;) &amp;quot;/Workspace&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;more&#34;&gt;More..&lt;/h2&gt;
+
+&lt;p&gt;Take a look at the &lt;a href=&#34;https://gokmengorgen.net/en/tags/windows/&#34;&gt;other posts&lt;/a&gt; about my Windows development environment.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -130,8 +573,17 @@ HOME=&amp;quot;%USERPROFILE%&amp;quot;  ;; place all backup files in one directo
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://gokmengorgen.net/en/comment-policy/</guid>
-      <description>I want you to help me to improve my articles with your comments. If necessary, I can quote your comments to the content, or I can update the content according to the constructive criticisms received. If your comment was not published, you might have used blasphemy or similar banned words, or you might not have complied with the following rules:
- Racism, sexism, homophobic discourses are prohibited. Your comment should be related to the subject of the article.</description>
+      <description>&lt;p&gt;I want you to help me to improve my articles with your comments. If necessary, I can &lt;mark&gt;quote your comments&lt;/mark&gt; to the content, or I can update the content according to the constructive criticisms received. If your comment was not published, you might have used blasphemy or similar banned words, or you might not have complied with the following rules:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Racism, sexism, homophobic discourses are &lt;strong&gt;prohibited&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Your comment should be related to the subject of the article.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Do not respond&lt;/strong&gt; to trolls. You are free to discuss in the context, but you should be respectful to the other people.&lt;/li&gt;
+&lt;li&gt;You can promote your brand, product, or your blog; but it is more convenient to send me a direct e-mail about the topic.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I think these rules are enough.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -140,8 +592,10 @@ HOME=&amp;quot;%USERPROFILE%&amp;quot;  ;; place all backup files in one directo
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://gokmengorgen.net/en/license/</guid>
-      <description>Content licensed under the Creative Commons attribution-noncommercial-sharealike License. Please look at this url for more information.
-Did you like my website theme? It&amp;rsquo;s Hugo static site generator with alaGeek theme.</description>
+      <description>&lt;p&gt;Content licensed under the Creative Commons attribution-noncommercial-sharealike License. Please look at &lt;a href=&#34;https://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;this url&lt;/a&gt; for more information.&lt;/p&gt;
+
+&lt;p&gt;Did you like my website theme? It&amp;rsquo;s &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; static site generator with &lt;a href=&#34;https://themes.gohugo.io/hugo-alageek-theme/&#34;&gt;alaGeek theme&lt;/a&gt;.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -150,7 +604,12 @@ Did you like my website theme? It&amp;rsquo;s Hugo static site generator with al
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://gokmengorgen.net/en/live/</guid>
-      <description>You can follow me to see how I play a game or code open source projects&amp;hellip;</description>
+      <description>&lt;p&gt;You can follow me to see how I play a game or code open source projects&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;twitch-embed&#34;&gt;&lt;/div&gt;
+&lt;script src=&#34;https://embed.twitch.tv/embed/v1.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://gokmengorgen.net/scripts/twitch.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>

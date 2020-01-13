@@ -6,17 +6,61 @@
     <description>Recent content in Merhaba on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 13 Jan 2020 17:10:06 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jan 2020 22:15:47 +0100</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>F# ile Fonksiyonel Programlama</title>
+      <link>https://gokmengorgen.net/blog/fsharp-ile-fonksiyonel-programlama/</link>
+      <pubDate>Mon, 13 Jan 2020 22:15:47 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/fsharp-ile-fonksiyonel-programlama/</guid>
+      <description>&lt;p&gt;Bu kitaba başlama hikayem biraz karışık. 2019 yılının başında, .NET topluluğuna
+giriş niyetim vardı. 6 ay epey uğraştım. Sonrasında Rust ile devam etmeye karar
+verdim. Hem fonksiyonel paradigmalara hakim olmak açısından, hem de -biraz garip
+olacak ama- Rust&amp;rsquo;ı öğrenirken bu kitabın faydasını gördüm. Some - None, pattern
+matching, value immutability, higher order functions, discriminated unions,
+hatta generics kullanımı birbirine benzer. Fakat amaç ve hedefleri arasında
+ciddi bir fark var. Kitapta şöyle bir not vardı:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;F# ile ilgili duyacağınız en negatif şeylerden birisi de bu katkılara atfen
+Microsoft&amp;rsquo;un F#&amp;lsquo;ı, C# ve VB.NET&amp;rsquo;e fonksiyonel dil özellikleri kazandırmak için
+oyuncak olarak kullandığı ile ilgili yapılan yorumlardır. Kitabı bu aşamaya
+kadar okuduğuna göre bu yorumların haklı olup olmadığı değerlendirmesini ise
+sana, azimli F# programcısına bırakıyorum.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;F# oyuncak mı bilmiyorum; ama herhangi bir CLI dili ile yazılmış .NET
+kütüphanelerini kullanabilelim, Null type&amp;rsquo;ı da tanıyalım, veri tiplerini
+dönüştürebilelim demek, daha önce .NET ile geliştirme yapmamış birisi için çok
+da ilgi uyandırıcı bir özellik gibi gelmiyor.&lt;/p&gt;
+
+&lt;p&gt;Microsoft&amp;rsquo;un son yıllarda ürettiklerini başarılı buluyorum, bugün özgür olmasa
+bile açık kaynak topluluğuna en çok katkıda bulunan firmalardan bir
+tanesi. Ancak içinde bulunduğum toplulukların Microsoft antipatisinin
+kırılamamış olması benim için bir dezavantaj. Oysa Rust şuan GNOME masaüstü
+ortamı, oyun, blockchain, wasm, embedded geliştiricileri tarafından benimsenmiş
+durumda.&lt;/p&gt;
+
+&lt;p&gt;Genel amaçla yazılmış her dilin iyi ve kötü yönleri var. Dilin yoğun
+kullanıldığı alanları gösteren tablo düşünecek olursak, bu tabloya göre
+birbirine uzak noktada olan dilleri öğrenmeye çalışıyorum. Bir bölgede Rust
+varsa, .NET&amp;rsquo;in olduğu bölgede benim için Python var. Zamanında C# tercih etmiş
+olsaydım, F# üzerine tecrübe kazanmayı kesinlikle isterdim.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/fsharp-func-programming-cover.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Amortisman</title>
-      <link>https://gokmengorgen.net/blog/amortization/</link>
+      <link>https://gokmengorgen.net/blog/amortisman/</link>
       <pubDate>Mon, 13 Jan 2020 17:10:06 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/amortization/</guid>
+      <guid>https://gokmengorgen.net/blog/amortisman/</guid>
       <description>&lt;p&gt;Umut Gökbayrak&amp;rsquo;ın sadeleşmek üzerine yazdığı öneriler&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, şuanki durumumu
 gözden geçirmek için iyi bir fırsat oldu. Açıkçası kendimi ironik bir şekilde
 şanslı hissettim çünkü bir insanın ciddi bir sağlık gideri, yaşam standardını

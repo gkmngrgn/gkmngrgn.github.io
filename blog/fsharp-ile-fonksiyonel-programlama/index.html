@@ -4,33 +4,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Elifin Öküzü ya da Sürprizler Kitabı - GKMNGRGN</title>
+    <title>F# ile Fonksiyonel Programlama - GKMNGRGN</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="referrer" content="no-referrer">
-    <meta name="description" content="Sevan Nişanyan&#39;ın Elifin Öküzü ya da Sürprizler Kitabı isimli kitabı hakkındaki düşüncelerimi yazdım.">
+    <meta name="description" content="Zamanında C# tercih etmiş olsaydım, F# üzerine tecrübe kazanmayı kesinlikle isterdim.">
     <meta property="og:site_name" content="GKMNGRGN" />
     <meta property="og:locale" content="nn_NO" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://gokmengorgen.net/blog/elifin-okuzu-ya-da-surprizler-kitabi/" />
-    <meta property="og:title" content="Elifin Öküzü ya da Sürprizler Kitabı" />
-    <meta property="og:image" content="https://gokmengorgen.net/img/books/elifin-okuzu-ya-da-surprizler-kitabi.jpg" />
-    <meta property="og:description" content="Sevan Nişanyan&#39;ın Elifin Öküzü ya da Sürprizler Kitabı isimli kitabı hakkındaki düşüncelerimi yazdım." />
+    <meta property="og:url" content="https://gokmengorgen.net/blog/fsharp-ile-fonksiyonel-programlama/" />
+    <meta property="og:title" content="F# ile Fonksiyonel Programlama" />
+    <meta property="og:image" content="https://gokmengorgen.net/img/blog/fsharp-func-programming-cover.jpg" />
+    <meta property="og:description" content="Zamanında C# tercih etmiş olsaydım, F# üzerine tecrübe kazanmayı kesinlikle isterdim." />
 
     
         <meta property="twitter:site" content="@gokmengorgen">
     
 
-    <meta property="twitter:title" content="Elifin Öküzü ya da Sürprizler Kitabı" />
-    <meta property="twitter:image" content="https://gokmengorgen.net/img/books/elifin-okuzu-ya-da-surprizler-kitabi.jpg" />
+    <meta property="twitter:title" content="F# ile Fonksiyonel Programlama" />
+    <meta property="twitter:image" content="https://gokmengorgen.net/img/blog/fsharp-func-programming-cover.jpg" />
     <meta property="twitter:card" content="summary" />
-    <meta property="twitter:description" content="Sevan Nişanyan&#39;ın Elifin Öküzü ya da Sürprizler Kitabı isimli kitabı hakkındaki düşüncelerimi yazdım." />
+    <meta property="twitter:description" content="Zamanında C# tercih etmiş olsaydım, F# üzerine tecrübe kazanmayı kesinlikle isterdim." />
 
     
         <meta name="flattr:id" content="62knje">
     
 
-    <link rel="canonical" href="https://gokmengorgen.net/blog/elifin-okuzu-ya-da-surprizler-kitabi/">
+    <link rel="canonical" href="https://gokmengorgen.net/blog/fsharp-ile-fonksiyonel-programlama/">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous" />
 
@@ -133,12 +133,12 @@
                     
                 >
                     <h1 class="mx-0 mx-md-4">
-                        Elifin Öküzü ya da Sürprizler Kitabı
+                        F# ile Fonksiyonel Programlama
                     </h1>
 
                     <div class="mb-4 mb-md-5 meta">
-                        <span class="date" title='Sun Jan 5 2020 23:10:15 CET'>
-                            January 05, 2020
+                        <span class="date" title='Mon Jan 13 2020 22:15:47 CET'>
+                            January 13, 2020
                         </span>
 
                         
@@ -146,7 +146,7 @@
                         
 
                         <span class="reading-time middot">
-                            1 dakika
+                            2 dakika
                         </span>
 
                         <div class="d-none d-md-inline tags">
@@ -170,20 +170,41 @@
                     <div class="markdown">
                         
     
-    <p>Tarih boyunca toplulukların birbirleriyle iletişimi, her dilde olduğu gibi
-Türkçe&rsquo;de de kelime alışverişine neden olmuş ve kitapta buna örnek sayılabilecek
-bazı kelimeler ele alınıyor.</p>
+    <p>Bu kitaba başlama hikayem biraz karışık. 2019 yılının başında, .NET topluluğuna
+giriş niyetim vardı. 6 ay epey uğraştım. Sonrasında Rust ile devam etmeye karar
+verdim. Hem fonksiyonel paradigmalara hakim olmak açısından, hem de -biraz garip
+olacak ama- Rust&rsquo;ı öğrenirken bu kitabın faydasını gördüm. Some - None, pattern
+matching, value immutability, higher order functions, discriminated unions,
+hatta generics kullanımı birbirine benzer. Fakat amaç ve hedefleri arasında
+ciddi bir fark var. Kitapta şöyle bir not vardı:</p>
 
-<p>Haftada birkaç bölüm okuyarak kitabı yavaş yavaş bitirdim. Sevan beyin Arapça
-hakkındaki düşünceleri ve paylaştıkları bilgiler, Türkçe&rsquo;yi anlamak ve daha iyi
-kullanmak için yol gösterici oldu. Arapça en çok etkilendiğimiz dillerin başında
-geliyor. Bir dönem Türkçeleştirme çalışmaları yapıldıysa bile, benim düşüncem bu
-tip çeşitliliğinin bir zenginlik olduğu yönünde.</p>
+<blockquote>
+<p>&ldquo;F# ile ilgili duyacağınız en negatif şeylerden birisi de bu katkılara atfen
+Microsoft&rsquo;un F#&lsquo;ı, C# ve VB.NET&rsquo;e fonksiyonel dil özellikleri kazandırmak için
+oyuncak olarak kullandığı ile ilgili yapılan yorumlardır. Kitabı bu aşamaya
+kadar okuduğuna göre bu yorumların haklı olup olmadığı değerlendirmesini ise
+sana, azimli F# programcısına bırakıyorum.&rdquo;</p>
+</blockquote>
 
-<p>Gelecekteki kendime notum, umarım çok geç olmadan Arapça öğrenme fırsatın
-olur. Ama önce yaşadığın yerin dilini öğrenirsen daha güzel olur.</p>
+<p>F# oyuncak mı bilmiyorum; ama herhangi bir CLI dili ile yazılmış .NET
+kütüphanelerini kullanabilelim, Null type&rsquo;ı da tanıyalım, veri tiplerini
+dönüştürebilelim demek, daha önce .NET ile geliştirme yapmamış birisi için çok
+da ilgi uyandırıcı bir özellik gibi gelmiyor.</p>
 
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/books/elifin-okuzu-ya-da-surprizler-kitabi.jpg" src="https://gokmengorgen.net/img/books/low/elifin-okuzu-ya-da-surprizler-kitabi.jpg" alt="" /></p></figure>
+<p>Microsoft&rsquo;un son yıllarda ürettiklerini başarılı buluyorum, bugün özgür olmasa
+bile açık kaynak topluluğuna en çok katkıda bulunan firmalardan bir
+tanesi. Ancak içinde bulunduğum toplulukların Microsoft antipatisinin
+kırılamamış olması benim için bir dezavantaj. Oysa Rust şuan GNOME masaüstü
+ortamı, oyun, blockchain, wasm, embedded geliştiricileri tarafından benimsenmiş
+durumda.</p>
+
+<p>Genel amaçla yazılmış her dilin iyi ve kötü yönleri var. Dilin yoğun
+kullanıldığı alanları gösteren tablo düşünecek olursak, bu tabloya göre
+birbirine uzak noktada olan dilleri öğrenmeye çalışıyorum. Bir bölgede Rust
+varsa, .NET&rsquo;in olduğu bölgede benim için Python var. Zamanında C# tercih etmiş
+olsaydım, F# üzerine tecrübe kazanmayı kesinlikle isterdim.</p>
+
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/blog/fsharp-func-programming-cover.jpg" src="https://gokmengorgen.net/img/blog/low/fsharp-func-programming-cover.jpg" alt="" /></p></figure>
 
 
 
@@ -205,31 +226,19 @@ olur. Ama önce yaşadığın yerin dilini öğrenirsen daha güzel olur.</p>
                                 <div class="col-12 col-md-6">
                                     
                                         <div class="mx-0 mx-md-4 mt-4 text-left">
-                                            <a href="https://gokmengorgen.net/blog/uzaktan-calisma-ile-ilgili-sorular/">
+                                            <a href="https://gokmengorgen.net/blog/amortisman/">
                                                 <span class="icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175">
         <path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225 c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z" />
     </svg>
 </span>
 
-                                                <span class="text">Uzaktan Çalışma ile İlgili Sorular</span>
+                                                <span class="text">Amortisman</span>
                                             </a>
                                         </div>
                                     
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    
-                                        <div class="mx-0 mx-md-4 mt-4 text-right">
-                                            <a href="https://gokmengorgen.net/blog/amortisman/">
-                                                <span class="text">Amortisman</span>
-                                                <span class="icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175">
-        <path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5 c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z" />
-    </svg>
-</span>
-
-                                            </a>
-                                        </div>
                                     
                                 </div>
                             </div>

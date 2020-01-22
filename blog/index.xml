@@ -6,329 +6,132 @@
     <description>Recent content in Blog on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 13 Jan 2020 22:15:47 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jan 2020 23:47:17 +0100</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>F# ile Fonksiyonel Programlama</title>
-      <link>https://gokmengorgen.net/blog/fsharp-ile-fonksiyonel-programlama/</link>
-      <pubDate>Mon, 13 Jan 2020 22:15:47 +0100</pubDate>
+      <title>Inmost</title>
+      <link>https://gokmengorgen.net/blog/2020/01/inmost/</link>
+      <pubDate>Tue, 21 Jan 2020 23:47:17 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/fsharp-ile-fonksiyonel-programlama/</guid>
-      <description>Bu kitaba başlama hikayem biraz karışık. 2019 yılının başında, .NET topluluğuna giriş niyetim vardı. 6 ay epey uğraştım. Sonrasında Rust ile devam etmeye karar verdim. Hem fonksiyonel paradigmalara hakim olmak açısından, hem de -biraz garip olacak ama- Rust&amp;rsquo;ı öğrenirken bu kitabın faydasını gördüm. Some - None, pattern matching, value immutability, higher order functions, discriminated unions, hatta generics kullanımı birbirine benzer. Fakat amaç ve hedefleri arasında ciddi bir fark var. Kitapta şöyle bir not vardı:</description>
+      <guid>https://gokmengorgen.net/blog/2020/01/inmost/</guid>
+      <description>I have a gaming PC for two years but couldn&amp;rsquo;t have time to play a game. So I decided to change my priorities in my life and will try to play more games and read more books this year.
+My first plan was to play this game with my daughter, but I realized that it was not a suitable game for kids after I bought it, so I&amp;rsquo;ll pay attention to use the family filter from now on.</description>
     </item>
     
     <item>
-      <title>Amortisman</title>
-      <link>https://gokmengorgen.net/blog/amortisman/</link>
-      <pubDate>Mon, 13 Jan 2020 17:10:06 +0100</pubDate>
+      <title>Being a Polyglot Developer</title>
+      <link>https://gokmengorgen.net/blog/2019/12/being-a-polyglot-developer/</link>
+      <pubDate>Tue, 31 Dec 2019 13:20:00 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/amortisman/</guid>
-      <description>Umut Gökbayrak&amp;rsquo;ın sadeleşmek üzerine yazdığı öneriler1, şuanki durumumu gözden geçirmek için iyi bir fırsat oldu. Açıkçası kendimi ironik bir şekilde şanslı hissettim çünkü bir insanın ciddi bir sağlık gideri, yaşam standardını koruyabilmek için kurtulamadığı bir bağımlılığı olunca, sadeleşmek bir zorunluluk haline geliyor.
-Almak istediğim her ürün veya hizmet için önceden bir değer biçiyorum. Bu bazen kolay, bazen zor oluyor. Her seferinde kendime sorduğum iki soru var:
- Bunu ne kadar süre kullanacaksın ve bu süre boyunca hangi ihtiyaçlarını giderecek?</description>
+      <guid>https://gokmengorgen.net/blog/2019/12/being-a-polyglot-developer/</guid>
+      <description>My objective for the year 2019 was joining one more programming language community after Python and Lisp. I followed .NET Core in my first six months and did some projects using C# and F#. But then, I decided that learning Rust is a better idea. Some of the Python and Django developers I&amp;rsquo;ve followed have had a significant impact on my decision.
+Python is a programming language that easy to learn, it has a significant and active community, and I believe that it will keep its popularity for a longer time.</description>
     </item>
     
     <item>
-      <title>Elifin Öküzü ya da Sürprizler Kitabı</title>
-      <link>https://gokmengorgen.net/blog/elifin-okuzu-ya-da-surprizler-kitabi/</link>
-      <pubDate>Sun, 05 Jan 2020 23:10:15 +0100</pubDate>
+      <title>Data Types in Programming</title>
+      <link>https://gokmengorgen.net/blog/2019/08/data-types-in-programming/</link>
+      <pubDate>Sun, 25 Aug 2019 01:04:49 +0200</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/elifin-okuzu-ya-da-surprizler-kitabi/</guid>
-      <description>Tarih boyunca toplulukların birbirleriyle iletişimi, her dilde olduğu gibi Türkçe&amp;rsquo;de de kelime alışverişine neden olmuş ve kitapta buna örnek sayılabilecek bazı kelimeler ele alınıyor.
-Haftada birkaç bölüm okuyarak kitabı yavaş yavaş bitirdim. Sevan beyin Arapça hakkındaki düşünceleri ve paylaştıkları bilgiler, Türkçe&amp;rsquo;yi anlamak ve daha iyi kullanmak için yol gösterici oldu. Arapça en çok etkilendiğimiz dillerin başında geliyor. Bir dönem Türkçeleştirme çalışmaları yapıldıysa bile, benim düşüncem bu tip çeşitliliğinin bir zenginlik olduğu yönünde.</description>
+      <guid>https://gokmengorgen.net/blog/2019/08/data-types-in-programming/</guid>
+      <description>I started to take a look at C++ courses to understand Rust better because it helps me to see the advantages of Rust. The following images are from a Linkedin course, the instructor is Bill Weinman, and his courses are perfect if you want to program with C++.
+If you have a photographic memory to remind something quickly, then you may like these images explaining data types in programming.</description>
     </item>
     
     <item>
-      <title>Uzaktan Çalışma ile İlgili Sorular</title>
-      <link>https://gokmengorgen.net/blog/uzaktan-calisma-ile-ilgili-sorular/</link>
-      <pubDate>Thu, 29 Aug 2019 10:49:37 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/uzaktan-calisma-ile-ilgili-sorular/</guid>
-      <description>Uzaktan çalışırken karşılaşılan en büyük problem nedir? En büyük problem disiplin.
-Ofisin ıskaladığımız avantajları var: Masan, sandalyen, bilgisayarın, tarayıcın ve yazıcın, internetin, ofisin havalandırması, temizliği, hatta ofisteki kahve makinesi, su sebili.. Bunların hepsini sana ofis sağlıyor, bunlardan doğrudan ofis sorumlu oluyor. Bunların bir kısmı gereksiz; ama tüm bunları ofis senin iş yapabilmen, motivasyonun ve disiplinin için sağlıyor.
-Uzaktan çalışınca bunlara sen bir çözüm bulmak zorundasın. Ya bir co-working space üyeliği ile, ya da evinin bir odasını kendi disiplinin için hazır hale getirerek.</description>
-    </item>
-    
-    <item>
-      <title>Altın Rehber</title>
-      <link>https://gokmengorgen.net/blog/altin-rehber/</link>
-      <pubDate>Sun, 11 Aug 2019 13:43:00 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/altin-rehber/</guid>
-      <description>Bağımlılıklardan nefret ediyorum. Bu nedenle sahip olduğum her eşya için kendime bazı sorular soruyorum. Bu bir araba, bilgisayar veya bir internet hizmeti olabilir:
- Ne kadar süre kullanmayı düşünüyorum? İşimi gerçekten görüyor mu? Hangi sorunumu çözecek ve daha önce nasıl çözüyordum? Birçok alternatif varken bunu niye tercih ettim? Bozulursa ne yapacağım?  Bu konuya girmeden önce kendimden bir şey anlatmak istiyorum. Adından olsa gerek, her Kurban bayramı, Kurban grubunu hatırlarım. Bana enstrümanı sevdiren, üniversitemin renkli geçmesine vesile olan, hayatı türlü türlü deneyimlediğim bir grup.</description>
-    </item>
-    
-    <item>
-      <title>iPad Üzerine İlk İncelemem</title>
-      <link>https://gokmengorgen.net/blog/ipad-uzerine-ilk-incelemem/</link>
+      <title>First Review on My iPad</title>
+      <link>https://gokmengorgen.net/blog/2019/08/first-review-on-my-ipad/</link>
       <pubDate>Sat, 03 Aug 2019 15:24:01 +0200</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/ipad-uzerine-ilk-incelemem/</guid>
-      <description>Daha efektif kullanmak amaçlı ikinci bir laptop yerine iPad kullanmaya başladım. Birşeyler okumak, mailleri cevaplamak, işleri kontrol etmek için mükemmel olsa da, tabletleri bir laptop gibi kullanmak hala mümkün değil.
-Bu yüzden ana PC&amp;rsquo;ye uzaktan bağlanmayı denedim. Ancak bu da benim için tatmin edici olmadı. iOS 13 ve birkaç güncelleme geldikten sonra tekrar karşılaştırmak için bazı notlar aldım.
-Olumlu Yanlar  Tablet modunda, bütün uygulama ekranları otomatik olarak tam boyutlu hale geliyor.</description>
+      <guid>https://gokmengorgen.net/blog/2019/08/first-review-on-my-ipad/</guid>
+      <description>I started using an iPad instead of a second laptop for more effective use. Although it is excellent for reading things, answering emails, checking tasks, it is still not possible to use as a laptop with these devices.
+So I tried to connect to my primary PC remotely. But this was not satisfactory for me either. I took some notes to compare when iOS 13 and some updates came.</description>
     </item>
     
     <item>
-      <title>Tatilden Sonraki İlk Hatam</title>
-      <link>https://gokmengorgen.net/blog/tatilden-sonraki-ilk-hatam/</link>
+      <title>My First Wrong After The Vacation</title>
+      <link>https://gokmengorgen.net/blog/2019/06/my-first-wrong-after-the-vacation/</link>
       <pubDate>Thu, 20 Jun 2019 13:33:38 +0200</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/tatilden-sonraki-ilk-hatam/</guid>
-      <description>Üç haftalık tatilimin sonunda görünürde basit bir iş talep edildi. Geliştirdiğimiz projenin yeni sürümünü yayınlayacaktık:
- Bugün haftanın son çalışma günü mü? Hayır. Unit testlerde sorun var mı? Hayır. Yapılan tüm değişiklikler test sunucusunda ürün yöneticisi tarafından onaylandı mı? Evet.  Ben her şeyi not ederim ve bu yazıyı da aynı amaçla, bu deneyimimi hatırlamak için yazıyorum. Bir diğer alışkanlığım, dosh ile sık kullandığım komutları tüm projelerimde ortak belli başlı alt-komutlar altında toplamak.</description>
+      <guid>https://gokmengorgen.net/blog/2019/06/my-first-wrong-after-the-vacation/</guid>
+      <description>At the end of my three-week vacation, I was asked for a seemingly easy task. We were going to release the new version of the project we developed:
+ Is today is the last working of the week? No. Is there any problem with the unit tests? No. Are all changes confirmed by the product manager, in the staging server? Yes.  I always note everything, and so I write this article to remind this experience.</description>
     </item>
     
     <item>
-      <title>Django CMS için HTML Tags eklentisi</title>
-      <link>https://gokmengorgen.net/blog/djangocms-icin-html-tags-eklentisi/</link>
-      <pubDate>Sun, 28 Apr 2019 11:18:33 +0000</pubDate>
+      <title>Configure Windows for Development</title>
+      <link>https://gokmengorgen.net/blog/2019/03/configure-windows-for-development/</link>
+      <pubDate>Sat, 16 Mar 2019 19:35:51 +0200</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/djangocms-icin-html-tags-eklentisi/</guid>
-      <description>Django ile yazılmış içerik yönetim sistemi deyince aklımıza ilk Django CMS geliyor. Oldukça kapsamlı ve geliştirici açısından öğrenmesi biraz zaman alan; fakat öğrenince de CMS gerektiren işleri kolay ve eğlenceli hale getiren açık kaynak bir yazılımdır. Kurulumu kolay, Divio1&amp;lsquo;nun bulut sistemlerinde Django CMS&amp;rsquo;e tam desteği var; ama isterseniz kendi VPN sunucunuza da kurabiliyorsunuz. Eğer bu işlerle ilgili ilgilenecek ekibiniz yoksa, Divio&amp;rsquo;nun Türkiye&amp;rsquo;deki tek partneri Radity&amp;rsquo;den destek alabilirsiniz.
-HTML Tags, adından da anlaşılacağı üzere, HTML kodlarını CMS paneli üzerinden sayfaya tek tek ekleme imkanı sunan bir Django CMS eklentisidir.</description>
+      <guid>https://gokmengorgen.net/blog/2019/03/configure-windows-for-development/</guid>
+      <description>Environment Variables I still use some development tools that are used by most Linux users and these tools need some environment variables like LC_ALL, HOME, etc. When I have a new PC with Windows 10, I start to use with defining these variables. Take a look at this post for more detail.
+PowerShell Core It&amp;rsquo;s possible to use BASH on Windows indeed, but I think PowerShell Core is a good alternative.</description>
     </item>
     
     <item>
-      <title>31 Mart seçimlerinde medya</title>
-      <link>https://gokmengorgen.net/blog/31-mart-secimlerinde-medya/</link>
-      <pubDate>Sat, 06 Apr 2019 12:42:17 +0200</pubDate>
+      <title>Consumer</title>
+      <link>https://gokmengorgen.net/blog/2019/02/consumer/</link>
+      <pubDate>Wed, 27 Feb 2019 20:53:04 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/31-mart-secimlerinde-medya/</guid>
-      <description>Konu siyaset değil. Sadece işimizle ilgili küçük bir gözlemimi paylaşmak istiyorum. 31 Mart seçiminde ilk defa hiçbir televizyon kanalını izlemedim, basılı yayınların internet sitelerine bakmadım, takip etmedim. Twitter&amp;rsquo;daki dezenformasyondan kendimi korumak için epey kabarık bir engelleme ve sessize alma listem oluştu. O gece sadece Youtube&amp;rsquo;daki -alternatif- medya vardı benim için.
-Artık televizyon kanallarına bakmak yerine Youtube, Twitch, Netflix ve benzeri sitelere bakıyorum ve bunu bir tek ben yapmadığımı en iyi seçim günü anladım.</description>
+      <guid>https://gokmengorgen.net/blog/2019/02/consumer/</guid>
+      <description>For good things in life, you need labour, patience, and time.
+ To draw a picture, To play an instrument, To program software, Or to produce something, Even to complete a book, To translate a text, To tell the troubles, To write what you think, To prepare a broadcast, For everything.  Just sharing something in social media and consuming it is easy.</description>
     </item>
     
     <item>
-      <title>Tüketici</title>
-      <link>https://gokmengorgen.net/blog/tuketici/</link>
-      <pubDate>Wed, 27 Feb 2019 20:49:26 +0100</pubDate>
+      <title>What age do we live?</title>
+      <link>https://gokmengorgen.net/blog/2019/02/what-age-do-we-live/</link>
+      <pubDate>Sat, 16 Feb 2019 23:47:58 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/tuketici/</guid>
-      <description>Hayatta iyi şeyler için emek, sabır ve zaman gerekiyor.
- Resim çizmek; Enstrüman çalmak; Yazılım üretmek; Veya herhangi bir şey üretmek; Hatta kitap bitirmek; Çeviri yapmak; Dert anlatmak; Yazı yazmak; Görsel yayın hazırlamak; Her şey.  Bir tek sosyal medya paylaşımı yapmak ve onu tüketmek kolay.</description>
-    </item>
-    
-    <item>
-      <title>Hangi çağda yaşıyoruz?</title>
-      <link>https://gokmengorgen.net/blog/hangi-cagda-yasiyoruz/</link>
-      <pubDate>Sat, 16 Feb 2019 23:48:02 +0100</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/hangi-cagda-yasiyoruz/</guid>
-      <description> Teknolojimiz henüz gören bir göz, duyan bir kulak kadar gelişmedi.
-Veya henüz bedenimize ihtiyaç duymayacağımız bir çağda değiliz.
+      <guid>https://gokmengorgen.net/blog/2019/02/what-age-do-we-live/</guid>
+      <description> Our technology is not so advanced to be an eye or an ear for us.
+Or we&amp;rsquo;re not in an age where we don&amp;rsquo;t need our body yet.
  </description>
     </item>
     
     <item>
-      <title>Spreadsheet uygulamaları</title>
-      <link>https://gokmengorgen.net/blog/spreadsheet-uygulamalari/</link>
-      <pubDate>Wed, 02 Jan 2019 17:30:44 +0100</pubDate>
+      <title>String quotes in PEP8</title>
+      <link>https://gokmengorgen.net/blog/2019/01/string-quotes-in-pep8/</link>
+      <pubDate>Sat, 12 Jan 2019 23:59:02 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/spreadsheet-uygulamalari/</guid>
-      <description>Spreadsheet uygulamaları, şimdiye kadar kullandığım en işlevsel uygulamalar. Excel, Gnumeric, Google Sheet, OpenOffice Calc, hangisi olursa olsun, farketmez. Trello gibi iş takibi olarak kullanabilirsiniz, günlük - haftalık - aylık planlar yapabilirsiniz, veri saklayabilir ve aktarabilirsiniz, mali durumunuzu takip edebilirsiniz. İsviçre çakısı gibi ve üstelik yeni bir icat değil.
-Bundan daha işlevsel bir uygulama bulduğumda, bu yazıyı güncelleyeceğim.</description>
+      <guid>https://gokmengorgen.net/blog/2019/01/string-quotes-in-pep8/</guid>
+      <description>I use PEP8 in my Python projects except for a few rules.
+I think &amp;lsquo;single-quote&amp;rsquo; and &amp;ldquo;double-quote&amp;rdquo; characters should NOT be the same. It could be better if these two characters had different counterparts in the Python language parser system. So we could use one of them for the template-strings (or f-strings). It doesn&amp;rsquo;t provide readability, causes inconsistency instead. Until now, I used string-quotes for the variable definitions and double-quotes for the visible texts.</description>
     </item>
     
     <item>
-      <title>Zincirsiz</title>
-      <link>https://gokmengorgen.net/blog/zincirsiz/</link>
-      <pubDate>Sat, 29 Dec 2018 20:46:59 +0100</pubDate>
+      <title>Spreadsheet applications</title>
+      <link>https://gokmengorgen.net/blog/2019/01/spreasheet-apps/</link>
+      <pubDate>Wed, 02 Jan 2019 17:30:49 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/zincirsiz/</guid>
-      <description>&amp;ldquo;Zinciri kırma&amp;rdquo; sözünü her yeni yıla girmeden önce, yıllık planımı yaparken sosyal medyadan görürdüm, yine Aycan Doğanlar’ın hazırladığı bir projeyle denk geldim bu söze. Sonunda üşenmeyip nedir bu diye araştırdım. Barış Özcan&amp;lsquo;ın 16 Aralık 2018’de hazırladığı videosunu izledim ve şaşırdım. Ben de kendi kendime benzer planlar yapıyordum. Bu sefer yeni yıla onun önerileriyle gireceğim.
-Bu resimdeki çizelge bir örnek. Önce biraz anlatayım, aşağıdaki katkı çizelgesini yazılımcı arkadaşlar tanıyacak, GitHub’tan. Dikey olarak haftalara, yatay olarak günlere bölünmüş bu çizelge sayesinde, bir kullanıcının son bir yılda GitHub’taki katkılarını takip etmek mümkün.</description>
+      <guid>https://gokmengorgen.net/blog/2019/01/spreasheet-apps/</guid>
+      <description>Spreadsheet applications are the most functional applications I&amp;rsquo;ve used. Excel, Gnumeric, Google Sheet, OpenOffice Calc or whatever, it doesn&amp;rsquo;t matter. You can use it as task management like Trello, make daily - weekly - monthly plans, store and transfer data, and follow your financial situation. It&amp;rsquo;s like a Swiss army knife and not a new invention.
+I&amp;rsquo;ll update this article when I find a more functional application.</description>
     </item>
     
     <item>
-      <title>Müşteri memnuniyeti</title>
-      <link>https://gokmengorgen.net/blog/musteri-memnuniyeti/</link>
-      <pubDate>Tue, 04 Dec 2018 11:04:36 +0100</pubDate>
+      <title>How do I publish my articles?</title>
+      <link>https://gokmengorgen.net/blog/2018/12/how-do-i-publish-my-articles/</link>
+      <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/musteri-memnuniyeti/</guid>
-      <description>Aşağıda alternatif iletişim yollarını kullanarak çözdüğüm problemleri ve başvurularımı yazıyorum. Dünyanın neresinde olursak olalım, hiçbir hizmet kusursuz değil. Önemli olan bir sorun olduğunda, sorunların nasıl ve ne kadar sürede çözüldüğü, alternatif iletişim kanallarının olup olmadığı.
- PayPal: Uzun zaman önce açtığım hesabı, mail adresim aynı olmasına rağmen, telefon numaram değiştiği için kurtaramamıştım. Açıklayıcı bir mail attıktan sonra bir otomatik mail geldi, etkisi oldu mu bilmem ama telefonla veya anahtar sorularla doğrulama şartı kalktı.</description>
+      <guid>https://gokmengorgen.net/blog/2018/12/how-do-i-publish-my-articles/</guid>
+      <description>With just a command:
+# terminal $ ENV=PROD ./do.sh deploy  I have many projects using my script named DOSH and the parameters are mostly in common; deploy, start, stop, runtests, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like this one but I run all the projects with the same command: dosh start.
+In Windows, the command may be a bit longer than in the other operating systems.</description>
     </item>
     
     <item>
-      <title>Sık kullanılan komutlar için yardımcı script</title>
-      <link>https://gokmengorgen.net/blog/komutlar-icin-yardimci-script/</link>
-      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
+      <title>Important Windows Environment Variables</title>
+      <link>https://gokmengorgen.net/blog/2018/12/important-windows-environment-variables/</link>
+      <pubDate>Tue, 25 Dec 2018 21:25:57 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/komutlar-icin-yardimci-script/</guid>
-      <description>Projeler büyüdükçe operasyonlar artıyor, operasyonları koda döktükçe komutlar, parametreler artıyor. Bunları yardımcı bir scriptle kontrol altına alabiliriz.
-Yazının sonunda bu yönteme dair eleştirim ve alternatif önerim var.
-Bir projede frontend geliştiricisinin her bildiğini backend geliştirici bilmek, backend geliştiricisinin her bildiğini devops takımı bilmek zorunda değil. Ve farklı pozisyondaki geliştiricilerin birbirlerini aynı konular için sürekli meşgul etmemesi arzu edilir. Bunun için süreçleri olabildiğince belgelemek ve otomatikleştirmek gerekiyor.
-Basit bir amacım var.</description>
-    </item>
-    
-    <item>
-      <title>Docker için yardımcı script</title>
-      <link>https://gokmengorgen.net/blog/docker-icin-yardimci-script/</link>
-      <pubDate>Sun, 05 Aug 2018 12:11:27 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/docker-icin-yardimci-script/</guid>
-      <description>Docker&amp;rsquo;da projenin çalıştırılacağı ortam sayısı arttıkça, konteynerler çoğaldıkça, yapılandırma dosyalarında satır sayısı uzadıkça komutlar da uzamaya, parametreler artmaya başlıyor. Django shell&amp;rsquo;e nasıl bağlanılıyordu, çeviri dosyalarını nasıl güncelliyorduk, frontend sunucusu hazır mı değil mi nasıl anlıyorduk demek yerine, sık kullanılan komutları basit bir scriptle çalıştırırsak beni rahatlatır diye düşündüm ve internette bununla ilgili bir araştırma yaptım.
-Öncelikle bu tip işler için Makefile kullanma önerisi çok hoşuma gitti. Epey basit ve anlaşılır bir sözdizimi var, komut satırında çift tab yapıp autocomplete yapabiliyorsunuz ve bu tip yardımcı özellikler epey verimliliği artırıyor.</description>
-    </item>
-    
-    <item>
-      <title>Git iş akışı</title>
-      <link>https://gokmengorgen.net/blog/git-is-akisi/</link>
-      <pubDate>Sun, 24 Jun 2018 14:23:26 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/git-is-akisi/</guid>
-      <description>Çalıştığım projelerin çoğunda Git kullanıyoruz ve tüm sürüm çıkarma, projenin teste açılması, testten sonra production sürümünün hazırlanması, acil düzeltilmesi gereken işler olduğunda sürecin esnetilmesi ve bunun gibi birçok iş akışı Git reposu üzerinden yürüyor. Aşama aşama deneyimlerimi paylaşıyorum.
-1. Aşama: Prototipe odaklan Yeni bir projeye başlıyorsunuz, ekip henüz oluşturulmamış veya tek başınasınız ve derhal kabul edilebilir bir prototip1 hazırlamanız gerekiyor. Öncelikli kural, eğer hep aynı teknik araçları kullanıyorsanız bir öncekilerden iskelet yaratıp olduğu gibi yeni projeye aktarmanız.</description>
-    </item>
-    
-    <item>
-      <title>2018&#39;de keşfettiğim en iyi laptoplar</title>
-      <link>https://gokmengorgen.net/blog/2018-en-iyi-laptoplar/</link>
-      <pubDate>Thu, 21 Jun 2018 23:38:57 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/2018-en-iyi-laptoplar/</guid>
-      <description>2018&amp;rsquo;in ortasındayız ve henüz Apple yeni ürünlerini tanıtmadı, 8. nesil Intel işlemciler henüz yeteri kadar yaygınlaşmadı, piyasada alternatif olarak 2. Nesil AMD Ryzen 7 işlemcili laptop neredeyse yok. Yazıyı arada yeni keşifler yaptıkça güncellemeyi düşünüyorum, sonraki bilgisayarınız için bir kaynak olur umarım.
-Güncellemeler  Monster Tulpar T5 için görüş eklendi. Anlatım bozukluğu düzeltmesi. Yazıyı kısalttım, yazım hatalarını düzelttim.  Öncelikle seçtiğim laptopların genellikle oyun bilgisayarı olduğunu göreceksiniz. Bu, Macbook Pro gibi çok tercih edilen bir ürünün fiyatını baz almamdan kaynaklanıyor.</description>
-    </item>
-    
-    <item>
-      <title>Daha güçlü PowerShell</title>
-      <link>https://gokmengorgen.net/blog/daha-guclu-powershell/</link>
-      <pubDate>Fri, 08 Jun 2018 02:00:39 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/daha-guclu-powershell/</guid>
-      <description>Uzun süre Linux dağıtımı kullanmış birisi için komut satırı uygulamaları ve komut istemi Windows&amp;rsquo;ta kanayan yara. Henüz aynı rahatlığı bulamamış olsam da, terminal emulator olarak ConEmu, Shell olarak PowerShell kullanıyorum. Tabi birkaç ayarlamayla birlikte.
-Sorunlar En çok kullandığım komut satırı uygulaması Git. Git, Windows&amp;rsquo;ta Bash ile birlikte geliyor. Henüz Windows&amp;rsquo;ta yeniyseniz, Git en iyi Bash ile birlikte çalışıyor, ona bir şans verin. Çünkü PowerShell&amp;rsquo;de ha deyip kullanamıyorsunuz. PowerShell&amp;rsquo;de kullanabilmek için yükleme aşamasında size sunulan seçenekleri ona göre seçmelisiniz.</description>
-    </item>
-    
-    <item>
-      <title>Django modelinde selectbox kullanımı</title>
-      <link>https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/</link>
-      <pubDate>Sun, 27 May 2018 16:45:30 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/django-modelinde-selectbox-kullanimi/</guid>
-      <description>Bazen bir model field&amp;rsquo;ında kullanımı sınırlandırmak veya veriyi denetlemek için basit çözümlere ihtiyacımız var. Örneğin, bir araba markası sorulduğunda kullanıcının kafadan veri girişini engellemek veya Opel - opel gibi büyük - küçük farklarından dolayı oluşacak gereksiz seçenek bölünmelerini önlemek gerekir.
-Django notlarım&amp;lsquo;da sürekli dile getirdiğim konu var, bir şeye ihtiyaç duyduğunuzda:
- Mutlaka Django&amp;rsquo;nun kendi dökümantasyonuna bir göz atın. Mutlaka başkaları nasıl çözmüş diye araştırın.  Django dökümantasyonundaki bir örneği alalım ve onun üzerinden gidelim:</description>
-    </item>
-    
-    <item>
-      <title>Stres</title>
-      <link>https://gokmengorgen.net/blog/stres/</link>
-      <pubDate>Thu, 10 May 2018 13:03:43 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/stres/</guid>
-      <description>Üniversiteden arkadaşım derdi:
- Yemeye vereceğin paraya acımayacaksın.
- IT sektöründe çalışanlar masa başı tüm gün oturuyor olsalar da, sürekli zihin yoruyorlar, kafa patlatıyorlar. Epey stresli bir iş yapıyorlar. Kendim için söylediğim şeyleri arkadaşlarıma da söylerim. Gece zoraki çalışma olmaz, hiçbir şey uykundan etmemeli; stresini yönet, zamanını önceden planla, haftasonu neyi seviyorsan onu yap, tutamayacağın sözü verme.
-Hayatında eşinle, dostlarınla güzel bir yemek yemek seni stresinden uzaklaştıracaksa, o paraya ve zamana acımayacaksın.</description>
-    </item>
-    
-    <item>
-      <title>Geliştiriciler için Windows 10 Pro</title>
-      <link>https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/</link>
-      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/</guid>
-      <description>Bu yazıda sözünü ettiğim işletim sistemi ve sürümü Windows 10 Pro’dur. Amacım yazılım geliştiriciler için Windows 10 Pro’nun alternatif bir geliştirme ortamı olduğunu anlatmaktır. Windows 8 değil, Windows 10 Home da değil, sadece Windows 10 Pro. Karar elbette sizin.
-Genel Görünüm Uzun süre Linux dağıtımı ve MacOS kullanan birisi olarak ilk Windows izlenimim çok kötüydü. Font rendering Ubuntu’dan bile kötüydü. Masaüstü ortamı KDE’den bile karışıktı. Klavye kısayollarını yeni baştan öğrenmem, alışmam gerekecekti.</description>
-    </item>
-    
-    <item>
-      <title>Vagrant ile proje geliştirme</title>
-      <link>https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/</link>
-      <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/</guid>
-      <description>Monolitik yapıda bir web projesinin iskeletini oluşturup, projeyi geliştirmek için bir geliştirme ortamına ihtiyacımız var. Geliştirme ortamını hazırlarken bazı ayrıntıları göz önünde bulundurmak gerekir:
- Projede tek başıma mı olacağım? Tek başıma değilsem ekip arkadaşlarım kurulumda sorun yaşarlar mı? Tek başıma bile olsam, yerelimde yaşamadığım bir sorunu sunucuda yaşarsam bununla nasıl başa çıkacağım veya bu ihtimalın olmaması için ne yapabilirim? Bağımlılıklarda sürüm çakışması yaşarsam bunu nasıl çözeceğim? Geliştirme ortamımı diğerlerinden nasıl izole edebilirim?</description>
-    </item>
-    
-    <item>
-      <title>Emacs&#39;e nereden başlamalı?</title>
-      <link>https://gokmengorgen.net/blog/emacse-nereden-baslamali/</link>
-      <pubDate>Mon, 24 Apr 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/emacse-nereden-baslamali/</guid>
-      <description>Yazılım dünyasının en eski editörlerinden Emacs, günümüzdeki diğer popüler editörlerden farklı bir kullanma ve öğrenme disiplini istiyor. Bazı temel özelliklerini öğrenmeden editörde bir dosya açmak bile zor. O nedenle Emacs’in kendi içinde gelen tutorial’ını en azından bir kez okumak, öğrendiklerini uygulamak ve birkaç hafta sabırla kullanmak gerekiyor.
-Emacs Linux, Windows ve macOS işletim sistemlerinde çalışıyor. Yükleyip editörü açtığınızda ilk hali muhtemelen arzu ettiğiniz gibi görünmeyecek. Bir yandan Emacs’i öğrenirken, bir yandan da kendi zevkinize göre özelleştirmeye başlamanızı öneriyorum.</description>
-    </item>
-    
-    <item>
-      <title>İşverenlere uzaktan çalışma tavsiyesi</title>
-      <link>https://gokmengorgen.net/blog/isverenlere-uzaktan-calisma-tavsiyesi/</link>
-      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/isverenlere-uzaktan-calisma-tavsiyesi/</guid>
-      <description>Beyin göçünün yükseldiği bir dönem, işveren veya üst düzey çalışanların konuyla ilgili yazdığı yazılarda aradığım çok basit bir çözüm vardı: Uzaktan çalışmak.
-Çalışanlar uzaktan çalışmak ister, gerekçeleri çok, konuyla ilgili ben dahil birçok çalışan yazı yazmıştır. Ama işverenlerin uzaktan çalışmayla ilgili pek bir fikir paylaşımı yok. Onların ne düşündüğünü merak ediyorum. Görebildiğim tek cümle bu:
- Yurt dışında yaşayan arkadaşlarımdan bu yazıya biraz incindiklerini öğrendim, oradan da her şeyi yapabiliriz diyorlardı.</description>
-    </item>
-    
-    <item>
-      <title>Göç</title>
-      <link>https://gokmengorgen.net/blog/goc/</link>
-      <pubDate>Sat, 01 Oct 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/goc/</guid>
-      <description>Bir arkadaşım, “Metroya binerken yüzü gülen insan görmüyorum.” demişti. İstanbul’a geldim geleli, insanların gözlerinin içine baka baka yürürüm. Yüzlerdeki ciddiyet, bana zihinlerinde çok farklı şeyler gezindiğini hissettiriyor. Sanki yüzleriyle zihinleri arasındaki bağlantılar kopmuş gibi. Bu o kadar bulaşıcı bir şey ki, ben de çoğu zaman pek gülümsemiyorum.
-Katre adında bir kadın. Bir bankacı, sabahı ve akşamı belli. Kahvaltısı bir poğaçadan ibaret, ancak yürürken yiyebiliyor, bir on dakikalık yürüme mesafesinden sonra metrobüse, oradan aktarma yapıp metroya binecek, sonrasında yine bir beş dakika daha yürümesi gerek.</description>
-    </item>
-    
-    <item>
-      <title>Kitapları sanallaştırmak</title>
-      <link>https://gokmengorgen.net/blog/kitaplari-sanallastirmak/</link>
-      <pubDate>Sat, 09 Jul 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/kitaplari-sanallastirmak/</guid>
-      <description>Geçen gün esas niyetimi fazla açıklamadan Twitter üzerinden, kitapları dağıtırsam pişman olup olmayacağım üzerine bir soru sordum:
-Siz olsanız evdeki kitapları dağıtmaktan pişman olur muydunuz? Bundan sonra sadece ebook alan biri olarak soruyorum.
-&amp;mdash; Gökmen Görgen ☄️ (@gokmengorgen) July 7, 2016 
-Seçimler arasında çok bir uçurum olmaması beni bir süre kararsız bıraktı; ama cevap olarak yazılanlar faydalı oldu. Özetlemek gerekirse:
- Kitap kokusu, kitabın eskiyen sayfalarına dokunmak gibi romantik duygularla pişman olurdum diyen kesim var.</description>
-    </item>
-    
-    <item>
-      <title>Uzaktan çalışmak</title>
-      <link>https://gokmengorgen.net/blog/uzaktan-calismak/</link>
-      <pubDate>Mon, 23 May 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/uzaktan-calismak/</guid>
-      <description>Bağımsız çalışmak (freelance) ile uzaktan çalışmak (remote) çok karıştırılıyor. Bağımsız çalışanlar aynı zamanda uzaktan çalışıyor veya uzaktan çalışanlar fiziki bir ofise sahip bir şirkette çalışıyor olabilir. Yani uzaktan çalışıyor olmanız, sizi bağımsız çalışan (freelancer) yapmıyor.
-Ben yazılımcıyım. Bağımsız çalışmak konusunda çok deneyimim yok. Bu konudaki gözlemim, en azından Türkiye’de hem işi verenin, hem de işi yapanın çok da profesyonel davranmadığı. Bağımsız çalışmak ayrı bir disiplin gerektiren, kendine özgü şartları ve anlaşması olan, hobi veya ek iş olarak bakılamayacak kadar ciddi bir çalışma biçimi.</description>
-    </item>
-    
-    <item>
-      <title>Borsa kumar mı?</title>
-      <link>https://gokmengorgen.net/blog/borsa-kumar-mi/</link>
-      <pubDate>Mon, 19 Oct 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/borsa-kumar-mi/</guid>
-      <description>Sabah uyandığınızda pencereden bakıyorsunuz, kar yağıyor. Bugün işe arabayla gitmenin tehlikeli olabileceğini düşünüyorsunuz. Sıkı giyinmeye karar veriyorsunuz; ama diğer taraftan toplu taşımanın da sıkıntılı bir yolculuk olacağını hatırlıyorsunuz. Acaba patronu arayıp bugün evden çalışacağımızı mı söylesek? Çok verimli olmayacağını düşünüp işe gitmeye karar veriyorsunuz. Peki, akşam eve sağ salim dönmenizin garantisini kim verir? Kimse; ama buna rağmen önlemleri almışsınızdır. Olur da işyerinde mahsur kalırsanız, bir günlük erzağınızı da hazırlamışsınızdır. Böylece hayatta kalmayı bir şans olmaktan çıkarırsınız.</description>
-    </item>
-    
-    <item>
-      <title>İşletim sistemi tercihini geliştiriciye bırakın</title>
-      <link>https://gokmengorgen.net/blog/isletim-sistemi-tercihini-gelistiriciye-birakin/</link>
-      <pubDate>Sun, 22 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/isletim-sistemi-tercihini-gelistiriciye-birakin/</guid>
-      <description>Bir yazılım projesine başlarken ihtiyaç duyacağımız ilk şey ne olur diye soracak olursak, sanırım buna “geliştirme ortamı” diyebiliriz. Örneğin bir Android projesi için şunlar gerekli:
- Android Studio veya Eclipse (ADT) Android Java SDK Android yüklü donanım veya emulator İşletim sistemine göre emulator hızlandırıcı eklentiler (HAXM, qemu, vb)  Bu ortamı işletim sistemimize kurduğumuzda, iki şeye sahip oluyoruz: Birincisi kod yazabiliyoruz, debug edebiliyoruz, sorunları düzeltebiliyoruz; ikincisi sonucu görmek için uygulamayı yükleyip çalıştırabiliyoruz, test edebiliyoruz, yayınlayabiliyoruz.</description>
-    </item>
-    
-    <item>
-      <title>Geliştiriciden işverene dağıtık manifesto</title>
-      <link>https://gokmengorgen.net/blog/gelistiriciden-isverene-dagitik-manifesto/</link>
-      <pubDate>Sat, 24 Mar 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/gelistiriciden-isverene-dagitik-manifesto/</guid>
-      <description>İdeal bir dünyada yaşamadığımız malum. İşimizi yaparken birçok problemle karşılaşıyoruz; bağırarak yanımızda telefonla konuşanlar, oje sürerken kokusunun ne kadar rahatsız edici olduğunu bilmeyenler, laptopta kullanmak amacıyla bir fare ihtiyacımızı kimin karşılaması gerektiğini tartışanlar veya başkalarına aldırış etmeksizin klimanın ayarlarıyla oynayanlar.. Bunlar her zaman karşımıza çıkacaktır, şuanki dünya düzenini ele alacaksak yapacak çok fazla bir şey yok. Fakat bir nebze de olsa, aklımızdan geçenleri burada manifesto tadında sıralamak faydalı olabilir düşüncesindeyiz.</description>
+      <guid>https://gokmengorgen.net/blog/2018/12/important-windows-environment-variables/</guid>
+      <description>PowerShell and Git encoding problems To make git log command output properly display on Windows, we need to set a variable named LC_ALL:
+LC_ALL=&amp;quot;C.UTF-8&amp;quot;  Incorrect home folder in Emacs This problem is not only about Emacs. If you try to find a file from HOME variable, you may need to define the variable first:
+HOME=&amp;quot;%USERPROFILE%&amp;quot;  ;; place all backup files in one directory (setq backup-directory-alist `((&amp;quot;.*&amp;quot; . ,temporary-file-directory))) (setq auto-save-file-name-transforms `((&amp;quot;.</description>
     </item>
     
   </channel>

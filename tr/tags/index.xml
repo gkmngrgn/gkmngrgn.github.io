@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/tr/tags/</link>
+    <description>Recent content in Tags on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 13 Jan 2020 22:15:47 +0100</lastBuildDate>
+    
+	<atom:link href="https://gokmengorgen.net/tr/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>kitap</title>
+      <link>https://gokmengorgen.net/tr/tags/kitap/</link>
+      <pubDate>Mon, 13 Jan 2020 22:15:47 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/tags/kitap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>düşünce</title>
+      <link>https://gokmengorgen.net/tr/tags/d%C3%BC%C5%9F%C3%BCnce/</link>
+      <pubDate>Mon, 13 Jan 2020 17:10:06 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/tags/d%C3%BC%C5%9F%C3%BCnce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>uzaktan çalışma</title>
+      <link>https://gokmengorgen.net/tr/tags/uzaktan-%C3%A7al%C4%B1%C5%9Fma/</link>
+      <pubDate>Thu, 29 Aug 2019 10:49:37 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/tags/uzaktan-%C3%A7al%C4%B1%C5%9Fma/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>https://gokmengorgen.net/tr/tags/devops/</link>
+      <pubDate>Thu, 20 Jun 2019 13:33:38 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>django</title>
+      <link>https://gokmengorgen.net/tr/tags/django/</link>
+      <pubDate>Thu, 20 Jun 2019 13:33:38 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programlama</title>
+      <link>https://gokmengorgen.net/tr/tags/programlama/</link>
+      <pubDate>Sun, 28 Apr 2019 11:18:33 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/tags/programlama/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>opinion</title>
+      <link>https://gokmengorgen.net/tr/tags/opinion/</link>
+      <pubDate>Sat, 06 Apr 2019 12:42:17 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/tags/opinion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>https://gokmengorgen.net/tr/tags/bash/</link>
+      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://gokmengorgen.net/tr/tags/git/</link>
+      <pubDate>Sun, 24 Jun 2018 14:23:26 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>https://gokmengorgen.net/tr/tags/windows/</link>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vagrant</title>
+      <link>https://gokmengorgen.net/tr/tags/vagrant/</link>
+      <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/tags/vagrant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emacs</title>
+      <link>https://gokmengorgen.net/tr/tags/emacs/</link>
+      <pubDate>Mon, 24 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

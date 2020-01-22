@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bash on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/tr/tags/bash/</link>
+    <description>Recent content in bash on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 07 Sep 2018 22:46:31 +0200</lastBuildDate>
+    
+	<atom:link href="https://gokmengorgen.net/tr/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sık kullanılan komutlar için yardımcı script</title>
+      <link>https://gokmengorgen.net/tr/blog/2018/09/komutlar-icin-yardimci-script/</link>
+      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/blog/2018/09/komutlar-icin-yardimci-script/</guid>
+      <description>Projeler büyüdükçe operasyonlar artıyor, operasyonları koda döktükçe komutlar, parametreler artıyor. Bunları yardımcı bir scriptle kontrol altına alabiliriz.
+Yazının sonunda bu yönteme dair eleştirim ve alternatif önerim var.
+Bir projede frontend geliştiricisinin her bildiğini backend geliştirici bilmek, backend geliştiricisinin her bildiğini devops takımı bilmek zorunda değil. Ve farklı pozisyondaki geliştiricilerin birbirlerini aynı konular için sürekli meşgul etmemesi arzu edilir. Bunun için süreçleri olabildiğince belgelemek ve otomatikleştirmek gerekiyor.
+Basit bir amacım var.</description>
+    </item>
+    
+  </channel>
+</rss>

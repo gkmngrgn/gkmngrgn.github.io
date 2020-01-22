@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/tags/programming/</link>
+    <description>Recent content in programming on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 31 Dec 2019 13:20:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://gokmengorgen.net/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Being a Polyglot Developer</title>
+      <link>https://gokmengorgen.net/blog/2019/12/being-a-polyglot-developer/</link>
+      <pubDate>Tue, 31 Dec 2019 13:20:00 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/2019/12/being-a-polyglot-developer/</guid>
+      <description>My objective for the year 2019 was joining one more programming language community after Python and Lisp. I followed .NET Core in my first six months and did some projects using C# and F#. But then, I decided that learning Rust is a better idea. Some of the Python and Django developers I&amp;rsquo;ve followed have had a significant impact on my decision.
+Python is a programming language that easy to learn, it has a significant and active community, and I believe that it will keep its popularity for a longer time.</description>
+    </item>
+    
+    <item>
+      <title>Data Types in Programming</title>
+      <link>https://gokmengorgen.net/blog/2019/08/data-types-in-programming/</link>
+      <pubDate>Sun, 25 Aug 2019 01:04:49 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/2019/08/data-types-in-programming/</guid>
+      <description>I started to take a look at C++ courses to understand Rust better because it helps me to see the advantages of Rust. The following images are from a Linkedin course, the instructor is Bill Weinman, and his courses are perfect if you want to program with C++.
+If you have a photographic memory to remind something quickly, then you may like these images explaining data types in programming.</description>
+    </item>
+    
+    <item>
+      <title>String quotes in PEP8</title>
+      <link>https://gokmengorgen.net/blog/2019/01/string-quotes-in-pep8/</link>
+      <pubDate>Sat, 12 Jan 2019 23:59:02 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/2019/01/string-quotes-in-pep8/</guid>
+      <description>I use PEP8 in my Python projects except for a few rules.
+I think &amp;lsquo;single-quote&amp;rsquo; and &amp;ldquo;double-quote&amp;rdquo; characters should NOT be the same. It could be better if these two characters had different counterparts in the Python language parser system. So we could use one of them for the template-strings (or f-strings). It doesn&amp;rsquo;t provide readability, causes inconsistency instead. Until now, I used string-quotes for the variable definitions and double-quotes for the visible texts.</description>
+    </item>
+    
+  </channel>
+</rss>

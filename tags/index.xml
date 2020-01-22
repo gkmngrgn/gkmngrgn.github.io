@@ -6,35 +6,35 @@
     <description>Recent content in Tags on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 13 Jan 2020 22:15:47 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jan 2020 23:47:17 +0100</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>kitap</title>
-      <link>https://gokmengorgen.net/tags/kitap/</link>
-      <pubDate>Mon, 13 Jan 2020 22:15:47 +0100</pubDate>
+      <title>game</title>
+      <link>https://gokmengorgen.net/tags/game/</link>
+      <pubDate>Tue, 21 Jan 2020 23:47:17 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/tags/kitap/</guid>
+      <guid>https://gokmengorgen.net/tags/game/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>düşünce</title>
-      <link>https://gokmengorgen.net/tags/d%C3%BC%C5%9F%C3%BCnce/</link>
-      <pubDate>Mon, 13 Jan 2020 17:10:06 +0100</pubDate>
+      <title>programming</title>
+      <link>https://gokmengorgen.net/tags/programming/</link>
+      <pubDate>Tue, 31 Dec 2019 13:20:00 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/tags/d%C3%BC%C5%9F%C3%BCnce/</guid>
+      <guid>https://gokmengorgen.net/tags/programming/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>uzaktan çalışma</title>
-      <link>https://gokmengorgen.net/tags/uzaktan-%C3%A7al%C4%B1%C5%9Fma/</link>
-      <pubDate>Thu, 29 Aug 2019 10:49:37 +0200</pubDate>
+      <title>opinion</title>
+      <link>https://gokmengorgen.net/tags/opinion/</link>
+      <pubDate>Sat, 03 Aug 2019 15:24:01 +0200</pubDate>
       
-      <guid>https://gokmengorgen.net/tags/uzaktan-%C3%A7al%C4%B1%C5%9Fma/</guid>
+      <guid>https://gokmengorgen.net/tags/opinion/</guid>
       <description></description>
     </item>
     
@@ -57,65 +57,38 @@
     </item>
     
     <item>
-      <title>programlama</title>
-      <link>https://gokmengorgen.net/tags/programlama/</link>
-      <pubDate>Sun, 28 Apr 2019 11:18:33 +0000</pubDate>
+      <title>powershell</title>
+      <link>https://gokmengorgen.net/tags/powershell/</link>
+      <pubDate>Sat, 16 Mar 2019 19:35:51 +0200</pubDate>
       
-      <guid>https://gokmengorgen.net/tags/programlama/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>opinion</title>
-      <link>https://gokmengorgen.net/tags/opinion/</link>
-      <pubDate>Sat, 06 Apr 2019 12:42:17 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/tags/opinion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bash</title>
-      <link>https://gokmengorgen.net/tags/bash/</link>
-      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/tags/bash/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>git</title>
-      <link>https://gokmengorgen.net/tags/git/</link>
-      <pubDate>Sun, 24 Jun 2018 14:23:26 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/tags/git/</guid>
+      <guid>https://gokmengorgen.net/tags/powershell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>windows</title>
       <link>https://gokmengorgen.net/tags/windows/</link>
-      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 16 Mar 2019 19:35:51 +0200</pubDate>
       
       <guid>https://gokmengorgen.net/tags/windows/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>vagrant</title>
-      <link>https://gokmengorgen.net/tags/vagrant/</link>
-      <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
+      <title>python</title>
+      <link>https://gokmengorgen.net/tags/python/</link>
+      <pubDate>Sat, 12 Jan 2019 23:59:02 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/tags/vagrant/</guid>
+      <guid>https://gokmengorgen.net/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>emacs</title>
-      <link>https://gokmengorgen.net/tags/emacs/</link>
-      <pubDate>Mon, 24 Apr 2017 00:00:00 +0000</pubDate>
+      <title>bash</title>
+      <link>https://gokmengorgen.net/tags/bash/</link>
+      <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/tags/emacs/</guid>
+      <guid>https://gokmengorgen.net/tags/bash/</guid>
       <description></description>
     </item>
     

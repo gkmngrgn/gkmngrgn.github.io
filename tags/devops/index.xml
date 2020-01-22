@@ -12,35 +12,24 @@
     
     
     <item>
-      <title>Tatilden Sonraki İlk Hatam</title>
-      <link>https://gokmengorgen.net/blog/tatilden-sonraki-ilk-hatam/</link>
+      <title>My First Wrong After The Vacation</title>
+      <link>https://gokmengorgen.net/blog/2019/06/my-first-wrong-after-the-vacation/</link>
       <pubDate>Thu, 20 Jun 2019 13:33:38 +0200</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/tatilden-sonraki-ilk-hatam/</guid>
-      <description>Üç haftalık tatilimin sonunda görünürde basit bir iş talep edildi. Geliştirdiğimiz projenin yeni sürümünü yayınlayacaktık:
- Bugün haftanın son çalışma günü mü? Hayır. Unit testlerde sorun var mı? Hayır. Yapılan tüm değişiklikler test sunucusunda ürün yöneticisi tarafından onaylandı mı? Evet.  Ben her şeyi not ederim ve bu yazıyı da aynı amaçla, bu deneyimimi hatırlamak için yazıyorum. Bir diğer alışkanlığım, dosh ile sık kullandığım komutları tüm projelerimde ortak belli başlı alt-komutlar altında toplamak.</description>
+      <guid>https://gokmengorgen.net/blog/2019/06/my-first-wrong-after-the-vacation/</guid>
+      <description>At the end of my three-week vacation, I was asked for a seemingly easy task. We were going to release the new version of the project we developed:
+ Is today is the last working of the week? No. Is there any problem with the unit tests? No. Are all changes confirmed by the product manager, in the staging server? Yes.  I always note everything, and so I write this article to remind this experience.</description>
     </item>
     
     <item>
-      <title>Sık kullanılan komutlar için yardımcı script</title>
-      <link>https://gokmengorgen.net/blog/komutlar-icin-yardimci-script/</link>
-      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
+      <title>How do I publish my articles?</title>
+      <link>https://gokmengorgen.net/blog/2018/12/how-do-i-publish-my-articles/</link>
+      <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
       
-      <guid>https://gokmengorgen.net/blog/komutlar-icin-yardimci-script/</guid>
-      <description>Projeler büyüdükçe operasyonlar artıyor, operasyonları koda döktükçe komutlar, parametreler artıyor. Bunları yardımcı bir scriptle kontrol altına alabiliriz.
-Yazının sonunda bu yönteme dair eleştirim ve alternatif önerim var.
-Bir projede frontend geliştiricisinin her bildiğini backend geliştirici bilmek, backend geliştiricisinin her bildiğini devops takımı bilmek zorunda değil. Ve farklı pozisyondaki geliştiricilerin birbirlerini aynı konular için sürekli meşgul etmemesi arzu edilir. Bunun için süreçleri olabildiğince belgelemek ve otomatikleştirmek gerekiyor.
-Basit bir amacım var.</description>
-    </item>
-    
-    <item>
-      <title>Docker için yardımcı script</title>
-      <link>https://gokmengorgen.net/blog/docker-icin-yardimci-script/</link>
-      <pubDate>Sun, 05 Aug 2018 12:11:27 +0200</pubDate>
-      
-      <guid>https://gokmengorgen.net/blog/docker-icin-yardimci-script/</guid>
-      <description>Docker&amp;rsquo;da projenin çalıştırılacağı ortam sayısı arttıkça, konteynerler çoğaldıkça, yapılandırma dosyalarında satır sayısı uzadıkça komutlar da uzamaya, parametreler artmaya başlıyor. Django shell&amp;rsquo;e nasıl bağlanılıyordu, çeviri dosyalarını nasıl güncelliyorduk, frontend sunucusu hazır mı değil mi nasıl anlıyorduk demek yerine, sık kullanılan komutları basit bir scriptle çalıştırırsak beni rahatlatır diye düşündüm ve internette bununla ilgili bir araştırma yaptım.
-Öncelikle bu tip işler için Makefile kullanma önerisi çok hoşuma gitti. Epey basit ve anlaşılır bir sözdizimi var, komut satırında çift tab yapıp autocomplete yapabiliyorsunuz ve bu tip yardımcı özellikler epey verimliliği artırıyor.</description>
+      <guid>https://gokmengorgen.net/blog/2018/12/how-do-i-publish-my-articles/</guid>
+      <description>With just a command:
+# terminal $ ENV=PROD ./do.sh deploy  I have many projects using my script named DOSH and the parameters are mostly in common; deploy, start, stop, runtests, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like this one but I run all the projects with the same command: dosh start.
+In Windows, the command may be a bit longer than in the other operating systems.</description>
     </item>
     
   </channel>

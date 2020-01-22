@@ -3,298 +3,308 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://gokmengorgen.net/en/blog/being-a-polyglot-developer/</loc>
-    <lastmod>2019-12-31T13:20:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gokmengorgen.net/en/blog/</loc>
-    <lastmod>2019-12-31T13:20:00+01:00</lastmod>
+    <loc>https://gokmengorgen.net/blog/</loc>
+    <lastmod>2020-01-21T23:47:17+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
+                href="https://gokmengorgen.net/tr/blog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
                 href="https://gokmengorgen.net/blog/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://gokmengorgen.net/en/blog/"
-                />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/</loc>
-    <lastmod>2019-12-31T13:20:00+01:00</lastmod>
+    <loc>https://gokmengorgen.net/tags/game/</loc>
+    <lastmod>2020-01-21T23:47:17+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/</loc>
+    <lastmod>2020-01-21T23:47:17+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
+                href="https://gokmengorgen.net/tr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
                 href="https://gokmengorgen.net/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://gokmengorgen.net/en/"
-                />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/tags/programming/</loc>
-    <lastmod>2019-12-31T13:20:00+01:00</lastmod>
+    <loc>https://gokmengorgen.net/blog/2020/01/inmost/</loc>
+    <lastmod>2020-01-21T23:47:17+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/tags/</loc>
-    <lastmod>2019-12-31T13:20:00+01:00</lastmod>
+    <loc>https://gokmengorgen.net/tags/</loc>
+    <lastmod>2020-01-21T23:47:17+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
-                href="https://gokmengorgen.net/tags/"
+                href="https://gokmengorgen.net/tr/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://gokmengorgen.net/en/tags/"
+                href="https://gokmengorgen.net/tags/"
                 />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/blog/data-types-in-programming/</loc>
+    <loc>https://gokmengorgen.net/blog/2019/12/being-a-polyglot-developer/</loc>
+    <lastmod>2019-12-31T13:20:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/programming/</loc>
+    <lastmod>2019-12-31T13:20:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/2019/08/data-types-in-programming/</loc>
     <lastmod>2019-08-25T01:04:49+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/blog/first-review-on-my-ipad/</loc>
+    <loc>https://gokmengorgen.net/blog/2019/08/first-review-on-my-ipad/</loc>
     <lastmod>2019-08-03T15:24:01+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
-                href="https://gokmengorgen.net/blog/ipad-uzerine-ilk-incelemem/"
+                href="https://gokmengorgen.net/tr/blog/2019/08/ipad-uzerine-ilk-incelemem/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://gokmengorgen.net/en/blog/first-review-on-my-ipad/"
+                href="https://gokmengorgen.net/blog/2019/08/first-review-on-my-ipad/"
                 />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/tags/opinion/</loc>
+    <loc>https://gokmengorgen.net/tags/opinion/</loc>
     <lastmod>2019-08-03T15:24:01+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
+                href="https://gokmengorgen.net/tr/tags/opinion/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
                 href="https://gokmengorgen.net/tags/opinion/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://gokmengorgen.net/en/tags/opinion/"
-                />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/tags/devops/</loc>
+    <loc>https://gokmengorgen.net/tags/devops/</loc>
     <lastmod>2019-06-20T13:33:38+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
+                href="https://gokmengorgen.net/tr/tags/devops/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
                 href="https://gokmengorgen.net/tags/devops/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://gokmengorgen.net/en/tags/devops/"
-                />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/tags/django/</loc>
+    <loc>https://gokmengorgen.net/tags/django/</loc>
     <lastmod>2019-06-20T13:33:38+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
+                href="https://gokmengorgen.net/tr/tags/django/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
                 href="https://gokmengorgen.net/tags/django/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://gokmengorgen.net/en/tags/django/"
-                />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/blog/my-first-wrong-after-the-vacation/</loc>
+    <loc>https://gokmengorgen.net/blog/2019/06/my-first-wrong-after-the-vacation/</loc>
     <lastmod>2019-06-20T13:33:38+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
-                href="https://gokmengorgen.net/blog/tatilden-sonraki-ilk-hatam/"
+                href="https://gokmengorgen.net/tr/blog/2019/06/tatilden-sonraki-ilk-hatam/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://gokmengorgen.net/en/blog/my-first-wrong-after-the-vacation/"
+                href="https://gokmengorgen.net/blog/2019/06/my-first-wrong-after-the-vacation/"
                 />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/blog/configure-windows-for-development/</loc>
+    <loc>https://gokmengorgen.net/blog/2019/03/configure-windows-for-development/</loc>
     <lastmod>2019-03-16T19:35:51+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/tags/powershell/</loc>
+    <loc>https://gokmengorgen.net/tags/powershell/</loc>
     <lastmod>2019-03-16T19:35:51+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/tags/windows/</loc>
+    <loc>https://gokmengorgen.net/tags/windows/</loc>
     <lastmod>2019-03-16T19:35:51+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
-                href="https://gokmengorgen.net/tags/windows/"
+                href="https://gokmengorgen.net/tr/tags/windows/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://gokmengorgen.net/en/tags/windows/"
+                href="https://gokmengorgen.net/tags/windows/"
                 />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/blog/consumer/</loc>
+    <loc>https://gokmengorgen.net/blog/2019/02/consumer/</loc>
     <lastmod>2019-02-27T20:53:04+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
-                href="https://gokmengorgen.net/blog/tuketici/"
+                href="https://gokmengorgen.net/tr/blog/2019/02/tuketici/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://gokmengorgen.net/en/blog/consumer/"
+                href="https://gokmengorgen.net/blog/2019/02/consumer/"
                 />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/blog/what-age-do-we-live/</loc>
+    <loc>https://gokmengorgen.net/blog/2019/02/what-age-do-we-live/</loc>
     <lastmod>2019-02-16T23:47:58+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
-                href="https://gokmengorgen.net/blog/hangi-cagda-yasiyoruz/"
+                href="https://gokmengorgen.net/tr/blog/2019/02/hangi-cagda-yasiyoruz/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://gokmengorgen.net/en/blog/what-age-do-we-live/"
+                href="https://gokmengorgen.net/blog/2019/02/what-age-do-we-live/"
                 />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/tags/python/</loc>
+    <loc>https://gokmengorgen.net/tags/python/</loc>
     <lastmod>2019-01-12T23:59:02+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/blog/string-quotes-in-pep8/</loc>
+    <loc>https://gokmengorgen.net/blog/2019/01/string-quotes-in-pep8/</loc>
     <lastmod>2019-01-12T23:59:02+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/blog/spreasheet-apps/</loc>
+    <loc>https://gokmengorgen.net/blog/2019/01/spreasheet-apps/</loc>
     <lastmod>2019-01-02T17:30:49+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
-                href="https://gokmengorgen.net/blog/spreadsheet-uygulamalari/"
+                href="https://gokmengorgen.net/tr/blog/2019/01/spreadsheet-uygulamalari/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://gokmengorgen.net/en/blog/spreasheet-apps/"
+                href="https://gokmengorgen.net/blog/2019/01/spreasheet-apps/"
                 />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/tags/bash/</loc>
+    <loc>https://gokmengorgen.net/tags/bash/</loc>
     <lastmod>2018-12-30T15:06:17+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
-                href="https://gokmengorgen.net/tags/bash/"
+                href="https://gokmengorgen.net/tr/tags/bash/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://gokmengorgen.net/en/tags/bash/"
+                href="https://gokmengorgen.net/tags/bash/"
                 />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/blog/how-do-i-publish-my-articles/</loc>
+    <loc>https://gokmengorgen.net/blog/2018/12/how-do-i-publish-my-articles/</loc>
     <lastmod>2018-12-30T15:06:17+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/blog/important-windows-environment-variables/</loc>
+    <loc>https://gokmengorgen.net/blog/2018/12/important-windows-environment-variables/</loc>
     <lastmod>2018-12-25T21:25:57+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/categories/</loc>
+    <loc>https://gokmengorgen.net/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
+                href="https://gokmengorgen.net/tr/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
                 href="https://gokmengorgen.net/categories/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/comment-policy/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://gokmengorgen.net/tr/yorum-politikasi/"
+                />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://gokmengorgen.net/en/categories/"
+                href="https://gokmengorgen.net/comment-policy/"
                 />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/comment-policy/</loc>
+    <loc>https://gokmengorgen.net/license/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
-                href="https://gokmengorgen.net/yorum-politikasi/"
+                href="https://gokmengorgen.net/tr/lisans/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://gokmengorgen.net/en/comment-policy/"
+                href="https://gokmengorgen.net/license/"
                 />
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/en/license/</loc>
+    <loc>https://gokmengorgen.net/live/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
-                href="https://gokmengorgen.net/lisans/"
+                href="https://gokmengorgen.net/tr/canli-yayin/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://gokmengorgen.net/en/license/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://gokmengorgen.net/en/live/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tr"
-                href="https://gokmengorgen.net/canli-yayin/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://gokmengorgen.net/en/live/"
+                href="https://gokmengorgen.net/live/"
                 />
   </url>
   

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>windows on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/tr/tags/windows/</link>
+    <description>Recent content in windows on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://gokmengorgen.net/tr/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Geliştiriciler için Windows 10 Pro</title>
+      <link>https://gokmengorgen.net/tr/blog/2017/12/gelistiriciler-icin-windows-10-pro/</link>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/blog/2017/12/gelistiriciler-icin-windows-10-pro/</guid>
+      <description>Bu yazıda sözünü ettiğim işletim sistemi ve sürümü Windows 10 Pro’dur. Amacım yazılım geliştiriciler için Windows 10 Pro’nun alternatif bir geliştirme ortamı olduğunu anlatmaktır. Windows 8 değil, Windows 10 Home da değil, sadece Windows 10 Pro. Karar elbette sizin.
+Genel Görünüm Uzun süre Linux dağıtımı ve MacOS kullanan birisi olarak ilk Windows izlenimim çok kötüydü. Font rendering Ubuntu’dan bile kötüydü. Masaüstü ortamı KDE’den bile karışıktı. Klavye kısayollarını yeni baştan öğrenmem, alışmam gerekecekti.</description>
+    </item>
+    
+  </channel>
+</rss>

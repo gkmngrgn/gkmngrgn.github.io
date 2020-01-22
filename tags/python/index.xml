@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/tags/python/</link>
+    <description>Recent content in python on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Jan 2019 23:59:02 +0100</lastBuildDate>
+    
+	<atom:link href="https://gokmengorgen.net/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>String quotes in PEP8</title>
+      <link>https://gokmengorgen.net/blog/2019/01/string-quotes-in-pep8/</link>
+      <pubDate>Sat, 12 Jan 2019 23:59:02 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/2019/01/string-quotes-in-pep8/</guid>
+      <description>I use PEP8 in my Python projects except for a few rules.
+I think &amp;lsquo;single-quote&amp;rsquo; and &amp;ldquo;double-quote&amp;rdquo; characters should NOT be the same. It could be better if these two characters had different counterparts in the Python language parser system. So we could use one of them for the template-strings (or f-strings). It doesn&amp;rsquo;t provide readability, causes inconsistency instead. Until now, I used string-quotes for the variable definitions and double-quotes for the visible texts.</description>
+    </item>
+    
+  </channel>
+</rss>

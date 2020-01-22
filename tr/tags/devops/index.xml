@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>devops on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/tr/tags/devops/</link>
+    <description>Recent content in devops on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 20 Jun 2019 13:33:38 +0200</lastBuildDate>
+    
+	<atom:link href="https://gokmengorgen.net/tr/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tatilden Sonraki İlk Hatam</title>
+      <link>https://gokmengorgen.net/tr/blog/2019/06/tatilden-sonraki-ilk-hatam/</link>
+      <pubDate>Thu, 20 Jun 2019 13:33:38 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/blog/2019/06/tatilden-sonraki-ilk-hatam/</guid>
+      <description>Üç haftalık tatilimin sonunda görünürde basit bir iş talep edildi. Geliştirdiğimiz projenin yeni sürümünü yayınlayacaktık:
+ Bugün haftanın son çalışma günü mü? Hayır. Unit testlerde sorun var mı? Hayır. Yapılan tüm değişiklikler test sunucusunda ürün yöneticisi tarafından onaylandı mı? Evet.  Ben her şeyi not ederim ve bu yazıyı da aynı amaçla, bu deneyimimi hatırlamak için yazıyorum. Bir diğer alışkanlığım, dosh ile sık kullandığım komutları tüm projelerimde ortak belli başlı alt-komutlar altında toplamak.</description>
+    </item>
+    
+    <item>
+      <title>Sık kullanılan komutlar için yardımcı script</title>
+      <link>https://gokmengorgen.net/tr/blog/2018/09/komutlar-icin-yardimci-script/</link>
+      <pubDate>Fri, 07 Sep 2018 22:46:31 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/blog/2018/09/komutlar-icin-yardimci-script/</guid>
+      <description>Projeler büyüdükçe operasyonlar artıyor, operasyonları koda döktükçe komutlar, parametreler artıyor. Bunları yardımcı bir scriptle kontrol altına alabiliriz.
+Yazının sonunda bu yönteme dair eleştirim ve alternatif önerim var.
+Bir projede frontend geliştiricisinin her bildiğini backend geliştirici bilmek, backend geliştiricisinin her bildiğini devops takımı bilmek zorunda değil. Ve farklı pozisyondaki geliştiricilerin birbirlerini aynı konular için sürekli meşgul etmemesi arzu edilir. Bunun için süreçleri olabildiğince belgelemek ve otomatikleştirmek gerekiyor.
+Basit bir amacım var.</description>
+    </item>
+    
+    <item>
+      <title>Docker için yardımcı script</title>
+      <link>https://gokmengorgen.net/tr/blog/2018/08/docker-icin-yardimci-script/</link>
+      <pubDate>Sun, 05 Aug 2018 12:11:27 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/blog/2018/08/docker-icin-yardimci-script/</guid>
+      <description>Docker&amp;rsquo;da projenin çalıştırılacağı ortam sayısı arttıkça, konteynerler çoğaldıkça, yapılandırma dosyalarında satır sayısı uzadıkça komutlar da uzamaya, parametreler artmaya başlıyor. Django shell&amp;rsquo;e nasıl bağlanılıyordu, çeviri dosyalarını nasıl güncelliyorduk, frontend sunucusu hazır mı değil mi nasıl anlıyorduk demek yerine, sık kullanılan komutları basit bir scriptle çalıştırırsak beni rahatlatır diye düşündüm ve internette bununla ilgili bir araştırma yaptım.
+Öncelikle bu tip işler için Makefile kullanma önerisi çok hoşuma gitti. Epey basit ve anlaşılır bir sözdizimi var, komut satırında çift tab yapıp autocomplete yapabiliyorsunuz ve bu tip yardımcı özellikler epey verimliliği artırıyor.</description>
+    </item>
+    
+  </channel>
+</rss>

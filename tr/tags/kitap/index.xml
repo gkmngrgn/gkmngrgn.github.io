@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kitap on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/tr/tags/kitap/</link>
+    <description>Recent content in kitap on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 13 Jan 2020 22:15:47 +0100</lastBuildDate>
+    
+	<atom:link href="https://gokmengorgen.net/tr/tags/kitap/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>F# ile Fonksiyonel Programlama</title>
+      <link>https://gokmengorgen.net/tr/blog/2020/01/fsharp-ile-fonksiyonel-programlama/</link>
+      <pubDate>Mon, 13 Jan 2020 22:15:47 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/blog/2020/01/fsharp-ile-fonksiyonel-programlama/</guid>
+      <description>Bu kitaba başlama hikayem biraz karışık. 2019 yılının başında, .NET topluluğuna giriş niyetim vardı. 6 ay epey uğraştım. Sonrasında Rust ile devam etmeye karar verdim. Hem fonksiyonel paradigmalara hakim olmak açısından, hem de -biraz garip olacak ama- Rust&amp;rsquo;ı öğrenirken bu kitabın faydasını gördüm. Some - None, pattern matching, value immutability, higher order functions, discriminated unions, hatta generics kullanımı birbirine benzer. Fakat amaç ve hedefleri arasında ciddi bir fark var. Kitapta şöyle bir not vardı:</description>
+    </item>
+    
+    <item>
+      <title>Elifin Öküzü ya da Sürprizler Kitabı</title>
+      <link>https://gokmengorgen.net/tr/blog/2020/01/elifin-okuzu-ya-da-surprizler-kitabi/</link>
+      <pubDate>Sun, 05 Jan 2020 23:10:15 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/blog/2020/01/elifin-okuzu-ya-da-surprizler-kitabi/</guid>
+      <description>Tarih boyunca toplulukların birbirleriyle iletişimi, her dilde olduğu gibi Türkçe&amp;rsquo;de de kelime alışverişine neden olmuş ve kitapta buna örnek sayılabilecek bazı kelimeler ele alınıyor.
+Haftada birkaç bölüm okuyarak kitabı yavaş yavaş bitirdim. Sevan beyin Arapça hakkındaki düşünceleri ve paylaştıkları bilgiler, Türkçe&amp;rsquo;yi anlamak ve daha iyi kullanmak için yol gösterici oldu. Arapça en çok etkilendiğimiz dillerin başında geliyor. Bir dönem Türkçeleştirme çalışmaları yapıldıysa bile, benim düşüncem bu tip çeşitliliğinin bir zenginlik olduğu yönünde.</description>
+    </item>
+    
+  </channel>
+</rss>

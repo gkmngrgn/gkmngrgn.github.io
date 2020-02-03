@@ -6,10 +6,118 @@
     <description>Recent content in Hello on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Feb 2020 19:43:27 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 02 Feb 2020 22:22:10 +0100</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust Essentials</title>
+      <link>https://gokmengorgen.net/blog/2020/02/rust-essentials/</link>
+      <pubDate>Sun, 02 Feb 2020 22:22:10 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/2020/02/rust-essentials/</guid>
+      <description>&lt;p&gt;Mostly I do not prefer to read the books written for teaching a programming
+language. Because a good language community already places the importance on
+their websites to promote the programming language beautifully as in Python and
+Rust. In these websites, you can find documentation, tutorials, even a free
+ebook that allows you to read from the website directly, and they&amp;rsquo;re mostly
+up-to-date.&lt;/p&gt;
+
+&lt;p&gt;As you know, Rust is not an easy-to-learn programming language. So I frequently
+look at the official documentation of Rust, and sometimes I choose a random
+topic and read them again and again. Before starting to read this book, I took a
+look at the pages and saw some details that I still missed on the Rust
+documentation. Then I read the entire book thoroughly.&lt;/p&gt;
+
+&lt;p&gt;My ebook was the first edition, and there were missing topics like async
+programming. The author published the second edition in 2017, and it seems he
+will need to prepare a new version to include the last changes in the
+language. That&amp;rsquo;s why I do not prefer to learn a programming language from a
+book. Rust is improving rapidly, so you need to follow the official
+documentation always.&lt;/p&gt;
+
+&lt;p&gt;Another issue that I feel most lacking right now is macros. I know that they&amp;rsquo;re
+similar to Lisp macros, but I still couldn&amp;rsquo;t have a chance to try it in my pet
+projects yet. The book shows me an example of usage, but I don&amp;rsquo;t understand how
+and where to use it. I wish to see the samples from a specific project or all
+samples come from the same project.&lt;/p&gt;
+
+&lt;p&gt;Finally, I share a table about the pointer types in Rust, when I started
+learning Rust, it was pretty intimidating. Now it seems a little more
+meaningful.&lt;/p&gt;
+
+&lt;!-- copy the rendered table from the browser, and add table class manually.
+| Type       | Name                | Description                                                            |
+|------------|---------------------|------------------------------------------------------------------------|
+| `&amp;T`       | Reference           | One or more references to read **T**                                   |
+| `&amp;mut T`   | Mutable reference   | Single reference to read and write **T**                               |
+| `Box&lt;T&gt;`   | Box                 | Heap-allocated **T** with a single owner that may read and write **T** |
+| `Rc&lt;T&gt;`    | Rc pointer          | Heap-allocated **T** with many readers                                 |
+| `Arc&lt;T&gt;`   | Arc pointer         | Like **Rc&lt;T&gt;**, but enables safe mutable sharing accross threads       |
+| `*const T` | Raw pointer         | Unsafe read access to **T**                                            |
+| `*mut T`   | Mutable raw pointer | Unsafe read and write access to **T**                                  |
+--&gt;
+
+&lt;div class=&#34;table-responsive&#34;&gt;
+&lt;table class=&#34;table table-dark table-bordered table-sm&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;T&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Reference&lt;/td&gt;
+&lt;td&gt;One or more references to read &lt;strong&gt;T&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;mut T&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Mutable reference&lt;/td&gt;
+&lt;td&gt;Single reference to read and write &lt;strong&gt;T&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Box&amp;lt;T&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Box&lt;/td&gt;
+&lt;td&gt;Heap-allocated &lt;strong&gt;T&lt;/strong&gt; with a single owner that may read and write &lt;strong&gt;T&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Rc&amp;lt;T&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Rc pointer&lt;/td&gt;
+&lt;td&gt;Heap-allocated &lt;strong&gt;T&lt;/strong&gt; with many readers&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Arc&amp;lt;T&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Arc pointer&lt;/td&gt;
+&lt;td&gt;Like &lt;strong&gt;Rc&lt;t&gt;&lt;/t&gt;&lt;/strong&gt;, but enables safe mutable sharing accross threads&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;*const T&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Raw pointer&lt;/td&gt;
+&lt;td&gt;Unsafe read access to &lt;strong&gt;T&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;*mut T&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Mutable raw pointer&lt;/td&gt;
+&lt;td&gt;Unsafe read and write access to &lt;strong&gt;T&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/books/rust-essentials.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Oceanhorn 2</title>

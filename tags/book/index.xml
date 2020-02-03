@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>book on GKMNGRGN</title>
+    <link>https://gokmengorgen.net/tags/book/</link>
+    <description>Recent content in book on GKMNGRGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 02 Feb 2020 22:22:10 +0100</lastBuildDate>
+    
+	<atom:link href="https://gokmengorgen.net/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rust Essentials</title>
+      <link>https://gokmengorgen.net/blog/2020/02/rust-essentials/</link>
+      <pubDate>Sun, 02 Feb 2020 22:22:10 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/2020/02/rust-essentials/</guid>
+      <description>Mostly I do not prefer to read the books written for teaching a programming language. Because a good language community already places the importance on their websites to promote the programming language beautifully as in Python and Rust. In these websites, you can find documentation, tutorials, even a free ebook that allows you to read from the website directly, and they&amp;rsquo;re mostly up-to-date.
+As you know, Rust is not an easy-to-learn programming language.</description>
+    </item>
+    
+  </channel>
+</rss>

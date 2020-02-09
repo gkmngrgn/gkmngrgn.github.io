@@ -6,10 +6,67 @@
     <description>Recent content in Merhaba on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 13 Jan 2020 22:15:47 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2020 17:03:22 +0100</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tr/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Çeşitsizlik Neden Bir Sorundur?</title>
+      <link>https://gokmengorgen.net/tr/blog/2020/02/cesitsizlik-neden-bir-sorundur/</link>
+      <pubDate>Sun, 09 Feb 2020 17:03:22 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/blog/2020/02/cesitsizlik-neden-bir-sorundur/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Harvard Business Review üyeliğim bittiği için kaynağı bulamadım. Hatırladığım
+kadarıyla bir yazıda şöyle bir soru vardı: Neden çok az kadın CEO var? Cevap:
+Çünkü yönetici olmanın kurallarını erkekler belirledi.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Bu bir tür yumurta - tavuk metaforu gibi. Toplumun yarısını oluşturan kadınlar,
+nasıl oluyor da benim bulunduğum sektörde azınlık konumuna düşüyor? Yaptığımız
+işte erkek olmayı gerektirecek bir şey mi var? Sorunun kaynağı tam olarak
+neresi, bilmiyorum. Kadınlar başından beri bu alanlarda hep isteksiz miydiler,
+yoksa erkekler onları bilerek veya bilmeden sektör dışına mı itti?  Aslında
+şikayet ettiğimiz şeyin sebebi dolaylı da olsa çoğunluğun kendisidir. Bu döngüyü
+kırabilecek tek şey, bir farkındalık yaratmak. Farkındalığı yaratabilmek için
+kanıksadığımız durumu sorgulamak, itiraz etmek gerekiyor.&lt;/p&gt;
+
+&lt;p&gt;Ben bir yazılım geliştiricisi olarak, son birkaç yıldır erişilebilirlik konusuna
+ilgi duyuyorum ve bu konuda bir şeyler yapmak için çabalıyorum. Ekibimde karar
+verici pozisyonda olduğum her konuda birlikte çalıştığım insanlara danışıyorum,
+onları ikna etmeye çalışıyorum veya onların beni ikna etmesini
+bekliyorum. Burada inisiyatif aldığımız şey sorunun nasıl çözüleceği değil;
+bunun üzerine yazılmış, uygulanmış ve hala daha üzerine paylaşımların yapıldığı,
+gelişen teknolojiyle birlikte yenilenen sayısız metod var. Burada inisiyatif
+aldığımız şey, çözmemiz istenen sorunun kendisi.&lt;/p&gt;
+
+&lt;p&gt;Geliştirdiğimiz yazılımların kullanıcısı olduğu sürece sorunlar, istekler bize
+gelmeye devam edecek. Biz bu yazılımları, bir ihtiyacı gidermek için
+geliştiriyoruz. Geliştirdiğimiz yazılımları çeşitli insanlar kullanıyor. Bir
+kadın kendini geliştirmek için kurs bakarken, bir öğrenci yabancı dil
+öğrenirken, bir engelli gideceği mekanın olanaklarını incelerken, bir baba
+çocuğunun sağlıklı büyümesi için besinler araştırırken; bir eşcinsel, ya da bir
+dindar, ya da bir görme engelli veya kör, çeşit çeşit insanlar kendi ihtiyaçları
+için bizim geliştirdiğimiz yazılımları kullanıyorlar. Bir yazılım geliştirici
+olarak kendimiz bile yazılım geliştirirken başka yazılımlardan
+faydalanıyoruz. Biz bu insanlara ürettiğimiz yazılımla yardımcı
+oluyoruz. Aslında bizim işimiz bu, çözmeye çalıştığımız sorun bu.&lt;/p&gt;
+
+&lt;p&gt;Bu çeşitlilikteki kullanıcı kitlemizi yazılımımızla memnun etmenin yolu, kendi
+ekibimizde bu çeşitliliği sağlamaktan geçiyor. Şöyle düşünebilirsiniz; ben bu
+işe başladığımdan beri durum hep böyleydi, çeşitlilik vardı da biz mi
+engelledik? Bunun cevabı başta belirttiğim yumurta - tavuk metaforunda
+gizli. Sebebi biz olmasak bile, bu statükoyu biz devam
+ettiriyoruz. Yazılımınızla ilgili bir sorunu ele alırken veya sorunun kaynağını
+tespit ederken danışacağınız insanların, profil olarak size benzemesi pek bir
+şey kazandırmıyor. Bir yazılımcı, her konuda başarılı bir empati kuramayabilir,
+her şeyden iyi anlayamayabilir, bir kesimin dert ettiği şey kendisi için dert
+olmayabilir. Kendi içimizde bir denetim mekanizmasına ihtiyaç var. Bulunduğunuz
+çevrede, sadece kendiniz gibi insanları barındırdığınızda, farklı hassasiyetleri
+algılamanız kişisel bir efora dönüşüyor.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/diversity.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>F# ile Fonksiyonel Programlama</title>

@@ -6,10 +6,142 @@
     <description>Recent content in Merhaba on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 09 Feb 2020 17:03:22 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 04 Mar 2020 22:34:40 +0100</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tr/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Çeşitlilik ve Engellilik</title>
+      <link>https://gokmengorgen.net/tr/blog/2020/03/cesitlilik-ve-engellilik/</link>
+      <pubDate>Wed, 04 Mar 2020 22:34:40 +0100</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/blog/2020/03/cesitlilik-ve-engellilik/</guid>
+      <description>
+
+&lt;p&gt;Türkiye&amp;rsquo;de yeteri kadar önem verilmeyen iki kavram hakkında dikkat çekmek
+istiyorum:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Diversity (Çeşitlilik):&lt;/strong&gt; Bireylerin dili, dini, ırkı, cinsiyeti, cinsel
+yönelimi, ideolojisi, kültürü, giyim tarzı farklı farklıdır. Birlikte
+çalıştığımız, vakit geçirdiğimiz, aynı çevrede bulunduğumuz insanların
+çeşitliliği sayesinde bir konu hakkında farklı detayları görmek kolaylaşır, ürün
+veya hizmetin erişilebilirliği artar, yapılan iş kapsayıcı olur.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disability (Engellilik):&lt;/strong&gt; Bireyin yaşamsal faaliyetlere katılımında birebir
+çözümü olmayan kısıtlamalar engellilik olarak tanımlanabilir. Diversity&amp;rsquo;den
+farklı olarak disability&amp;rsquo;de ek bir çabaya ihtiyaç duyulur. Engelli otoparkı,
+engellilerin kullanımına uygun tuvalet, asansör, kaldırım; şeker hastaları için
+insülin ilaçlarını koyup kullanabilecekleri soğutucu, işitme engelliler için
+görsel metinler, görme engelliler için işitsel yönlendirmeler ve bunun
+gibi. Sadece fiziksel değil; asperger, anksiyete, otizm, disleksi ve benzeri
+ruhsal, psikolojik, iletişim ve algıyı etkileyen farklılıklar da bu konu içinde
+değerlendirilir.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The purpose of software is to help people.&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;~ Max Kanat-Alexander, Code Simplicity&lt;/small&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Kullandığımız ürünlerden, aldığımız hizmetlerden veya katıldığımız
+konferanslardan hepimiz bir fayda bekliyoruz. Örneğin böbrek taşı sıkıntısı
+çeken birisi az su tükettiğinde hatırlatacak basit bir yazılım bir fayda
+sağlar. Son bir ay neleri yapıp neleri yapamadığını gösteren bir tablo veya
+rapor, bir sonraki ayı daha iyi planlayabilmek için yardımcı olur. Bir ürün veya
+hizmetin değeri, kullanıcıya ne kadar fayda sağladığı ile doğru orantılıdır.&lt;/p&gt;
+
+&lt;p&gt;Ne yazık ki ürettiğimiz şeyin değer görmesi için genellikle herkesi değil,
+çoğunluğu hedefliyoruz. Bir email şablonu seçerken veya web projesi tasarlarken
+azınlığı gözardı ediyoruz. HTML format varken text formatının görme engelliler
+için önemini unutuyoruz, renkleri seçerken renk körlerini düşünmüyoruz,
+konferans salonu seçerken tekerlekli sandalye kullanan insanlar için ulaşımın
+kolay olup olmayacağını dikkat etmiyoruz, form hazırlarken cinsiyet veya inanç
+seçeneklerini eksik bırakıyoruz.&lt;/p&gt;
+
+&lt;p&gt;Oysa bunları baştan göz önünde bulundurursak çalışmalarımızın kapsayıcı olması
+zannedildiği kadar zor ve maliyetli değil. Dünya tıpki özgür yazılımda olduğu
+gibi bu konuda da deneyim biriktiriyor ve çalışmamızın erişilebilir olup
+olmadığı konusunda fikir verecek birçok araç ve yöntem var. Az su tüketen bir
+kullanıcı için su içme alışkanlığı kazandıran bir mobil uygulama değerlidir; bu
+uygulamayı görmeden kullanmak zorunda kalan ve kullanabilen bir kullanıcı için
+ise çok değerlidir.&lt;/p&gt;
+
+&lt;h3 id=&#34;farkındalığın-oluşması-için-çalışma-ne-yapabiliriz&#34;&gt;Farkındalığın oluşması için çalışma ne yapabiliriz?&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Etkinlik ve toplantı sitelerinde erişilebilirlik ile bilgiler yer alabilir,
+Code of conduct sayfası oluşturulabilir. Yeterli bilgi olmaması durumunda
+bilgi alabilmek için iletişim bilgileri yazabilirsiniz. &lt;a href=&#34;https://tr.pycon.org/&#34;&gt;PyCon
+TR&lt;/a&gt; sitesi buna güzel bir örnek.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Konuşmacı, katılımcı veya çalışan seçiminde çeşitliliğe önem
+verebilirsiniz. Chris hocanın eğitimlerindeki &lt;a href=&#34;https://twitter.com/chrisjstephensn/status/1234518408923951104&#34;&gt;%50 kadın
+kotası&lt;/a&gt; buna
+güzel bir örnek. Konuşmacılara veya çalışanlara ödeme yapılırken cinsiyet ve
+ırk farklılığının gözetilmesi sözkonusu bile olmamalı.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Çalışma ortamlarının veya etkinlik alanlarının erişilebilirlik için evrensel
+standartlara uygun olup olmadığını kontrol edebilirsiniz. İşitme engelliler
+için yazılı, görsel; görme engelliler için işitsel veya Braille alfabesi gibi
+alternatif iletişim araçlarını destekleyebilir, tekerlekli sandalye
+kullananlar için ulaşımın mümkün hale getirilmesini sağlayabilirsiniz.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Türkiye&amp;rsquo;de yaşayan yabancı insanlara da hitap edebilmek ve kültürel
+çeşitliliğe olanak sağlamak için sunumlarda simultane İngilizce çeviri
+hizmetinden yararlanmak veya iletişim için ortak bir dilde konuşmaya özen
+gösterebilirsiniz.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;İlginç işler yapan ancak yetersiz temsil edilen (under-represented) en az bir
+konuşmacıya öncelik verebilirsiniz.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Networking teşvikinin sosyal anksiyeteyi tetiklemeyecek şekilde yapılmasına
+özen gösterebilirsiniz. Örneğin: İlgi alanlarına göre kategorilenmiş
+networking grupları oluşturmak (tasarım, yazılım vb.) isteyenlerin ilgili
+gruba dahil olması ve dışlanmış hissetmemesi amaçlanabilir. Bunun dışında
+networking teşvikinde bulunurken, bunun istek dahilinde olduğunu
+hatırlatılması ve bu süreçte konuşma salonu boş bile olsa kullanıma açık
+tutulabilir.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;İşe alımdan hemen sonra çalışanın rızası doğrultusunda yapılacak bir testle
+her çalışanın anksiyete bozukluğu, sosyal fobi vb. zorlayıcı bir farklılığı
+olup olmadığı saptanabilir. Test sonucu sadece ekip lideri ile
+paylaşılabilir.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Toplantılarda, etkinliklerde dini, kültürel ve alerjen diyetleri göz önünde
+bulunduran yiyecek seçenekleri sunulabilir.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Ofis düzeninde kadın - erkek ibaresi bulunan tuvaletler yerine, unisex
+(gender-inclusive) tuvaletler tercih edilebilir veya üçü birden
+olabilir. Bebekli katılımcılar veya konuşmacılar için cinsiyet ayrımı
+gözetmeyen emzirme ve bez değiştirme dalarının olması gerekir.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Yüksek kokteyl masaları yerine, yiyeceklere tekerlekli sandalyede olan
+katılımcıların da ulaşabileceği alçak masalar tercih edilebilir.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;bu-konu-hakkında-bilgi-edinebileceğimiz-kaynaklar&#34;&gt;Bu konu hakkında bilgi edinebileceğimiz kaynaklar&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Code_of_conduct&#34;&gt;Code of conduct&lt;/a&gt;, bu
+Wikipedia sayfasının henüz Türkçesi yokmuş, Türkiye&amp;rsquo;deki kısıtlamayla ilgisi
+var mı?&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://opensource.guide/code-of-conduct/&#34;&gt;Code of conduct&lt;/a&gt; için ikinci bir
+kaynak daha.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Karl Popper&amp;rsquo;in &lt;a href=&#34;https://en.wikipedia.org/wiki/Paradox_of_tolerance&#34;&gt;Hoşgörü
+paradoksu&lt;/a&gt;, bunun da
+Türkçesi yokmuş, ne garip.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;bu-yazıya-katkısı-olan-insanlar&#34;&gt;Bu yazıya katkısı olan insanlar&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Aycan Doğanlar&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Çeşitsizlik Neden Bir Sorundur?</title>

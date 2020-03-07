@@ -70,16 +70,16 @@ ise çok değerlidir.&lt;/p&gt;
 &lt;h3 id=&#34;farkındalığın-oluşması-için-çalışma-ne-yapabiliriz&#34;&gt;Farkındalığın oluşması için çalışma ne yapabiliriz?&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Etkinlik ve toplantı sitelerinde erişilebilirlik ile bilgiler yer alabilir,
-Code of conduct sayfası oluşturulabilir. Yeterli bilgi olmaması durumunda
-bilgi alabilmek için iletişim bilgileri yazabilirsiniz. &lt;a href=&#34;https://tr.pycon.org/&#34;&gt;PyCon
+&lt;li&gt;&lt;p&gt;Etkinlik ve toplantı sitelerinde erişilebilirlik ile ilgili bilgiler yer
+alabilir ve “Code of Conduct” sayfası oluşturulabilir. Yeterli bilgi olmaması
+durumunda bilgi alabilmek için iletişim bilgileri yazabilirsiniz. &lt;a href=&#34;https://tr.pycon.org/&#34;&gt;PyCon
 TR&lt;/a&gt; sitesi buna güzel bir örnek.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Konuşmacı, katılımcı veya çalışan seçiminde çeşitliliğe önem
 verebilirsiniz. Chris hocanın eğitimlerindeki &lt;a href=&#34;https://twitter.com/chrisjstephensn/status/1234518408923951104&#34;&gt;%50 kadın
 kotası&lt;/a&gt; buna
 güzel bir örnek. Konuşmacılara veya çalışanlara ödeme yapılırken cinsiyet ve
-ırk farklılığının gözetilmesi sözkonusu bile olmamalı.&lt;/p&gt;&lt;/li&gt;
+ırk farklılığının gözetilmesi söz konusu bile olmamalı.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Çalışma ortamlarının veya etkinlik alanlarının erişilebilirlik için evrensel
 standartlara uygun olup olmadığını kontrol edebilirsiniz. İşitme engelliler
@@ -87,9 +87,9 @@ için yazılı, görsel; görme engelliler için işitsel veya Braille alfabesi 
 alternatif iletişim araçlarını destekleyebilir, tekerlekli sandalye
 kullananlar için ulaşımın mümkün hale getirilmesini sağlayabilirsiniz.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Türkiye&amp;rsquo;de yaşayan yabancı insanlara da hitap edebilmek ve kültürel
+&lt;li&gt;&lt;p&gt;Türkiye’de yaşayan yabancı insanlara da hitap edebilmek ve kültürel
 çeşitliliğe olanak sağlamak için sunumlarda simultane İngilizce çeviri
-hizmetinden yararlanmak veya iletişim için ortak bir dilde konuşmaya özen
+hizmetinden yararlanabilir veya iletişim için ortak bir dilde konuşmaya özen
 gösterebilirsiniz.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;İlginç işler yapan ancak yetersiz temsil edilen (under-represented) en az bir
@@ -99,8 +99,8 @@ konuşmacıya öncelik verebilirsiniz.&lt;/p&gt;&lt;/li&gt;
 özen gösterebilirsiniz. Örneğin: İlgi alanlarına göre kategorilenmiş
 networking grupları oluşturmak (tasarım, yazılım vb.) isteyenlerin ilgili
 gruba dahil olması ve dışlanmış hissetmemesi amaçlanabilir. Bunun dışında
-networking teşvikinde bulunurken, bunun istek dahilinde olduğunu
-hatırlatılması ve bu süreçte konuşma salonu boş bile olsa kullanıma açık
+networking teşvikinde bulunurken, bunun istek dahilinde olduğu
+hatırlatılabilir ve bu süreçte konuşma salonu boş bile olsa kullanıma açık
 tutulabilir.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;İşe alımdan hemen sonra çalışanın rızası doğrultusunda yapılacak bir testle
@@ -108,13 +108,13 @@ her çalışanın anksiyete bozukluğu, sosyal fobi vb. zorlayıcı bir farklıl
 olup olmadığı saptanabilir. Test sonucu sadece ekip lideri ile
 paylaşılabilir.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Toplantılarda, etkinliklerde dini, kültürel ve alerjen diyetleri göz önünde
+&lt;li&gt;&lt;p&gt;Toplantılarda, etkinliklerde; dini, kültürel ve alerjen diyetleri göz önünde
 bulunduran yiyecek seçenekleri sunulabilir.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Ofis düzeninde kadın - erkek ibaresi bulunan tuvaletler yerine, unisex
+&lt;li&gt;&lt;p&gt;Ofis düzeninde kadın-erkek ibaresi bulunan tuvaletler yerine, unisex
 (gender-inclusive) tuvaletler tercih edilebilir veya üçü birden
 olabilir. Bebekli katılımcılar veya konuşmacılar için cinsiyet ayrımı
-gözetmeyen emzirme ve bez değiştirme dalarının olması gerekir.&lt;/p&gt;&lt;/li&gt;
+gözetmeyen emzirme ve bez değiştirme odalarının olması gerekir.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Yüksek kokteyl masaları yerine, yiyeceklere tekerlekli sandalyede olan
 katılımcıların da ulaşabileceği alçak masalar tercih edilebilir.&lt;/p&gt;&lt;/li&gt;
@@ -135,10 +135,10 @@ paradoksu&lt;/a&gt;, bunun da
 Türkçesi yokmuş, ne garip.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&#34;bu-yazıya-katkısı-olan-insanlar&#34;&gt;Bu yazıya katkısı olan insanlar&lt;/h3&gt;
+&lt;h3 id=&#34;bu-yazıya-katkıda-bulunanlar&#34;&gt;Bu yazıya katkıda bulunanlar&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Aycan Doğanlar&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://aycan.co/&#34;&gt;Aycan Doğanlar&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

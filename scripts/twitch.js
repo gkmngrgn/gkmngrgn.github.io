@@ -1,9 +1,9 @@
 var embed = new Twitch.Embed("twitch-embed", {
     width: '100%',
-    height: 480,
-    channel: 'gkmngrgn',
+    height: 540,
+    channel: 'goedev',
     layout: 'video',
-    autoplay: false
+    autoplay: true
 });
 
 embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {

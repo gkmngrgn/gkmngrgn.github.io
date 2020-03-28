@@ -173,112 +173,91 @@
                     <div class="markdown">
                         
     
-    
-
-<p><em>Projeler büyüdükçe operasyonlar artıyor, operasyonları koda döktükçe komutlar, parametreler artıyor. Bunları yardımcı bir scriptle kontrol altına alabiliriz.</em></p>
-
+    <p><em>Projeler büyüdükçe operasyonlar artıyor, operasyonları koda döktükçe komutlar, parametreler artıyor. Bunları yardımcı bir scriptle kontrol altına alabiliriz.</em></p>
 <p><mark>Yazının sonunda bu yönteme dair <strong>eleştirim</strong> ve alternatif önerim var.</mark></p>
-
 <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/bash-shell-scripting.png" src="https://gokmengorgen.net/img/low/bash-shell-scripting.png" alt="" /></p></figure>
-
 <p>Bir projede frontend geliştiricisinin her bildiğini backend geliştirici bilmek, backend geliştiricisinin her bildiğini devops takımı bilmek zorunda değil. Ve farklı pozisyondaki geliştiricilerin birbirlerini aynı konular için <mark>sürekli meşgul etmemesi</mark> arzu edilir. Bunun için süreçleri olabildiğince belgelemek ve otomatikleştirmek gerekiyor.</p>
-
 <h2 id="basit-bir-amacım-var">Basit bir amacım var.</h2>
-
 <ol>
 <li>Birisi bana alanımla ilgili bir soru sorduğunda, ona olabildiğince basit bir cevap vermek istiyorum.</li>
 <li>Bana soru sorulmadan önce de olası çözümleri kendi bulmayı denesin istiyorum.</li>
 <li>Proje neyle yazılmış olursa olsun, yöntem hep aynı olsun istiyorum.</li>
 </ol>
-
 <h2 id="örneğin">Örneğin&hellip;</h2>
-
 <p><strong>Soru:</strong> Geliştirme ortamımı nasıl ayağa kaldırabilirim?
 <br />
 <strong>Cevap:</strong> Bağımlılıkları kur, <code>do start</code> komutunu çalıştır. Daha fazla bilgi için wiki bakabilirsin.</p>
-
 <p><strong>Soru:</strong> Son değişiklikleri geliştirme ortamıma aldım; ancak backend sunucusu çalışmamaya başladı.
 <br />
 <strong>Cevap:</strong> Veritabanı tablosunda değişiklik yaptım, <code>do build &amp;&amp; do restart</code> komutunu çalıştır.</p>
-
 <p><strong>Soru:</strong> Çevirileri güncelledim; ancak arayüzde değişiklikleri göremiyorum.
 <br />
 <strong>Cevap:</strong> <code>do update_translations</code> komutunu çalıştır. <code>do</code> yardım çıktısına bir göz at, wiki&rsquo;ye de yazdım.</p>
-
 <h2 id="neden-shell-scripting">Neden Shell scripting?</h2>
-
 <p>Nedenini <a href="https://gokmengorgen.net/blog/docker-icin-yardimci-script/">şurada</a> yazmıştım. BASH zaten projelerimin çoğunda bir bağımlılık olarak geliyor. İkincisi, shell programlama hem öğrenmesi basit, hem derlemeye gerek kalmadığı için kodlaması zaman kazandırıyor. Yeni bir komut ihtiyacı olduğunda bir fonksiyon ekleyip denemek kolay oluyor. Basit bir örnek üzerinden gidelim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env bash
+</span><span style="color:#75715e"></span>
+BLUE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\\033[1;34m&#34;</span>
+GREEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\\033[1;32m&#34;</span>
+NORMAL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\\033[0;39m&#34;</span>
+RED<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\\033[1;31m&#34;</span>
 
-<pre><code class="language-bash">#!/usr/bin/env bash
+print_help<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>BLUE<span style="color:#e6db74">}</span><span style="color:#e6db74">Available environments</span><span style="color:#e6db74">${</span>NORMAL<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    echo <span style="color:#e6db74">&#34;  - DEV (default)&#34;</span>
+    echo <span style="color:#e6db74">&#34;  - PROD&#34;</span>
+    echo <span style="color:#e6db74">&#34;  - STAGING&#34;</span>
+    echo <span style="color:#e6db74">&#34;&#34;</span>
+    echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>BLUE<span style="color:#e6db74">}</span><span style="color:#e6db74">Available commands</span><span style="color:#e6db74">${</span>NORMAL<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    echo -e <span style="color:#e6db74">&#34;  &gt; colors \t\t Show available colors.&#34;</span>
+    echo -e <span style="color:#e6db74">&#34;  &gt; tell [:words] \t Tell me something.&#34;</span>
+<span style="color:#f92672">}</span>
 
-BLUE=&quot;\\033[1;34m&quot;
-GREEN=&quot;\\033[1;32m&quot;
-NORMAL=&quot;\\033[0;39m&quot;
-RED=&quot;\\033[1;31m&quot;
+colors<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    echo <span style="color:#e6db74">&#34;&#34;</span>
+    echo <span style="color:#e6db74">&#34;This is a test command.&#34;</span>
+    echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>BLUE<span style="color:#e6db74">}</span><span style="color:#e6db74">BLUE</span><span style="color:#e6db74">${</span>NORMAL<span style="color:#e6db74">}</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">${</span>GREEN<span style="color:#e6db74">}</span><span style="color:#e6db74">GREEN</span><span style="color:#e6db74">${</span>NORMAL<span style="color:#e6db74">}</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">${</span>RED<span style="color:#e6db74">}</span><span style="color:#e6db74">RED</span><span style="color:#e6db74">${</span>NORMAL<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+<span style="color:#f92672">}</span>
 
-print_help() {
-    echo -e &quot;${BLUE}Available environments${NORMAL}&quot;
-    echo &quot;  - DEV (default)&quot;
-    echo &quot;  - PROD&quot;
-    echo &quot;  - STAGING&quot;
-    echo &quot;&quot;
-    echo -e &quot;${BLUE}Available commands${NORMAL}&quot;
-    echo -e &quot;  &gt; colors \t\t Show available colors.&quot;
-    echo -e &quot;  &gt; tell [:words] \t Tell me something.&quot;
-}
+tell<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>GREEN<span style="color:#e6db74">}${</span>HOSTNAME<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">${</span>NORMAL<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span>$@<span style="color:#e6db74">&#34;</span>.
+<span style="color:#f92672">}</span>
 
-colors() {
-    echo &quot;&quot;
-    echo &quot;This is a test command.&quot;
-    echo -e &quot;${BLUE}BLUE${NORMAL} - ${GREEN}GREEN${NORMAL} - ${RED}RED${NORMAL}&quot;
-}
-
-tell() {
-    echo -e &quot;${GREEN}${HOSTNAME}:${NORMAL} $@&quot;.
-}
-
-if [ -z &quot;$1&quot; ]
-then
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -z <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>
+<span style="color:#66d9ef">then</span>
     print_help
-else
-    case $ENV in
-        &quot;PROD&quot;)
-            env_str=&quot;production&quot;
+<span style="color:#66d9ef">else</span>
+    <span style="color:#66d9ef">case</span> $ENV in
+        <span style="color:#e6db74">&#34;PROD&#34;</span><span style="color:#f92672">)</span>
+            env_str<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;production&#34;</span>
             ;;
-        &quot;STAGING&quot;)
-            env_str=&quot;staging&quot;
+        <span style="color:#e6db74">&#34;STAGING&#34;</span><span style="color:#f92672">)</span>
+            env_str<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;staging&#34;</span>
             ;;
-        *)
-            env_str=&quot;development&quot;
+        *<span style="color:#f92672">)</span>
+            env_str<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;development&#34;</span>
             ;;
-    esac
-    echo -e &quot;${BLUE}Environment:${NORMAL} $env_str&quot;
-    &quot;$@&quot;
-fi
-</code></pre>
-
-<!--
+    <span style="color:#66d9ef">esac</span>
+    echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>BLUE<span style="color:#e6db74">}</span><span style="color:#e6db74">Environment:</span><span style="color:#e6db74">${</span>NORMAL<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span>$env_str<span style="color:#e6db74">&#34;</span>
+    <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">fi</span>
+</code></pre></div><!--
 # terminal
 $ ENV=PROD ./do.sh tell "hello, world!"
 Environment: production
 URRAS: hello, world!.
 -->
-
 <pre><code class="language-shell hljs"><span class="hljs-meta">#</span><span class="bash"> terminal</span>
 <span class="hljs-meta">$</span><span class="bash"> ENV=PROD ./do.sh tell <span class="hljs-string">"hello, world!"</span></span>
 <span style="color: blue;">Environment:</span> production
 <span style="color: green;">URRAS:</span> hello, world!.</code></pre>
-
 <p>Komutu biraz daha kısaltmak için alias kullanabiliriz:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># ~/.bashrc</span>
+alias <span style="color:#66d9ef">do</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ENV=DEV ./do.sh&#34;</span>
 
-<pre><code class="language-bash"># ~/.bashrc
-alias do=&quot;ENV=DEV ./do.sh&quot;
-
-# Windows kullanıyorsanız, aşağıdakini deneyin.
-# alias do=&quot;ENV=DEV winpty bash do.sh&quot;
-</code></pre>
-
-<!--
+<span style="color:#75715e"># Windows kullanıyorsanız, aşağıdakini deneyin.</span>
+<span style="color:#75715e"># alias do=&#34;ENV=DEV winpty bash do.sh&#34;</span>
+</code></pre></div><!--
 # terminal
 $ do colors
 Environment: development
@@ -286,7 +265,6 @@ Environment: development
 This is a test command.
 BLUE - GREEN - RED
 -->
-
 <pre><code class="language-shell hljs"><span class="hljs-meta">#</span><span class="bash"> terminal</span>
 <span class="hljs-meta">$</span><span class="bash"> <span class="hljs-keyword">do</span> colors</span>
 <span style="color: blue;">Environment:</span> development
@@ -294,36 +272,28 @@ BLUE - GREEN - RED
 This is a test command.
 <span style="color: blue;">BLUE</span> - <span style="color: green;">GREEN</span> - <span style="color: red;">RED</span>
 </code></pre>
-
 <p>Biraz daha işe yarar örnekler <a href="https://gist.github.com/gkmngrgn/48303742353b0b17ae0e5c2d1d24ec3e">GitHubGist</a>&lsquo;te bulabilirsiniz:</p>
-
-<pre><code class="language-shell"># terminal
-$ do
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># terminal</span>
+$ <span style="color:#66d9ef">do</span>
 Available environments
-  - DEV (default)
+  - DEV <span style="color:#f92672">(</span>default<span style="color:#f92672">)</span>
   - PROD
   - STAGING
 
 Available commands
   &gt; build                Build or rebuild services
-  &gt; django [:command]    Run a django-specific command
-  &gt; docker [:command]    Run a docker command
-  &gt; logs [:service]      View output from containers
+  &gt; django <span style="color:#f92672">[</span>:command<span style="color:#f92672">]</span>    Run a django-specific command
+  &gt; docker <span style="color:#f92672">[</span>:command<span style="color:#f92672">]</span>    Run a docker command
+  &gt; logs <span style="color:#f92672">[</span>:service<span style="color:#f92672">]</span>      View output from containers
   &gt; runserver            Run development server
   &gt; shell                Connect to a BASH session from the service inside
   &gt; start                Create and start containers
   &gt; status               List containers
   &gt; stop                 Stop services
-</code></pre>
-
-<script src="https://gist.github.com/gkmngrgn/48303742353b0b17ae0e5c2d1d24ec3e.js"></script>
-
+</code></pre></div><script src="https://gist.github.com/gkmngrgn/48303742353b0b17ae0e5c2d1d24ec3e.js"></script>
 <h2 id="problemler">Problemler</h2>
-
 <p>Her yeni projenin altında bir <strong>do.sh</strong> dosyası oluşturmak, projeye özel olmayan kodların bakımı açısından sıkıntılı bir durum. Stiller ve çalışma biçimiyle ilgili yeni bir standart oluşturmak istediğimde, bu değişiklikleri tüm projelere tek tek yansıtmam gerekiyor. Bu nedenle, başka bir komut satırı uygulaması yazıp, bu uygulamayla <strong>do.yaml</strong> gibi bir ayar dosyasını okumak daha mantıklı olabilir. Böylece projeye özel olmayan kodları dışarıda tutmuş oluruz.</p>
-
 <p>Peki yok mu böyle bir şey zaten? Elbette var, <a href="https://pressly.github.io/sup/">Sup</a> bu mantıkta çalışıyor. Golang ile yazılmış olmasının avantajı, işletim sisteminize göre komut satırı uygulaması içeren bir binary indirip, basit bir ayar dosyası oluşturup hemen kullanmaya başlayabilmeniz. Oldukça kapsamlı ve güzel bir uygulama, mutlaka denemenizi öneriyorum. Eğer gereksiz karmaşık gelirse benim bu yazıda değindiğim yönteme bakabilirsiniz.</p>
-
 <p>Bir diğer problem, PowerShell kullananlar için ayrı bir script dosyası hazırlamak zorunda olmanız. Bu konuda çözüm önerileriniz olursa sevinirim.</p>
 
 
@@ -377,29 +347,6 @@ Available commands
                         </div>
                     
 
-                    
-                        <div class="mt-5 mx-0 mx-md-4 disqus">
-                            <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "gkmngrgn" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-                        </div>
                     
                 </div>
             </div>

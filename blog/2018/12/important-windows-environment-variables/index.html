@@ -165,34 +165,19 @@
                     <div class="markdown">
                         
     
-    
-
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/windows-env-variables.jpg" src="https://gokmengorgen.net/img/low/windows-env-variables.jpg" alt="" /></p></figure>
-
+    <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/windows-env-variables.jpg" src="https://gokmengorgen.net/img/low/windows-env-variables.jpg" alt="" /></p></figure>
 <h2 id="powershell-and-git-encoding-problems">PowerShell and Git encoding problems</h2>
-
 <p>To make <code>git log</code> command output properly display on Windows, we need to set a variable named <code>LC_ALL</code>:</p>
-
-<pre><code class="language-shell">LC_ALL=&quot;C.UTF-8&quot;
-</code></pre>
-
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/powershell-git-encoding-problem.jpg" src="https://gokmengorgen.net/img/low/powershell-git-encoding-problem.jpg" alt="" /></p></figure>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">LC_ALL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;C.UTF-8&#34;</span>
+</code></pre></div><p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/powershell-git-encoding-problem.jpg" src="https://gokmengorgen.net/img/low/powershell-git-encoding-problem.jpg" alt="" /></p></figure>
 <h2 id="incorrect-home-folder-in-emacs">Incorrect home folder in Emacs</h2>
-
 <p>This problem is not only about Emacs. If you try to find a file from <code>HOME</code> variable, you may need to define the variable first:</p>
-
-<pre><code class="language-shell">HOME=&quot;%USERPROFILE%&quot;
-</code></pre>
-
-<pre><code class="language-lisp">;; place all backup files in one directory
-(setq backup-directory-alist `((&quot;.*&quot; . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms `((&quot;.*&quot; ,temporary-file-directory t)))
-(setq default-directory (concat (getenv &quot;HOME&quot;) &quot;/Workspace&quot;))
-</code></pre>
-
-<h2 id="more">More..</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">HOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;%USERPROFILE%&#34;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#75715e">;; place all backup files in one directory</span>
+(<span style="color:#66d9ef">setq</span> backup-directory-alist <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;.*&#34;</span> <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>temporary-file-directory)))
+(<span style="color:#66d9ef">setq</span> auto-save-file-name-transforms <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;.*&#34;</span> <span style="color:#f92672">,</span>temporary-file-directory <span style="color:#66d9ef">t</span>)))
+(<span style="color:#66d9ef">setq</span> default-directory (concat (getenv <span style="color:#e6db74">&#34;HOME&#34;</span>) <span style="color:#e6db74">&#34;/Workspace&#34;</span>))
+</code></pre></div><h2 id="more">More..</h2>
 <p>Take a look at the <a href="https://gokmengorgen.net/en/tags/windows/">other posts</a> about my Windows development environment.</p>
 
 
@@ -234,29 +219,6 @@
                         </div>
                     
 
-                    
-                        <div class="mt-5 mx-0 mx-md-4 disqus">
-                            <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "gkmngrgn" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-                        </div>
                     
                 </div>
             </div>

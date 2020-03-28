@@ -183,27 +183,20 @@
                         
     
     <p>At the end of my three-week vacation, I was asked for a seemingly easy task. We were going to release the new version of the project we developed:</p>
-
 <ul>
 <li>Is today is the last working of the week? <strong>No</strong>.</li>
 <li>Is there any problem with the unit tests? <strong>No</strong>.</li>
 <li>Are all changes confirmed by the product manager, in the staging server? <strong>Yes</strong>.</li>
 </ul>
-
 <p>I always note everything, and so I write this article to remind this experience. My other habit is to define <a href="https://gokmengorgen.net/en/blog/how-do-i-publish-my-articles/"><strong>dosh</strong></a> sub-commands to access frequently used commands in my whole projects. It doesn&rsquo;t matter if the project is written in .NET Core or used Django;</p>
-
 <ul>
 <li>I know that the project will start in my development environment with <code>dosh start</code>,</li>
 <li>I know that the project will build with <code>dosh build</code>,</li>
 <li>I know that <code>dosh deploy</code> command will be running if I push my commits to some specific git branches. All these things are common sub-commands in my projects.</li>
 </ul>
-
 <p>So what was not a standard?</p>
-
 <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/blog/server-updates.png" src="https://gokmengorgen.net/img/blog/low/server-updates.png" alt="" /></p></figure>
-
 <p>I manage everything in a project except the server maintenance. Today the site was offline about an hour because of the communication failure. Sometimes there are small but critical upgrades on the servers, and one of them broke SSL module of the project&rsquo;s <strong>psycopg2</strong> dependency. I had only these logs:</p>
-
 <pre><code>DAMN ! worker 1 (pid: 28018) died :( trying respawn ...
 Respawned uWSGI worker 1 (new pid: 28021)
 !!! uWSGI process 27988 got Segmentation Fault !!!
@@ -216,28 +209,20 @@ Respawned uWSGI worker 1 (new pid: 28021)
 /project/venv/lib/python3.6/site-packages/psycopg2/.libs/./libssl-8bb9b3dd.so.1.0.2o(tls1_clear+0x9) [0x7f480a751229]
 /usr/lib/x86_64-linux-gnu/libssl.so.1.1(SSL_new+0x3f2) [0x7f4812b429d2]
 /project/venv/lib/python3.6/site-packages/psycopg2/.libs/libpq-239f9ac8.so.5.10(+0x23399) [0x7f480a9dc399]
-</code></pre>
-
-<p>You may know <strong>Segmentation Fault</strong> if you coded in C or if you worked with a package manager. Some included libraries that are coming with psycopg2 binary package are linked to the old version of libssl, so the last server update <mark>broke the dependencies<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></mark>.</p>
-
+</code></pre><p>You may know <strong>Segmentation Fault</strong> if you coded in C or if you worked with a package manager. Some included libraries that are coming with psycopg2 binary package are linked to the old version of libssl, so the last server update <mark>broke the dependencies<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></mark>.</p>
 <pre><code>lib/python3.6/site-packages/psycopg2/.libs/libssl-8bb9b3dd.so.1.0.2o   # from 1.0
 lib/python3.6/site-packages/psycopg2/.libs/libssl-7a80b951.so.1.1.1b   # to 1.1
-</code></pre>
-
-<p>In some projects, it’s not possible to solve the problems as we wanted because of some regulations and source limits. I could find prevention for that case, but somehow, I forgot to check the updates in the source code and server packages and tried to make the deployment. And the worst thing, I didn’t realise the problem until someone warned me.</p>
-
+</code></pre><p>In some projects, it’s not possible to solve the problems as we wanted because of some regulations and source limits. I could find prevention for that case, but somehow, I forgot to check the updates in the source code and server packages and tried to make the deployment. And the worst thing, I didn’t realise the problem until someone warned me.</p>
 <p>So, I added one more rule for myself to make a deployment:</p>
-
 <ul>
 <li>Is today the first day after the vacation? <strong>Yes (so, don&rsquo;t touch it.)</strong>.</li>
 </ul>
-<div class="footnotes">
-
+<div class="footnotes" role="doc-endnotes">
 <hr />
-
 <ol>
-<li id="fn:1">&ldquo;Don&rsquo;t break the dependencies&rdquo;, I missed contributing a Linux distro like Pardus.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>&ldquo;Don&rsquo;t break the dependencies&rdquo;, I missed contributing a Linux distro like Pardus. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
 </div>
 
@@ -292,29 +277,6 @@ lib/python3.6/site-packages/psycopg2/.libs/libssl-7a80b951.so.1.1.1b   # to 1.1
                         </div>
                     
 
-                    
-                        <div class="mt-5 mx-0 mx-md-4 disqus">
-                            <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "gkmngrgn" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-                        </div>
                     
                 </div>
             </div>

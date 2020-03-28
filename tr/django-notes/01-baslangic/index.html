@@ -142,12 +142,8 @@
                     <div class="markdown">
                         
     
-    
-
-<p><em>Web Framework&rsquo;leri, bir web projesinde duyulabilecek temel ihtiyaçları belli bir amaç doğrultusunda, belli yöntemlerle karşılamaya çalışırlar. Bugüne kadar geliştirilmiş binlerce framework var ve tercihi nasıl yapacağınız konusu tamamen size bağlı. Kararınız Django ise veya Django&rsquo;ya meraklıysanız, bu yazı dizisini sizler için hazırladım. Elimden geldiğince hızlı bir başlangıç yapacağım, <u>detaylara boğmak yok</u>, motivasyonunuzu da <strong>yüksek tutmaya</strong> çalışacağım.</em></p>
-
+    <p><em>Web Framework&rsquo;leri, bir web projesinde duyulabilecek temel ihtiyaçları belli bir amaç doğrultusunda, belli yöntemlerle karşılamaya çalışırlar. Bugüne kadar geliştirilmiş binlerce framework var ve tercihi nasıl yapacağınız konusu tamamen size bağlı. Kararınız Django ise veya Django&rsquo;ya meraklıysanız, bu yazı dizisini sizler için hazırladım. Elimden geldiğince hızlı bir başlangıç yapacağım, <u>detaylara boğmak yok</u>, motivasyonunuzu da <strong>yüksek tutmaya</strong> çalışacağım.</em></p>
 <h2 id="özet">Özet</h2>
-
 <ul>
 <li>Django geliştirme ortamımızı kuracağız.</li>
 <li>Geliştirme sunucusunu nasıl kullanacağımızı öğreneceğiz.</li>
@@ -155,53 +151,37 @@
 <li>Anasayfamızı çok basit bir tasarımla birlikte sunacağız.</li>
 <li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-01">buradan</a> erişebilirsiniz.</li>
 </ul>
-
 <h2 id="en-temel-gereksinimler">En Temel Gereksinimler</h2>
-
-<p>En temel gereksinimimiz Django&rsquo;nun geliştirildiği dil olan Python. Yani öncelikle bizim Python3<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> yorumlayıcısına ihtiyacımız var. Sitesine girip kurduktan sonra beraberinde pip paket yükleme aracınızı da kurmuş olacaksınız. Bu araçla Django&rsquo;yu kuracağız. Kullandığınız herhangi bir terminal uygulamasını açın ve şu komutu çalıştırın:</p>
-
-<pre><code class="language-bash">$ pip install Django==2.0.3
-</code></pre>
-
-<pre><code class="language-bash">Collecting Django==2.0.3
-  Downloading Django-2.0.3-py3-none-any.whl (7.1MB)
+<p>En temel gereksinimimiz Django&rsquo;nun geliştirildiği dil olan Python. Yani öncelikle bizim Python3<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> yorumlayıcısına ihtiyacımız var. Sitesine girip kurduktan sonra beraberinde pip paket yükleme aracınızı da kurmuş olacaksınız. Bu araçla Django&rsquo;yu kuracağız. Kullandığınız herhangi bir terminal uygulamasını açın ve şu komutu çalıştırın:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pip install Django<span style="color:#f92672">==</span>2.0.3
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Collecting Django<span style="color:#f92672">==</span>2.0.3
+  Downloading Django-2.0.3-py3-none-any.whl <span style="color:#f92672">(</span>7.1MB<span style="color:#f92672">)</span>
     100% |████████████████████████████████| 7.1MB 127kB/s
-Collecting pytz (from Django==2.0.3)
-  Downloading pytz-2018.3-py2.py3-none-any.whl (509kB)
+Collecting pytz <span style="color:#f92672">(</span>from Django<span style="color:#f92672">==</span>2.0.3<span style="color:#f92672">)</span>
+  Downloading pytz-2018.3-py2.py3-none-any.whl <span style="color:#f92672">(</span>509kB<span style="color:#f92672">)</span>
     100% |████████████████████████████████| 512kB 776kB/s
 Installing collected packages: pytz, Django
 Successfully installed Django-2.0.3 pytz-2018.3
-</code></pre>
-
-<p>Django kurulduktan sonra, artık Django projelerini yönetebilmek için bir yeni bir komutumuz var, <code>django-admin</code>. Hemen bir websitesi projesini oluşturalım ve geliştirme sunucusunu çalıştıralım:</p>
-
-<pre><code class="language-bash">$ django-admin.exe startproject hello_django
+</code></pre></div><p>Django kurulduktan sonra, artık Django projelerini yönetebilmek için bir yeni bir komutumuz var, <code>django-admin</code>. Hemen bir websitesi projesini oluşturalım ve geliştirme sunucusunu çalıştıralım:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ django-admin.exe startproject hello_django
 $ cd hello_django
-$ python manage.py runserver 0:8000  # Bunu hatırlayın, çok sık kullanacağız.
-</code></pre>
+$ python manage.py runserver 0:8000  <span style="color:#75715e"># Bunu hatırlayın, çok sık kullanacağız.</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Performing system checks...
 
-<pre><code class="language-bash">Performing system checks...
+System check identified no issues <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> silenced<span style="color:#f92672">)</span>.
 
-System check identified no issues (0 silenced).
-
-You have 14 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
-Run 'python manage.py migrate' to apply them.
-March 30, 2018 - 22:14:18
-Django version 2.0.3, using settings 'hello_django.settings'
+You have <span style="color:#ae81ff">14</span> unapplied migration<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>. Your project may not work properly <span style="color:#66d9ef">until</span> you apply the migrations <span style="color:#66d9ef">for</span> app<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>: admin, auth, contenttypes, sessions.
+Run <span style="color:#e6db74">&#39;python manage.py migrate&#39;</span> to apply them.
+March 30, <span style="color:#ae81ff">2018</span> - 22:14:18
+Django version 2.0.3, using settings <span style="color:#e6db74">&#39;hello_django.settings&#39;</span>
 Starting development server at http://0:8000/
 Quit the server with CTRL-BREAK.
-</code></pre>
-
-<p>Bu noktaya kadar geldiniz ve web tarayıcınızdan <a href="http://localhost:8000">http://localhost:8000</a> adresine girdiğinizde aşağıdaki gibi bir görüntü alıyorsanız, temel gereksinimlerimiz tamam demektir.</p>
-
-<p><a href="https://gokmengorgen.net/img/django-notes/installation.png" target="_blank">
-  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/installation.png" src="https://gokmengorgen.net/img/django-notes/low/installation.png" alt="Django installation" title="Tebrikler! Django hazır." /></figure>
-</a></p>
-
+</code></pre></div><p>Bu noktaya kadar geldiniz ve web tarayıcınızdan http://localhost:8000 adresine girdiğinizde aşağıdaki gibi bir görüntü alıyorsanız, temel gereksinimlerimiz tamam demektir.</p>
+<a href="https://gokmengorgen.net/img/django-notes/installation.png" target="_blank">
+  ![Django installation](/img/django-notes/installation.png "Tebrikler! Django hazır.")
+</a>
 <h2 id="kodlamaya-geçmeden-bir-gözden-geçirelim">Kodlamaya Geçmeden, Bir Gözden Geçirelim</h2>
-
 <p>Projemizin dizin / dosya yapısını bir gözden geçirelim. Ne nerede, önce onu bilelim:</p>
-
 <pre><code>hello_django/
   __pycache__
   settings.py
@@ -210,10 +190,7 @@ Quit the server with CTRL-BREAK.
   __init__.py
 db.sqlite3
 manage.py
-</code></pre>
-
-<p>Eksikler çok; ama başlamak için yeterince basit. En önemlilerinden başlayalım:</p>
-
+</code></pre><p>Eksikler çok; ama başlamak için yeterince basit. En önemlilerinden başlayalım:</p>
 <ul>
 <li><code>db.sqlite3</code>, adından belli. Veritabanı dosyamız, varsayılan veritabanı hizmetini <a href="https://sqlite.org/">SQLite</a>&lsquo;ten alıyoruz.</li>
 <li><code>manage.py</code>, <code>django-admin</code> komutumuzla benzer bir işlevi var; ancak içinde barındırıldığı projeye göre özelleştirilmiş, yapılandırılmış.</li>
@@ -221,123 +198,94 @@ manage.py
 <li><code>urls.py</code>, tüm url tanımlamalarımızı içeriyor.</li>
 <li><code>wsgi.py</code>, <a href="https://wsgi.readthedocs.io/en/latest/what.html">WSGI</a> yapılandırmamızı içeriyor.</li>
 </ul>
-
 <p>WSGI&rsquo;ye daha sonra bakacağız, onu bir kenara bırakalım ve <code>runserver</code> ile ne olduğunu anlayalım:</p>
-
 <ol>
 <li>Önce proje ortamındaki değişkenlerimiz <code>manage.py</code> ile tanımlanıyor.</li>
 <li>Ayarlarımız <code>settings.py</code> dosyasından alınıyor, uygulanıyor. Veritabanımız da bu noktada ayarlanmış oluyor.</li>
 <li>Web adreslerimiz <code>urls.py</code> üzerinden tanımlanıyor. Böylece burada tanımlanan adreslere tarayıcımızdan ulaşabiliyoruz.</li>
 </ol>
-
 <p>Buraya kadar projenin nasıl çalıştığını anladıysak, artık kod yazmaya ve MTV (Model - Template - View) kullanarak ilk
 sayfamızı oluşturmaya hazırız.</p>
-
 <h2 id="mtv-nedir-birlikte-deneyelim">MTV nedir? Birlikte Deneyelim</h2>
-
-<p>Bir web sitesi ziyaretçisinin isteklerinin değerlendirilmesi ve cevaplandırılması için yazılımda çeşitli tasarımlar bulunuyor ve bunlardan biri <strong>MVC</strong><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>. Model - View - Controller sayesinde, ziyaretçinin istekleri alınıyor, View katmanında değerlendiriliyor; veri gerektiğinde Model katmanından elde ediliyor ve Controller üzerinden bu iki katman arasında iletişim sağlanıyor.</p>
-
+<p>Bir web sitesi ziyaretçisinin isteklerinin değerlendirilmesi ve cevaplandırılması için yazılımda çeşitli tasarımlar bulunuyor ve bunlardan biri <strong>MVC</strong><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. Model - View - Controller sayesinde, ziyaretçinin istekleri alınıyor, View katmanında değerlendiriliyor; veri gerektiğinde Model katmanından elde ediliyor ve Controller üzerinden bu iki katman arasında iletişim sağlanıyor.</p>
 <p>Fakat Django&rsquo;da biz bu yapıyı farklı şekilde kullanıyoruz ve <strong>MTV</strong> (Model - Template - View) olarak isimlendiriyoruz. Bir Controller yerine merkeze View katmanını koyuyoruz, veriyi Model katmanından alıyoruz, Template katmanında da kullanıcıya bir sonuç gösteriyoruz. URL adresi tanımlarken de hep View katmanını kullanıyoruz. Bunu bizzat deneyip görelim. Yapacağımız şey, anasayfada farklı bir mesaj göstermek. Önce <code>hello_django/hello_django/urls.py</code> dosyasını açın ve ilk sayfamızı bağlayalım:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">...</span>
+<span style="color:#f92672">from</span> django.contrib <span style="color:#f92672">import</span> admin
+<span style="color:#f92672">from</span> django.urls <span style="color:#f92672">import</span> path
+<span style="color:#f92672">from</span> hello_django.views <span style="color:#f92672">import</span> HomeView  <span style="color:#75715e"># Bunu ekledik.</span>
 
-<pre><code class="language-python">...
-from django.contrib import admin
-from django.urls import path
-from hello_django.views import HomeView  # Bunu ekledik.
-
-urlpatterns = [
-    path('', view=HomeView.as_view(), name='home'),  # Bunu ekledik.
-    path('admin/', admin.site.urls),
+urlpatterns <span style="color:#f92672">=</span> [
+    path(<span style="color:#e6db74">&#39;&#39;</span>, view<span style="color:#f92672">=</span>HomeView<span style="color:#f92672">.</span>as_view(), name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;home&#39;</span>),  <span style="color:#75715e"># Bunu ekledik.</span>
+    path(<span style="color:#e6db74">&#39;admin/&#39;</span>, admin<span style="color:#f92672">.</span>site<span style="color:#f92672">.</span>urls),
 ]
-</code></pre>
-
-<p>Burada anasayfaya ziyaret edildiğinde hangi View class&rsquo;ının karşılayacağını belirtmiş olduk; fakat View henüz hazır değil. <code>hello_django/hello_django/views.py</code> dosyası oluşturup yeni bir tane yazalım:</p>
-
-<pre><code class="language-python">from django.views.generic import TemplateView
+</code></pre></div><p>Burada anasayfaya ziyaret edildiğinde hangi View class'ının karşılayacağını belirtmiş olduk; fakat View henüz hazır değil. <code>hello_django/hello_django/views.py</code> dosyası oluşturup yeni bir tane yazalım:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> django.views.generic <span style="color:#f92672">import</span> TemplateView
 
 
-class HomeView(TemplateView):
-    template_name = 'home.html'
-</code></pre>
-
-<p>Geliştirme sunucumuzu daha önce gösterdiğimiz şekilde çalıştırın ve sonucu beraber anlayalım:</p>
-
-<p><a href="https://gokmengorgen.net/img/django-notes/template-does-not-exist.png" target="_blank">
-  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/template-does-not-exist.png" src="https://gokmengorgen.net/img/django-notes/low/template-does-not-exist.png" alt="Template does not exist." title="View hazır; ama Template eksik." /></figure>
-</a></p>
-
-<p>View class&rsquo;ımızda <code>home.html</code> dosyasını kullanacağımızı belirttik, Django bizim için birkaç yere bakmış ama Template&rsquo;i bulamamış. Biz bir dizin oluşturalım ve Template dosyamızı <code>hello_django/templates/home.html</code> olarak tutalım:</p>
-
-<pre><code class="language-html">&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
-        &lt;title&gt;Hello, Django!&lt;/title&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/main.css&quot;&gt; &lt;!-- Buna dikkat! --&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;h1&gt;Hello, Django!&lt;/h1&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-
-<p>Son bir şey kaldı. Django&rsquo;ya Template dizinimizin nerede olduğunu haber vermemiz gerekiyor. <code>settings.py</code> dosyasını açın ve aşağıdaki değişikliği yapın:</p>
-
-<pre><code class="language-python">...
-TEMPLATES = [
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HomeView</span>(TemplateView):
+    template_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;home.html&#39;</span>
+</code></pre></div><p>Geliştirme sunucumuzu daha önce gösterdiğimiz şekilde çalıştırın ve sonucu beraber anlayalım:</p>
+<a href="https://gokmengorgen.net/img/django-notes/template-does-not-exist.png" target="_blank">
+  ![Template does not exist.](/img/django-notes/template-does-not-exist.png "View hazır; ama Template eksik.")
+</a>
+<p>View class'ımızda <code>home.html</code> dosyasını kullanacağımızı belirttik, Django bizim için birkaç yere bakmış ama Template&rsquo;i bulamamış. Biz bir dizin oluşturalım ve Template dosyamızı <code>hello_django/templates/home.html</code> olarak tutalım:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!doctype html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+    &lt;<span style="color:#f92672">head</span>&gt;
+        &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;
+        &lt;<span style="color:#f92672">title</span>&gt;Hello, Django!&lt;/<span style="color:#f92672">title</span>&gt;
+        &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/static/main.css&#34;</span>&gt; <span style="color:#75715e">&lt;!-- Buna dikkat! --&gt;</span>
+    &lt;/<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">body</span>&gt;
+        &lt;<span style="color:#f92672">h1</span>&gt;Hello, Django!&lt;/<span style="color:#f92672">h1</span>&gt;
+    &lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>Son bir şey kaldı. Django&rsquo;ya Template dizinimizin nerede olduğunu haber vermemiz gerekiyor. <code>settings.py</code> dosyasını açın ve aşağıdaki değişikliği yapın:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">...</span>
+TEMPLATES <span style="color:#f92672">=</span> [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Bunu değiştirdik.
-        'APP_DIRS': True,
-        'OPTIONS': {
-            ...
+        <span style="color:#e6db74">&#39;BACKEND&#39;</span>: <span style="color:#e6db74">&#39;django.template.backends.django.DjangoTemplates&#39;</span>,
+        <span style="color:#e6db74">&#39;DIRS&#39;</span>: [os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(BASE_DIR, <span style="color:#e6db74">&#39;templates&#39;</span>)],  <span style="color:#75715e"># Bunu değiştirdik.</span>
+        <span style="color:#e6db74">&#39;APP_DIRS&#39;</span>: True,
+        <span style="color:#e6db74">&#39;OPTIONS&#39;</span>: {
+            <span style="color:#f92672">...</span>
         },
     },
 ]
-...
-</code></pre>
-
-<p><a href="https://gokmengorgen.net/img/django-notes/say-hello.png" target="_blank">
-  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/say-hello.png" src="https://gokmengorgen.net/img/django-notes/low/say-hello.png" alt="Say hello!" title="View tamam, Template tamam. Sırada?" /></figure>
-</a></p>
-
+<span style="color:#f92672">...</span>
+</code></pre></div><a href="https://gokmengorgen.net/img/django-notes/say-hello.png" target="_blank">
+  ![Say hello!](/img/django-notes/say-hello.png "View tamam, Template tamam. Sırada?")
+</a>
 <p>Artık beklediğimiz sonucu görebiliyoruz. Son olarak sayfada bir stil düzenlemesi yaparak ilk yazımızı tamamlayalım. HTML dosyamızı oluştururken <code>/static/main.css</code> adında bir stil dosyamız varmış gibi tanımlamıştık. Bu dosyayı oluşturalım ve sonra <code>static</code> dizinimizi Template dizini için olduğu gibi <code>settings.py</code> dosyamızda tanımlayalım.</p>
-
 <p><code>static/main.css</code> dosyamız:</p>
-
-<pre><code class="language-css">body {
-  background-color: #222;
-  color: #fff;
-  font-size: 48px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> {
+  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#222</span>;
+  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>;
+  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">48</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#39;Segoe UI&#39;</span>, Tahoma, Geneva, Verdana, <span style="color:#66d9ef">sans-serif</span>;
 }
-</code></pre>
+</code></pre></div><p><code>settings.py</code> dosyamızda yapılan değişiklik:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">...</span>
+<span style="color:#75715e"># Static files (CSS, JavaScript, Images)</span>
+<span style="color:#75715e"># https://docs.djangoproject.com/en/2.0/howto/static-files/</span>
 
-<p><code>settings.py</code> dosyamızda yapılan değişiklik:</p>
-
-<pre><code class="language-python">...
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+STATIC_URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/static/&#39;</span>
+STATICFILES_DIRS <span style="color:#f92672">=</span> [
+    os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(BASE_DIR, <span style="color:#e6db74">&#39;static&#39;</span>),
 ]
-</code></pre>
-
-<p><a href="https://gokmengorgen.net/img/django-notes/hello-django-with-style.png" target="_blank">
-  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/hello-django-with-style.png" src="https://gokmengorgen.net/img/django-notes/low/hello-django-with-style.png" alt="Black and white" title="Siyah Beyaz!" /></figure>
-</a></p>
-
+</code></pre></div><a href="https://gokmengorgen.net/img/django-notes/hello-django-with-style.png" target="_blank">
+  ![Black and white](/img/django-notes/hello-django-with-style.png "Siyah Beyaz!")
+</a>
 <p>MTV&rsquo;nin Template ve View katmanlarına burada kısaca değinmiş olduk. Bir sonraki yazımda Model katmanı hakkında bilgi vereceğim ve bununla ilgili beraber bir alıştırma yapacağız. Hoşça kalın!</p>
-<div class="footnotes">
-
+<div class="footnotes" role="doc-endnotes">
 <hr />
-
 <ol>
-<li id="fn:1">Python3 <a href="https://www.python.org/downloads/">buradan</a> indirebilirsiniz.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:2">MVC hakkında daha fazla bilgi için <a href="https://tr.wikipedia.org/wiki/Model-View-Controller">buraya</a> bakın.
- <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>Python3 <a href="https://www.python.org/downloads/">buradan</a> indirebilirsiniz. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>MVC hakkında daha fazla bilgi için <a href="https://tr.wikipedia.org/wiki/Model-View-Controller">buraya</a> bakın. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
 </div>
 

@@ -169,58 +169,41 @@
                     <div class="markdown">
                         
     
-    
-
-<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/hashicorp-vagrant.png" src="https://gokmengorgen.net/img/low/hashicorp-vagrant.png" alt="Hashicorp Vagrant" /></p></figure>
-
+    <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/hashicorp-vagrant.png" src="https://gokmengorgen.net/img/low/hashicorp-vagrant.png" alt="Hashicorp Vagrant" /></p></figure>
 <p>Monolitik yapıda bir web projesinin iskeletini oluşturup, projeyi geliştirmek için bir geliştirme ortamına ihtiyacımız var. Geliştirme ortamını hazırlarken bazı ayrıntıları göz önünde bulundurmak gerekir:</p>
-
 <ol>
 <li>Projede tek başıma mı olacağım? Tek başıma değilsem ekip arkadaşlarım kurulumda sorun yaşarlar mı?</li>
 <li>Tek başıma bile olsam, yerelimde yaşamadığım bir sorunu sunucuda yaşarsam bununla nasıl başa çıkacağım veya bu ihtimalın olmaması için ne yapabilirim?</li>
 <li>Bağımlılıklarda sürüm çakışması yaşarsam bunu nasıl çözeceğim? Geliştirme ortamımı diğerlerinden nasıl izole edebilirim?</li>
 <li>Geliştirme ortamımı yeni baştan kurmak istediğimde, başka bir bilgisayara geçtiğimde, her seferinde kurulum belgesi mi okuyacağım? Ve bu belge her işletim sistemi, her işletim sistemi sürümünde geçerli olabilecek mi?</li>
 </ol>
-
 <p>Amacımız şudur: 5 tane projemiz de olsa, ekibe sonradan katılıyor da olsak, hızlıca geliştirme ortamına sahip olabilmek ve bu ortamlar arasında kolayca geçiş yapabilmek, gerekirse hızlıca baştan kurabilmek.</p>
-
 <h2 id="sanallaştırma">Sanallaştırma</h2>
-
 <p>Vagrant sanallaştırma teknolojilerini kullanarak, kolayca yapılandırılabilir, tekrar tekrar kurulabilir ve taşınabilir geliştirme ortamı sağlayan bir araç. Bu sayede tek komutla geliştirme ortamımız hazırlanacak:</p>
-
-<pre><code class="language-bash">$ vagrant up
-</code></pre>
-
-<p>Bu komutun bizim istediğimiz şekilde çalışabilmesi için bilgisayarımıza Vagrant ve bir sanallaştırma çözümü (örneğin VirtualBox) kurmamız, bir de proje dizinimizde Vagrantfile adında bir yapılandırma dosyası oluşturup hazırlamamız gerekiyor. Vagrant hakkında daha fazla bilgiyi <a href="https://www.vagrantup.com/intro/index.html">buradan</a> edinebilirsiniz.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vagrant up
+</code></pre></div><p>Bu komutun bizim istediğimiz şekilde çalışabilmesi için bilgisayarımıza Vagrant ve bir sanallaştırma çözümü (örneğin VirtualBox) kurmamız, bir de proje dizinimizde Vagrantfile adında bir yapılandırma dosyası oluşturup hazırlamamız gerekiyor. Vagrant hakkında daha fazla bilgiyi <a href="https://www.vagrantup.com/intro/index.html">buradan</a> edinebilirsiniz.</p>
 <p>Projelerimde kullandığım Vagrant yapılandırmamı <a href="https://github.com/gkmngrgn/vagrant-skeleton">burada</a> bulabilirsiniz, depoyu forklayıp siz de katkıda bulunabilirsiniz.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># -*- mode: ruby -*-</span>
+<span style="color:#75715e"># vi: set ft=ruby :</span>
 
-<pre><code class="language-ruby"># -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-Vagrant.configure(&quot;2&quot;) do |config|
-  config.vm.box = &quot;ubuntu/xenial64&quot;
-  config.vm.network &quot;forwarded_port&quot;, guest: 8000, host: 8000
-  config.vm.provider &quot;virtualbox&quot; do |vb|
-    vb.memory = &quot;512&quot;
-  end
-  config.vm.provision &quot;shell&quot;, path: &quot;increase_swap.sh&quot;
-  config.vm.provision &quot;shell&quot;, path: &quot;update_repositories.sh&quot;
-  config.vm.provision &quot;shell&quot;, path: &quot;install_java.sh&quot;
-  config.vm.provision &quot;shell&quot;, path: &quot;install_elasticsearch.sh&quot;
-  config.vm.provision &quot;shell&quot;, path: &quot;install_nodejs.sh&quot;
-  config.vm.provision &quot;shell&quot;, path: &quot;install_postgresql.sh&quot;
-  config.vm.provision &quot;shell&quot;, path: &quot;install_python.sh&quot;
-  [...]
-end
-</code></pre>
-
-<p><code>Vagrantfile</code> dosyamızın içeriği çok basit. Bir Ubuntu 16.04 imajıyla sanal bir sunucu oluşturup, bir seferlik provision script’lerini çalıştırarak geliştirme ortamınızı hazırlıyor. Bu örnekte, 512 MB ram’lık sanal sunucumuza 1024 MB’lik SWAP alanı oluşturuyorum, sonrasında Elasticsearch, Nodejs, PostgreSQL gibi proje için gerekli paketleri kuruyorum, proje için veritabanı oluşturuyorum, Python için virtualenv’i hazırlıyorum.</p>
-
+<span style="color:#66d9ef">Vagrant</span><span style="color:#f92672">.</span>configure(<span style="color:#e6db74">&#34;2&#34;</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>config<span style="color:#f92672">|</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>box <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ubuntu/xenial64&#34;</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>network <span style="color:#e6db74">&#34;forwarded_port&#34;</span>, <span style="color:#e6db74">guest</span>: <span style="color:#ae81ff">8000</span>, <span style="color:#e6db74">host</span>: <span style="color:#ae81ff">8000</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;virtualbox&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>vb<span style="color:#f92672">|</span>
+    vb<span style="color:#f92672">.</span>memory <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;512&#34;</span>
+  <span style="color:#66d9ef">end</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">&#34;shell&#34;</span>, <span style="color:#e6db74">path</span>: <span style="color:#e6db74">&#34;increase_swap.sh&#34;</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">&#34;shell&#34;</span>, <span style="color:#e6db74">path</span>: <span style="color:#e6db74">&#34;update_repositories.sh&#34;</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">&#34;shell&#34;</span>, <span style="color:#e6db74">path</span>: <span style="color:#e6db74">&#34;install_java.sh&#34;</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">&#34;shell&#34;</span>, <span style="color:#e6db74">path</span>: <span style="color:#e6db74">&#34;install_elasticsearch.sh&#34;</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">&#34;shell&#34;</span>, <span style="color:#e6db74">path</span>: <span style="color:#e6db74">&#34;install_nodejs.sh&#34;</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">&#34;shell&#34;</span>, <span style="color:#e6db74">path</span>: <span style="color:#e6db74">&#34;install_postgresql.sh&#34;</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">&#34;shell&#34;</span>, <span style="color:#e6db74">path</span>: <span style="color:#e6db74">&#34;install_python.sh&#34;</span>
+  <span style="color:#f92672">[...]</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p><code>Vagrantfile</code> dosyamızın içeriği çok basit. Bir Ubuntu 16.04 imajıyla sanal bir sunucu oluşturup, bir seferlik provision script’lerini çalıştırarak geliştirme ortamınızı hazırlıyor. Bu örnekte, 512 MB ram’lık sanal sunucumuza 1024 MB’lik SWAP alanı oluşturuyorum, sonrasında Elasticsearch, Nodejs, PostgreSQL gibi proje için gerekli paketleri kuruyorum, proje için veritabanı oluşturuyorum, Python için virtualenv’i hazırlıyorum.</p>
 <h2 id="sorunlar-çözümler">Sorunlar, Çözümler</h2>
-
 <p>Bu yöntemde şimdiye kadar Windows ve MacOS kullanan geliştirici arkadaşlarda ciddi problem yaşamadık. Bazen sanal sunucunun internet erişiminin olmaması gibi sorunlar yaşadıysak da bir şekilde çözüldü. Fakat tuhaf bir şekilde Linux dağıtımı kullanan arkadaşlarda VirtualBox’un çalışmaması, paketlerin yüklenmemesi gibi sorunlar yaşadık ve onlar da provision script’lerini kendi yerel bilgisayarlarında çalıştırmayı tercih ettiler. Her zaman yaşanan sorunlar değildi; ama yaşandı mı uğraştıran sorunlardı. Diğer konulara değinecek olursak:</p>
-
 <ol>
 <li>Belli ve kurulumu denenmiş Vagrant ve VirtualBox sürümlerini kurulum belgemizde belirtmeye ve geliştiricilere de bu sürümleri kullanmalarını önermeye başladık.</li>
 <li>Mikro servisler için geliştirme ortamı hazırlamak monolitik yapıdaki projeler kadar basit olmayabiliyor. Örneğin sanal sunucumuzun içinde Docker kullanarak her bir mikro servis için bir container hazırlamak gerekebiliyor.</li>
@@ -279,29 +262,6 @@ end
                         </div>
                     
 
-                    
-                        <div class="mt-5 mx-0 mx-md-4 disqus">
-                            <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "gkmngrgn" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-                        </div>
                     
                 </div>
             </div>

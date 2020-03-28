@@ -142,187 +142,146 @@
                     <div class="markdown">
                         
     
-    
-
-<p><em>Eğer içeriği dinamik oluşturuyorsak, ortak sayfa bileşenlerini tekrar tekrar yazmak istemiyorsak, Template katmanını biraz daha yakından tanımamız gerekiyor.</em></p>
-
+    <p><em>Eğer içeriği dinamik oluşturuyorsak, ortak sayfa bileşenlerini tekrar tekrar yazmak istemiyorsak, Template katmanını biraz daha yakından tanımamız gerekiyor.</em></p>
 <h2 id="özet">Özet</h2>
-
 <ul>
 <li>Template katmanında layout kullanımına bir örnek göstereceğiz.</li>
 <li>Örnek bir template tag ve filter yazmayı deneyeceğiz.</li>
 <li>Admin panelimizde, göze hoş görünmesi için bir stil düzenlemesi yapacağız.</li>
 <li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-04">buradan</a> erişebilirsiniz.</li>
 </ul>
-
 <h2 id="layout-kullanımı">Layout Kullanımı</h2>
-
 <p>Template dosyaları yazmaya başladıkça bir şeyleri tekrar etmeye başlayacaksınız. Birçoğunun içinde head ve body var, bir çoğunda ortak stil dosyalarını kullanacaksınız, hatta hangi sayfa olursa olsun bazı meta tagları hiç değişmeyecek. Her Template dosyasında bunları tekrar tekrar yazmak zor ve anlamsız. Onun yerine, <code>base.html</code> adında bir layout oluşturup diğer Template dosyalarımızda bu layout&rsquo;u kullanabiliriz. İşte biz bu tip işlevleri Django&rsquo;nun arkasındaki Template motoru sayesinde yapabiliyoruz.</p>
+<p>Django birden fazla Template motoru destekliyor. Varsayılan template motoru<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, <a href="http://jinja.pocoo.org/">Jinja</a>&lsquo;ya çok benziyor; fakat Jinja&rsquo;nın tüm özelliklerini desteklemiyor. Ancak dilerseniz onu da tercih edebilirsiniz. Varsayılan Template motoru ile bir layout oluşturmayı deneyelim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- templates/base.html --&gt;</span>
 
-<p>Django birden fazla Template motoru destekliyor. Varsayılan template motoru<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>, <a href="http://jinja.pocoo.org/">Jinja</a>&lsquo;ya çok benziyor; fakat Jinja&rsquo;nın tüm özelliklerini desteklemiyor. Ancak dilerseniz onu da tercih edebilirsiniz. Varsayılan Template motoru ile bir layout oluşturmayı deneyelim:</p>
-
-<pre><code class="language-html">&lt;!-- templates/base.html --&gt;
-
-&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
-        &lt;!-- block'un içini varsayılan bir değerle doldurabilirsiniz. --&gt;
-        &lt;!-- Örneğin burada varsayılan &quot;Hello&quot; --&gt;
-        &lt;title&gt;{% block title %}Hello{% endblock %}&lt;/title&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/main.css&quot;&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
+<span style="color:#75715e">&lt;!doctype html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+    &lt;<span style="color:#f92672">head</span>&gt;
+        &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;
+        <span style="color:#75715e">&lt;!-- block&#39;un içini varsayılan bir değerle doldurabilirsiniz. --&gt;</span>
+        <span style="color:#75715e">&lt;!-- Örneğin burada varsayılan &#34;Hello&#34; --&gt;</span>
+        &lt;<span style="color:#f92672">title</span>&gt;{% block title %}Hello{% endblock %}&lt;/<span style="color:#f92672">title</span>&gt;
+        &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/static/main.css&#34;</span>&gt;
+    &lt;/<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">body</span>&gt;
         {% block content %}{% endblock %}
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+    &lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>Basit bir layout örneği. İçinde iki block var ve bu block&rsquo;lar sayesinde içeriği doldurabiliyoruz:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- templates/new.html --&gt;</span>
 
-<p>Basit bir layout örneği. İçinde iki block var ve bu block&rsquo;lar sayesinde içeriği doldurabiliyoruz:</p>
+{% extends &#39;base.html&#39; %}<span style="color:#75715e">&lt;!-- Layout&#39;u ilk satırda tanımlıyoruz. --&gt;</span>
+<span style="color:#75715e">&lt;!-- extends ilk satır olmak zorunda. --&gt;</span>
 
-<pre><code class="language-html">&lt;!-- templates/new.html --&gt;
-
-{% extends 'base.html' %}&lt;!-- Layout'u ilk satırda tanımlıyoruz. --&gt;
-&lt;!-- extends ilk satır olmak zorunda. --&gt;
-
-&lt;!-- title block'unun varsayılanını çağırmak için block.super kullanabilirsiniz. --&gt;
+<span style="color:#75715e">&lt;!-- title block&#39;unun varsayılanını çağırmak için block.super kullanabilirsiniz. --&gt;</span>
 {% block title %}{{ block.super }} - New{% endblock %}
 
 {% block content %}
-    &lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;POST&#34;</span> <span style="color:#a6e22e">enctype</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;multipart/form-data&#34;</span>&gt;
         ...
 {% endblock %}
-</code></pre>
-
-<h2 id="yardımcı-fonksiyonlar">Yardımcı Fonksiyonlar</h2>
-
+</code></pre></div><h2 id="yardımcı-fonksiyonlar">Yardımcı Fonksiyonlar</h2>
 <p>Biz View katmanında, kullanıcılara göstermek istediğimiz içerik verisini hazırlayıp sonra Template katmanı içinde kullanıyoruz. İçerik verisini hazırlarken değer hesaplama, veritabanından veri alma gibi birtakım işlemler gerçekleştiriyoruz. Fakat bazen bu işlemler bir sayfayı ilgilendiren bir işlem değil de, tüm sayfalarda gerektiğinde kullanabileceğimiz bir işlem olabiliyor. Eğer bu işlem, doğrudan Template katmanını ilgilendiren bir işlemse biz burada <strong>Template Tag</strong> veya <strong>Template Filter</strong> gibi yöntemleri kullanmayı tercih ediyoruz. Örneğin <code>{% csrf_token %}</code>.</p>
-
 <p>Hatırlarsanız Palette uygulamamızda yeni resim yüklemek için hazırladığımız formda bu Template Tag&rsquo;i kullanmıştık. Başında ve sonunda <code>{%</code> ve <code>%}</code> olması onun bir Template Tag olduğunu gösterir. Aslında <strong>if</strong>, <strong>for</strong>, <strong>with</strong> gibi temel programlama dili anahtar kelimeleri de Template katmanında bir Tag olarak isimlendirilebilir. Ancak eğer <code>{{ color|default_if_none:&quot;#fff&quot; }}</code> şeklinde bir kullanım görürseniz, burada <code>default_if_none</code> adında bir Template Filter kullanıldığını anlayabilirsiniz. Filter&rsquo;in temel işlevi değişkenin kendisini modifiye etmek. Yani burada <strong>color</strong> değişkeni yoksa <strong>#fff</strong> değerini elde ederiz.</p>
-
 <p>Django&rsquo;yla birlikte kullanışlı birçok <a href="https://docs.djangoproject.com/en/2.0/ref/templates/builtins/">Template Tag ve Filter</a> geliyor. Fakat bazen özel ihtiyaçlar üçüncü parti bir Django eklentisi kullanmak gerekebiliyor veya kendimiz bu ihtiyacı gideren basit bir Template Tag veya Filter yazmak isteyebiliriz.</p>
-
 <p>Palette uygulamamıza dönelim ve renkleri kutu kutu göstermeyi deneyelim. Önce <strong>main.css</strong> dosyamıza basit bir stil ekleyelim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/* static/main.css */</span>
 
-<pre><code class="language-css">/* static/main.css */
-
-.colors {
-  margin: 25px 0;
+.<span style="color:#a6e22e">colors</span> {
+  <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">25</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
 }
 
-.colors .color-item { /* renk kutuları */
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border: 2px solid #eee;
-  background-color: #555;
-  margin-right: 20px;
+.<span style="color:#a6e22e">colors</span> .<span style="color:#a6e22e">color-item</span> { <span style="color:#75715e">/* renk kutuları */</span>
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline</span><span style="color:#f92672">-</span><span style="color:#66d9ef">block</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#eee</span>;
+  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#555</span>;
+  <span style="color:#66d9ef">margin-right</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
 }
-</code></pre>
-
-<p>Sonra <strong>detail.html</strong> dosyasında renk kutuları göstermeye çalışalım:</p>
-
-<pre><code class="language-html">&lt;!-- templates/palette/detail.html --&gt;
+</code></pre></div><p>Sonra <strong>detail.html</strong> dosyasında renk kutuları göstermeye çalışalım:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- templates/palette/detail.html --&gt;</span>
 
 ...
-&lt;div class=&quot;colors&quot;&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;colors&#34;</span>&gt;
     {% for color in palette.colors %}
-        &lt;span class=&quot;color-item&quot; style=&quot;background-color: {{ color }};&quot; title=&quot;{{ color }}&quot;&gt;&lt;/span&gt;
+        &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;color-item&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;background-color: {{ color }};&#34;</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ color }}&#34;</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
     {% endfor %}
-&lt;/div&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
 ...
-</code></pre>
+</code></pre></div><p>Bir sorunumuz var. <code>palette.colors</code> field&rsquo;imizin veri tipi liste değil. O sadece virgülle ayrılmış renk kodlarını içeren string. Bizim string&rsquo;i list&rsquo;e çevirecek bir filtreye ihtiyacımız var. Burada hemen ilk filtremizi yazmaya başlayabiliriz. hello_palette uygulamasının içinde <strong>templatetags</strong> dizini oluşturup içinde **_<em>init</em>_.py**<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> ve **palette_tags.py** adında iki dosya oluşturalım ve ilk filtremizi yazalım:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_palette/templatetags/palette_tags.py</span>
 
-<p>Bir sorunumuz var. <code>palette.colors</code> field&rsquo;imizin veri tipi liste değil. O sadece virgülle ayrılmış renk kodlarını içeren string. Bizim string&rsquo;i list&rsquo;e çevirecek bir filtreye ihtiyacımız var. Burada hemen ilk filtremizi yazmaya başlayabiliriz. hello_palette uygulamasının içinde <strong>templatetags</strong> dizini oluşturup içinde <strong>__init__.py</strong><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> ve <strong>palette_tags.py</strong> adında iki dosya oluşturalım ve ilk filtremizi yazalım:</p>
+<span style="color:#f92672">from</span> django <span style="color:#f92672">import</span> template
 
-<pre><code class="language-python"># hello_palette/templatetags/palette_tags.py
-
-from django import template
-
-register = template.Library()
+register <span style="color:#f92672">=</span> template<span style="color:#f92672">.</span>Library()
 
 
-@register.filter
-def as_list(value):
-  return value.split(',')
-</code></pre>
-
-<p>Bu sayede renk listesini şu şekilde elde edebiliriz:</p>
-
-<pre><code class="language-html">&lt;!-- templates/palette/detail.html --&gt;
+<span style="color:#a6e22e">@register.filter</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">as_list</span>(value):
+  <span style="color:#66d9ef">return</span> value<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;,&#39;</span>)
+</code></pre></div><p>Bu sayede renk listesini şu şekilde elde edebiliriz:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- templates/palette/detail.html --&gt;</span>
 
 ...
     {% for color in palette.colors|as_list %}
     ...
-</code></pre>
+</code></pre></div><p>Şimdi bir soru. Bu renk listesine sadece Template katmanında mı ihtiyaç duyacağız? Yani bir Template Filter fonksiyonunu Template katmanı dışında bir yerde kullanmak istesek ne kadar hoş olurdu? İleriye dönük düşünürsek bunu Model katmanında da çözebilirdik:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_palette/models.py</span>
 
-<p>Şimdi bir soru. Bu renk listesine sadece Template katmanında mı ihtiyaç duyacağız? Yani bir Template Filter fonksiyonunu Template katmanı dışında bir yerde kullanmak istesek ne kadar hoş olurdu? İleriye dönük düşünürsek bunu Model katmanında da çözebilirdik:</p>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Palette</span>(models<span style="color:#f92672">.</span>Model):
+    <span style="color:#f92672">...</span>
 
-<pre><code class="language-python"># hello_palette/models.py
-
-class Palette(models.Model):
-    ...
-
-    @property
-    def colors_as_list(self):
-        return self.colors.split(',')
-</code></pre>
-
-<p>Böylece Template katmanında şu şekilde kullanabilirdik:</p>
-
-<pre><code class="language-html">&lt;!-- templates/palette/detail.html --&gt;
+    <span style="color:#a6e22e">@property</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">colors_as_list</span>(self):
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>colors<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;,&#39;</span>)
+</code></pre></div><p>Böylece Template katmanında şu şekilde kullanabilirdik:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- templates/palette/detail.html --&gt;</span>
 
 ...
     {% for color in palette.colors_as_list %}
     ...
-</code></pre>
-
-<p><a href="https://gokmengorgen.net/img/django-notes/color-boxes.png" target="_blank">
-  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/color-boxes.png" src="https://gokmengorgen.net/img/django-notes/low/color-boxes.png" alt="Color boxes" title="Renk kutuları" /></figure>
-</a></p>
-
+</code></pre></div><a href="https://gokmengorgen.net/img/django-notes/color-boxes.png" target="_blank">
+  ![Color boxes](/img/django-notes/color-boxes.png "Renk kutuları")
+</a>
 <h2 id="admin-panelinde-stil-düzenlemesi">Admin Panelinde Stil Düzenlemesi</h2>
-
 <p>Admin panelinde de renk kodlarını güzel göstermek için SVG ile basit bir stil denemesi yapsak nasıl olur? Bunun için
-ilgili Admin class&rsquo;ında özel bir column fonksiyonu yazmamız gerekiyor:</p>
+ilgili Admin class'ında özel bir column fonksiyonu yazmamız gerekiyor:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_palette/admin.py</span>
 
-<pre><code class="language-python"># hello_palette/admin.py
-
-...
-from django.utils.html import format_html
-...
+<span style="color:#f92672">...</span>
+<span style="color:#f92672">from</span> django.utils.html <span style="color:#f92672">import</span> format_html
+<span style="color:#f92672">...</span>
 
 
-@admin.register(Palette)
-class PaletteAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'get_colors', 'created_at', 'is_deleted')  # colors'u sildik, fonskyionun adını yazdık.
-    ...
+<span style="color:#a6e22e">@admin.register</span>(Palette)
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PaletteAdmin</span>(admin<span style="color:#f92672">.</span>ModelAdmin):
+    list_display <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;__str__&#39;</span>, <span style="color:#e6db74">&#39;get_colors&#39;</span>, <span style="color:#e6db74">&#39;created_at&#39;</span>, <span style="color:#e6db74">&#39;is_deleted&#39;</span>)  <span style="color:#75715e"># colors&#39;u sildik, fonskyionun adını yazdık.</span>
+    <span style="color:#f92672">...</span>
 
-    def get_colors(self, obj):
-        # buradaki obj aslında bir Palette instance'i. Böylece renk kodlarımıza erişebileceğiz.
-        # models.py'deki colors_as_list metodumuzu burada da kullanabiliyoruz.
-        # format_html, HTML tag'lerini HTML dosyasında doğru şekilde çevirebilmek için gerekli.
-        circle_template = '&lt;svg width=16 height=16&gt;&lt;circle cx=8 cy=8 r=5 style=&quot;fill: {};&quot;&gt;&lt;/circle&gt;&lt;/svg&gt;'
-        return format_html(''.join(circle_template.format(c) for c in obj.colors_as_list))
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_colors</span>(self, obj):
+        <span style="color:#75715e"># buradaki obj aslında bir Palette instance&#39;i. Böylece renk kodlarımıza erişebileceğiz.</span>
+        <span style="color:#75715e"># models.py&#39;deki colors_as_list metodumuzu burada da kullanabiliyoruz.</span>
+        <span style="color:#75715e"># format_html, HTML tag&#39;lerini HTML dosyasında doğru şekilde çevirebilmek için gerekli.</span>
+        circle_template <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;svg width=16 height=16&gt;&lt;circle cx=8 cy=8 r=5 style=&#34;fill: {};&#34;&gt;&lt;/circle&gt;&lt;/svg&gt;&#39;</span>
+        <span style="color:#66d9ef">return</span> format_html(<span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(circle_template<span style="color:#f92672">.</span>format(c) <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> obj<span style="color:#f92672">.</span>colors_as_list))
 
-    get_colors.short_description = &quot;Colors&quot;  # Column için isim veriyoruz.
-    get_colors.allow_tags = True  # HTML tag'i kullanımına izin veriyoruz.
-</code></pre>
-
-<p><a href="https://gokmengorgen.net/img/django-notes/admin-color-circles.png" target="_blank">
-  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/admin-color-circles.png" src="https://gokmengorgen.net/img/django-notes/low/admin-color-circles.png" alt="Admin color circles" title="Admin panelinde renk çemberleri" /></figure>
-</a></p>
-
+    get_colors<span style="color:#f92672">.</span>short_description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Colors&#34;</span>  <span style="color:#75715e"># Column için isim veriyoruz.</span>
+    get_colors<span style="color:#f92672">.</span>allow_tags <span style="color:#f92672">=</span> True  <span style="color:#75715e"># HTML tag&#39;i kullanımına izin veriyoruz.</span>
+</code></pre></div><a href="https://gokmengorgen.net/img/django-notes/admin-color-circles.png" target="_blank">
+  ![Admin color circles](/img/django-notes/admin-color-circles.png "Admin panelinde renk çemberleri")
+</a>
 <p>Şimdi biraz daha göze hoş geliyor, değil mi? Böylece basit bir uygulamamızı tamamlamış olduk. Bundan sonra farklı uygulamalarla sizi Django&rsquo;nun farklı güzellikleri konusunda bilgilendirmek istiyorum. Kısa zamanda tekrar görüşmek üzere.</p>
-<div class="footnotes">
-
+<div class="footnotes" role="doc-endnotes">
 <hr />
-
 <ol>
-<li id="fn:1"><a href="https://docs.djangoproject.com/en/2.0/ref/templates/">Buradan</a> Template diline hızlı başlangıç yapabilirsiniz.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:2">Bir dizinin Python paketi olduğunu anlatabilmemiz için __init__.py dosyasına ihtiyacımız var.
- <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://docs.djangoproject.com/en/2.0/ref/templates/">Buradan</a> Template diline hızlı başlangıç yapabilirsiniz. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Bir dizinin Python paketi olduğunu anlatabilmemiz için _<em>init</em>_.py dosyasına ihtiyacımız var. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
 </div>
 

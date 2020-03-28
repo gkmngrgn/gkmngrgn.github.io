@@ -88,7 +88,7 @@
       
       <guid>https://gokmengorgen.net/tr/django-notes/03-admin-paneli/</guid>
       <description>Model objemizi oluşturduktan sonra hemen veri girişi yapsak, denesek, kontrol etsek nasıl olurdu? Django&amp;rsquo;nun en güzel yanlarından biri olan Django Admin&amp;rsquo;e el atalım mı? Önce modelimizde biraz değişiklik yapmamız gerek.
-Özet  İkinci bir migration script oluşturma denemesi yapacağız. Model katmanında ilk sinyal denememizi yapacağız. Palette modelimizi Django Admin panelinde göreceğiz. Resim yükleyebilmek için form sayfası, resmin renk kodlarını görüntüleyebilmek için detay sayfası hazırlayacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.</description>
+Özet  İkinci bir migration script oluşturma denemesi yapacağız. Model katmanında ilk sinyal denememizi yapacağız. Palette modelimizi Django Admin panelinde göreceğiz. Resim yükleyebilmek için form sayfası, resmin renk kodlarını görüntüleyebilmek için detay sayfası hazırlayacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.  Bir Migration Daha Önceki konuyu pekiştirmek için Palette modelimizde birkaç değişiklik yapıp yeni bir migration script oluşturalım.</description>
     </item>
     
     <item>

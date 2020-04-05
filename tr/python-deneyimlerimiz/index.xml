@@ -89,7 +89,7 @@ Sizi bilmem ama, böylesi basit bir şey için döngü oluşturmayı da fazlası
       
       <guid>https://gokmengorgen.net/tr/python-deneyimlerimiz/ilk-setuppy-kullanrken/</guid>
       <description>Python ile programlama yaparken proje arkadaşım Mirat&amp;rsquo;le beraber (hatta ona çaktırmadan) bir kural listesi oluşturmuştum. Paylaşayım dedim:
- Programın anadili İngilizce olmalı. Noktalama işaretlerinden önce boşluk bırakılmaz, sonra bırakılır. Operatörlerden hem önce, hem de sonra boşluk bırakılır. (), {} ve []&amp;lsquo;lerden önce boşluk bırakılmaz, sonra bırakılır; hatta bir alt satıra konulur. Eğer çıktı ekrana yazdırılacaksa &amp;quot; &amp;ldquo;; yazdırılmayacaksa &#39; &#39; kullan. Her fonksiyonun altına açıklama gir. Türkçe&amp;rsquo;mizi güzel kullanalım, trafik kurallarına uyalım.</description>
+ Programın anadili İngilizce olmalı. Noktalama işaretlerinden önce boşluk bırakılmaz, sonra bırakılır. Operatörlerden hem önce, hem de sonra boşluk bırakılır. (), {} ve []&amp;lsquo;lerden önce boşluk bırakılmaz, sonra bırakılır; hatta bir alt satıra konulur. Eğer çıktı ekrana yazdırılacaksa &amp;ldquo; &amp;ldquo;; yazdırılmayacaksa &amp;lsquo; &amp;rsquo; kullan. Her fonksiyonun altına açıklama gir. Türkçe&amp;rsquo;mizi güzel kullanalım, trafik kurallarına uyalım.</description>
     </item>
     
   </channel>

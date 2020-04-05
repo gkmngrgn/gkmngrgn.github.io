@@ -18,7 +18,7 @@
       
       <guid>https://gokmengorgen.net/blog/2018/12/how-do-i-publish-my-articles/</guid>
       <description>With just a command:
-# terminal $ ENV=PROD ./do.sh deploy I have many projects using my script named DOSH and the parameters are mostly in common; deploy, start, stop, runtests, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like this one but I run all the projects with the same command: dosh start.
+# terminal $ ENV=PROD ./do.sh deploy  I have many projects using my script named DOSH and the parameters are mostly in common; deploy, start, stop, runtests, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like this one but I run all the projects with the same command: dosh start.
 In Windows, the command may be a bit longer than in the other operating systems.</description>
     </item>
     

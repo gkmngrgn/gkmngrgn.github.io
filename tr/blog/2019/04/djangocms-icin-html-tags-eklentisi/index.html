@@ -169,45 +169,62 @@
                     <div class="markdown">
                         
     
-    <p>Django ile yazılmış içerik yönetim sistemi deyince aklımıza ilk Django CMS geliyor. Oldukça kapsamlı ve geliştirici açısından öğrenmesi biraz zaman alan; fakat öğrenince de CMS gerektiren işleri kolay ve eğlenceli hale getiren açık kaynak bir yazılımdır. Kurulumu kolay, Divio<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>&lsquo;nun bulut sistemlerinde Django CMS&rsquo;e tam desteği var; ama isterseniz kendi VPN sunucunuza da kurabiliyorsunuz. Eğer bu işlerle ilgili ilgilenecek ekibiniz yoksa, Divio&rsquo;nun Türkiye&rsquo;deki tek partneri Radity&rsquo;den destek alabilirsiniz.</p>
+    
+
+<p>Django ile yazılmış içerik yönetim sistemi deyince aklımıza ilk Django CMS geliyor. Oldukça kapsamlı ve geliştirici açısından öğrenmesi biraz zaman alan; fakat öğrenince de CMS gerektiren işleri kolay ve eğlenceli hale getiren açık kaynak bir yazılımdır. Kurulumu kolay, Divio<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>&lsquo;nun bulut sistemlerinde Django CMS&rsquo;e tam desteği var; ama isterseniz kendi VPN sunucunuza da kurabiliyorsunuz. Eğer bu işlerle ilgili ilgilenecek ekibiniz yoksa, Divio&rsquo;nun Türkiye&rsquo;deki tek partneri Radity&rsquo;den destek alabilirsiniz.</p>
+
 <p><a href="https://marketplace.django-cms.org/en/addons/browse/djangocms-html-tags/">HTML Tags</a>, adından da anlaşılacağı üzere, HTML kodlarını CMS paneli üzerinden sayfaya tek tek ekleme imkanı sunan bir Django CMS eklentisidir. Django CMS&rsquo;te bir sayfa tasarlarken ikilemde kaldığımız bazı sorular vardı:</p>
+
 <ol>
 <li>Header bölümünde bir başlık ekleyeceğiz ve bu başlığın farklı dillere çevrilebilir olması gerekiyor, bunun için koca bir text editörü kullanmak ne kadar mantıklı?</li>
 <li>Varsayalım kullandık, içindeki editörün özelliklerini her farklı alan (placeholder) için kısıtlamak ne kadar verimli olur?</li>
 <li>Onun yerine her bir eleman için ayrı ayrı alanlar oluştursak ne kadar verimli olacak? Ve bunun gibi sorular&hellip;</li>
 </ol>
+
 <p>Yapmak istediğimiz şöyle bir senaryoydu: &ldquo;X şablonunu kullanan bir sayfanın header bölümünde sadece bir başlık ve bir de paragraf kullanılmasına izin vermek istiyoruz. Başlık ancak <strong>H1</strong> olabilir, paragraf için de sadece <strong>P</strong> kullanılabilir.&rdquo;</p>
+
 <h2 id="alternatifler">Alternatifler</h2>
+
 <p>HTML text editörü kullanmak dışında <a href="https://github.com/pakal/cmsplugin-rst">ReStructuredText</a> ve <a href="https://github.com/bitlabstudio/cmsplugin-markdown">Markdown</a> kullanmak bir çözüm olabilirdi; ancak hem CMS&rsquo;i yönetecek insanların bu tip biçimleme araçlarını bilme olasılıkları düşük, hem de tam olarak sorunumuzu çözmüyor. Form builder&rsquo;lar istediğimize en yakın eklentiler; fakat onlar da sadece form elementlerini kapsıyor.</p>
+
 <h2 id="kurulum">Kurulum</h2>
-<p>Kurulum basit. Eğer Divio Cloud kullanıyorsanız Marketplace<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> üzerinden kurabilirsiniz. Kullanmıyorsanız PyPi<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>&lsquo;de aynı paketi bulabilirsiniz, ek olarak <code>INSTALLED_APPS</code> içine <code>djangocms-html-tags</code> yazmalısınız.</p>
+
+<p>Kurulum basit. Eğer Divio Cloud kullanıyorsanız Marketplace<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> üzerinden kurabilirsiniz. Kullanmıyorsanız PyPi<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup>&lsquo;de aynı paketi bulabilirsiniz, ek olarak <code>INSTALLED_APPS</code> içine <code>djangocms-html-tags</code> yazmalısınız.</p>
+
 <p>Bunun dışında tek yapmanız gereken, hangi sayfa alanlarında hangi eklentiyi kullanacağınızı belirtmeniz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">CMS_PLACEHOLDER_CONF <span style="color:#f92672">=</span> {
-  <span style="color:#e6db74">&#34;header&#34;</span>: {
-    <span style="color:#e6db74">&#34;plugins&#34;</span>: [<span style="color:#e6db74">&#34;Heading1Plugin&#34;</span>, <span style="color:#e6db74">&#34;ParagraphPlugin&#34;</span>]
+
+<pre><code class="language-python">CMS_PLACEHOLDER_CONF = {
+  &quot;header&quot;: {
+    &quot;plugins&quot;: [&quot;Heading1Plugin&quot;, &quot;ParagraphPlugin&quot;]
   },
-  <span style="color:#e6db74">&#34;footer&#34;</span>: {
-    <span style="color:#e6db74">&#34;plugins&#34;</span>: [<span style="color:#e6db74">&#34;ParagraphPlugin&#34;</span>]
+  &quot;footer&quot;: {
+    &quot;plugins&quot;: [&quot;ParagraphPlugin&quot;]
   }
 }
-</code></pre></div><p>Bu ayarlara göre artık ilgili alanlara belirli HTML elemanlarını eklemek, çeşitli stillerle özelleştirmek artık mümkün.</p>
+</code></pre>
+
+<p>Bu ayarlara göre artık ilgili alanlara belirli HTML elemanlarını eklemek, çeşitli stillerle özelleştirmek artık mümkün.</p>
+
 <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/blog/djangocms-html-tags.jpg" src="https://gokmengorgen.net/img/blog/low/djangocms-html-tags.jpg" alt="" /></p></figure>
+
 <h2 id="gelişimine-katkıda-bulunmak-ister-misiniz">Gelişimine katkıda bulunmak ister misiniz?</h2>
+
 <p>Benim en çok yapmak istediğim şeylerden birisi bir form builder özelliği eklemek, şuanda input ve buton koymak mümkün; ancak <strong>TEXTAREA</strong>, <strong>RADIO BUTTONS</strong>, <strong>CHECK BUTTONS</strong>, <strong>IMAGE / FILE FIELD</strong> gibi özel inputları da ekleyerek bir form builder eklentisi ihtiyacını karşılamak mümkün olabilirdi.</p>
+
 <p>Öte yandan, örnekleri iyi tasarımla güzelleştirmek, daha spesifik örneklerle eklentinin nasıl kullanılacağını göstermek iyi olurdu.</p>
+
 <p>Sizlerden gelecek fikirlere de açığız.</p>
-<div class="footnotes" role="doc-endnotes">
+<div class="footnotes">
+
 <hr />
+
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://www.divio.com/">Divio</a>, aynı zamanda Django CMS&rsquo;i geliştiren şirket. Sitesine bir göz atmanızı öneririm. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p><a href="https://marketplace.django-cms.org/en/addons/browse/?name=html+tags">Divio Marketplace</a> üzerinden eklenti araması yapabilirsiniz. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:3" role="doc-endnote">
-<p><a href="https://pypi.org/project/djangocms-html-tags/">PyPi</a> için örnek kurulum: <code>pip install djangocms-html-tags</code> <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
+<li id="fn:1"><a href="https://www.divio.com/">Divio</a>, aynı zamanda Django CMS&rsquo;i geliştiren şirket. Sitesine bir göz atmanızı öneririm.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2"><a href="https://marketplace.django-cms.org/en/addons/browse/?name=html+tags">Divio Marketplace</a> üzerinden eklenti araması yapabilirsiniz.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3"><a href="https://pypi.org/project/djangocms-html-tags/">PyPi</a> için örnek kurulum: <code>pip install djangocms-html-tags</code>
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
 </ol>
 </div>
 

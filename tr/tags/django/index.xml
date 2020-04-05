@@ -67,7 +67,7 @@ HTML Tags, adından da anlaşılacağı üzere, HTML kodlarını CMS paneli üze
       <pubDate>Sun, 27 May 2018 16:45:30 +0200</pubDate>
       
       <guid>https://gokmengorgen.net/tr/blog/2018/05/django-modelinde-selectbox-kullanimi/</guid>
-      <description>Bazen bir model field&#39;ında kullanımı sınırlandırmak veya veriyi denetlemek için basit çözümlere ihtiyacımız var. Örneğin, bir araba markası sorulduğunda kullanıcının kafadan veri girişini engellemek veya Opel - opel gibi büyük - küçük farklarından dolayı oluşacak gereksiz seçenek bölünmelerini önlemek gerekir.
+      <description>Bazen bir model field&amp;rsquo;ında kullanımı sınırlandırmak veya veriyi denetlemek için basit çözümlere ihtiyacımız var. Örneğin, bir araba markası sorulduğunda kullanıcının kafadan veri girişini engellemek veya Opel - opel gibi büyük - küçük farklarından dolayı oluşacak gereksiz seçenek bölünmelerini önlemek gerekir.
 Django notlarım&amp;lsquo;da sürekli dile getirdiğim konu var, bir şeye ihtiyaç duyduğunuzda:
  Mutlaka Django&amp;rsquo;nun kendi dökümantasyonuna bir göz atın. Mutlaka başkaları nasıl çözmüş diye araştırın.  Django dökümantasyonundaki bir örneği alalım ve onun üzerinden gidelim:</description>
     </item>
@@ -119,7 +119,7 @@ Django notlarım&amp;lsquo;da sürekli dile getirdiğim konu var, bir şeye ihti
       
       <guid>https://gokmengorgen.net/tr/django-notes/03-admin-paneli/</guid>
       <description>Model objemizi oluşturduktan sonra hemen veri girişi yapsak, denesek, kontrol etsek nasıl olurdu? Django&amp;rsquo;nun en güzel yanlarından biri olan Django Admin&amp;rsquo;e el atalım mı? Önce modelimizde biraz değişiklik yapmamız gerek.
-Özet  İkinci bir migration script oluşturma denemesi yapacağız. Model katmanında ilk sinyal denememizi yapacağız. Palette modelimizi Django Admin panelinde göreceğiz. Resim yükleyebilmek için form sayfası, resmin renk kodlarını görüntüleyebilmek için detay sayfası hazırlayacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.  Bir Migration Daha Önceki konuyu pekiştirmek için Palette modelimizde birkaç değişiklik yapıp yeni bir migration script oluşturalım.</description>
+Özet  İkinci bir migration script oluşturma denemesi yapacağız. Model katmanında ilk sinyal denememizi yapacağız. Palette modelimizi Django Admin panelinde göreceğiz. Resim yükleyebilmek için form sayfası, resmin renk kodlarını görüntüleyebilmek için detay sayfası hazırlayacağız. Bu yazıyla ilgili kodlara buradan erişebilirsiniz.</description>
     </item>
     
     <item>

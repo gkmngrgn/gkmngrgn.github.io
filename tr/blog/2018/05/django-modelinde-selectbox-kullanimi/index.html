@@ -170,97 +170,124 @@
                         
     
     <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-choice-class.jpg" src="https://gokmengorgen.net/img/low/django-choice-class.jpg" alt="" /></p></figure>
-<p>Bazen bir model field'ında kullanımı sınırlandırmak veya veriyi denetlemek için basit çözümlere ihtiyacımız var. Örneğin, bir araba markası sorulduğunda kullanıcının kafadan veri girişini engellemek veya Opel - opel gibi büyük - küçük farklarından dolayı oluşacak gereksiz seçenek bölünmelerini önlemek gerekir.</p>
+
+<p>Bazen bir model field&rsquo;ında kullanımı sınırlandırmak veya veriyi denetlemek için basit çözümlere ihtiyacımız var. Örneğin, bir araba markası sorulduğunda kullanıcının kafadan veri girişini engellemek veya Opel - opel gibi büyük - küçük farklarından dolayı oluşacak gereksiz seçenek bölünmelerini önlemek gerekir.</p>
+
 <p><a href="https://gokmengorgen.net/django-notes/">Django notlarım</a>&lsquo;da sürekli dile getirdiğim konu var, bir şeye ihtiyaç duyduğunuzda:</p>
+
 <ol>
 <li>Mutlaka Django&rsquo;nun <a href="https://docs.djangoproject.com/">kendi dökümantasyonuna</a> bir göz atın.</li>
 <li>Mutlaka başkaları nasıl çözmüş diye araştırın.</li>
 </ol>
+
 <p>Django dökümantasyonundaki <a href="https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.Field.choices">bir örneği</a> alalım ve onun üzerinden gidelim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(models<span style="color:#f92672">.</span>Model):
-    FRESHMAN <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;FR&#39;</span>
-    SOPHOMORE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SO&#39;</span>
-    JUNIOR <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;JR&#39;</span>
-    SENIOR <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SR&#39;</span>
-    YEAR_IN_SCHOOL_CHOICES <span style="color:#f92672">=</span> (
-        (FRESHMAN, <span style="color:#e6db74">&#39;Freshman&#39;</span>),
-        (SOPHOMORE, <span style="color:#e6db74">&#39;Sophomore&#39;</span>),
-        (JUNIOR, <span style="color:#e6db74">&#39;Junior&#39;</span>),
-        (SENIOR, <span style="color:#e6db74">&#39;Senior&#39;</span>),
+
+<pre><code class="language-python">class Student(models.Model):
+    FRESHMAN = 'FR'
+    SOPHOMORE = 'SO'
+    JUNIOR = 'JR'
+    SENIOR = 'SR'
+    YEAR_IN_SCHOOL_CHOICES = (
+        (FRESHMAN, 'Freshman'),
+        (SOPHOMORE, 'Sophomore'),
+        (JUNIOR, 'Junior'),
+        (SENIOR, 'Senior'),
     )
-    year_in_school <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, choices<span style="color:#f92672">=</span>YEAR_IN_SCHOOL_CHOICES, default<span style="color:#f92672">=</span>FRESHMAN)
+    year_in_school = models.CharField(max_length=2, choices=YEAR_IN_SCHOOL_CHOICES, default=FRESHMAN)
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_upperclass</span>(self):
-        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>year_in_school <span style="color:#f92672">in</span> (self<span style="color:#f92672">.</span>JUNIOR, self<span style="color:#f92672">.</span>SENIOR)
-</code></pre></div><p>Bazen öyle şeyler oluyor ki, bir modele ihtiyaç duymadan bu seçeneklere çeşitli katmanlarda erişmek gerekebiliyor veya bu tip seçenekleri herhangi bir model tanımlamadan, örneğin formda kullanmak durumunda kalabiliyorsunuz, o zaman da &ldquo;Bunu <strong>models.py</strong>&lsquo;de tuttuk, öbürünü niye <strong>forms.py</strong>&lsquo;ye yazdık?&rdquo; diye kendinize sorabilirsiniz. Ben bu tip ortak kullanılan şeyleri, ilgili uygulama içinde <strong>choices.py</strong> veya <strong>utils.py</strong> gibi bir dosya oluşturup kullanıyorum. Örneğin:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_student/utils.py</span>
+    def is_upperclass(self):
+        return self.year_in_school in (self.JUNIOR, self.SENIOR)
+</code></pre>
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StudentChoice</span>(object):
-    FRESHMAN <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;FR&#39;</span>
-    SOPHOMORE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SO&#39;</span>
-    JUNIOR <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;JR&#39;</span>
-    SENIOR <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SR&#39;</span>
+<p>Bazen öyle şeyler oluyor ki, bir modele ihtiyaç duymadan bu seçeneklere çeşitli katmanlarda erişmek gerekebiliyor veya bu tip seçenekleri herhangi bir model tanımlamadan, örneğin formda kullanmak durumunda kalabiliyorsunuz, o zaman da &ldquo;Bunu <strong>models.py</strong>&lsquo;de tuttuk, öbürünü niye <strong>forms.py</strong>&lsquo;ye yazdık?&rdquo; diye kendinize sorabilirsiniz. Ben bu tip ortak kullanılan şeyleri, ilgili uygulama içinde <strong>choices.py</strong> veya <strong>utils.py</strong> gibi bir dosya oluşturup kullanıyorum. Örneğin:</p>
 
-    <span style="color:#a6e22e">@classmethod</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_choices</span>(cls):
-        choices <span style="color:#f92672">=</span> (
-            (cls<span style="color:#f92672">.</span>FRESHMAN, <span style="color:#e6db74">&#34;Freshman&#34;</span>),
-            (cls<span style="color:#f92672">.</span>SOPHOMORE, <span style="color:#e6db74">&#34;Sophomore&#34;</span>),
-            (cls<span style="color:#f92672">.</span>JUNIOR, <span style="color:#e6db74">&#34;Junior&#34;</span>),
-            (cls<span style="color:#f92672">.</span>SENIOR, <span style="color:#e6db74">&#34;Senior&#34;</span>),
+<pre><code class="language-python"># hello_student/utils.py
+
+class StudentChoice(object):
+    FRESHMAN = 'FR'
+    SOPHOMORE = 'SO'
+    JUNIOR = 'JR'
+    SENIOR = 'SR'
+
+    @classmethod
+    def get_choices(cls):
+        choices = (
+            (cls.FRESHMAN, &quot;Freshman&quot;),
+            (cls.SOPHOMORE, &quot;Sophomore&quot;),
+            (cls.JUNIOR, &quot;Junior&quot;),
+            (cls.SENIOR, &quot;Senior&quot;),
         )
-        <span style="color:#66d9ef">return</span> choices
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_student/models.py</span>
-<span style="color:#f92672">from</span> hello_student.utils <span style="color:#f92672">import</span> StudentChoice
+        return choices
+</code></pre>
+
+<pre><code class="language-python"># hello_student/models.py
+from hello_student.utils import StudentChoice
 
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(models<span style="color:#f92672">.</span>Model):
-    year_in_school <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(
-        max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, choices<span style="color:#f92672">=</span>StudentChoice<span style="color:#f92672">.</span>get_choices(), default<span style="color:#f92672">=</span>StudentChoice<span style="color:#f92672">.</span>FRESHMAN)
+class Student(models.Model):
+    year_in_school = models.CharField(
+        max_length=2, choices=StudentChoice.get_choices(), default=StudentChoice.FRESHMAN)
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_upperclass</span>(self):
-        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>year_in_school <span style="color:#f92672">in</span> (StudentChoice<span style="color:#f92672">.</span>JUNIOR, StudentChoice<span style="color:#f92672">.</span>SENIOR)
-</code></pre></div><p>Form&rsquo;da da kullansak, View katmanında da kullansak benim yöntemim hep bu. Seçenekleri gruplamak istersek:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_student/utils.py</span>
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StudentChoice</span>(object):
-    <span style="color:#f92672">...</span>
-    <span style="color:#a6e22e">@classmethod</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_choices</span>(cls):
-        choices <span style="color:#f92672">=</span> (
-            (<span style="color:#e6db74">&#34;Starting class&#34;</span>, (
-                (cls<span style="color:#f92672">.</span>FRESHMAN, <span style="color:#e6db74">&#34;Freshman&#34;</span>),
-                (cls<span style="color:#f92672">.</span>SOPHOMORE, <span style="color:#e6db74">&#34;Sophomore&#34;</span>),
+    def is_upperclass(self):
+        return self.year_in_school in (StudentChoice.JUNIOR, StudentChoice.SENIOR)
+</code></pre>
+
+<p>Form&rsquo;da da kullansak, View katmanında da kullansak benim yöntemim hep bu. Seçenekleri gruplamak istersek:</p>
+
+<pre><code class="language-python"># hello_student/utils.py
+class StudentChoice(object):
+    ...
+    @classmethod
+    def get_choices(cls):
+        choices = (
+            (&quot;Starting class&quot;, (
+                (cls.FRESHMAN, &quot;Freshman&quot;),
+                (cls.SOPHOMORE, &quot;Sophomore&quot;),
             )),
-            (<span style="color:#e6db74">&#34;Upper class&#34;</span>, (
-                (cls<span style="color:#f92672">.</span>JUNIOR, <span style="color:#e6db74">&#34;Junior&#34;</span>),
-                (cls<span style="color:#f92672">.</span>SENIOR, <span style="color:#e6db74">&#34;Senior&#34;</span>),
+            (&quot;Upper class&quot;, (
+                (cls.JUNIOR, &quot;Junior&quot;),
+                (cls.SENIOR, &quot;Senior&quot;),
             ))
         )
-        <span style="color:#66d9ef">return</span> choices
-</code></pre></div><p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/hello-student-choices.gif" src="https://gokmengorgen.net/img/low/hello-student-choices.gif" alt="Grouped choices" title="Gruplanmış seçenekler" /></p></figure>
+        return choices
+</code></pre>
+
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/hello-student-choices.gif" src="https://gokmengorgen.net/img/low/hello-student-choices.gif" alt="Grouped choices" title="Gruplanmış seçenekler" /></p></figure>
+
 <p>Peki, seçenekleri taşıdık, varsayılan seçenek ayarını da aynı yerde tutsak?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_student/utils.py</span>
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StudentChoice</span>(object):
-    <span style="color:#f92672">...</span>
-    <span style="color:#a6e22e">@classmethod</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_default</span>(cls):
-        <span style="color:#66d9ef">return</span> cls<span style="color:#f92672">.</span>FRESHMAN
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_student/models.py</span>
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(models<span style="color:#f92672">.</span>Model):
-    year_in_school <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(
-        max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, choices<span style="color:#f92672">=</span>StudentChoice<span style="color:#f92672">.</span>get_choices(), default<span style="color:#f92672">=</span>StudentChoice<span style="color:#f92672">.</span>get_default())
-</code></pre></div><p>Hatta bir şey daha yapalım, seçenekle ilgili yardımcı fonksiyonları da aynı yerden yönetelim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_student/utils.py</span>
+<pre><code class="language-python"># hello_student/utils.py
+class StudentChoice(object):
+    ...
+    @classmethod
+    def get_default(cls):
+        return cls.FRESHMAN
+</code></pre>
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StudentChoice</span>(object):
-    <span style="color:#f92672">...</span>
-    <span style="color:#a6e22e">@classmethod</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_upperclass</span>(cls, choice):
-        <span style="color:#66d9ef">return</span> choice <span style="color:#f92672">in</span> (cls<span style="color:#f92672">.</span>JUNIOR, cls<span style="color:#f92672">.</span>SENIOR)
-</code></pre></div><p>Bu durumda üst sınıf olup olmadığı kontrolünü şöyle yapardık:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">is_upperclass <span style="color:#f92672">=</span> StudentChoice<span style="color:#f92672">.</span>is_upperclass(student<span style="color:#f92672">.</span>year_in_school)
-</code></pre></div><p>Böylece <strong>models.py</strong> dosyamızı biraz daha temiz tutmuş olduk. Bunu alışkanlık haline getirirsek, projenin herhangi bir yerinde selectbox, multiple selectbox ve benzeri bir şey ihtiyacımız olduğunda nereye bakacağımızı bilmiş oluruz.</p>
+<pre><code class="language-python"># hello_student/models.py
+
+class Student(models.Model):
+    year_in_school = models.CharField(
+        max_length=2, choices=StudentChoice.get_choices(), default=StudentChoice.get_default())
+</code></pre>
+
+<p>Hatta bir şey daha yapalım, seçenekle ilgili yardımcı fonksiyonları da aynı yerden yönetelim:</p>
+
+<pre><code class="language-python"># hello_student/utils.py
+
+class StudentChoice(object):
+    ...
+    @classmethod
+    def is_upperclass(cls, choice):
+        return choice in (cls.JUNIOR, cls.SENIOR)
+</code></pre>
+
+<p>Bu durumda üst sınıf olup olmadığı kontrolünü şöyle yapardık:</p>
+
+<pre><code class="language-python">is_upperclass = StudentChoice.is_upperclass(student.year_in_school)
+</code></pre>
+
+<p>Böylece <strong>models.py</strong> dosyamızı biraz daha temiz tutmuş olduk. Bunu alışkanlık haline getirirsek, projenin herhangi bir yerinde selectbox, multiple selectbox ve benzeri bir şey ihtiyacımız olduğunda nereye bakacağımızı bilmiş oluruz.</p>
 
 
 

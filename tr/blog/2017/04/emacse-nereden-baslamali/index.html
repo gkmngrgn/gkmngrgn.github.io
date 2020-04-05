@@ -169,18 +169,26 @@
                     <div class="markdown">
                         
     
-    <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/spacemacs.png" src="https://gokmengorgen.net/img/low/spacemacs.png" alt="Spacemacs" /></p></figure>
+    
+
+<p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/spacemacs.png" src="https://gokmengorgen.net/img/low/spacemacs.png" alt="Spacemacs" /></p></figure>
+
 <p>Yazılım dünyasının en eski editörlerinden Emacs, günümüzdeki diğer popüler editörlerden farklı bir kullanma ve öğrenme disiplini istiyor. Bazı temel özelliklerini öğrenmeden editörde bir dosya açmak bile zor. O nedenle Emacs’in kendi içinde gelen tutorial’ını en azından bir kez okumak, öğrendiklerini uygulamak ve birkaç hafta sabırla kullanmak gerekiyor.</p>
+
 <p>Emacs Linux, Windows ve macOS işletim sistemlerinde çalışıyor. Yükleyip editörü açtığınızda ilk hali muhtemelen arzu ettiğiniz gibi görünmeyecek. Bir yandan Emacs’i öğrenirken, bir yandan da kendi zevkinize göre özelleştirmeye başlamanızı öneriyorum. İnternette yüzlerce Emacs config dosyası bulabilirsiniz, bazı kullanıcılar işi bir adım daha ileriye götürüp <a href="http://spacemacs.org/">Spacemacs</a>, <a href="https://github.com/technomancy/emacs-starter-kit">StarterKit</a> gibi projelerle kullanıcıların ortalama ihtiyaçlarına göre hazır config dosyaları sunuyorlar. Deneyebilirsiniz; ama bana göre bu iyi bir başlangıç olmaz. Elinizde neredeyse her şeyi yapılandırabileceğiniz bir editör var ve bunu başkalarının zevklerine göre ayarlamak yerine, kendi ihtiyaçlarınızı tespit edip, bu ihtiyaçları başkalarının nasıl çözdüğüne bakarak kendi editörünüzü kendiniz yapılandırmanız daha doğru bir yaklaşım olur.</p>
+
 <p>Emacs kendine özel bir Lisp yorumlayıcısıyla birlikte geliyor. Config dosyalarınızı bir Lisp script’i yazar gibi hazırlıyorsunuz. Daha önce hiç Lisp yazmadıysanız, <a href="https://learnxinyminutes.com/docs/elisp/">buradan</a> başlayabilirsiniz.</p>
+
 <p>Config dosyası genellikle kullanıcı ev dizininizde <strong>~/emacs.el</strong> veya <strong>~/.emacs.d/init.el</strong> olarak saklanıyor. Yapılandırma dosyası hakkında daha fazla bilgi almak için okumaya <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html">buradan</a> başlayabilirsiniz.</p>
+
 <p>Belgeyi okuyup config dosyası hazırlamak gözünüzü korkutmasın, size açıklayarak küçük bir örnek göstereceğim. Benim config dosyam, önce paketleri kontrol etmek, eğer kurulmamış paket varsa da kurmakla başlıyor. Paketler, editöre ekstra özellik kazandıran kodlar içerir ve bunlar genellikle küçük dosyalardan oluşmazlar, örneğin HTML kodları, içinde CSS ve JavaScript kodu barındırdığında parse etmesi çok zordur, bunun için ek paket kurmak isteyebilirsiniz veya Emacs içinde bir git istemcisi kullanmak isteyebilirsiniz. <a href="https://github.com/emacs-helm/helm">Helm paketi</a> ile Emacs komut satırını daha da güçlendirmek isteyebilirsiniz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;package</span>)
-(add-to-list <span style="color:#e6db74">&#39;package-archives</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;melpa&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;http://melpa.org/packages/&#34;</span>) <span style="color:#66d9ef">t</span>)
+
+<pre><code class="language-lisp">(require 'package)
+(add-to-list 'package-archives '(&quot;melpa&quot; . &quot;http://melpa.org/packages/&quot;) t)
 (package-initialize)
-(when (<span style="color:#a6e22e">not</span> package-archive-contents) (package-refresh-contents))
+(when (not package-archive-contents) (package-refresh-contents))
 (defvar my-packages
-  <span style="color:#f92672">&#39;</span>(auto-complete
+  '(auto-complete
     flx-ido
     helm
     helm-ag
@@ -190,43 +198,59 @@
     markdown-mode
     scss-mode
     web-mode)
-  <span style="color:#e6db74">&#34;A list of packages to ensure are installed at launch.&#34;</span>)
+  &quot;A list of packages to ensure are installed at launch.&quot;)
 (dolist (p my-packages)
-  (when (<span style="color:#a6e22e">not</span> (package-installed-p p)) (package-install p)))
-</code></pre></div><p>Editörü kullandıkça bazı ihtiyaçlar ortaya çıkmaya başlıyor. Örneğin bir projede çok uzun süre çalışıp daha sonra başka bir projeye geçmek istediğimde arka planda açık olan tüm dosya yedeklerini silmek istiyorum. Bunun için <code>kill-other-buffers</code> adında bir fonksiyon yazdım ve bu fonksiyonu bir klavye kısayoluna atadım (Ctrl c, k):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(defun kill-other-buffers ()
- <span style="color:#960050;background-color:#1e0010">“</span>Kill all other buffers.<span style="color:#960050;background-color:#1e0010">”</span>
- (interactive)
- (<span style="color:#a6e22e">mapc</span> <span style="color:#960050;background-color:#1e0010">‘</span>kill-buffer (delq (current-buffer) (buffer-list)))
- (message <span style="color:#960050;background-color:#1e0010">“</span>All other buffers are killed..<span style="color:#960050;background-color:#1e0010">”</span>))
+  (when (not (package-installed-p p)) (package-install p)))
+</code></pre>
 
-(global-set-key (kbd <span style="color:#960050;background-color:#1e0010">“</span>C-c k<span style="color:#960050;background-color:#1e0010">”</span>) <span style="color:#960050;background-color:#1e0010">‘</span>kill-other-buffers)
-</code></pre></div><p>Emacs’i olabildiğince sade kullanmaya çalışıyorum. O nedenle menüyü, açılış ekranını kaldırdım, imleç pozisyonunu satır uzunluğunu anlayabilecek şekilde yapılandırdım, fontumu değiştirdim, dosya kaydederken beyaz boşlukların otomatik silinmesini sağladım, parantezlerin otomatik kapatılması gibi birçok ayarı etkinleştirdim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(setq-default truncate-lines <span style="color:#66d9ef">t</span>)
-(<span style="color:#66d9ef">setq</span> inhibit-splash-screen <span style="color:#66d9ef">t</span>)
-(menu-bar-mode <span style="color:#ae81ff">-1</span>)
-(scroll-bar-mode <span style="color:#ae81ff">-1</span>)
-(tool-bar-mode <span style="color:#ae81ff">-1</span>)
-(<span style="color:#66d9ef">setq</span> visible-bell <span style="color:#ae81ff">1</span>)
-(column-number-mode <span style="color:#66d9ef">t</span>)
-(set-face-attribute <span style="color:#960050;background-color:#1e0010">‘</span>default <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">:font</span> <span style="color:#960050;background-color:#1e0010">“</span>Fira Code<span style="color:#960050;background-color:#1e0010">”</span> <span style="color:#e6db74">:height</span> <span style="color:#ae81ff">105</span> <span style="color:#e6db74">:weight</span> <span style="color:#960050;background-color:#1e0010">‘</span>normal <span style="color:#e6db74">:width</span> <span style="color:#960050;background-color:#1e0010">‘</span>normal)
-(ido-mode <span style="color:#ae81ff">1</span>)
-(ido-everywhere <span style="color:#ae81ff">1</span>)
-(flx-ido-mode <span style="color:#ae81ff">1</span>)
-(<span style="color:#66d9ef">setq</span> ido-enable-flex-matching <span style="color:#66d9ef">t</span>)
-(<span style="color:#66d9ef">setq</span> ido-use-faces <span style="color:#66d9ef">nil</span>)
-(setq-default indent-tabs-mode <span style="color:#66d9ef">nil</span>)
-(electric-pair-mode <span style="color:#ae81ff">1</span>)
-(add-hook <span style="color:#960050;background-color:#1e0010">‘</span>before-save-hook <span style="color:#960050;background-color:#1e0010">‘</span>delete-trailing-whitespace)
+<p>Editörü kullandıkça bazı ihtiyaçlar ortaya çıkmaya başlıyor. Örneğin bir projede çok uzun süre çalışıp daha sonra başka bir projeye geçmek istediğimde arka planda açık olan tüm dosya yedeklerini silmek istiyorum. Bunun için <code>kill-other-buffers</code> adında bir fonksiyon yazdım ve bu fonksiyonu bir klavye kısayoluna atadım (Ctrl c, k):</p>
+
+<pre><code class="language-lisp">(defun kill-other-buffers ()
+ “Kill all other buffers.”
+ (interactive)
+ (mapc ‘kill-buffer (delq (current-buffer) (buffer-list)))
+ (message “All other buffers are killed..”))
+
+(global-set-key (kbd “C-c k”) ‘kill-other-buffers)
+</code></pre>
+
+<p>Emacs’i olabildiğince sade kullanmaya çalışıyorum. O nedenle menüyü, açılış ekranını kaldırdım, imleç pozisyonunu satır uzunluğunu anlayabilecek şekilde yapılandırdım, fontumu değiştirdim, dosya kaydederken beyaz boşlukların otomatik silinmesini sağladım, parantezlerin otomatik kapatılması gibi birçok ayarı etkinleştirdim:</p>
+
+<pre><code class="language-lisp">(setq-default truncate-lines t)
+(setq inhibit-splash-screen t)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(setq visible-bell 1)
+(column-number-mode t)
+(set-face-attribute ‘default nil :font “Fira Code” :height 105 :weight ‘normal :width ‘normal)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
+(setq-default indent-tabs-mode nil)
+(electric-pair-mode 1)
+(add-hook ‘before-save-hook ‘delete-trailing-whitespace)
 (ac-config-default)
-</code></pre></div><p>Editörde dosya açarken, aynı dizinde geçici bir dosya oluşturulduğunu göreceksiniz. Bu dosyaların ortalıkta değil de, başka bir yerde tek bir dizin içinde saklanmasını sağlıyorum:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#66d9ef">setq</span> backup-directory-alist <span style="color:#f92672">`</span>((<span style="color:#960050;background-color:#1e0010">“</span><span style="color:#f92672">.</span><span style="color:#a6e22e">*</span><span style="color:#960050;background-color:#1e0010">”</span> <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>temporary-file-directory)))
-(<span style="color:#66d9ef">setq</span> auto-save-file-name-transforms <span style="color:#f92672">`</span>((<span style="color:#960050;background-color:#1e0010">“</span><span style="color:#f92672">.</span><span style="color:#a6e22e">*</span><span style="color:#960050;background-color:#1e0010">”</span> <span style="color:#f92672">,</span>temporary-file-directory <span style="color:#66d9ef">t</span>)))
-</code></pre></div><p>Son olarak, normalde uzun satırları kırmayı sevmiyorum, tek satırda göstermesi benim için daha iyi; ama metin dosyaları hariç, onlarda uzun satırları kırıp satırbaşıymış gibi göstermesini sağlıyorum:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(add-hook <span style="color:#960050;background-color:#1e0010">‘</span>markdown-mode-hook <span style="color:#960050;background-color:#1e0010">‘</span>visual-line-mode)
-(add-hook <span style="color:#960050;background-color:#1e0010">‘</span>text-mode-hook <span style="color:#960050;background-color:#1e0010">‘</span>visual-line-mode)
-</code></pre></div><p>40 yıllık editör için yapılandırmam bundan ibaret. Yapılandırmanızı ne kadar basit tutarsanız o kadar iyi. Eğer Emacs ile ilgileniyorsanız, aşağıdaki linklere de göz atın, istediğiniz zaman yorum yazıp bana soru iletebilirsiniz.</p>
+</code></pre>
+
+<p>Editörde dosya açarken, aynı dizinde geçici bir dosya oluşturulduğunu göreceksiniz. Bu dosyaların ortalıkta değil de, başka bir yerde tek bir dizin içinde saklanmasını sağlıyorum:</p>
+
+<pre><code class="language-lisp">(setq backup-directory-alist `((“.*” . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms `((“.*” ,temporary-file-directory t)))
+</code></pre>
+
+<p>Son olarak, normalde uzun satırları kırmayı sevmiyorum, tek satırda göstermesi benim için daha iyi; ama metin dosyaları hariç, onlarda uzun satırları kırıp satırbaşıymış gibi göstermesini sağlıyorum:</p>
+
+<pre><code class="language-lisp">(add-hook ‘markdown-mode-hook ‘visual-line-mode)
+(add-hook ‘text-mode-hook ‘visual-line-mode)
+</code></pre>
+
+<p>40 yıllık editör için yapılandırmam bundan ibaret. Yapılandırmanızı ne kadar basit tutarsanız o kadar iyi. Eğer Emacs ile ilgileniyorsanız, aşağıdaki linklere de göz atın, istediğiniz zaman yorum yazıp bana soru iletebilirsiniz.</p>
+
 <h2 id="kaynaklar">Kaynaklar</h2>
+
 <ul>
 <li>Bilgem Çakır, <a href="https://youtu.be/qXw0ocR_XBI">“Kullandığım Araçlar: Emacs”</a></li>
 <li>Üstün Özgür, <a href="https://youtu.be/FsN3Yp05_aQ">“Emacs: Özgür Yazılım Devriminin Editörü”</a></li>

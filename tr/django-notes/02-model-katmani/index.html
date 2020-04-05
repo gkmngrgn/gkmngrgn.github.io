@@ -142,100 +142,142 @@
                     <div class="markdown">
                         
     
-    <p><em>Şimdi MTV&rsquo;nin Model katmanına giriş yapacağız; ama bu konuya tek bir yazı yetmeyecek. Bu yazıyı okurken öğrendiklerinizi pekiştirmek için alıştırmaları yapmaya özen gösterirseniz, bir sonraki konuya daha kolay ısınırsınız.</em></p>
+    
+
+<p><em>Şimdi MTV&rsquo;nin Model katmanına giriş yapacağız; ama bu konuya tek bir yazı yetmeyecek. Bu yazıyı okurken öğrendiklerinizi pekiştirmek için alıştırmaları yapmaya özen gösterirseniz, bir sonraki konuya daha kolay ısınırsınız.</em></p>
+
 <h2 id="özet">Özet</h2>
+
 <ul>
 <li>Django&rsquo;da uygulama oluşturacağız, bundle yapısına kısaca değineceğiz.</li>
 <li>Model katmanını içerecek basit bir uygulama yazacağız.</li>
 <li>Model migration script&rsquo;leri oluşturacağız.</li>
 <li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-02/hello_django">buradan</a> erişebilirsiniz.</li>
 </ul>
+
 <h2 id="oluştur-oku-güncelle-sil">Oluştur, Oku, Güncelle, Sil</h2>
-<p>Veritabanında veri ile ilgili yapılabilecek dört temel işlemin baş harflerinden oluşuyor <strong>CRUD</strong>: Create - Read - Update - Delete. Her View katmanının belli bir amacı olur ve bu amaca göre Model katmanıyla bağlantıya geçer (bazen geçmez), sonucu Template katmanında gösterir. Django dökümantasyonunda çok güzel bir alıştırma<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> var. Biz şimdi herhangi bir resim dosyasını analiz edip bir renk paleti oluşturmayı deneyeceğiz, önce modellemeden başlıyoruz. Önce uygulamayı oluşturalım:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+
+<p>Veritabanında veri ile ilgili yapılabilecek dört temel işlemin baş harflerinden oluşuyor <strong>CRUD</strong>: Create - Read - Update - Delete. Her View katmanının belli bir amacı olur ve bu amaca göre Model katmanıyla bağlantıya geçer (bazen geçmez), sonucu Template katmanında gösterir. Django dökümantasyonunda çok güzel bir alıştırma<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> var. Biz şimdi herhangi bir resim dosyasını analiz edip bir renk paleti oluşturmayı deneyeceğiz, önce modellemeden başlıyoruz. Önce uygulamayı oluşturalım:</p>
+
+<pre><code class="language-bash"># terminal
 $ python manage.py startapp hello_palette
-</code></pre></div><p>Bu noktada <strong>bundled application</strong> konusuna bir değinelim. Django&rsquo;da her uygulamanın bir dizini var:</p>
+</code></pre>
+
+<p>Bu noktada <strong>bundled application</strong> konusuna bir değinelim. Django&rsquo;da her uygulamanın bir dizini var:</p>
+
 <ul>
 <li>Bir Django projesi, <strong>birden fazla uygulamayı</strong> içinde barındırabilir.</li>
 <li>Bir uygulama, <strong>birden fazla Django projesinde</strong> barınabilir.</li>
 </ul>
-<p>Burada amaç, projenin belli bir işlevini veya özelliğini bir paket haline getirip, o paketi kolayca projeye kurup çıkarabilmek. <strong>pip</strong><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> ile kurulabilen her Django eklentisi aslında birer uygulamadır. Yani siz de geliştirdiğiniz bir uygulamayı, Template ve statik dosyalarını uygulama dizininde tutarak dağıtabilirsiniz.</p>
+
+<p>Burada amaç, projenin belli bir işlevini veya özelliğini bir paket haline getirip, o paketi kolayca projeye kurup çıkarabilmek. <strong>pip</strong><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> ile kurulabilen her Django eklentisi aslında birer uygulamadır. Yani siz de geliştirdiğiniz bir uygulamayı, Template ve statik dosyalarını uygulama dizininde tutarak dağıtabilirsiniz.</p>
+
 <p>Ben dağıtmayı düşünmediğim, bir projeye kökünden bağımlı olan uygulamalarımda iki şeye önem veriyorum:</p>
+
 <ol>
 <li>İsimlendirirken herhangi bir isim çakışmasını önlemek için proje adıyla bir prefix ekliyorum: <strong>palette</strong> yerine <strong>hello_palette</strong> gibi.</li>
-<li><strong>templates</strong> ve <strong>static</strong> dosyalarımı uygulamanın içinde değil, ortak proje dizininde tutmayı tercih ediyorum.</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+
+<li><p><strong>templates</strong> ve <strong>static</strong> dosyalarımı uygulamanın içinde değil, ortak proje dizininde tutmayı tercih ediyorum.</p>
+
+<pre><code class="language-bash"># terminal
 $ ls
 hello_django/  hello_palette/  manage.py*  static/  templates/
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+</code></pre>
+
+<pre><code class="language-bash"># terminal
 $ ls hello_palette/
 __init__.py  admin.py  apps.py  migrations/  models.py  tests.py  views.py
-</code></pre></div><p>Bir uygulama oluşturduğumuzda oluşan dosya ve dizin yapısı bu. Model katmanında ORM<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> model objelerimizi <code>models.py</code> dosyasında tutacağız, Model katmanında yapılan değişiklikleri içeren, otomatik oluşturulan scriptleri <code>migrations/</code> dizininde bulabileceğiz. Şimdi bir örnekle ORM konusuna girelim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># models.py</span>
-<span style="color:#f92672">from</span> django.db <span style="color:#f92672">import</span> models
-<span style="color:#f92672">from</span> django.utils.translation <span style="color:#f92672">import</span> ugettext_lazy <span style="color:#66d9ef">as</span> _
+</code></pre></li>
+</ol>
+
+<p>Bir uygulama oluşturduğumuzda oluşan dosya ve dizin yapısı bu. Model katmanında ORM<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup> model objelerimizi <code>models.py</code> dosyasında tutacağız, Model katmanında yapılan değişiklikleri içeren, otomatik oluşturulan scriptleri <code>migrations/</code> dizininde bulabileceğiz. Şimdi bir örnekle ORM konusuna girelim:</p>
+
+<pre><code class="language-python"># models.py
+from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Palette</span>(models<span style="color:#f92672">.</span>Model):
-    image <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ImageField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Image&#34;</span>), upload_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;images/&#39;</span>)
-    colors <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>TextField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Colors&#34;</span>))
-    created_at <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>DateTimeField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Created at&#34;</span>), auto_now_add<span style="color:#f92672">=</span>True)
+class Palette(models.Model):
+    image = models.ImageField(verbose_name=_(&quot;Image&quot;), upload_to='images/')
+    colors = models.TextField(verbose_name=_(&quot;Colors&quot;))
+    created_at = models.DateTimeField(verbose_name=_(&quot;Created at&quot;), auto_now_add=True)
 
-    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Meta</span>:
-        verbose_name <span style="color:#f92672">=</span> _(<span style="color:#e6db74">&#34;Palette&#34;</span>)
-        verbose_name_plural <span style="color:#f92672">=</span> _(<span style="color:#e6db74">&#34;Palettes&#34;</span>)
-        ordering <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;-created_at&#39;</span>,)
+    class Meta:
+        verbose_name = _(&quot;Palette&quot;)
+        verbose_name_plural = _(&quot;Palettes&quot;)
+        ordering = ('-created_at',)
 
-    <span style="color:#66d9ef">def</span> __str__(self):
-        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>image<span style="color:#f92672">.</span>path
-</code></pre></div><p>Bizim varsayılan veritabanımız SQLite ve daha ilk andan kullanıma hazır. Fakat veritabanımızda henüz <strong>Palette</strong> model objemiz ile ilgili bir table ve columnlar yok. Model katmanımızda yaptığımız her değişikliğin veritabanımıza yansıtılması için bir <strong>migration script</strong> oluşturmamız gerekiyor.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+    def __str__(self):
+        return self.image.path
+</code></pre>
+
+<p>Bizim varsayılan veritabanımız SQLite ve daha ilk andan kullanıma hazır. Fakat veritabanımızda henüz <strong>Palette</strong> model objemiz ile ilgili bir table ve columnlar yok. Model katmanımızda yaptığımız her değişikliğin veritabanımıza yansıtılması için bir <strong>migration script</strong> oluşturmamız gerekiyor.</p>
+
+<pre><code class="language-bash"># terminal
 $ python manage.py makemigrations hello_palette
-App <span style="color:#e6db74">&#39;hello_palette&#39;</span> could not be found. Is it in INSTALLED_APPS?
-</code></pre></div><p>Önemli bir şey unuttuk, uygulamayı kurmadan kullanmaya çalıştık. Yeni uygulamamızı INSTALLED_APPS listesine ekleyelim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># settings.py</span>
-<span style="color:#f92672">...</span>
-INSTALLED_APPS <span style="color:#f92672">=</span> [
-    <span style="color:#e6db74">&#39;django.contrib.admin&#39;</span>,
-    <span style="color:#e6db74">&#39;django.contrib.auth&#39;</span>,
-    <span style="color:#e6db74">&#39;django.contrib.contenttypes&#39;</span>,
-    <span style="color:#e6db74">&#39;django.contrib.sessions&#39;</span>,
-    <span style="color:#e6db74">&#39;django.contrib.messages&#39;</span>,
-    <span style="color:#e6db74">&#39;django.contrib.staticfiles&#39;</span>,
-    <span style="color:#e6db74">&#39;hello_palette&#39;</span>,  <span style="color:#75715e"># en sona, sira onemli.</span>
+App 'hello_palette' could not be found. Is it in INSTALLED_APPS?
+</code></pre>
+
+<p>Önemli bir şey unuttuk, uygulamayı kurmadan kullanmaya çalıştık. Yeni uygulamamızı INSTALLED_APPS listesine ekleyelim:</p>
+
+<pre><code class="language-python"># settings.py
+...
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'hello_palette',  # en sona, sira onemli.
 ]
-<span style="color:#f92672">...</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+...
+</code></pre>
+
+<pre><code class="language-bash"># terminal
 $ python manage.py makemigrations hello_palette
 SystemCheckError: System check identified some issues:
 
 ERRORS:
-hello_palette.Palette.image: <span style="color:#f92672">(</span>fields.E210<span style="color:#f92672">)</span> Cannot use ImageField because Pillow is not installed.
-        HINT: Get Pillow at https://pypi.python.org/pypi/Pillow or run command <span style="color:#e6db74">&#34;pip install Pillow&#34;</span>.
-</code></pre></div><p>Bu sefer de eksik bağımlılık nedeniyle hata aldık. Bu sorunu nasıl çözeceğimize dair bir ipucu zaten verilmiş ama yeri gelmişken bağımlılıklar konusuna el atalım.</p>
-<h2 id="proje-bağımlılıkları-requirementstxt">Proje Bağımlılıkları, requirements.txt</h2>
+hello_palette.Palette.image: (fields.E210) Cannot use ImageField because Pillow is not installed.
+        HINT: Get Pillow at https://pypi.python.org/pypi/Pillow or run command &quot;pip install Pillow&quot;.
+</code></pre>
+
+<p>Bu sefer de eksik bağımlılık nedeniyle hata aldık. Bu sorunu nasıl çözeceğimize dair bir ipucu zaten verilmiş ama yeri gelmişken bağımlılıklar konusuna el atalım.</p>
+
+<h2 id="proje-bağımlılıkları-requirements-txt">Proje Bağımlılıkları, requirements.txt</h2>
+
 <p>Projeye başlarken <code>pip</code> ile kurduğumuz ilk bağımlılığımızı hatırlayalım, Django. Şimdi resim dosyalarımız ile ilgili meta datayı veritabanında saklamak isterken Django bizden <code>Pillow</code> kurmamızı istedi. Projenin kapasitesi, özellikleri arttıkça bağımlılıklar artar. Bizim bunları her kurulumda tek tek kurmamız, sürümlerini kontrol etmemiz, yönetmemiz epey zor. Fakat bir <code>requirements.txt</code> dosyası oluşturup bu listeyi saklarsak, bu sorunu büyük ölçüde çözmüş oluruz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># requirements.txt</span>
-Django<span style="color:#f92672">==</span>2.0.3
-Pillow<span style="color:#f92672">==</span>5.1.0
-</code></pre></div><p>Bağımlılıkların sürümünü <a href="https://pypi.org/">PyPI</a> sitesinden bakıp öğrenebilirsiniz. Bağımlılık dosyamızı hazırladıktan sonra paketleri artık bir komutla kurabiliriz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+
+<pre><code class="language-bash"># requirements.txt
+Django==2.0.3
+Pillow==5.1.0
+</code></pre>
+
+<p>Bağımlılıkların sürümünü <a href="https://pypi.org/">PyPI</a> sitesinden bakıp öğrenebilirsiniz. Bağımlılık dosyamızı hazırladıktan sonra paketleri artık bir komutla kurabiliriz:</p>
+
+<pre><code class="language-bash"># terminal
 $ pip install -r requirements.txt
-Requirement already satisfied: Django<span style="color:#f92672">==</span>2.0.3 in c:<span style="color:#ae81ff">\u</span>sers<span style="color:#ae81ff">\g</span>okmen<span style="color:#ae81ff">\a</span>ppdata<span style="color:#ae81ff">\l</span>ocal<span style="color:#ae81ff">\p</span>rograms<span style="color:#ae81ff">\p</span>ython<span style="color:#ae81ff">\p</span>ython36-32<span style="color:#ae81ff">\l</span>ib<span style="color:#ae81ff">\s</span>ite-packages <span style="color:#f92672">(</span>from -r requirements.txt <span style="color:#f92672">(</span>line 1<span style="color:#f92672">))</span>
-Collecting Pillow<span style="color:#f92672">==</span>5.1.0 <span style="color:#f92672">(</span>from -r requirements.txt <span style="color:#f92672">(</span>line 2<span style="color:#f92672">))</span>
+Requirement already satisfied: Django==2.0.3 in c:\users\gokmen\appdata\local\programs\python\python36-32\lib\site-packages (from -r requirements.txt (line 1))
+Collecting Pillow==5.1.0 (from -r requirements.txt (line 2))
   Using cached Pillow-5.1.0-cp36-cp36m-win32.whl
-Requirement already satisfied: pytz in c:<span style="color:#ae81ff">\u</span>sers<span style="color:#ae81ff">\g</span>okmen<span style="color:#ae81ff">\a</span>ppdata<span style="color:#ae81ff">\l</span>ocal<span style="color:#ae81ff">\p</span>rograms<span style="color:#ae81ff">\p</span>ython<span style="color:#ae81ff">\p</span>ython36-32<span style="color:#ae81ff">\l</span>ib<span style="color:#ae81ff">\s</span>ite-packages <span style="color:#f92672">(</span>from Django<span style="color:#f92672">==</span>2.0.3-&gt;-r requirements.txt <span style="color:#f92672">(</span>line 1<span style="color:#f92672">))</span>
+Requirement already satisfied: pytz in c:\users\gokmen\appdata\local\programs\python\python36-32\lib\site-packages (from Django==2.0.3-&gt;-r requirements.txt (line 1))
 Installing collected packages: Pillow
 Successfully installed Pillow-5.1.0
-</code></pre></div><p>Son kez migration script oluşturmayı deneyelim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+</code></pre>
+
+<p>Son kez migration script oluşturmayı deneyelim:</p>
+
+<pre><code class="language-bash"># terminal
 $ python manage.py makemigrations hello_palette
-Migrations <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;hello_palette&#39;</span>:
-  hello_palette<span style="color:#ae81ff">\m</span>igrations<span style="color:#ae81ff">\0</span>001_initial.py
+Migrations for 'hello_palette':
+  hello_palette\migrations\0001_initial.py
     - Create model Palette
-</code></pre></div><p>Oldu! Elimizde veritabanında istediğimiz tabloları ve columnları oluşturacak bir script&rsquo;imiz var. Artık sıra veritabanında<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+</code></pre>
+
+<p>Oldu! Elimizde veritabanında istediğimiz tabloları ve columnları oluşturacak bir script&rsquo;imiz var. Artık sıra veritabanında<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup>:</p>
+
+<pre><code class="language-bash"># terminal
 $ python manage.py migrate
 Operations to perform:
   Apply all migrations: admin, auth, contenttypes, hello_palette, sessions
@@ -253,25 +295,26 @@ Running migrations:
   Applying auth.0007_alter_validators_add_error_messages... OK
   Applying auth.0008_alter_user_username_max_length... OK
   Applying auth.0009_alter_user_last_name_max_length... OK
-  Applying hello_palette.0001_initial... OK  <span style="color:#75715e"># bizimki burada.</span>
+  Applying hello_palette.0001_initial... OK  # bizimki burada.
   Applying sessions.0001_initial... OK
-</code></pre></div><p>Hayda, bir migration script&rsquo;imiz var sanıyorduk. Tabi ki öyle değil, auth, contenttypes, sessions&hellip; Bunların hepsi birer uygulama ve dikkat ederseniz bunlar INSTALLED_APPS listesinde de var. Projede kullandığımız uygulamaların veritabanımıza henüz kabul edilmemiş migration script&rsquo;leri varsa, Django bunları tespit edip belli sırayla veritabanımıza uygular. Peki bir migration script&rsquo;in uygulanıp uygulanmadığını Django nasıl anlıyor? O bilgiyi de veritabanında tutarak! Yani Django&rsquo;daki migration uygulamasının da bir tablosu var.</p>
+</code></pre>
+
+<p>Hayda, bir migration script&rsquo;imiz var sanıyorduk. Tabi ki öyle değil, auth, contenttypes, sessions&hellip; Bunların hepsi birer uygulama ve dikkat ederseniz bunlar INSTALLED_APPS listesinde de var. Projede kullandığımız uygulamaların veritabanımıza henüz kabul edilmemiş migration script&rsquo;leri varsa, Django bunları tespit edip belli sırayla veritabanımıza uygular. Peki bir migration script&rsquo;in uygulanıp uygulanmadığını Django nasıl anlıyor? O bilgiyi de veritabanında tutarak! Yani Django&rsquo;daki migration uygulamasının da bir tablosu var.</p>
+
 <p>Bir sonraki yazımda palette uygulamasını kodlamaya devam edeceğiz. Sağlıcakla.</p>
-<div class="footnotes" role="doc-endnotes">
+<div class="footnotes">
+
 <hr />
+
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p>Ben kendi deneyimlerimi katarak bu yazı dizisini hazırlıyorum; ancak siz çok geç olmadan Django dökümantasyonuna elinizi, gözünüzü alıştırın. Bu yazıda öğrendiklerinizi <a href="https://docs.djangoproject.com/en/2.0/intro/tutorial01/">buradan</a> pekiştirmenizi tavsiye ediyorum. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p>Tüm Django paketlerini <a href="https://pypi.org/search/?q=django">buradan</a> görebilirsiniz. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:3" role="doc-endnote">
-<p>Object-Relational Mapping kısaltması ORM&rsquo;de temel amaç, kodumuzun içinde, kullandığımız programlama dilinin sağladığı kolaylıklardan sonuna kadar yararlanarak veritabanında çeşitli işlemler gerçekleştirmek. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:4" role="doc-endnote">
-<p>Projeyi ilk oluşturduğumuzda bazı uygulamalar önceden kurulu geldiği için beklediğimizden fazla migration çalıştı. Bu uygulamaların bir çoğuna daha sonra tekrar değineceğiz. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
+<li id="fn:1">Ben kendi deneyimlerimi katarak bu yazı dizisini hazırlıyorum; ancak siz çok geç olmadan Django dökümantasyonuna elinizi, gözünüzü alıştırın. Bu yazıda öğrendiklerinizi <a href="https://docs.djangoproject.com/en/2.0/intro/tutorial01/">buradan</a> pekiştirmenizi tavsiye ediyorum.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Tüm Django paketlerini <a href="https://pypi.org/search/?q=django">buradan</a> görebilirsiniz.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">Object-Relational Mapping kısaltması ORM&rsquo;de temel amaç, kodumuzun içinde, kullandığımız programlama dilinin sağladığı kolaylıklardan sonuna kadar yararlanarak veritabanında çeşitli işlemler gerçekleştirmek.
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+<li id="fn:4">Projeyi ilk oluşturduğumuzda bazı uygulamalar önceden kurulu geldiği için beklediğimizden fazla migration çalıştı. Bu uygulamaların bir çoğuna daha sonra tekrar değineceğiz.
+ <a class="footnote-return" href="#fnref:4"><sup>[return]</sup></a></li>
 </ol>
 </div>
 

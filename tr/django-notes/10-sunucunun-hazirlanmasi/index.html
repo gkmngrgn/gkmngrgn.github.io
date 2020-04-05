@@ -142,168 +142,208 @@
                     <div class="markdown">
                         
     
-    <p><em>Buraya kadar hep geliştirme aşamasıyla ilgili konulara değindik. Şimdi backend development tarafından çıkıp biraz devops deployment konusunu ele alalım. Olabildiğince az müdahale ile projemizi dış dünyanın erişimine sunacağız.</em></p>
+    
+
+<p><em>Buraya kadar hep geliştirme aşamasıyla ilgili konulara değindik. Şimdi backend development tarafından çıkıp biraz devops deployment konusunu ele alalım. Olabildiğince az müdahale ile projemizi dış dünyanın erişimine sunacağız.</em></p>
+
 <h2 id="özet">Özet</h2>
+
 <ul>
 <li>Docker ile sunucumuzu hazırlayacağız.</li>
 <li>Ortama göre (development, production, test) sunucu ve proje ayarlarımızı değiştirebileceğimiz yapılandırma dosyaları oluşturacağız.</li>
 <li>Bu yazıyla ilgili kodlara <a href="https://bit.ly/2MVbToM-django-notes-article-10">buradan</a> erişebilirsiniz.</li>
 </ul>
-<h2 id="gerçekten-dockera-gerek-var-mı">Gerçekten Docker&rsquo;a gerek var mı?</h2>
-<p>Elbette hayır. Hatta yeni bir sunucuya da ihtiyacımız yok, şimdiye kadar kullandığımız geliştirme sunucumuzu <a href="https://bit.ly/2KidzH9-ngrok">ngrok</a> gibi basit bir tünelleme aracıyla dışarıdan erişilebilir hale getirip bilgisayarımızı 24 saat açık bırakabiliriz. Ama sunucuyla ilgili bizim birtakım beklentilerimiz var. Mesela sürekli erişilebilir durumda olmasını istiyoruz ve gelen isteklerin kesintisiz, hızlı ve mutlaka alınıp cevaplandırılmasını istiyoruz. Bunun için sunucunun sağlıklı çalışmasını sağlamak ve insan kusurunu <strong>en aza indirmemiz</strong> gerekiyor.</p>
-<p>Bizim veritabanı değişikliklerini uygulamak için bir script oluşturmamızın bir sebebi var, kaç farklı ortam ve sunucumuz olursa olsun, hata yapma olasılığımızı en aza indirmek. Bir önceki bölümde Docker ile sanallaştırma yaparken de amacımız buydu, production&rsquo;da olabilecek her türlü senaryoyu önce yerelimizde gerçekleştirmek ki deployment aşamasında herhangi bir sürprizle karşılaşmayalım.</p>
-<p>Peki deployment için bir script hazırlamak daha pratik olmaz mıydı? Olabilir elbette, benim halen daha basit projeler için kullandığım bir yöntemdir. Ancak benim size göstermek ve anlatmak istediğim şey, elle müdahaleye en aza indirmek ve bunu mümkün mertebe en kısa zamanda alışkanlık haline getirmek. Çok şey kazanırsınız. Çok yöntem var, hepsini anlatmam zor; ancak Docker ile başlayabiliriz.</p>
-<h2 id="ortama-göre-sunucu-ayarları">Ortama göre sunucu ayarları</h2>
-<p>Önceki yazımızda Docker ile geliştirme yapmaya başlamıştık. Bunun için docker-compose.yml dosyası oluşturup Celery, RabbitMQ ve web sunucumuzun otomatik başlamasını sağlamıştık. Ancak bu ayarlarımız tamamen geliştirme ortamına göre hazırlanmıştı. Şimdi bu yapılandırmada ortak kısımları yine <strong>docker-compose.yml</strong> dosyasında tutacağız, diğer ayarları sunucu ortamına göre ayrı dosyalarda tutacağız<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># docker-compose.yml</span>
-<span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
 
-<span style="color:#66d9ef">services</span>:
-  <span style="color:#66d9ef">web</span>:
-    <span style="color:#66d9ef">build</span>: .
-  <span style="color:#66d9ef">celery</span>:
-    <span style="color:#66d9ef">build</span>: .
-    <span style="color:#66d9ef">command</span>: celery worker -l info -A hello_django
-    <span style="color:#66d9ef">depends_on</span>:
+<h2 id="gerçekten-docker-a-gerek-var-mı">Gerçekten Docker&rsquo;a gerek var mı?</h2>
+
+<p>Elbette hayır. Hatta yeni bir sunucuya da ihtiyacımız yok, şimdiye kadar kullandığımız geliştirme sunucumuzu <a href="https://bit.ly/2KidzH9-ngrok">ngrok</a> gibi basit bir tünelleme aracıyla dışarıdan erişilebilir hale getirip bilgisayarımızı 24 saat açık bırakabiliriz. Ama sunucuyla ilgili bizim birtakım beklentilerimiz var. Mesela sürekli erişilebilir durumda olmasını istiyoruz ve gelen isteklerin kesintisiz, hızlı ve mutlaka alınıp cevaplandırılmasını istiyoruz. Bunun için sunucunun sağlıklı çalışmasını sağlamak ve insan kusurunu <strong>en aza indirmemiz</strong> gerekiyor.</p>
+
+<p>Bizim veritabanı değişikliklerini uygulamak için bir script oluşturmamızın bir sebebi var, kaç farklı ortam ve sunucumuz olursa olsun, hata yapma olasılığımızı en aza indirmek. Bir önceki bölümde Docker ile sanallaştırma yaparken de amacımız buydu, production&rsquo;da olabilecek her türlü senaryoyu önce yerelimizde gerçekleştirmek ki deployment aşamasında herhangi bir sürprizle karşılaşmayalım.</p>
+
+<p>Peki deployment için bir script hazırlamak daha pratik olmaz mıydı? Olabilir elbette, benim halen daha basit projeler için kullandığım bir yöntemdir. Ancak benim size göstermek ve anlatmak istediğim şey, elle müdahaleye en aza indirmek ve bunu mümkün mertebe en kısa zamanda alışkanlık haline getirmek. Çok şey kazanırsınız. Çok yöntem var, hepsini anlatmam zor; ancak Docker ile başlayabiliriz.</p>
+
+<h2 id="ortama-göre-sunucu-ayarları">Ortama göre sunucu ayarları</h2>
+
+<p>Önceki yazımızda Docker ile geliştirme yapmaya başlamıştık. Bunun için docker-compose.yml dosyası oluşturup Celery, RabbitMQ ve web sunucumuzun otomatik başlamasını sağlamıştık. Ancak bu ayarlarımız tamamen geliştirme ortamına göre hazırlanmıştı. Şimdi bu yapılandırmada ortak kısımları yine <strong>docker-compose.yml</strong> dosyasında tutacağız, diğer ayarları sunucu ortamına göre ayrı dosyalarda tutacağız<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>:</p>
+
+<pre><code class="language-yml"># docker-compose.yml
+version: '3'
+
+services:
+  web:
+    build: .
+  celery:
+    build: .
+    command: celery worker -l info -A hello_django
+    depends_on:
       - amqp
-  <span style="color:#66d9ef">celery-beat</span>:
-    <span style="color:#66d9ef">build</span>: .
-    <span style="color:#66d9ef">command</span>: celery beat -l info -A hello_django --scheduler django_celery_beat.schedulers:DatabaseScheduler
-    <span style="color:#66d9ef">depends_on</span>:
+  celery-beat:
+    build: .
+    command: celery beat -l info -A hello_django --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    depends_on:
       - amqp
       - celery
-  <span style="color:#66d9ef">amqp</span>:
-    <span style="color:#66d9ef">image</span>: rabbitmq:<span style="color:#ae81ff">3.7</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># docker-compose.dev.yml</span>
-<span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+  amqp:
+    image: rabbitmq:3.7
+</code></pre>
 
-<span style="color:#66d9ef">services</span>:
-  <span style="color:#66d9ef">web</span>:  <span style="color:#75715e"># Test ortamında geliştirme sunucusu kullanmamız bizim için yeterli.</span>
-    <span style="color:#66d9ef">command</span>: python manage.py runserver <span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">8000</span>
-    <span style="color:#66d9ef">volumes</span>:  <span style="color:#75715e"># Geliştirme aşamasında konteyner içindeki kodlarımıza kolayca müdahale edebilelim.</span>
-      - .:/code
-    <span style="color:#66d9ef">ports</span>:  <span style="color:#75715e"># İlgili portları açıyoruz ki projemize erişebilelim.</span>
-      - <span style="color:#ae81ff">8000</span>:<span style="color:#ae81ff">8000</span>
-  <span style="color:#66d9ef">celery</span>:
-    <span style="color:#66d9ef">volumes</span>:
-      - .:/code
-  <span style="color:#66d9ef">celery-beat</span>:
-    <span style="color:#66d9ef">volumes</span>:
-      - .:/code
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># docker-compose.prod.yml</span>
-<span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<pre><code class="language-yml"># docker-compose.dev.yml
+version: '3'
 
-<span style="color:#66d9ef">services</span>:
-  <span style="color:#66d9ef">nginx</span>:  <span style="color:#75715e"># Production&#39;da Nginx sunucusunu kullanacağız. 8000 portunu dinlemek için.</span>
-    <span style="color:#66d9ef">image</span>: nginx
-    <span style="color:#66d9ef">volumes</span>:
+services:
+  web:  # Test ortamında geliştirme sunucusu kullanmamız bizim için yeterli.
+    command: python manage.py runserver 0:8000
+    volumes:  # Geliştirme aşamasında konteyner içindeki kodlarımıza kolayca müdahale edebilelim.
+      - .:/code
+    ports:  # İlgili portları açıyoruz ki projemize erişebilelim.
+      - 8000:8000
+  celery:
+    volumes:
+      - .:/code
+  celery-beat:
+    volumes:
+      - .:/code
+</code></pre>
+
+<pre><code class="language-yml"># docker-compose.prod.yml
+version: '3'
+
+services:
+  nginx:  # Production'da Nginx sunucusunu kullanacağız. 8000 portunu dinlemek için.
+    image: nginx
+    volumes:
      - ./conf/nginx.prod.conf:/etc/nginx/nginx.conf
-     - ./assets/static:/assets/static  <span style="color:#75715e"># Statik dosyalarımız Nginx tarafından sunulacak.</span>
-     - ./assets/media:/assets/media  <span style="color:#75715e"># Media dosyalarımız Nginx tarafından sunulacak.</span>
-    <span style="color:#66d9ef">restart</span>: always  <span style="color:#75715e"># Bir sebepten kapanırsa yeniden başlatması için.</span>
-    <span style="color:#66d9ef">ports</span>:
-      - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>
-  <span style="color:#66d9ef">web</span>:  <span style="color:#75715e"># Production&#39;da geliştirme sunucusu yerine Gunicorn kullanacağız.</span>
-    <span style="color:#66d9ef">command</span>: gunicorn hello_django.wsgi:application -b <span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">8000</span>
-    <span style="color:#66d9ef">entrypoint</span>: /code/entrypoint.sh  <span style="color:#75715e"># Bu dosyayı ayrıca inceleyin, otomatik bazı komutları çalıştırmak için.</span>
-    <span style="color:#66d9ef">restart</span>: always
-    <span style="color:#66d9ef">volumes</span>:
+     - ./assets/static:/assets/static  # Statik dosyalarımız Nginx tarafından sunulacak.
+     - ./assets/media:/assets/media  # Media dosyalarımız Nginx tarafından sunulacak.
+    restart: always  # Bir sebepten kapanırsa yeniden başlatması için.
+    ports:
+      - 80:80
+  web:  # Production'da geliştirme sunucusu yerine Gunicorn kullanacağız.
+    command: gunicorn hello_django.wsgi:application -b 0:8000
+    entrypoint: /code/entrypoint.sh  # Bu dosyayı ayrıca inceleyin, otomatik bazı komutları çalıştırmak için.
+    restart: always
+    volumes:
       - ./db.sqlite3:/code/db.sqlite3
       - ./assets/static:/assets/static
       - ./assets/media:/assets/media
-  <span style="color:#66d9ef">celery</span>:
-    <span style="color:#66d9ef">restart</span>: always
-  <span style="color:#66d9ef">celery-beat</span>:
-    <span style="color:#66d9ef">restart</span>: always
-  <span style="color:#66d9ef">amqp</span>:
-    <span style="color:#66d9ef">restart</span>: always
-</code></pre></div><p>Şunu da yapabilirdik, geliştirme aşamasında DB backend olarak SQLite3 kullanıp, Production&rsquo;da PostgreSQL tercih edebilirdik. Bunu pek önermiyorum, geliştirme ortamınız production&rsquo;u ne kadar iyi taklit ederse bizim için o kadar iyi. Peki bu değişiklikten sonra geliştirme ortamımızı nasıl çalıştıracağız?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+  celery:
+    restart: always
+  celery-beat:
+    restart: always
+  amqp:
+    restart: always
+</code></pre>
+
+<p>Şunu da yapabilirdik, geliştirme aşamasında DB backend olarak SQLite3 kullanıp, Production&rsquo;da PostgreSQL tercih edebilirdik. Bunu pek önermiyorum, geliştirme ortamınız production&rsquo;u ne kadar iyi taklit ederse bizim için o kadar iyi. Peki bu değişiklikten sonra geliştirme ortamımızı nasıl çalıştıracağız?</p>
+
+<pre><code class="language-bash"># terminal
 $ docker-compose.exe -f docker-compose.yml -f docker-compose.dev.yml up -d
-Creating network <span style="color:#e6db74">&#34;hello_django_default&#34;</span> with the default driver
-Creating hello_django_web_1    ... <span style="color:#66d9ef">done</span>
-Creating hello_django_amqp_1 ... <span style="color:#66d9ef">done</span>
-Creating hello_django_celery_1 ... <span style="color:#66d9ef">done</span>
-Creating hello_django_celery-beat_1 ... <span style="color:#66d9ef">done</span>
-</code></pre></div><p>Güzel. Bu kısım Docker ayarlarımızın ortama göre ayrılması içindi. Ama bir de Django ayarlarımız var.</p>
+Creating network &quot;hello_django_default&quot; with the default driver
+Creating hello_django_web_1    ... done
+Creating hello_django_amqp_1 ... done
+Creating hello_django_celery_1 ... done
+Creating hello_django_celery-beat_1 ... done
+</code></pre>
+
+<p>Güzel. Bu kısım Docker ayarlarımızın ortama göre ayrılması içindi. Ama bir de Django ayarlarımız var.</p>
+
 <h2 id="ortama-göre-proje-ayarları">Ortama göre proje ayarları</h2>
+
 <p>Bildiğiniz gibi proje ayarlarımızı <strong>settings.py</strong> dosyamızda saklıyoruz. Bazı öyle ayarlar var ki kesinlikle geliştirme ve production ortamlarında aynı olamaz. Örneğin <strong>DEBUG</strong> production ortamında kesinlikle <strong>False</strong> olmalı. Ben bu tip değişiklikleri bir JSON dosyasında saklamayı ve bu özel JSON dosyalarının repo&rsquo;ya yanlışlıkla gönderilmesini önlemek için de .gitignore dosyasına adının yazılmasını öneriyorum. Çünkü bu dosya sadece sunucu ayarları değil, sunucuya özel gizli bazı bilgileri de barındırabilecek. Örneğin <strong>SECRET_KEY</strong>, veritabanı erişim bilgileri, özel API anahtarları ve bunun gibi. Bunun için, <strong>settings.py</strong> dosyamıza basit bir kod ekliyoruz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_django/settings.py</span>
-<span style="color:#f92672">...</span>
-BASE_DIR <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>abspath(__file__)))
 
-<span style="color:#75715e"># 1. Önce proje dizinimizde env.json dosyası var mı araştır.</span>
-<span style="color:#75715e"># 2. Yoksa varsayılan conf/env.dev.json dosyamızı kullan.</span>
-env_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(BASE_DIR, <span style="color:#e6db74">&#39;env.json&#39;</span>)
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(env_path):
-    env_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(BASE_DIR, <span style="color:#e6db74">&#39;conf&#39;</span>, <span style="color:#e6db74">&#39;env.dev.json&#39;</span>)
-<span style="color:#66d9ef">with</span> open(env_path, <span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> env_file:
-    env <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>loads(env_file<span style="color:#f92672">.</span>read())
+<pre><code class="language-python"># hello_django/settings.py
+...
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DEBUG <span style="color:#f92672">=</span> env[<span style="color:#e6db74">&#39;DEBUG&#39;</span>]
-<span style="color:#f92672">...</span>
-</code></pre></div><p>Böylece <strong>DEBUG</strong> ayarımız sunucuda oluşturacağımız <strong>env.json</strong> dosyasından gelecek, repomuzda örneği var:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;DEBUG&#34;</span>: <span style="color:#66d9ef">false</span>,
-    <span style="color:#f92672">&#34;MEDIA_ROOT&#34;</span>: <span style="color:#e6db74">&#34;/assets/media&#34;</span>,
-    <span style="color:#f92672">&#34;STATIC_ROOT&#34;</span>: <span style="color:#e6db74">&#34;/assets/static&#34;</span>
+# 1. Önce proje dizinimizde env.json dosyası var mı araştır.
+# 2. Yoksa varsayılan conf/env.dev.json dosyamızı kullan.
+env_path = os.path.join(BASE_DIR, 'env.json')
+if not os.path.exists(env_path):
+    env_path = os.path.join(BASE_DIR, 'conf', 'env.dev.json')
+with open(env_path, 'r') as env_file:
+    env = json.loads(env_file.read())
+
+DEBUG = env['DEBUG']
+...
+</code></pre>
+
+<p>Böylece <strong>DEBUG</strong> ayarımız sunucuda oluşturacağımız <strong>env.json</strong> dosyasından gelecek, repomuzda örneği var:</p>
+
+<pre><code class="language-json">{
+    &quot;DEBUG&quot;: false,
+    &quot;MEDIA_ROOT&quot;: &quot;/assets/media&quot;,
+    &quot;STATIC_ROOT&quot;: &quot;/assets/static&quot;
 }
-</code></pre></div><p>Son bir şey daha, dikkatinizi çektiyse Production için hazırladığımız Docker Compose ayarlarımızda fazladan bir konteyner daha kullandık. Bizim 80 portuna erişebilmemiz, statik ve media dosyalarımıza erişebilmemiz için Nginx&rsquo;e ihtiyacımız var. Her sunucunun Nginx yapılandırması farklı olur, örnek olarak bunu inceleyelim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#75715e"># conf/nginx.prod.json
-</span><span style="color:#75715e"># detaylı hali repomuzda var.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">...</span>
-<span style="color:#e6db74">http</span> {
-    <span style="color:#f92672">sendfile</span> <span style="color:#66d9ef">on</span>;
-    <span style="color:#f92672">include</span> <span style="color:#e6db74">mime.types</span>;
+</code></pre>
 
-    <span style="color:#f92672">server</span> {
-        <span style="color:#f92672">listen</span> <span style="color:#ae81ff">80</span>;
-        <span style="color:#f92672">server_name</span> <span style="color:#e6db74">_</span>;
+<p>Son bir şey daha, dikkatinizi çektiyse Production için hazırladığımız Docker Compose ayarlarımızda fazladan bir konteyner daha kullandık. Bizim 80 portuna erişebilmemiz, statik ve media dosyalarımıza erişebilmemiz için Nginx&rsquo;e ihtiyacımız var. Her sunucunun Nginx yapılandırması farklı olur, örnek olarak bunu inceleyelim:</p>
 
-        <span style="color:#f92672">...</span>
-        <span style="color:#e6db74">location</span> <span style="color:#e6db74">/static/</span> {
-            <span style="color:#f92672">root</span> <span style="color:#e6db74">/assets</span>;
-            <span style="color:#f92672">...</span>
-        <span style="color:#960050;background-color:#1e0010">}</span>
+<pre><code class="language-nginx"># conf/nginx.prod.json
+# detaylı hali repomuzda var.
+...
+http {
+    sendfile on;
+    include mime.types;
 
-        <span style="color:#e6db74">location</span> <span style="color:#e6db74">/media/</span> {
-            <span style="color:#f92672">root</span> <span style="color:#e6db74">/assets</span>;
-            <span style="color:#f92672">...</span>
-        <span style="color:#960050;background-color:#1e0010">}</span>
+    server {
+        listen 80;
+        server_name _;
 
-        <span style="color:#e6db74">location</span> <span style="color:#e6db74">/</span> {
-            <span style="color:#f92672">proxy_pass</span> <span style="color:#e6db74">http://web:8000</span>;
-            <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">Host</span> $host;
-            <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">X-Forwarded-For</span> $proxy_add_x_forwarded_for;
+        ...
+        location /static/ {
+            root /assets;
+            ...
+        }
+
+        location /media/ {
+            root /assets;
+            ...
+        }
+
+        location / {
+            proxy_pass http://web:8000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
     }
 }
-</code></pre></div><h2 id="artık-sunucuyu-ayağa-kaldırabiliriz">Artık sunucuyu ayağa kaldırabiliriz</h2>
+</code></pre>
+
+<h2 id="artık-sunucuyu-ayağa-kaldırabiliriz">Artık sunucuyu ayağa kaldırabiliriz</h2>
+
 <p>Bu yazıyı konumuz olmadığı için uzatmamak adına, sizlerin VPS tercihinizi zaten yaptığınızı (DigitalOcean iyi seçim), zaten bir domain sahibi olduğunuzu veya bu tip konuları netleştirdiğinizi varsayıyorum. Yapacaklarınız çok basit:</p>
+
 <ol>
 <li>Sunucunuza bağlanın, yerelinizde olduğu gibi <a href="https://bit.ly/2lA43nL-docker-store">docker</a> ve <a href="https://bit.ly/2tA1lSP-docker-compose-install">docker-compose</a> kurulumunuzu yapın.</li>
 <li>Kod reponuzu sunucunuza klonlayın, proje dizinine girin.</li>
 <li>Eğer NGINX servisi sunucunuzda çalışıyorsa kapatın, konteyner içinden kullanacağız.</li>
 <li>Ve konteynerları oluşturup çalıştırın.</li>
 </ol>
+
 <p>Çalıştırmak için mutlaka production ayarlarımızı kullanacağız:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+
+<pre><code class="language-bash"># terminal
 $ docker-compose.exe -f docker-compose.yml -f docker-compose.prod.yml up -d
-Creating network <span style="color:#e6db74">&#34;hello_django_default&#34;</span> with the default driver
-Creating hello_django_amqp_1  ... <span style="color:#66d9ef">done</span>
-Creating hello_django_nginx_1  ... <span style="color:#66d9ef">done</span>
-Creating hello_django_web_1    ... <span style="color:#66d9ef">done</span>
-Creating hello_django_celery_1 ... <span style="color:#66d9ef">done</span>
-Creating hello_django_celery-beat_1 ... <span style="color:#66d9ef">done</span>
-</code></pre></div><p>Artık sunucuya erişebiliyor olmalısınız.</p>
+Creating network &quot;hello_django_default&quot; with the default driver
+Creating hello_django_amqp_1  ... done
+Creating hello_django_nginx_1  ... done
+Creating hello_django_web_1    ... done
+Creating hello_django_celery_1 ... done
+Creating hello_django_celery-beat_1 ... done
+</code></pre>
+
+<p>Artık sunucuya erişebiliyor olmalısınız.</p>
+
 <h2 id="sırada-ne-var">Sırada ne var?</h2>
+
 <p>10. yazımızı artık projemizi deploy edebilecek aşamada bitiriyoruz. İşlemediğimiz değinmediğimiz bir çok konu olduğunu biliyorsunuz. Bundan  sonraki aşamalarda biraz da sizden gelen isteklere göre seriyi sürdürmeyi düşünüyorum. Neyi atladıysam, neyi detaylandırmamı istiyorsanız bana ulaşın, destekte bulunun, ben de bu seriyi elimden geldiğince devam ettirmeye çalışacağım. Umarım sizler için güzel bir yardımcı kaynak olmuştur.</p>
-<div class="footnotes" role="doc-endnotes">
+<div class="footnotes">
+
 <hr />
+
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p>Docker-compose&rsquo;un Production için elverişli olup olmadığı konusunda arkadaşlarımın da bazı fikirleri var. Fakat ben küçük projelerde veya başlangıç açamasında çok ciddi bir sıkıntı olacağını düşünmüyorum. Bu konuyla ilgili daha fazla bilgi için mutlaka <a href="https://bit.ly/2K6aKg3-docker-compose-production">Docker dökümantasyonuna</a> bir göz atmanızı öneriyorum, Docker&rsquo;in ne kadar kapsamlı bir şey olduğunu anlamanızı isterim. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
+<li id="fn:1">Docker-compose&rsquo;un Production için elverişli olup olmadığı konusunda arkadaşlarımın da bazı fikirleri var. Fakat ben küçük projelerde veya başlangıç açamasında çok ciddi bir sıkıntı olacağını düşünmüyorum. Bu konuyla ilgili daha fazla bilgi için mutlaka <a href="https://bit.ly/2K6aKg3-docker-compose-production">Docker dökümantasyonuna</a> bir göz atmanızı öneriyorum, Docker&rsquo;in ne kadar kapsamlı bir şey olduğunu anlamanızı isterim.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
 </ol>
 </div>
 

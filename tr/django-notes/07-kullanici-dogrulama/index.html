@@ -142,161 +142,202 @@
                     <div class="markdown">
                         
     
-    <p><em>Facebook, Twitter, Linkedin, Yemeksepeti, Markafoni, Hepsiburada, Sahibinden&hellip; Hepsi bizim kim olduğumuzu bilmek isterler. Çünkü bize göre içerik üretirler, hizmet verirler, istediklerimizi sunarlar. Biz de ekranlarımızı kullanıcıya özel yapmak, herkes kendi ekranlarını görsün ve yönetsin istiyorsak, benzer bir kimlik doğrulama sistemi kullanmalıyız.</em></p>
+    
+
+<p><em>Facebook, Twitter, Linkedin, Yemeksepeti, Markafoni, Hepsiburada, Sahibinden&hellip; Hepsi bizim kim olduğumuzu bilmek isterler. Çünkü bize göre içerik üretirler, hizmet verirler, istediklerimizi sunarlar. Biz de ekranlarımızı kullanıcıya özel yapmak, herkes kendi ekranlarını görsün ve yönetsin istiyorsak, benzer bir kimlik doğrulama sistemi kullanmalıyız.</em></p>
+
 <h2 id="özet">Özet</h2>
+
 <ul>
 <li>Django&rsquo;nun en önemli bileşenlerinden biri olan kimlik doğrulama sistemini kullanacağız.</li>
 <li>Kullanıcı giriş yaptı mı yapmadı mı bilgisini tüm Template katmanında layout dosyamızda tutacağız.</li>
 <li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-07">buradan</a> erişebilirsiniz.</li>
 </ul>
+
 <h2 id="kullanıcı-modelimiz">Kullanıcı modelimiz</h2>
-<p>Peki bu kadar çok ihtiyaç duyulan bir bileşen için her projede tekrar tekrar yazmak ne kadar doğru olurdu? Django, bazı çok ihtiyaç duyulan şeyleri projenin içinde tutup geliştiriyor, bazen de <a href="https://github.com/django/django-contrib-comments">django-contrib-comments</a> gibi projeden ayırıyor. Django auth<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, en temel gereksinimleri içeren ve geliştirilmeye uygun bir kullanıcı modelini içinde barındırıyor; giriş - çıkış sayfaları, hesap doğrulama, parola sıfırlama gibi temel View katmanlarını da içeriyor ve sadece Template katmanını oluşturarak hızlıca bu sayfaları hazırlayabiliyorsunuz.</p>
+
+<p>Peki bu kadar çok ihtiyaç duyulan bir bileşen için her projede tekrar tekrar yazmak ne kadar doğru olurdu? Django, bazı çok ihtiyaç duyulan şeyleri projenin içinde tutup geliştiriyor, bazen de <a href="https://github.com/django/django-contrib-comments">django-contrib-comments</a> gibi projeden ayırıyor. Django auth<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>, en temel gereksinimleri içeren ve geliştirilmeye uygun bir kullanıcı modelini içinde barındırıyor; giriş - çıkış sayfaları, hesap doğrulama, parola sıfırlama gibi temel View katmanlarını da içeriyor ve sadece Template katmanını oluşturarak hızlıca bu sayfaları hazırlayabiliyorsunuz.</p>
+
 <p>Önce ne yapmak istediğimizi netleştirelim:</p>
+
 <ol>
 <li>Kullanıcı uptime uygulamasına gittiğinde -giriş yapmamışsa- giriş sayfasına yönlendireceğiz.</li>
 <li>Her kullanıcı sadece kendi ekranlarını görecek ve yönetecek.</li>
 <li>Çıkış yaptığında anasayfaya yönlendirilecek.</li>
 </ol>
-<p>Uygulamayı kurmaya her zaman olduğu gibi <strong>settings.py</strong> dosyasından başlıyoruz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># settings.py</span>
-<span style="color:#f92672">...</span>
-<span style="color:#f92672">from</span> django.urls <span style="color:#f92672">import</span> reverse_lazy  <span style="color:#75715e"># öncekilerden farklı olarak reverse yerine reverse_lazy</span>
-<span style="color:#f92672">...</span>
-INSTALLED_APPS <span style="color:#f92672">=</span> [
-    <span style="color:#f92672">...</span>
-    <span style="color:#e6db74">&#39;django.contrib.auth&#39;</span>,  <span style="color:#75715e"># uygulamamız zaten kuruluydu.</span>
-    <span style="color:#f92672">...</span>
-]
-<span style="color:#f92672">...</span>
-<span style="color:#75715e"># Auth settings</span>
-LOGIN_REDIRECT_URL <span style="color:#f92672">=</span> reverse_lazy(<span style="color:#e6db74">&#39;uptime:dashboard&#39;</span>)  <span style="color:#75715e"># kullanıcıyı giriş yapması için buraya yönlendireceğiz.</span>
-LOGOUT_REDIRECT_URL <span style="color:#f92672">=</span> reverse_lazy(<span style="color:#e6db74">&#39;home&#39;</span>)  <span style="color:#75715e"># kullanıcı çıkış yaptığında ise buraya yönlendireceğiz.</span>
-</code></pre></div><p>İlk migrationları çalıştırdığımızda hatırlarsanız, epey bir çıktı <a href="https://gokmengorgen.net/django-notes/02-model-katmani/#fnref:4">görmüştük</a>. Django auth projeyle birlikte kurulu geldiği için aslında veritabanımzda bir <strong>User</strong> modelimiz var. Zaten olmasa, Admin panelinde giriş yapabilmek için gerekli <strong>super user</strong>&lsquo;i oluşturamazdık.</p>
-<p>Django auth ile birlikte gelen View katmanımızı kullanabilmek için URL&rsquo;leri bağlamayı unutmayalım:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_django/urls.py</span>
-<span style="color:#f92672">...</span>
-urlpatterns <span style="color:#f92672">=</span> [
-    <span style="color:#f92672">...</span>
-    path(<span style="color:#e6db74">&#39;accounts/&#39;</span>, include((<span style="color:#e6db74">&#39;django.contrib.auth.urls&#39;</span>, <span style="color:#e6db74">&#39;auth&#39;</span>), namespace<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;auth&#39;</span>)),
-    <span style="color:#f92672">...</span>
-]
-<span style="color:#f92672">...</span>
-</code></pre></div><h2 id="model-katmanındaki-değişiklik">Model katmanındaki değişiklik</h2>
-<p>Şimdi uptime uygulamasının Monitor modeline <strong>user</strong> adında bir field ekleyelim, gerekli migration dosyamızı oluşturup çalıştıralım:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_uptime/models.py</span>
-<span style="color:#f92672">...</span>
-<span style="color:#f92672">from</span> django.conf <span style="color:#f92672">import</span> settings
-<span style="color:#f92672">...</span>
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Monitor</span>(models<span style="color:#f92672">.</span>Model):
-    user <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(
-        verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;User&#34;</span>), to<span style="color:#f92672">=</span>settings<span style="color:#f92672">.</span>AUTH_USER_MODEL, related_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;monitors&#39;</span>, on_delete<span style="color:#f92672">=</span>models<span style="color:#f92672">.</span>CASCADE,
-        null<span style="color:#f92672">=</span>True)
-    url <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>URLField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;URL&#34;</span>))
 
-    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Meta</span>:
-        <span style="color:#f92672">...</span>
-        unique_together <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#e6db74">&#39;url&#39;</span>)
-    <span style="color:#f92672">...</span>
-</code></pre></div><p>Yaptığımız değişiklikleri anlayalım:</p>
+<p>Uygulamayı kurmaya her zaman olduğu gibi <strong>settings.py</strong> dosyasından başlıyoruz:</p>
+
+<pre><code class="language-python"># settings.py
+...
+from django.urls import reverse_lazy  # öncekilerden farklı olarak reverse yerine reverse_lazy
+...
+INSTALLED_APPS = [
+    ...
+    'django.contrib.auth',  # uygulamamız zaten kuruluydu.
+    ...
+]
+...
+# Auth settings
+LOGIN_REDIRECT_URL = reverse_lazy('uptime:dashboard')  # kullanıcıyı giriş yapması için buraya yönlendireceğiz.
+LOGOUT_REDIRECT_URL = reverse_lazy('home')  # kullanıcı çıkış yaptığında ise buraya yönlendireceğiz.
+</code></pre>
+
+<p>İlk migrationları çalıştırdığımızda hatırlarsanız, epey bir çıktı <a href="https://gokmengorgen.net/django-notes/02-model-katmani/#fnref:4">görmüştük</a>. Django auth projeyle birlikte kurulu geldiği için aslında veritabanımzda bir <strong>User</strong> modelimiz var. Zaten olmasa, Admin panelinde giriş yapabilmek için gerekli <strong>super user</strong>&lsquo;i oluşturamazdık.</p>
+
+<p>Django auth ile birlikte gelen View katmanımızı kullanabilmek için URL&rsquo;leri bağlamayı unutmayalım:</p>
+
+<pre><code class="language-python"># hello_django/urls.py
+...
+urlpatterns = [
+    ...
+    path('accounts/', include(('django.contrib.auth.urls', 'auth'), namespace='auth')),
+    ...
+]
+...
+</code></pre>
+
+<h2 id="model-katmanındaki-değişiklik">Model katmanındaki değişiklik</h2>
+
+<p>Şimdi uptime uygulamasının Monitor modeline <strong>user</strong> adında bir field ekleyelim, gerekli migration dosyamızı oluşturup çalıştıralım:</p>
+
+<pre><code class="language-python"># hello_uptime/models.py
+...
+from django.conf import settings
+...
+class Monitor(models.Model):
+    user = models.ForeignKey(
+        verbose_name=_(&quot;User&quot;), to=settings.AUTH_USER_MODEL, related_name='monitors', on_delete=models.CASCADE,
+        null=True)
+    url = models.URLField(verbose_name=_(&quot;URL&quot;))
+
+    class Meta:
+        ...
+        unique_together = ('user', 'url')
+    ...
+</code></pre>
+
+<p>Yaptığımız değişiklikleri anlayalım:</p>
+
 <ol>
 <li>Öncelikle <strong>url</strong> field&rsquo;inden <strong>unique</strong> attribute&rsquo;unu kaldırdık. Eskiden uygulamamızı ziyaret eden herkes tek bir ekran ekleyebiliyorken, şimdi her kullanıcı kendi ekran panelinden aynı URL&rsquo;i takip edebilecek. Ama yine de her kullanıcının kendi panelinde aynı domainin takip edilmesini engellemek için <strong>unique_together</strong> kullandık.</li>
 <li><strong>user</strong> field&rsquo;i için ForeignKey kullandık, User modelini tanımlarken <strong>AUTH_USER_MODEL</strong> tanımlamamızı kullandık, eğer Django&rsquo;nun içindeki User modeli bize uymasaydı ve kendimiz bir User model hazırlamış olsaydık, <strong>settings.py</strong> dosyamızdan <strong>AUTH_USER_MODEL</strong> tanımlamamız gerekecekti. Şimdilik varsayılan <code>auth.User</code>.</li>
 <li><strong>related_name</strong> olarak <strong>monitors</strong> yazdık, kodun içinde elimizde <code>user</code> olursa, o kullanıcının ekranlarına <code>user.monitors.all()</code> diyerek erişebileceğiz.</li>
 <li><strong>on_delete</strong> CASCADE, kullanıcımız veritabanından silinirse, ekranları da beraberinde silinecek.</li>
-<li><strong>null</strong> neden True dedik? Çünkü bu zamana kadar uygulamayı hep <strong>user</strong> field olmadan kullandık, ya migration için öntanımlı bir kullanıcı tanımlamamız gerekiyordu, ya da Model katmanında <strong>user</strong> field&rsquo;inin boş olmasına izin verecektik. En kolayı şuan için buna izin vermek.</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+
+<li><p><strong>null</strong> neden True dedik? Çünkü bu zamana kadar uygulamayı hep <strong>user</strong> field olmadan kullandık, ya migration için öntanımlı bir kullanıcı tanımlamamız gerekiyordu, ya da Model katmanında <strong>user</strong> field&rsquo;inin boş olmasına izin verecektik. En kolayı şuan için buna izin vermek.</p>
+
+<pre><code class="language-bash"># terminal
 $ python manage.py makemigrations hello_uptime
-Migrations <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;hello_uptime&#39;</span>:
-  hello_uptime/migrations/0002_auto_20180519_1203.py
-    - Add field user to monitor
-    - Alter field url on monitor
-    - Alter unique_together <span style="color:#66d9ef">for</span> monitor <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> constraint<span style="color:#f92672">(</span>s<span style="color:#f92672">))</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+Migrations for 'hello_uptime':
+hello_uptime/migrations/0002_auto_20180519_1203.py
+- Add field user to monitor
+- Alter field url on monitor
+- Alter unique_together for monitor (1 constraint(s))
+</code></pre>
+
+<pre><code class="language-bash"># terminal
 $ python manage.py migrate hello_uptime
 Operations to perform:
-  Apply all migrations: hello_uptime
+Apply all migrations: hello_uptime
 Running migrations:
-  Applying hello_uptime.0002_auto_20180519_1203... OK
-</code></pre></div><h2 id="template-katmanındaki-değişiklik">Template katmanındaki değişiklik</h2>
-<p>Tüm sayfalarda kullanıcının giriş yapıp yapmadığı bilgisini gösterebilmek için <strong>base.html</strong> layout dosyamızda değişiklik yapıyoruz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- templates/base.html --&gt;</span>
-{% load i18n %}  <span style="color:#75715e">&lt;!-- trans ve bloctrans template tag&#39;ı buradan geliyor. Çeviri yapabilmemiz için gerekli. --&gt;</span>
+Applying hello_uptime.0002_auto_20180519_1203... OK
+</code></pre></li>
+</ol>
 
-{% block header %} <span style="color:#75715e">&lt;!-- Neden header block&#39;una aldık? Çünkü bazı sayfalarda bu block&#39;u boş göstereceğiz. --&gt;</span>
-    &lt;<span style="color:#f92672">header</span>&gt;
-        <span style="color:#75715e">&lt;!-- context_processors konusunu hatırlayın, user tüm sayfalarda tanımlı. --&gt;</span>
+<h2 id="template-katmanındaki-değişiklik">Template katmanındaki değişiklik</h2>
+
+<p>Tüm sayfalarda kullanıcının giriş yapıp yapmadığı bilgisini gösterebilmek için <strong>base.html</strong> layout dosyamızda değişiklik yapıyoruz:</p>
+
+<pre><code class="language-html">&lt;!-- templates/base.html --&gt;
+{% load i18n %}  &lt;!-- trans ve bloctrans template tag'ı buradan geliyor. Çeviri yapabilmemiz için gerekli. --&gt;
+
+{% block header %} &lt;!-- Neden header block'una aldık? Çünkü bazı sayfalarda bu block'u boş göstereceğiz. --&gt;
+    &lt;header&gt;
+        &lt;!-- context_processors konusunu hatırlayın, user tüm sayfalarda tanımlı. --&gt;
         {% if user.is_authenticated %}
-            <span style="color:#75715e">&lt;!-- işte size tek satırda örnek blocktrans, with, get_full_name ve default kullanımı. --&gt;</span>
+            &lt;!-- işte size tek satırda örnek blocktrans, with, get_full_name ve default kullanımı. --&gt;
             {% blocktrans with name=user.get_full_name|default:user.username %}Hello,  {{ name }}!{% endblocktrans %}
-            &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{% url &#39;auth:logout&#39; %}&#34;</span>&gt;{% trans &#34;Log out&#34; %}&lt;/<span style="color:#f92672">a</span>&gt;
+            &lt;a href=&quot;{% url 'auth:logout' %}&quot;&gt;{% trans &quot;Log out&quot; %}&lt;/a&gt;
         {% else %}
-            &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{% url &#39;auth:login&#39; %}&#34;</span>&gt;{% trans &#34;Log in&#34; %}&lt;/<span style="color:#f92672">a</span>&gt;
+            &lt;a href=&quot;{% url 'auth:login' %}&quot;&gt;{% trans &quot;Log in&quot; %}&lt;/a&gt;
         {% endif %}
-    &lt;/<span style="color:#f92672">header</span>&gt;
+    &lt;/header&gt;
 {% endblock %}
-</code></pre></div><p>Django auth içindeki Login View katmanı, <strong>registration/login.html</strong> adında bir Template dosyası arıyor. Kendimiz basit bir form oluşturalım:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- templates/registration/login.html --&gt;</span>
-{% extends &#39;base.html&#39; %}
+</code></pre>
+
+<p>Django auth içindeki Login View katmanı, <strong>registration/login.html</strong> adında bir Template dosyası arıyor. Kendimiz basit bir form oluşturalım:</p>
+
+<pre><code class="language-html">&lt;!-- templates/registration/login.html --&gt;
+{% extends 'base.html' %}
 
 {% load i18n %}
 
 {% block title %}{{ block.super }} - Log in{% endblock %}
 
-{% block header %}{% endblock %} <span style="color:#75715e">&lt;!-- Bunun içinde zaten bu sayfaya yönlendiren bir link var sadece, gereksiz. --&gt;</span>
+{% block header %}{% endblock %} &lt;!-- Bunun içinde zaten bu sayfaya yönlendiren bir link var sadece, gereksiz. --&gt;
 
 {% block content %}
-    &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
+    &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;
         {% csrf_token %}
 
-        &lt;<span style="color:#f92672">fieldset</span>&gt;
-            &lt;<span style="color:#f92672">legend</span>&gt;{% trans &#34;Log in&#34; %}&lt;/<span style="color:#f92672">legend</span>&gt;
+        &lt;fieldset&gt;
+            &lt;legend&gt;{% trans &quot;Log in&quot; %}&lt;/legend&gt;
 
-            &lt;<span style="color:#f92672">table</span>&gt;
-                &lt;<span style="color:#f92672">tbody</span>&gt;
+            &lt;table&gt;
+                &lt;tbody&gt;
                 {{ form.as_table }}
-                &lt;<span style="color:#f92672">tr</span>&gt;
-                    &lt;<span style="color:#f92672">th</span>&gt;&lt;/<span style="color:#f92672">th</span>&gt;
-                    &lt;<span style="color:#f92672">td</span>&gt;
-                        &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;{% trans &#34;Log in&#34; %}&lt;/<span style="color:#f92672">button</span>&gt;
-                    &lt;/<span style="color:#f92672">td</span>&gt;
-                &lt;/<span style="color:#f92672">tr</span>&gt;
-                &lt;/<span style="color:#f92672">tbody</span>&gt;
-            &lt;/<span style="color:#f92672">table</span>&gt;
-        &lt;/<span style="color:#f92672">fieldset</span>&gt;
-    &lt;/<span style="color:#f92672">form</span>&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;&lt;/th&gt;
+                    &lt;td&gt;
+                        &lt;button type=&quot;submit&quot;&gt;{% trans &quot;Log in&quot; %}&lt;/button&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/fieldset&gt;
+    &lt;/form&gt;
 {% endblock %}
-</code></pre></div><a href="https://gokmengorgen.net/img/django-notes/login-page.png" target="_blank">
-  ![Login page](/img/django-notes/login-page.png "Giriş ekranı")
-</a>
+</code></pre>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/login-page.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/login-page.png" src="https://gokmengorgen.net/img/django-notes/low/login-page.png" alt="Login page" title="Giriş ekranı" /></figure>
+</a></p>
+
 <h2 id="view-katmanında-değişiklik">View katmanında değişiklik</h2>
+
 <p>Model&rsquo;imiz hazır, Template&rsquo;imiz hazır. Şimdi View katmanımızı kullanıcının giriş yapması için kısıtlamalıyız. Giriş yapmayan kullanıcı uptime uygulamasını göremeyecek, onun yerine login ekranımıza yönlendirilecek, giriş yaptıktan sonra tekrar uptime uygulamasına yönlendirilecek. Bir diğer kural, her kullanıcı kendi ekranlarını görecek, düzenleyecek:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_uptime/views.py</span>
-<span style="color:#f92672">...</span>
-<span style="color:#f92672">from</span> django.contrib.auth.mixins <span style="color:#f92672">import</span> LoginRequiredMixin
-<span style="color:#f92672">...</span>
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UptimeDashboardView</span>(LoginRequiredMixin, ModelFormSetView):  <span style="color:#75715e"># Yetki kontrolü bundan ibaret :-)</span>
-    <span style="color:#f92672">...</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_queryset</span>(self):
-        <span style="color:#66d9ef">return</span> Monitor<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(user<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>user)<span style="color:#f92672">.</span>order_by(<span style="color:#e6db74">&#39;id&#39;</span>)
-    <span style="color:#f92672">...</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">formset_valid</span>(self, formset):
-        monitors <span style="color:#f92672">=</span> formset<span style="color:#f92672">.</span>save()
-        <span style="color:#66d9ef">for</span> monitor <span style="color:#f92672">in</span> monitors:
-            monitor<span style="color:#f92672">.</span>user <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>user
-            monitor<span style="color:#f92672">.</span>save()
-        <span style="color:#f92672">...</span>
-    <span style="color:#f92672">...</span>
-</code></pre></div><a href="https://gokmengorgen.net/img/django-notes/uptime-with-auth.png" target="_blank">
-  ![Uptime with auth](/img/django-notes/uptime-with-auth.png "Giriş yapılmış kullanıcıyla Uptime uygulaması")
-</a>
+
+<pre><code class="language-python"># hello_uptime/views.py
+...
+from django.contrib.auth.mixins import LoginRequiredMixin
+...
+class UptimeDashboardView(LoginRequiredMixin, ModelFormSetView):  # Yetki kontrolü bundan ibaret :-)
+    ...
+    def get_queryset(self):
+        return Monitor.objects.filter(user=self.request.user).order_by('id')
+    ...
+    def formset_valid(self, formset):
+        monitors = formset.save()
+        for monitor in monitors:
+            monitor.user = self.request.user
+            monitor.save()
+        ...
+    ...
+</code></pre>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/uptime-with-auth.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/uptime-with-auth.png" src="https://gokmengorgen.net/img/django-notes/low/uptime-with-auth.png" alt="Uptime with auth" title="Giriş yapılmış kullanıcıyla Uptime uygulaması" /></figure>
+</a></p>
+
 <p>Bundan sonraki yazımızda Django ile komut satırı uygulaması yazıp URL&rsquo;lerin durumunu kontrol edeceğiz. Kalın sağlıcakla.</p>
-<div class="footnotes" role="doc-endnotes">
+<div class="footnotes">
+
 <hr />
+
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://docs.djangoproject.com/en/2.0/topics/auth/default/">Django kimlik doğrulama sistemi</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
+<li id="fn:1"><a href="https://docs.djangoproject.com/en/2.0/topics/auth/default/">Django kimlik doğrulama sistemi</a>
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
 </ol>
 </div>
 

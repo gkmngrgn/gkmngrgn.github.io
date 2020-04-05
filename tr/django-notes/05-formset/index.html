@@ -142,131 +142,157 @@
                     <div class="markdown">
                         
     
-    <p><em>Palette uygulamasıyla MTV Katmanları ve Admin paneli ve CRUD ile ilgili giriş seviyesinde bilgiler edindik. Yeni uygulamamız <strong>Uptime</strong>. Bu uygulamayla yerelleştirme, sayfa isteklerini yönetme ve yetkilendirme, eposta veya sayfa içi bildirimlerle kullanıcıyı bilgilendirme, unittest, komut satırında çalışan scriptler ve bunlarla ilişkili birçok konuya değineceğiz. Formset ile başlıyoruz.</em></p>
+    
+
+<p><em>Palette uygulamasıyla MTV Katmanları ve Admin paneli ve CRUD ile ilgili giriş seviyesinde bilgiler edindik. Yeni uygulamamız <strong>Uptime</strong>. Bu uygulamayla yerelleştirme, sayfa isteklerini yönetme ve yetkilendirme, eposta veya sayfa içi bildirimlerle kullanıcıyı bilgilendirme, unittest, komut satırında çalışan scriptler ve bunlarla ilişkili birçok konuya değineceğiz. Formset ile başlıyoruz.</em></p>
+
 <h2 id="özet">Özet</h2>
+
 <ul>
 <li>Uptime uygulamasını yazmaya başlıyoruz. URL&rsquo;leri girmek için Formset kullanıyoruz.</li>
 <li>İhtiyacımızı görecek bir Django eklentisini yükleyip kullanacağız.</li>
 <li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-05">buradan</a> erişebilirsiniz.</li>
 </ul>
+
 <h2 id="yeni-uygulamamız-uptime">Yeni Uygulamamız, Uptime</h2>
+
 <p>Uygulamamızın en temel işlevi, belirlediğimiz URL veya IP adreslerinin erişilebilirliğini belirli aralıklarla kontrol etmek. Piyasa bu işi yapan uptimerobot, pingdom gibi çeşitli hizmetler var. Biz de Django’yu öğrenmek için basit bir prototipini yapmış olacağız. Daha önce öğrendiklerimizi kullanarak şöyle bir başlangıç yapıyoruz:</p>
+
 <ul>
 <li><strong>hello_uptime</strong> adında yeni bir uygulama oluşturuyoruz (startapp).</li>
 <li><strong>templates/uptime/</strong> içinde Template katmanımızı oluşturuyoruz.</li>
 <li><strong>urls.py</strong> ile uygulama url’lerimizi tanımlıyoruz, bunun için gerekli View katmanlarımızı hazırlıyoruz.</li>
 <li><strong>Monitor</strong> adında ilk modelimizi oluşturuyoruz, model üzerinde denemelerimizi yapmak için Admin class’ımızı hazırlıyoruz.</li>
 </ul>
+
 <p>Yeni bir uygulama yazarken önce bir kabaca başlangıç yapmak size yardımcı olur. Yani hemen Template katmanının içini doldurmaya başlamayın, önce basit bir form olsun yeter. Modelinizi denemek mi istiyorsunuz? Admin panelini kullanın. Şimdi, depodan Article-05 dizinine girin, orada <strong>hello_uptime</strong> uygulamasını kullanıp hızlı bir başlangıç yapabilirsiniz.</p>
+
 <p>Uygulamamızı basit bir şekilde tasarlayalım. Sadece bir dashboard’ımız olsun. Orada URL veya IP girebileceğimiz bir formumuz olsun, formu kaydedebilelim ve yine aynı sayfada sonuçları izleyebileceğimiz bir ekranımız olsun.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_uptime/views.py</span>
-<span style="color:#f92672">...</span>
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UptimeDashboardView</span>(FormView):
-    template_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;uptime/dashboard.html&#39;</span>  <span style="color:#75715e"># Template dosyamız.</span>
-    form_class <span style="color:#f92672">=</span> MonitorForm  <span style="color:#75715e"># Monitor modeli için form.</span>
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_success_url</span>(self):
-        <span style="color:#75715e"># Form başarıyla kaydedilirse aynı sayfaya yönlendirilecek.</span>
-        <span style="color:#75715e"># Tek bir View katmanımız olacak. Her şey bir Dashboard&#39;dan ibaret.</span>
-        <span style="color:#66d9ef">return</span> reverse(<span style="color:#e6db74">&#39;uptime:dashboard&#39;</span>)
+<pre><code class="language-python"># hello_uptime/views.py
+...
+class UptimeDashboardView(FormView):
+    template_name = 'uptime/dashboard.html'  # Template dosyamız.
+    form_class = MonitorForm  # Monitor modeli için form.
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_form_kwargs</span>(self):
-        <span style="color:#75715e"># Tekrar hatırlatıyorum, tek bir View katmanımız var. Daha önce kaydettiğimiz</span>
-        <span style="color:#75715e"># Bir Monitor object (instance) varsa onu kullanmaya devam edeceğiz.</span>
-        <span style="color:#75715e"># İstediğimizde tekrar düzenleyebileceğiz. Hepsi tek bir View katmanında.</span>
-        kwargs <span style="color:#f92672">=</span> super()<span style="color:#f92672">.</span>get_form_kwargs()
-        instance <span style="color:#f92672">=</span> Monitor<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>first()
-        kwargs<span style="color:#f92672">.</span>update({
-            <span style="color:#e6db74">&#39;instance&#39;</span>: instance,
+    def get_success_url(self):
+        # Form başarıyla kaydedilirse aynı sayfaya yönlendirilecek.
+        # Tek bir View katmanımız olacak. Her şey bir Dashboard'dan ibaret.
+        return reverse('uptime:dashboard')
+
+    def get_form_kwargs(self):
+        # Tekrar hatırlatıyorum, tek bir View katmanımız var. Daha önce kaydettiğimiz
+        # Bir Monitor object (instance) varsa onu kullanmaya devam edeceğiz.
+        # İstediğimizde tekrar düzenleyebileceğiz. Hepsi tek bir View katmanında.
+        kwargs = super().get_form_kwargs()
+        instance = Monitor.objects.first()
+        kwargs.update({
+            'instance': instance,
         })
-        <span style="color:#66d9ef">return</span> kwargs
+        return kwargs
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">form_valid</span>(self, form):
-        <span style="color:#75715e"># ModelForm&#39;u mutlaka inceleyin: hello_uptime/forms.py</span>
-        <span style="color:#75715e"># save metodunun nereden geldiğini ve nasıl çalıştığını anlayın.</span>
-        form<span style="color:#f92672">.</span>save()
-        <span style="color:#66d9ef">return</span> super()<span style="color:#f92672">.</span>form_valid(form)
-</code></pre></div><p>View kodumuzu üzerine yazdığım yorumlarla birlikte inceleyin. Şimdi burada bir sorun var. Bir sayfada tek bir Form kullanabiliyoruz. Birden fazla URL girmek istediğimizde ne yapacağız? http://localhost:8000/uptime/ üzerinden bir bakalım:</p>
-<a href="https://gokmengorgen.net/img/django-notes/uptime-form.png" target="_blank">
-  ![Uptime form](/img/django-notes/uptime-form.png "Uptime form")
-</a>
-<p>Tek form, tek monitor :-(. Şimdi Formset<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> zamanı.</p>
-<h2 id="formset-kullanımı-ve-dont-repeat-yourself">Formset Kullanımı ve Don&rsquo;t Repeat Yourself</h2>
+    def form_valid(self, form):
+        # ModelForm'u mutlaka inceleyin: hello_uptime/forms.py
+        # save metodunun nereden geldiğini ve nasıl çalıştığını anlayın.
+        form.save()
+        return super().form_valid(form)
+</code></pre>
+
+<p>View kodumuzu üzerine yazdığım yorumlarla birlikte inceleyin. Şimdi burada bir sorun var. Bir sayfada tek bir Form kullanabiliyoruz. Birden fazla URL girmek istediğimizde ne yapacağız? <a href="http://localhost:8000/uptime/">http://localhost:8000/uptime/</a> üzerinden bir bakalım:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/uptime-form.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/uptime-form.png" src="https://gokmengorgen.net/img/django-notes/low/uptime-form.png" alt="Uptime form" title="Uptime form" /></figure>
+</a></p>
+
+<p>Tek form, tek monitor :-(. Şimdi Formset<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> zamanı.</p>
+
+<h2 id="formset-kullanımı-ve-don-t-repeat-yourself">Formset Kullanımı ve Don&rsquo;t Repeat Yourself</h2>
+
 <p>Uygulamamız henüz buna hazır değil; ama diyelim ki kullanıcılar projemizde hesap açsınlar ve her kullanıcının en fazla 10 URL&rsquo;i izleme hakkı olsun. Yani bizim uygulama arayüzümüzde 10 form içeren bir form kümesi olsun ve kullanıcılar tek seferde düzenleyebilsin.</p>
-<p><strong>UptimeDashboardView</strong> için miras aldığımız <strong>FormView</strong>, tek bir formu yönetebilmemiz için hazırlanmış kapsamlı bir View class'ıdır. Bu durumda elimizde iki seçenek var. Bunlardan <u>birincisi</u>, FormView&rsquo;i kendi ihtiyacımıza göre özelleştirip yeni bir genel View class'ı ve bu tip özel ihtiyaçlarda hep aynı class'ı kullanmak. Mesela bu özelleştirilmiş class'ın adı <strong>FormSetView</strong> olabilir.</p>
-<p>Ama <u>bir seçeneğimiz daha</u> var. Django büyük bir topluluk ve bizim ihtiyaç duyduğumuz şeye başkaları da ihtiyaç duymuş olabilir, hatta bu ihtiyacı birisi Django eklentisi haline getirmiş bile olabilir. <a href="https://pypi.org/project/django-extra-views/">PyPI</a>&lsquo;den arattığımda <strong>django-extra-views</strong><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>&lsquo;in aradığımız eklenti olduğunu gördüm. Hemen <strong>requirements.txt</strong>&lsquo;ye yeni bağımlılığımızı ekliyoruz, kuruyoruz ve View katmanımızı güncelliyoruz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_uptime/views.py</span>
-<span style="color:#f92672">from</span> django.urls <span style="color:#f92672">import</span> reverse_lazy
-<span style="color:#f92672">from</span> extra_views <span style="color:#f92672">import</span> ModelFormSetView
 
-<span style="color:#f92672">from</span> hello_uptime.models <span style="color:#f92672">import</span> Monitor
-<span style="color:#f92672">from</span> hello_uptime.utils <span style="color:#f92672">import</span> USER_MONITOR_LIMIT
+<p><strong>UptimeDashboardView</strong> için miras aldığımız <strong>FormView</strong>, tek bir formu yönetebilmemiz için hazırlanmış kapsamlı bir View class&rsquo;ıdır. Bu durumda elimizde iki seçenek var. Bunlardan <u>birincisi</u>, FormView&rsquo;i kendi ihtiyacımıza göre özelleştirip yeni bir genel View class&rsquo;ı ve bu tip özel ihtiyaçlarda hep aynı class&rsquo;ı kullanmak. Mesela bu özelleştirilmiş class&rsquo;ın adı <strong>FormSetView</strong> olabilir.</p>
+
+<p>Ama <u>bir seçeneğimiz daha</u> var. Django büyük bir topluluk ve bizim ihtiyaç duyduğumuz şeye başkaları da ihtiyaç duymuş olabilir, hatta bu ihtiyacı birisi Django eklentisi haline getirmiş bile olabilir. <a href="https://pypi.org/project/django-extra-views/">PyPI</a>&lsquo;den arattığımda <strong>django-extra-views</strong><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>&lsquo;in aradığımız eklenti olduğunu gördüm. Hemen <strong>requirements.txt</strong>&lsquo;ye yeni bağımlılığımızı ekliyoruz, kuruyoruz ve View katmanımızı güncelliyoruz:</p>
+
+<pre><code class="language-python"># hello_uptime/views.py
+from django.urls import reverse_lazy
+from extra_views import ModelFormSetView
+
+from hello_uptime.models import Monitor
+from hello_uptime.utils import USER_MONITOR_LIMIT
 
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UptimeDashboardView</span>(ModelFormSetView):
-    <span style="color:#75715e"># django-extra-views belgesinde deniliyor ki, ayrıca Form veya FormSet</span>
-    <span style="color:#75715e"># oluşturmaya gerek yok, bana modelini, kullanacağın field&#39;ları, success_url&#39;i</span>
-    <span style="color:#75715e"># söyle, gerisini ben hallederim. Halletsin bir zahmet, güzel bir eklenti olmuş.</span>
-    fields <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;url&#39;</span>, <span style="color:#e6db74">&#39;interval&#39;</span>, <span style="color:#e6db74">&#39;is_active&#39;</span>)
-    model <span style="color:#f92672">=</span> Monitor
-    success_url <span style="color:#f92672">=</span> reverse_lazy(<span style="color:#e6db74">&#39;uptime:dashboard&#39;</span>)  <span style="color:#75715e"># Neden reverse değil de reverse_lazy? Bana yazın. ;-)</span>
-    template_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;uptime/dashboard.html&#39;</span>
+class UptimeDashboardView(ModelFormSetView):
+    # django-extra-views belgesinde deniliyor ki, ayrıca Form veya FormSet
+    # oluşturmaya gerek yok, bana modelini, kullanacağın field'ları, success_url'i
+    # söyle, gerisini ben hallederim. Halletsin bir zahmet, güzel bir eklenti olmuş.
+    fields = ('url', 'interval', 'is_active')
+    model = Monitor
+    success_url = reverse_lazy('uptime:dashboard')  # Neden reverse değil de reverse_lazy? Bana yazın. ;-)
+    template_name = 'uptime/dashboard.html'
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_queryset</span>(self):
-        <span style="color:#66d9ef">return</span> Monitor<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>order_by(<span style="color:#e6db74">&#39;created_at&#39;</span>)  <span style="color:#75715e"># Sıra bozulmasın diye, oluşturulma sırasına göre aldık.</span>
+    def get_queryset(self):
+        return Monitor.objects.order_by('created_at')  # Sıra bozulmasın diye, oluşturulma sırasına göre aldık.
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_factory_kwargs</span>(self):
-        kwargs <span style="color:#f92672">=</span> super()<span style="color:#f92672">.</span>get_factory_kwargs()
-        kwargs<span style="color:#f92672">.</span>update({
-            <span style="color:#e6db74">&#39;extra&#39;</span>: USER_MONITOR_LIMIT,  <span style="color:#75715e"># Dashboard&#39;da 10 input&#39;un hepsini tek seferde göster.</span>
-            <span style="color:#e6db74">&#39;max_num&#39;</span>: USER_MONITOR_LIMIT,  <span style="color:#75715e"># Dashboard&#39;da en fazla 10 input olabilir.</span>
+    def get_factory_kwargs(self):
+        kwargs = super().get_factory_kwargs()
+        kwargs.update({
+            'extra': USER_MONITOR_LIMIT,  # Dashboard'da 10 input'un hepsini tek seferde göster.
+            'max_num': USER_MONITOR_LIMIT,  # Dashboard'da en fazla 10 input olabilir.
         })
-        <span style="color:#66d9ef">return</span> kwargs
+        return kwargs
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">formset_valid</span>(self, formset):  <span style="color:#75715e"># form_valid formset_valid oldu.</span>
-        formset<span style="color:#f92672">.</span>save()
-        <span style="color:#66d9ef">return</span> super()<span style="color:#f92672">.</span>formset_valid(formset)
-</code></pre></div><p>Eklenti kullanmasaydık, bu kod bu kadar basit ve temiz olmayacaktı. İyi ki topluluk var! Son bir işimiz kaldı, Template katmanımızı da formset kullanacak şekilde düzenlemeliyiz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- templates/uptime/dashboard.html --&gt;</span>
+    def formset_valid(self, formset):  # form_valid formset_valid oldu.
+        formset.save()
+        return super().formset_valid(formset)
+</code></pre>
+
+<p>Eklenti kullanmasaydık, bu kod bu kadar basit ve temiz olmayacaktı. İyi ki topluluk var! Son bir işimiz kaldı, Template katmanımızı da formset kullanacak şekilde düzenlemeliyiz:</p>
+
+<pre><code class="language-html">&lt;!-- templates/uptime/dashboard.html --&gt;
 ...
 {% block content %}
-    &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{% url &#39;uptime:dashboard&#39; %}&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;POST&#34;</span>&gt;
-        {% csrf_token %}  <span style="color:#75715e">&lt;!-- Sahte istekleri önleyen CSRF template tag&#39;ımız --&gt;</span>
-        {{ formset.management_form }} <span style="color:#75715e">&lt;!-- Formset&#39;imiz ile ilgili max_num, total gibi gizli inputları ekledik. --&gt;</span>
-        &lt;<span style="color:#f92672">table</span>&gt;
+    &lt;form action=&quot;{% url 'uptime:dashboard' %}&quot; method=&quot;POST&quot;&gt;
+        {% csrf_token %}  &lt;!-- Sahte istekleri önleyen CSRF template tag'ımız --&gt;
+        {{ formset.management_form }} &lt;!-- Formset'imiz ile ilgili max_num, total gibi gizli inputları ekledik. --&gt;
+        &lt;table&gt;
             {% for form in formset %}
-                &lt;<span style="color:#f92672">tr</span>&gt;
-                    &lt;<span style="color:#f92672">th</span>&gt;&lt;/<span style="color:#f92672">th</span>&gt;
-                    &lt;<span style="color:#f92672">td</span>&gt;
-                        <span style="color:#75715e">&lt;!-- blocktrans i18n template modülünden geliyor. Çeviriler için. --&gt;</span>
-                        <span style="color:#75715e">&lt;!-- Örnek bir blocktrans ve forloop.counter kullanımı --&gt;</span>
+                &lt;tr&gt;
+                    &lt;th&gt;&lt;/th&gt;
+                    &lt;td&gt;
+                        &lt;!-- blocktrans i18n template modülünden geliyor. Çeviriler için. --&gt;
+                        &lt;!-- Örnek bir blocktrans ve forloop.counter kullanımı --&gt;
                         {% blocktrans with number=forloop.counter %}Monitor {{ number }}{% endblocktrans %}
-                    &lt;/<span style="color:#f92672">td</span>&gt;
-                &lt;/<span style="color:#f92672">tr</span>&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
                 {{ form.as_table }}
             {% endfor %}
-            &lt;<span style="color:#f92672">tr</span>&gt;
-                &lt;<span style="color:#f92672">th</span>&gt;&lt;/<span style="color:#f92672">th</span>&gt;
-                &lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;{% trans &#34;Save&#34; %}&lt;/<span style="color:#f92672">button</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
-            &lt;/<span style="color:#f92672">tr</span>&gt;
-        &lt;/<span style="color:#f92672">table</span>&gt;
-    &lt;/<span style="color:#f92672">form</span>&gt;
+            &lt;tr&gt;
+                &lt;th&gt;&lt;/th&gt;
+                &lt;td&gt;&lt;button type=&quot;submit&quot;&gt;{% trans &quot;Save&quot; %}&lt;/button&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/form&gt;
 {% endblock %}
 
-</code></pre></div><p>Formsetimiz içinde 10 tane form var ve başlangıç datasıyla birlikte artık kullanıma hazır:</p>
-<a href="https://gokmengorgen.net/img/django-notes/uptime-formset.png" target="_blank">
-  ![Uptime formset](/img/django-notes/uptime-formset.png "Uptime formset")
-</a>
+</code></pre>
+
+<p>Formsetimiz içinde 10 tane form var ve başlangıç datasıyla birlikte artık kullanıma hazır:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/uptime-formset.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/uptime-formset.png" src="https://gokmengorgen.net/img/django-notes/low/uptime-formset.png" alt="Uptime formset" title="Uptime formset" /></figure>
+</a></p>
+
 <p>Yalnız bir eksiklik var. Bu uptime uygulamasını kullanıcılarımızın bir hesap açarak kullanmasını istiyoruz ve her kullanıcının 10 ekran izleme hakkı olsun istiyoruz. Bunun için hesap oluşturma, email ile hesap doğrulama, parola yenileme gibi ekranlara ihtiyacımız var ve bu uptime panelini giriş yapan kullanıcıya göre biraz özelleştirmemiz gerekiyor. Sonraki yazımızda görüşmek üzere.</p>
-<div class="footnotes" role="doc-endnotes">
+<div class="footnotes">
+
 <hr />
+
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p>Daha önce söylediğim gibi, bilmediğiniz veya hatırlamadığınız konular için Django belgelerine sık sık bakmayı alışkanlık hale getirmeniz size çok şey kazandırır. <a href="https://docs.djangoproject.com/en/2.0/topics/forms/formsets/">Formsets</a> belgesine mutlaka bakın. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p>Bir eklentiyi bağımlılık olarak eklemeye karar vermeden önce bakımı iyi yapılıyor mu, unittestleri var mı, belgesi nasıl, kodu temiz mi bir bakmakta fayda var. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
+<li id="fn:1">Daha önce söylediğim gibi, bilmediğiniz veya hatırlamadığınız konular için Django belgelerine sık sık bakmayı alışkanlık hale getirmeniz size çok şey kazandırır. <a href="https://docs.djangoproject.com/en/2.0/topics/forms/formsets/">Formsets</a> belgesine mutlaka bakın.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Bir eklentiyi bağımlılık olarak eklemeye karar vermeden önce bakımı iyi yapılıyor mu, unittestleri var mı, belgesi nasıl, kodu temiz mi bir bakmakta fayda var.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
 </ol>
 </div>
 

@@ -146,156 +146,209 @@
                       </div>
                       
     
-    <p>Django&rsquo;da şablon kavramını anlatmadan önce, şablondan ne anlamamız gerektiği konusunu belirginleştirelim. Örneğin, cep telefonlarımızda hazır mesajlar yazıp kaydedebiliyoruz veya daha önce kaydedilmiş olanları gerektiğinde kullanabiliyoruz. &ldquo;İşteyim, döneceğim&rdquo;, &ldquo;Beni 10 dakika sonra ara.&rdquo; gibi <strong>bence</strong> gereksiz olan bu hazır mesajlar şablon diye geçiyor.</p>
+    
+
+<p>Django&rsquo;da şablon kavramını anlatmadan önce, şablondan ne anlamamız gerektiği konusunu belirginleştirelim. Örneğin, cep telefonlarımızda hazır mesajlar yazıp kaydedebiliyoruz veya daha önce kaydedilmiş olanları gerektiğinde kullanabiliyoruz. &ldquo;İşteyim, döneceğim&rdquo;, &ldquo;Beni 10 dakika sonra ara.&rdquo; gibi <strong>bence</strong> gereksiz olan bu hazır mesajlar şablon diye geçiyor.</p>
+
 <p>Ama Django&rsquo;daki şablonlarımız, projemizin çok önemli bir parçası olarak karşımıza çıkıyor. Bir veya birkaç değişkene, bütün veya parça halinde html kodlarını yazmak; tanımladığımız fonksiyonları o değişkene çağırmak ve bu kodu yorumlatmak, kodu hem çirkinleştirecek; hem de projenin gelişimini çok zorlaştıracaktır.</p>
+
 <p>Şimdi saat bilgilerini ekrana yazdırdığımız fonksiyonun kodlarını ve urls.py dosya içeriğini tekrar verelim. <strong>views.py</strong> dosyamız:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
 
-<span style="color:#f92672">from</span> django.http <span style="color:#f92672">import</span> HttpResponse
-<span style="color:#f92672">import</span> datetime
+<pre><code class="language-python"># -*- coding: utf-8 -*-
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">current_datetime</span>(request):
-    now <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()
-    html <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;html&gt;&lt;body&gt;Saat ve tarih bilgisi: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">.&lt;/body&gt;&lt;/html&gt;&#34;</span> <span style="color:#f92672">%</span> now
-    <span style="color:#66d9ef">return</span> HttpResponse(html)
-</code></pre></div><p>urls.py dosyamız:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+from django.http import HttpResponse
+import datetime
 
-<span style="color:#f92672">from</span> django.conf.urls.defaults <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-<span style="color:#f92672">from</span> mysite.views <span style="color:#f92672">import</span> current_datetime
+def current_datetime(request):
+    now = datetime.datetime.now()
+    html = &quot;&lt;html&gt;&lt;body&gt;Saat ve tarih bilgisi: %s.&lt;/body&gt;&lt;/html&gt;&quot; % now
+    return HttpResponse(html)
+</code></pre>
 
-urlpatterns <span style="color:#f92672">=</span> patterns(<span style="color:#e6db74">&#39;&#39;</span>,
-    (<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^time/$&#39;</span>, current_datetime),
+<p>urls.py dosyamız:</p>
+
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+
+from django.conf.urls.defaults import *
+from mysite.views import current_datetime
+
+urlpatterns = patterns('',
+    (r'^time/$', current_datetime),
 )
-</code></pre></div><p>Burada html değişkenine atadığımız html kodu kısa:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span>&gt;&lt;<span style="color:#f92672">body</span>&gt;Saat ve tarih bilgisi: %s.&lt;/<span style="color:#f92672">body</span>&gt;&lt;/<span style="color:#f92672">html</span>&gt;
-</code></pre></div><p>Şimdi bu kodu, html uzantılı olarak ayrı bir yere kaydedelim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span>&gt;
-  &lt;<span style="color:#f92672">head</span>&gt;
-    &lt;<span style="color:#f92672">title</span>&gt;Merhaba Django!&lt;/<span style="color:#f92672">title</span>&gt;
-    &lt;<span style="color:#f92672">style</span>&gt;
+</code></pre>
 
-      <span style="color:#f92672">body</span> {<span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#aaa</span>}
-      <span style="color:#f92672">p</span> {<span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>}
-    &lt;/<span style="color:#f92672">style</span>&gt;
-  &lt;/<span style="color:#f92672">head</span>&gt;
-  &lt;<span style="color:#f92672">body</span>&gt;
-    &lt;<span style="color:#f92672">p</span>&gt;Cancanlı django&#39;muzla zaman bilgilerimizi öğrenelim: {{ zaman }}&lt;/<span style="color:#f92672">p</span>&gt;
-  &lt;/<span style="color:#f92672">body</span>&gt;
+<p>Burada html değişkenine atadığımız html kodu kısa:</p>
 
-&lt;/<span style="color:#f92672">html</span>&gt;
-</code></pre></div><p>Birşey dikkatınızı çekti mi? <strong>{{ zaman }}</strong> diye birşey yazdık, nedir o? Hayır, html ile ilgili bir özellik değil. Şimdi proje dizinimizde templates diye bir alt dizin oluşturalım ve bu kodu <strong>zaman.html</strong> olarak, bu alt dizinin içine kaydedelim. Sıra geldi, Django&rsquo;muza şablon dizinimizin nerede olduğunu tanımlamaya. <strong>settings.py</strong> dosyasını açın ve şu satırları bulun:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[<span style="color:#f92672">...</span>]
+<pre><code class="language-html">&lt;html&gt;&lt;body&gt;Saat ve tarih bilgisi: %s.&lt;/body&gt;&lt;/html&gt;
+</code></pre>
 
-ROOT_URLCONF <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;negzelfoundation.urls&#39;</span>
+<p>Şimdi bu kodu, html uzantılı olarak ayrı bir yere kaydedelim:</p>
 
-TEMPLATE_DIRS <span style="color:#f92672">=</span> (
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Merhaba Django!&lt;/title&gt;
+    &lt;style&gt;
+
+      body {background-color: #aaa}
+      p {font-size: 12px}
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Cancanlı django'muzla zaman bilgilerimizi öğrenelim: {{ zaman }}&lt;/p&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p>Birşey dikkatınızı çekti mi? <strong>{{ zaman }}</strong> diye birşey yazdık, nedir o? Hayır, html ile ilgili bir özellik değil. Şimdi proje dizinimizde templates diye bir alt dizin oluşturalım ve bu kodu <strong>zaman.html</strong> olarak, bu alt dizinin içine kaydedelim. Sıra geldi, Django&rsquo;muza şablon dizinimizin nerede olduğunu tanımlamaya. <strong>settings.py</strong> dosyasını açın ve şu satırları bulun:</p>
+
+<pre><code class="language-python">[...]
+
+ROOT_URLCONF = 'negzelfoundation.urls'
+
+TEMPLATE_DIRS = (
 )
 
-[<span style="color:#f92672">...</span>]
-</code></pre></div><p><strong>TEMPLATE_DIRS</strong> tüpüne, <strong>templates</strong> dizinimizi eleman olarak yazmamız gerekiyor. Burada python bilgilerinizi istediğiniz gibi kullanabilirsiniz. İsterseniz, <strong>os.path</strong> modülünü çağırıp yapabilirsiniz, şu şekilde:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[<span style="color:#f92672">...</span>]
-<span style="color:#f92672">import</span> os.path
-
-[<span style="color:#f92672">...</span>]
-TEMPLATE_DIRS <span style="color:#f92672">=</span> (
-    os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(__file__), <span style="color:#e6db74">&#39;templates&#39;</span>)<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#39;</span>,<span style="color:#e6db74">&#39;/&#39;</span>),
-)
-[<span style="color:#f92672">...</span>]
-</code></pre></div><p><strong>replace</strong>&lsquo;in ne işe yaradığını umarım biliyorsunuzdur. Posix standardındaki işletim sistemlerinde sanırım ona gerek yok. Ama siz de benim gibi, bunun için os.path import etmeye gerek yok derseniz, şu şekilde de templates dizinini Django&rsquo;ya göstertebilirsiniz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[<span style="color:#f92672">...</span>]
-ROOT_PATH <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/proje/dizin/yolunu/buraya/yazin&#34;</span>
-
-[<span style="color:#f92672">...</span>]
-TEMPLATE_DIRS <span style="color:#f92672">=</span> (
-    <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">/templates&#39;</span> <span style="color:#f92672">%</span> ROOT_PATH,
-)
-[<span style="color:#f92672">...</span>]
-</code></pre></div><p>Buraya kadar tamam; ama hala <strong>{{ zaman }}</strong>&lsquo;ın ne olduğunu hala söylemedik. Şimdi <strong>views.py</strong> dosyasındaki <strong>current_datetime</strong> fonksiyonunu, gerekli modülleri çağırıp tekrar tanımlayalım:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
-
-<span style="color:#f92672">from</span> django.template.loader <span style="color:#f92672">import</span> get_template
-<span style="color:#f92672">from</span> django.template <span style="color:#f92672">import</span> Context
-<span style="color:#f92672">from</span> django.http <span style="color:#f92672">import</span> HttpResponse
-<span style="color:#f92672">import</span> datetime
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">current_datetime</span>(request):
-    now <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()
-    t <span style="color:#f92672">=</span> get_template(<span style="color:#e6db74">&#39;zaman.html&#39;</span>)
-    c <span style="color:#f92672">=</span> Context({<span style="color:#e6db74">&#39;zaman&#39;</span>: now},)
-
-    html <span style="color:#f92672">=</span> t<span style="color:#f92672">.</span>render(c)
-    <span style="color:#66d9ef">return</span> HttpResponse(html)
-</code></pre></div><p><strong>get_template</strong>, şablonu çağırmak için; <strong>Context</strong> ise, fonksiyonda tanımladığımız değişkenleri, şablonumuzdaki <strong>{{ zaman }}</strong> gibi ifadelere bağlamamız için çağrıldı. Sonra, html değişkeninde bağlamları şablonda çevirtip, bir sonraki satırda da bu değişkeni döndürüyoruz. Bakalım nasıl dönmüş:</p>
-<p>(ekran görüntüsü yok)</p>
-<p>Huh, iyi eğleniyoruz ;-).</p>
-<h2 id="şablonlarda-etiketler">Şablonlarda Etiketler</h2>
-<p>Örnek olarak oluşturduğumuz <strong>zaman.html</strong> şablosunda bildiğiniz gibi css, javascript ve html kodlaması yapabilirsiniz. Fakat zaman zaman PHP&rsquo;de olduğu gibi, belli bir şarta bağlı olarak tekrar edilmesi istenen veya koşulun yerine getirilip getirilmediğine göre değişen fonksiyon cevapları ihtiyacı duyabiliriz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">[...]
-&lt;<span style="color:#f92672">ul</span>&gt;
-  {% hede fonksiyonu tamamlandığı sürece %}
-  &lt;<span style="color:#f92672">li</span>&gt;{{ hede }}&lt;/<span style="color:#f92672">li</span>&gt;
-  {% döngü sonu %}
-&lt;/<span style="color:#f92672">ul</span>&gt;
 [...]
-</code></pre></div><p>Şimdi şöyle bir örnek yapalım. Üç satırlık bir liste oluşturalım, ilk satırda şuanki saat, bir sonrakinde bir saat sonraki saat, ondan sonrakinde de iki saat sonraki saati yazdıralım. İlk olarak, <strong>views.py</strong> dosyamızda bizim için gerekli modülleri çağıralım:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+</code></pre>
 
-<span style="color:#f92672">from</span> django.template.loader <span style="color:#f92672">import</span> get_template
-<span style="color:#f92672">from</span> django.template <span style="color:#f92672">import</span> Context
-<span style="color:#f92672">from</span> django.http <span style="color:#f92672">import</span> HttpResponse
-<span style="color:#f92672">import</span> datetime
-</code></pre></div><p><strong>clock_list</strong> isimli fonksiyonumuzu oluşturalım. Örneğimiz için sadece saat bilgisini almak bizim için yeterli:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">clock_list</span>(request):
-    time <span style="color:#f92672">=</span> int(datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>hour)
-</code></pre></div><p>Sonra, fazla kafamızı bulandırmadan; şimdilik <strong>neden</strong>, <strong>niçin</strong> demeden, sonradan oluşturacağımız <strong>saat.html</strong> isimli şablonu çağırıp, saat değişkenimizi (time) şablona gömerek sayfayı döndürelim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">clock_list</span>(request):
-    time <span style="color:#f92672">=</span> int(datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>hour)
-    time_list <span style="color:#f92672">=</span> []
-    phrase_list <span style="color:#f92672">=</span> []
-    <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):
-        time_list<span style="color:#f92672">.</span>append(time <span style="color:#f92672">+</span> x)
-        phrase_list<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> saat sonra, akrep </span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> gösterecek.&#34;</span> <span style="color:#f92672">%</span> (x, time_list[x]))
+<p><strong>TEMPLATE_DIRS</strong> tüpüne, <strong>templates</strong> dizinimizi eleman olarak yazmamız gerekiyor. Burada python bilgilerinizi istediğiniz gibi kullanabilirsiniz. İsterseniz, <strong>os.path</strong> modülünü çağırıp yapabilirsiniz, şu şekilde:</p>
 
-    t <span style="color:#f92672">=</span> get_template(<span style="color:#e6db74">&#39;saat.html&#39;</span>)
-    c <span style="color:#f92672">=</span> Context({<span style="color:#e6db74">&#39;phrases&#39;</span>: phrase_list},)
-    html <span style="color:#f92672">=</span> t<span style="color:#f92672">.</span>render(c)
-    <span style="color:#66d9ef">return</span> HttpResponse(html)
-</code></pre></div><p>Evet. Ama daha saat.html isimli örnek şablonumuzu oluşturmadık. Örnek olarak yazım <strong>templates</strong> dizinine alalım:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span>&gt;
-  &lt;<span style="color:#f92672">head</span>&gt;
-    &lt;<span style="color:#f92672">title</span>&gt;Merhaba Django!&lt;/<span style="color:#f92672">title</span>&gt;
+<pre><code class="language-python">[...]
+import os.path
 
-    &lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span>&gt;
-      <span style="color:#f92672">body</span> {<span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#e0ffb8</span>}
-      <span style="color:#f92672">ul</span> {<span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#333</span>; <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span>}
-      <span style="color:#f92672">li</span> {<span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#aaa</span>; <span style="color:#66d9ef">list-style-type</span>: <span style="color:#66d9ef">none</span>}
-    &lt;/<span style="color:#f92672">style</span>&gt;
-  &lt;/<span style="color:#f92672">head</span>&gt;
-  &lt;<span style="color:#f92672">body</span>&gt;
-    &lt;<span style="color:#f92672">center</span>&gt;
-
-      &lt;<span style="color:#f92672">ul</span>&gt;
-        {% for phrase in phrases %}
-        &lt;<span style="color:#f92672">li</span>&gt;{{ phrase }}&lt;/<span style="color:#f92672">li</span>&gt;
-        {% endfor %}
-      &lt;/<span style="color:#f92672">ul</span>&gt;
-    &lt;/<span style="color:#f92672">center</span>&gt;
-  &lt;/<span style="color:#f92672">body</span>&gt;
-
-&lt;/<span style="color:#f92672">html</span>&gt;
-</code></pre></div><p>&lt;ul&gt; tagı içinde bi for döngüsü yazmışız, farkettiniz mi? <strong>views.py</strong>&lsquo;de tanımladığımız <strong>clock_table</strong> fonksiyonumuzda oluşturulan listenin her bir elemanı için ekrana bir liste elemanı yazdırıyoruz. Üç adet liste için belki değmez, belki de statik sonuçlar için bu kadar atraksiyonu gereksiz bulabiliriz; fakat sonucu değişebilecek, 100 maddelik bir listeyi yazmayı pek göze alacak değiliz, biz pratik programcılar için..</p>
-<p>Evet, <strong>saat.html</strong> dosyamız da hazır. Son olarak bu fonksiyonu bir sayfaya atayalım. <strong>urls.py</strong>&lsquo;yi düzenliyoruz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> django.conf.urls.defaults <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-<span style="color:#f92672">from</span> mysite.views <span style="color:#f92672">import</span> clock_list, current_datetime, hours_ahead
-
-urlpatterns <span style="color:#f92672">=</span> patterns(<span style="color:#e6db74">&#39;&#39;</span>,
-    (<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^clocks/$&#39;</span>, clock_list),
-    (<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^time/$&#39;</span>, current_datetime),
-    (<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^time/artir/(\d{1,2})/$&#39;</span>, hours_ahead),
+[...]
+TEMPLATE_DIRS = (
+    os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
 )
-</code></pre></div><p>Nereye atamışız? http://adresimiz/clocks/ sayfasına.. <strong>python manage.py runserver</strong> ile sanal sunucumuzu çalıştırıp http://127.0.0.1:8000/clocks/ adresinden bir bakalım nasıl olmuş:</p>
+[...]
+</code></pre>
+
+<p><strong>replace</strong>&lsquo;in ne işe yaradığını umarım biliyorsunuzdur. Posix standardındaki işletim sistemlerinde sanırım ona gerek yok. Ama siz de benim gibi, bunun için os.path import etmeye gerek yok derseniz, şu şekilde de templates dizinini Django&rsquo;ya göstertebilirsiniz:</p>
+
+<pre><code class="language-python">[...]
+ROOT_PATH = &quot;/proje/dizin/yolunu/buraya/yazin&quot;
+
+[...]
+TEMPLATE_DIRS = (
+    '%s/templates' % ROOT_PATH,
+)
+[...]
+</code></pre>
+
+<p>Buraya kadar tamam; ama hala <strong>{{ zaman }}</strong>&lsquo;ın ne olduğunu hala söylemedik. Şimdi <strong>views.py</strong> dosyasındaki <strong>current_datetime</strong> fonksiyonunu, gerekli modülleri çağırıp tekrar tanımlayalım:</p>
+
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+
+from django.template.loader import get_template
+from django.template import Context
+from django.http import HttpResponse
+import datetime
+
+def current_datetime(request):
+    now = datetime.datetime.now()
+    t = get_template('zaman.html')
+    c = Context({'zaman': now},)
+
+    html = t.render(c)
+    return HttpResponse(html)
+</code></pre>
+
+<p><strong>get_template</strong>, şablonu çağırmak için; <strong>Context</strong> ise, fonksiyonda tanımladığımız değişkenleri, şablonumuzdaki <strong>{{ zaman }}</strong> gibi ifadelere bağlamamız için çağrıldı. Sonra, html değişkeninde bağlamları şablonda çevirtip, bir sonraki satırda da bu değişkeni döndürüyoruz. Bakalım nasıl dönmüş:</p>
+
 <p>(ekran görüntüsü yok)</p>
+
+<p>Huh, iyi eğleniyoruz ;-).</p>
+
+<h2 id="şablonlarda-etiketler">Şablonlarda Etiketler</h2>
+
+<p>Örnek olarak oluşturduğumuz <strong>zaman.html</strong> şablosunda bildiğiniz gibi css, javascript ve html kodlaması yapabilirsiniz. Fakat zaman zaman PHP&rsquo;de olduğu gibi, belli bir şarta bağlı olarak tekrar edilmesi istenen veya koşulun yerine getirilip getirilmediğine göre değişen fonksiyon cevapları ihtiyacı duyabiliriz:</p>
+
+<pre><code class="language-html">[...]
+&lt;ul&gt;
+  {% hede fonksiyonu tamamlandığı sürece %}
+  &lt;li&gt;{{ hede }}&lt;/li&gt;
+  {% döngü sonu %}
+&lt;/ul&gt;
+[...]
+</code></pre>
+
+<p>Şimdi şöyle bir örnek yapalım. Üç satırlık bir liste oluşturalım, ilk satırda şuanki saat, bir sonrakinde bir saat sonraki saat, ondan sonrakinde de iki saat sonraki saati yazdıralım. İlk olarak, <strong>views.py</strong> dosyamızda bizim için gerekli modülleri çağıralım:</p>
+
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+
+from django.template.loader import get_template
+from django.template import Context
+from django.http import HttpResponse
+import datetime
+</code></pre>
+
+<p><strong>clock_list</strong> isimli fonksiyonumuzu oluşturalım. Örneğimiz için sadece saat bilgisini almak bizim için yeterli:</p>
+
+<pre><code class="language-python">def clock_list(request):
+    time = int(datetime.datetime.now().hour)
+</code></pre>
+
+<p>Sonra, fazla kafamızı bulandırmadan; şimdilik <strong>neden</strong>, <strong>niçin</strong> demeden, sonradan oluşturacağımız <strong>saat.html</strong> isimli şablonu çağırıp, saat değişkenimizi (time) şablona gömerek sayfayı döndürelim:</p>
+
+<pre><code class="language-python">def clock_list(request):
+    time = int(datetime.datetime.now().hour)
+    time_list = []
+    phrase_list = []
+    for x in range(3):
+        time_list.append(time + x)
+        phrase_list.append(&quot;%s saat sonra, akrep %s gösterecek.&quot; % (x, time_list[x]))
+
+    t = get_template('saat.html')
+    c = Context({'phrases': phrase_list},)
+    html = t.render(c)
+    return HttpResponse(html)
+</code></pre>
+
+<p>Evet. Ama daha saat.html isimli örnek şablonumuzu oluşturmadık. Örnek olarak yazım <strong>templates</strong> dizinine alalım:</p>
+
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Merhaba Django!&lt;/title&gt;
+
+    &lt;style type=&quot;text/css&quot;&gt;
+      body {background-color: #e0ffb8}
+      ul {border: 1px solid #333; padding: 0}
+      li {border: 1px solid #aaa; list-style-type: none}
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;center&gt;
+
+      &lt;ul&gt;
+        {% for phrase in phrases %}
+        &lt;li&gt;{{ phrase }}&lt;/li&gt;
+        {% endfor %}
+      &lt;/ul&gt;
+    &lt;/center&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p>&lt;ul&gt; tagı içinde bi for döngüsü yazmışız, farkettiniz mi? <strong>views.py</strong>&lsquo;de tanımladığımız <strong>clock_table</strong> fonksiyonumuzda oluşturulan listenin her bir elemanı için ekrana bir liste elemanı yazdırıyoruz. Üç adet liste için belki değmez, belki de statik sonuçlar için bu kadar atraksiyonu gereksiz bulabiliriz; fakat sonucu değişebilecek, 100 maddelik bir listeyi yazmayı pek göze alacak değiliz, biz pratik programcılar için..</p>
+
+<p>Evet, <strong>saat.html</strong> dosyamız da hazır. Son olarak bu fonksiyonu bir sayfaya atayalım. <strong>urls.py</strong>&lsquo;yi düzenliyoruz:</p>
+
+<pre><code class="language-python">from django.conf.urls.defaults import *
+from mysite.views import clock_list, current_datetime, hours_ahead
+
+urlpatterns = patterns('',
+    (r'^clocks/$', clock_list),
+    (r'^time/$', current_datetime),
+    (r'^time/artir/(\d{1,2})/$', hours_ahead),
+)
+</code></pre>
+
+<p>Nereye atamışız? <a href="http://adresimiz/clocks/">http://adresimiz/clocks/</a> sayfasına.. <strong>python manage.py runserver</strong> ile sanal sunucumuzu çalıştırıp <a href="http://127.0.0.1:8000/clocks/">http://127.0.0.1:8000/clocks/</a> adresinden bir bakalım nasıl olmuş:</p>
+
+<p>(ekran görüntüsü yok)</p>
+
 <p>Eh, bu da fena değil. Biz burada döngülerin nasıl kullanılacağı üzerine, <strong>for</strong> ile bir örnek göstererek öğrenmiş olduk. <strong>if</strong>&lsquo;tir, <strong>else</strong>&lsquo;tir, <strong>ifequal</strong> ve benzeri diğer döngülerdir, bunların hepsi aynı mantıkla yazılıp kullanılmaktadır. Bu konuda teker teker örnek vermek yerine, şu1 linkteki kodları incelemeniz, sizin için fazlasıyla yeterli olacaktır. Eğer yine de değinilmesini istediğiniz önemli bir nokta varsa, bunu bize bildirmekten çekinmeyin.</p>
 
 

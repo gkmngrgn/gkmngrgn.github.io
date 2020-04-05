@@ -146,30 +146,49 @@
                       </div>
                       
     
-    <p>Bir içerik düşünün, bulunduğunuz sayfanın linki ile ilişkilendirilmiş. Çağrılan sayfanın adresine göre, tanımladığınız fonksiyonları kullanmak, o sayfada görüntülemek istiyorsunuz. Peki bunu nasıl yapabiliriz? Önceki örneğimizde, fonksiyonlarımızı nerede tanımlayıp (views.py), adresleri nerede tanımlayacağımızı (urls.py) öğrenmiş olduk. Bu araçları kullanarak, web tarayıcımızda zaman bilgilerini göstermeyi başardık.</p>
-<p>Şimdiki örneğimiz ise, dinamik internet sayfalarını nasıl oluşturacağımız ile ilgili. Amacımız basit; adresteki dizin numarasıyla sayfamızdaki saat bilgisini ilişkilendirmek; yani dizin numarası kaçsa, sayfamız da o kadar saat ileriyi gösterecek. İşte, views.py&rsquo;deki zaman fonksiyonumuz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hours_ahead</span>(request, offset):
-   offset <span style="color:#f92672">=</span> int(offset)
-   dt <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now() <span style="color:#f92672">+</span> datetime<span style="color:#f92672">.</span>timedelta(hours<span style="color:#f92672">=</span>offset)
-   html <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;html&gt;&lt;body&gt;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> saat sonra zaman şöyle olacak: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">.&lt;/body&gt;&lt;/html&gt;&#34;</span> <span style="color:#f92672">%</span> (offset, dt)
-   <span style="color:#66d9ef">return</span> HttpResponse(html)
-</code></pre></div><p>Evet, bu kodu views.py dosyasına aynen yazıyoruz. Fonksiyonun amacı gayet basit. <strong>dt</strong> isimli değişken, sayfa adresindeki dizin numarası değerini alıyor ve o <strong>integer</strong> olarak belirlenmiş değeri saat değişkenine ekliyor. Şimdi <strong>urls.py</strong>&lsquo;ye dönelim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> django.conf.urls.defaults <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-<span style="color:#f92672">from</span> mysite.views <span style="color:#f92672">import</span> current_datetime, hours_ahead
+    
 
-urlpatterns <span style="color:#f92672">=</span> patterns(<span style="color:#e6db74">&#39;&#39;</span>,
-   (<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^time/$&#39;</span>, current_datetime),
-   (<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^time/artir/(\d{1,2})/$&#39;</span>, hours_ahead),
+<p>Bir içerik düşünün, bulunduğunuz sayfanın linki ile ilişkilendirilmiş. Çağrılan sayfanın adresine göre, tanımladığınız fonksiyonları kullanmak, o sayfada görüntülemek istiyorsunuz. Peki bunu nasıl yapabiliriz? Önceki örneğimizde, fonksiyonlarımızı nerede tanımlayıp (views.py), adresleri nerede tanımlayacağımızı (urls.py) öğrenmiş olduk. Bu araçları kullanarak, web tarayıcımızda zaman bilgilerini göstermeyi başardık.</p>
+
+<p>Şimdiki örneğimiz ise, dinamik internet sayfalarını nasıl oluşturacağımız ile ilgili. Amacımız basit; adresteki dizin numarasıyla sayfamızdaki saat bilgisini ilişkilendirmek; yani dizin numarası kaçsa, sayfamız da o kadar saat ileriyi gösterecek. İşte, views.py&rsquo;deki zaman fonksiyonumuz:</p>
+
+<pre><code class="language-python">def hours_ahead(request, offset):
+   offset = int(offset)
+   dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
+   html = &quot;&lt;html&gt;&lt;body&gt;%s saat sonra zaman şöyle olacak: %s.&lt;/body&gt;&lt;/html&gt;&quot; % (offset, dt)
+   return HttpResponse(html)
+</code></pre>
+
+<p>Evet, bu kodu views.py dosyasına aynen yazıyoruz. Fonksiyonun amacı gayet basit. <strong>dt</strong> isimli değişken, sayfa adresindeki dizin numarası değerini alıyor ve o <strong>integer</strong> olarak belirlenmiş değeri saat değişkenine ekliyor. Şimdi <strong>urls.py</strong>&lsquo;ye dönelim:</p>
+
+<pre><code class="language-python">from django.conf.urls.defaults import *
+from mysite.views import current_datetime, hours_ahead
+
+urlpatterns = patterns('',
+   (r'^time/$', current_datetime),
+   (r'^time/artir/(\d{1,2})/$', hours_ahead),
 )
-</code></pre></div><p><strong>mysite</strong> dizinindeki <strong>views.py</strong> dosyasında tanımladığımız <strong>current_datetime</strong> fonksiyonunu çağırdığımız gibi, <strong>hours_ahead</strong>&lsquo;ı da çağırdık ve <strong>urlpatterns</strong>&lsquo;te, fonksiyonumuzun çalışacağı sayfayı tanımladık. Fakat dikkat edin, sayfa adresimiz tam belli bir sayfayı belirtmiyor:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    (<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^time/artir/(\d{1,2})/$&#39;</span>, hours_ahead),
-</code></pre></div><p>(ekran görüntüsü yok)</p>
-<h2 id="düzenli-ifadeler">Düzenli İfadeler</h2>
-<p>Son yazdığımız kodda, (\d{1,2}) ifadesinin ne anlama geldiğini söyleyeyim. Bu bir düzenli ifadedir. Yani biz burada &ldquo;\d&rdquo; kullanarak değerin sayı olduğunu, {1,2} ile de değerin 1, 2 veya bunların arasında bir değer olduğunu belirtmiş olduk. İnternette &ldquo;regular expressions programming&rdquo; şeklinde araştırma yaparsanız, bir çok kaynak bulabilirsiniz.</p>
-<p><del>urls.py&rsquo;de kullanabileceğiniz belli başlı düzenli ifadeleri bir tabloyla gösterelim:</del></p>
-<p>Editörün notu : Bu bölümü ayırdım. <a href="http://pythontr.blogspot.com/2008/09/dzenli-ifadelelerde-kullanlan.html">Buradan bulabilirsiniz</a>.</p>
-<p>Şimdi örneğimize geri dönelim. <strong>urls.py</strong> dosyasında belirtmiştik ki, sayfa adresinde 1 ve 2 basamaklı sayılar <strong>views.py</strong>&lsquo;de tanımlanan <strong>hours_ahead</strong> fonksiyonumuzla ilişkilendirilsin. Fonksiyonun amacı neydi? Sayfa adresinde belirtilen değeri şuanki saate eklemek. Eğer <strong>urls.py</strong>&lsquo;de belirtilen 1 ve 2 basamaklı değerlerin dışında bir sayı girersek ne olur peki? Deneyelim:</p>
+</code></pre>
+
+<p><strong>mysite</strong> dizinindeki <strong>views.py</strong> dosyasında tanımladığımız <strong>current_datetime</strong> fonksiyonunu çağırdığımız gibi, <strong>hours_ahead</strong>&lsquo;ı da çağırdık ve <strong>urlpatterns</strong>&lsquo;te, fonksiyonumuzun çalışacağı sayfayı tanımladık. Fakat dikkat edin, sayfa adresimiz tam belli bir sayfayı belirtmiyor:</p>
+
+<pre><code class="language-python">    (r'^time/artir/(\d{1,2})/$', hours_ahead),
+</code></pre>
+
 <p>(ekran görüntüsü yok)</p>
+
+<h2 id="düzenli-ifadeler">Düzenli İfadeler</h2>
+
+<p>Son yazdığımız kodda, (\d{1,2}) ifadesinin ne anlama geldiğini söyleyeyim. Bu bir düzenli ifadedir. Yani biz burada &ldquo;\d&rdquo; kullanarak değerin sayı olduğunu, {1,2} ile de değerin 1, 2 veya bunların arasında bir değer olduğunu belirtmiş olduk. İnternette &ldquo;regular expressions programming&rdquo; şeklinde araştırma yaparsanız, bir çok kaynak bulabilirsiniz.</p>
+
+<p><del>urls.py&rsquo;de kullanabileceğiniz belli başlı düzenli ifadeleri bir tabloyla gösterelim:</del></p>
+
+<p>Editörün notu : Bu bölümü ayırdım. <a href="http://pythontr.blogspot.com/2008/09/dzenli-ifadelelerde-kullanlan.html">Buradan bulabilirsiniz</a>.</p>
+
+<p>Şimdi örneğimize geri dönelim. <strong>urls.py</strong> dosyasında belirtmiştik ki, sayfa adresinde 1 ve 2 basamaklı sayılar <strong>views.py</strong>&lsquo;de tanımlanan <strong>hours_ahead</strong> fonksiyonumuzla ilişkilendirilsin. Fonksiyonun amacı neydi? Sayfa adresinde belirtilen değeri şuanki saate eklemek. Eğer <strong>urls.py</strong>&lsquo;de belirtilen 1 ve 2 basamaklı değerlerin dışında bir sayı girersek ne olur peki? Deneyelim:</p>
+
+<p>(ekran görüntüsü yok)</p>
+
 <p>Bu sayfanın tasarımı bile harika..</p>
 
 

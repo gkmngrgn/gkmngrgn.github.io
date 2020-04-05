@@ -142,8 +142,12 @@
                     <div class="markdown">
                         
     
-    <p><em>Model objemizi oluşturduktan sonra hemen veri girişi yapsak, denesek, kontrol etsek nasıl olurdu? Django&rsquo;nun en güzel yanlarından biri olan <strong>Django Admin&rsquo;e</strong> el atalım mı? Önce modelimizde biraz değişiklik yapmamız gerek.</em></p>
+    
+
+<p><em>Model objemizi oluşturduktan sonra hemen veri girişi yapsak, denesek, kontrol etsek nasıl olurdu? Django&rsquo;nun en güzel yanlarından biri olan <strong>Django Admin&rsquo;e</strong> el atalım mı? Önce modelimizde biraz değişiklik yapmamız gerek.</em></p>
+
 <h2 id="özet">Özet</h2>
+
 <ul>
 <li>İkinci bir migration script oluşturma denemesi yapacağız.</li>
 <li>Model katmanında ilk sinyal denememizi yapacağız.</li>
@@ -151,189 +155,246 @@
 <li>Resim yükleyebilmek için form sayfası, resmin renk kodlarını görüntüleyebilmek için detay sayfası hazırlayacağız.</li>
 <li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-03">buradan</a> erişebilirsiniz.</li>
 </ul>
-<h2 id="bir-migration-daha">Bir Migration Daha</h2>
-<p>Önceki konuyu pekiştirmek için <strong>Palette</strong> modelimizde birkaç değişiklik yapıp yeni bir migration script oluşturalım. Önce <code>is_deleted</code> adında yeni bir field ekleyelim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_palette/models.py</span>
-<span style="color:#f92672">...</span>
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Palette</span>(models<span style="color:#f92672">.</span>Model):
-    <span style="color:#f92672">...</span>
-    colors <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>TextField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Colors&#34;</span>), editable<span style="color:#f92672">=</span>False)  <span style="color:#75715e"># Bunu admin panelinden düzenlenemez hale getirdik.</span>
-    is_deleted <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>BooleanField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Is deleted?&#34;</span>), blank<span style="color:#f92672">=</span>True, default<span style="color:#f92672">=</span>False)  <span style="color:#75715e"># işte yeni field&#39;imiz.</span>
-    <span style="color:#f92672">...</span>
 
-    <span style="color:#66d9ef">def</span> __str__(self):  <span style="color:#75715e"># Bunu hatırlayın, admin panelinde kullanacağız.</span>
-        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>image<span style="color:#f92672">.</span>name
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+<h2 id="bir-migration-daha">Bir Migration Daha</h2>
+
+<p>Önceki konuyu pekiştirmek için <strong>Palette</strong> modelimizde birkaç değişiklik yapıp yeni bir migration script oluşturalım. Önce <code>is_deleted</code> adında yeni bir field ekleyelim:</p>
+
+<pre><code class="language-python"># hello_palette/models.py
+...
+class Palette(models.Model):
+    ...
+    colors = models.TextField(verbose_name=_(&quot;Colors&quot;), editable=False)  # Bunu admin panelinden düzenlenemez hale getirdik.
+    is_deleted = models.BooleanField(verbose_name=_(&quot;Is deleted?&quot;), blank=True, default=False)  # işte yeni field'imiz.
+    ...
+
+    def __str__(self):  # Bunu hatırlayın, admin panelinde kullanacağız.
+        return self.image.name
+</code></pre>
+
+<pre><code class="language-bash"># terminal
 $ python manage.py makemigrations hello_palette
-Migrations <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;hello_palette&#39;</span>:
+Migrations for 'hello_palette':
   hello_palette/migrations/0002_auto_20180422_0757.py
     - Add field is_deleted to palette
     - Alter field colors on palette
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+</code></pre>
+
+<pre><code class="language-bash"># terminal
 $ python manage.py migrate hello_palette
 Operations to perform:
   Apply all migrations: hello_palette
 Running migrations:
   Applying hello_palette.0002_auto_20180422_0757... OK
-</code></pre></div><p><strong>Neden <code>colors</code> field&rsquo;i düzenlenemez yapıldı?</strong> Çünkü Admin panelinden veya herhangi bir arayüzden bu fieldin değiştirilmesini, doldurulmasını istemiyoruz. Bu uygulamada amacımız bir resim dosyasının renk paletini otomatik olarak oluşturmak. <strong>hello_palette</strong> uygulaması içindeki <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-03/hello_django/hello_palette/color_parser.py"><strong>color_parser.py</strong></a> bize bu konuda yardımcı olacak; ancak <strong>colorific</strong> adında bir bağımlılığı var, onu kurmayı unutmayalım:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># requirements.txt</span>
+</code></pre>
+
+<p><strong>Neden <code>colors</code> field&rsquo;i düzenlenemez yapıldı?</strong> Çünkü Admin panelinden veya herhangi bir arayüzden bu fieldin değiştirilmesini, doldurulmasını istemiyoruz. Bu uygulamada amacımız bir resim dosyasının renk paletini otomatik olarak oluşturmak. <strong>hello_palette</strong> uygulaması içindeki <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-03/hello_django/hello_palette/color_parser.py"><strong>color_parser.py</strong></a> bize bu konuda yardımcı olacak; ancak <strong>colorific</strong> adında bir bağımlılığı var, onu kurmayı unutmayalım:</p>
+
+<pre><code class="language-bash"># requirements.txt
 ...
-colorific<span style="color:#f92672">==</span>0.3
-</code></pre></div><p>Peki bu <strong>color_parser</strong> modülümüzü nasıl kullanacağız? Biz istiyoruz ki yeni bir resim yüklendiğinde, <strong>ilk kez</strong> kaydedildiğinde renk paleti oluşturulsun. Yani, bizim bir model objesinin kaydetme aşamasını yakalamamız ve o an ek bir işlem daha yaptırmamız gerekiyor. İşte bunu biz sinyal metodlarıyla<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> yapıyoruz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_palette/models.py</span>
-<span style="color:#f92672">...</span>
-<span style="color:#f92672">from</span> django.dispatch <span style="color:#f92672">import</span> receiver
-<span style="color:#f92672">from</span> hello_palette.color_parser <span style="color:#f92672">import</span> ColorParser
-<span style="color:#f92672">...</span>
-<span style="color:#a6e22e">@receiver</span>(models<span style="color:#f92672">.</span>signals<span style="color:#f92672">.</span>post_save, sender<span style="color:#f92672">=</span>Palette)
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">parse_colors</span>(sender, instance, created, <span style="color:#f92672">**</span>kwargs):
-    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> created:
-        <span style="color:#66d9ef">return</span>  <span style="color:#75715e"># don&#39;t do anything</span>
+colorific==0.3
+</code></pre>
 
-    instance<span style="color:#f92672">.</span>colors <span style="color:#f92672">=</span> ColorParser(image_path<span style="color:#f92672">=</span>instance<span style="color:#f92672">.</span>image<span style="color:#f92672">.</span>path)<span style="color:#f92672">.</span>parse_colors()
-    instance<span style="color:#f92672">.</span>save()
-</code></pre></div><p>Eğer ilk kez bir Palette objesi kaydediliyor veya oluşturuluyorsa, <strong>colors</strong> field&rsquo;imizin içi HEX kodlarıyla doldurulacak. Şimdi admin paneline geçmeden önce son bir şey daha yapmamız gerekiyor.</p>
+<p>Peki bu <strong>color_parser</strong> modülümüzü nasıl kullanacağız? Biz istiyoruz ki yeni bir resim yüklendiğinde, <strong>ilk kez</strong> kaydedildiğinde renk paleti oluşturulsun. Yani, bizim bir model objesinin kaydetme aşamasını yakalamamız ve o an ek bir işlem daha yaptırmamız gerekiyor. İşte bunu biz sinyal metodlarıyla<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> yapıyoruz:</p>
+
+<pre><code class="language-python"># hello_palette/models.py
+...
+from django.dispatch import receiver
+from hello_palette.color_parser import ColorParser
+...
+@receiver(models.signals.post_save, sender=Palette)
+def parse_colors(sender, instance, created, **kwargs):
+    if not created:
+        return  # don't do anything
+
+    instance.colors = ColorParser(image_path=instance.image.path).parse_colors()
+    instance.save()
+</code></pre>
+
+<p>Eğer ilk kez bir Palette objesi kaydediliyor veya oluşturuluyorsa, <strong>colors</strong> field&rsquo;imizin içi HEX kodlarıyla doldurulacak. Şimdi admin paneline geçmeden önce son bir şey daha yapmamız gerekiyor.</p>
+
 <h1 id="media-ayarlarımız">Media Ayarlarımız</h1>
-<p>Static ve Media arasındaki temel fark; static adı üzerinde statiktir, genellikle frontend dosyalarımızı ve içeriği veya konumu değişmeyen dosyalar için kullanırız. Ancak bir de dışarıdan uygulama için yüklediğimiz dosyalar var. Bunlar media dosyalarıdır ve bunlar için ayrıca ayar yapmamız gerekiyor:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># settings.py</span>
-<span style="color:#f92672">...</span>
-MEDIA_URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/media/&#39;</span>
-MEDIA_ROOT <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(BASE_DIR, <span style="color:#e6db74">&#39;media&#39;</span>)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># django_palette/urls.py</span>
-<span style="color:#f92672">from</span> django.conf <span style="color:#f92672">import</span> settings
-<span style="color:#f92672">from</span> django.conf.urls.static <span style="color:#f92672">import</span> static
-<span style="color:#f92672">...</span>
 
-urlpatterns <span style="color:#f92672">=</span> [
-    <span style="color:#f92672">...</span>
-] <span style="color:#f92672">+</span> static(settings<span style="color:#f92672">.</span>MEDIA_URL, document_root<span style="color:#f92672">=</span>settings<span style="color:#f92672">.</span>MEDIA_ROOT)
-</code></pre></div><h1 id="django-admin">Django Admin</h1>
+<p>Static ve Media arasındaki temel fark; static adı üzerinde statiktir, genellikle frontend dosyalarımızı ve içeriği veya konumu değişmeyen dosyalar için kullanırız. Ancak bir de dışarıdan uygulama için yüklediğimiz dosyalar var. Bunlar media dosyalarıdır ve bunlar için ayrıca ayar yapmamız gerekiyor:</p>
+
+<pre><code class="language-python"># settings.py
+...
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+</code></pre>
+
+<pre><code class="language-python"># django_palette/urls.py
+from django.conf import settings
+from django.conf.urls.static import static
+...
+
+urlpatterns = [
+    ...
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+</code></pre>
+
+<h1 id="django-admin">Django Admin</h1>
+
 <p>Bir proje oluşturduğunuzda Django Admin kurulu geliyor. Bizim şuan tek yapmamız gereken, bir tam yetkili kullanıcı oluşturmak. Bu sayede Admin paneline giriş yapabileceğiz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+
+<pre><code class="language-bash"># terminal
 $ python manage.py createsuperuser
-Username <span style="color:#f92672">(</span>leave blank to use <span style="color:#e6db74">&#39;gokmen&#39;</span><span style="color:#f92672">)</span>:
+Username (leave blank to use 'gokmen'):
 Email address: gokmen@alageek.com
 Password:
-Password <span style="color:#f92672">(</span>again<span style="color:#f92672">)</span>:
+Password (again):
 Superuser created successfully.
-</code></pre></div><p>Geliştirme sunucumuzu çalıştırıp <code>https://localhost:8000/admin/</code> adresine gidelim ve girişimizi yapalım:</p>
-<a href="https://gokmengorgen.net/img/django-notes/django-admin.png" target="_blank">
-  ![Django admin panel](/img/django-notes/django-admin.png "Django Admin panelimiz")
-</a>
+</code></pre>
+
+<p>Geliştirme sunucumuzu çalıştırıp <code>https://localhost:8000/admin/</code> adresine gidelim ve girişimizi yapalım:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/django-admin.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/django-admin.png" src="https://gokmengorgen.net/img/django-notes/low/django-admin.png" alt="Django admin panel" title="Django Admin panelimiz" /></figure>
+</a></p>
+
 <p>Admin panelini ilk açtığınızda sadece <strong>Users</strong> ve <strong>Groups</strong> olacak, <strong>Palette</strong> modelimizi de ekleyebilmek için bizim bir admin kaydı yapmamız gerekiyor:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_palette/admin.py</span>
-<span style="color:#f92672">from</span> django.contrib <span style="color:#f92672">import</span> admin
-<span style="color:#f92672">from</span> hello_palette.models <span style="color:#f92672">import</span> Palette
+
+<pre><code class="language-python"># hello_palette/admin.py
+from django.contrib import admin
+from hello_palette.models import Palette
 
 
-<span style="color:#a6e22e">@admin.register</span>(Palette)
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PaletteAdmin</span>(admin<span style="color:#f92672">.</span>ModelAdmin):
-    list_display <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;__str__&#39;</span>, <span style="color:#e6db74">&#39;colors&#39;</span>, <span style="color:#e6db74">&#39;created_at&#39;</span>, <span style="color:#e6db74">&#39;is_deleted&#39;</span>)
-    list_filter <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;is_deleted&#39;</span>,)
-    date_hierarchy <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;created_at&#39;</span>
-</code></pre></div><p>Şimdi buna bir göz atalım, biz dedik ki:</p>
+@admin.register(Palette)
+class PaletteAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'colors', 'created_at', 'is_deleted')
+    list_filter = ('is_deleted',)
+    date_hierarchy = 'created_at'
+</code></pre>
+
+<p>Şimdi buna bir göz atalım, biz dedik ki:</p>
+
 <ul>
 <li>Resim dosyası adı, renkler, ve resmin yüklenme tarihini admin panelinde kolon olarak göster. <code>__str__</code> metodunu modelimizde görebilirsiniz, tekrar inceleyin, resim dosyası adını döndürüyor.</li>
 <li>Resmin silinip silinmediğine göre filtrelememe izin ver. Dışarıdan bir kullanıcının gerçekten veri silmesine izin vermeyeceğiz, <strong>soft delete</strong>.</li>
 <li>Resimlerin yüklenme tarihine göre filtrelememe de izin ver.</li>
 </ul>
+
 <p>Böylece admin panelinde yeni bir Palette objesi eklemek istediğimizde biraz daha özelleştirilmiş bir panel göreceğiz:</p>
-<a href="https://gokmengorgen.net/img/django-notes/palette-in-admin.png" target="_blank">
-  ![Palette in admin](/img/django-notes/palette-in-admin.png "Palette Admin Paneli'nde")
-</a>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/palette-in-admin.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/palette-in-admin.png" src="https://gokmengorgen.net/img/django-notes/low/palette-in-admin.png" alt="Palette in admin" title="Palette Admin Paneli'nde" /></figure>
+</a></p>
+
 <p>Renk kodlarımızı görebiliyoruz! Fakat admin paneli normal kullanıcılar için değil, biz burada sadece modelimizi test etmek istedik. Normal yetkisiz kullanıcılar için MTV konusunu hatırlayarak birkaç View yazmamız gerekiyor.</p>
+
 <h2 id="mtv">MTV</h2>
+
 <p>Bir kullanıcının bir resim yükleyip renk paletini oluşturması için bir form sayfası, bir de sonucu gösterebileceğimiz detay sayfasına ihtiyacımız var, önce View katmanı hazırmış gibi url&rsquo;leri yazıyoruz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_django/urls.py</span>
-<span style="color:#f92672">...</span>
-urlpatterns <span style="color:#f92672">=</span> [
-    path(<span style="color:#e6db74">&#39;&#39;</span>, view<span style="color:#f92672">=</span>HomeView<span style="color:#f92672">.</span>as_view(), name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;home&#39;</span>),
-    path(<span style="color:#e6db74">&#39;palette/&#39;</span>, include(<span style="color:#e6db74">&#39;hello_palette.urls&#39;</span>, namespace<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;palette&#39;</span>)),  <span style="color:#75715e"># namespace&#39;in palette olmasına dikkat</span>
-    <span style="color:#f92672">...</span>
-</code></pre></div><p>Palette uygulamamıza <strong>http://localhost:8000/palette/</strong> üzerinden erişebileceğiz.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_palette/urls.py</span>
-<span style="color:#f92672">from</span> django.urls <span style="color:#f92672">import</span> path
-<span style="color:#f92672">from</span> hello_palette.views <span style="color:#f92672">import</span> PaletteDetailView, PaletteFormView
 
-app_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;palette&#39;</span>
+<pre><code class="language-python"># hello_django/urls.py
+...
+urlpatterns = [
+    path('', view=HomeView.as_view(), name='home'),
+    path('palette/', include('hello_palette.urls', namespace='palette')),  # namespace'in palette olmasına dikkat
+    ...
+</code></pre>
 
-urlpatterns <span style="color:#f92672">=</span> [
-    path(<span style="color:#e6db74">&#39;&#39;</span>, view<span style="color:#f92672">=</span>PaletteFormView<span style="color:#f92672">.</span>as_view(), name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;new&#39;</span>),  <span style="color:#75715e"># namespace `palette`, name `new`</span>
-    path(<span style="color:#e6db74">&#39;&lt;int:pk&gt;/&#39;</span>, view<span style="color:#f92672">=</span>PaletteDetailView<span style="color:#f92672">.</span>as_view(), name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;detail&#39;</span>),  <span style="color:#75715e"># namespace `palette`, name `detail`</span>
+<p>Palette uygulamamıza <strong><a href="http://localhost:8000/palette/">http://localhost:8000/palette/</a></strong> üzerinden erişebileceğiz.</p>
+
+<pre><code class="language-python"># hello_palette/urls.py
+from django.urls import path
+from hello_palette.views import PaletteDetailView, PaletteFormView
+
+app_name = 'palette'
+
+urlpatterns = [
+    path('', view=PaletteFormView.as_view(), name='new'),  # namespace `palette`, name `new`
+    path('&lt;int:pk&gt;/', view=PaletteDetailView.as_view(), name='detail'),  # namespace `palette`, name `detail`
 ]
-</code></pre></div><p><strong>PaletteFormView&rsquo;in</strong> daha önceki View katmanı örneğinden farklı bir URL yapısı yok, ancak <strong>PaletteDetailView</strong> için <strong>pk</strong> değerine ihtiyacımız var. Bu değer ile istediğimiz <strong>Palette</strong> model objesine erişebileceğiz. <strong>PaletteFormView</strong> önceki örnekten farklı olarak bir forma<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> ihtiyacı var:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> django <span style="color:#f92672">import</span> forms
-<span style="color:#f92672">from</span> hello_palette.models <span style="color:#f92672">import</span> Palette
+</code></pre>
+
+<p><strong>PaletteFormView&rsquo;in</strong> daha önceki View katmanı örneğinden farklı bir URL yapısı yok, ancak <strong>PaletteDetailView</strong> için <strong>pk</strong> değerine ihtiyacımız var. Bu değer ile istediğimiz <strong>Palette</strong> model objesine erişebileceğiz. <strong>PaletteFormView</strong> önceki örnekten farklı olarak bir forma<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> ihtiyacı var:</p>
+
+<pre><code class="language-python">from django import forms
+from hello_palette.models import Palette
 
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PaletteForm</span>(forms<span style="color:#f92672">.</span>ModelForm):
-    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Meta</span>:
-        model <span style="color:#f92672">=</span> Palette  <span style="color:#75715e"># ModelForm&#39;un güzelliği, model fieldlarımızdan form üretmek.</span>
-        exclude <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;is_deleted&#39;</span>,)  <span style="color:#75715e"># bu field sadece admin için gerekli, kullanıcı için gereksiz.</span>
-</code></pre></div><p>View katmanımız:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_palette/views.py</span>
-<span style="color:#f92672">from</span> django.shortcuts <span style="color:#f92672">import</span> get_object_or_404, redirect
-<span style="color:#f92672">from</span> django.views.generic <span style="color:#f92672">import</span> DetailView, FormView
-<span style="color:#f92672">from</span> hello_palette.models <span style="color:#f92672">import</span> Palette
-<span style="color:#f92672">from</span> hello_palette.forms <span style="color:#f92672">import</span> PaletteForm
+class PaletteForm(forms.ModelForm):
+    class Meta:
+        model = Palette  # ModelForm'un güzelliği, model fieldlarımızdan form üretmek.
+        exclude = ('is_deleted',)  # bu field sadece admin için gerekli, kullanıcı için gereksiz.
+</code></pre>
+
+<p>View katmanımız:</p>
+
+<pre><code class="language-python"># hello_palette/views.py
+from django.shortcuts import get_object_or_404, redirect
+from django.views.generic import DetailView, FormView
+from hello_palette.models import Palette
+from hello_palette.forms import PaletteForm
 
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PaletteFormView</span>(FormView):
-    template_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;palette/new.html&#39;</span>  <span style="color:#75715e"># template dosyamızı sonra oluşturacağız.</span>
-    form_class <span style="color:#f92672">=</span> PaletteForm
+class PaletteFormView(FormView):
+    template_name = 'palette/new.html'  # template dosyamızı sonra oluşturacağız.
+    form_class = PaletteForm
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">form_valid</span>(self, form):
-        palette <span style="color:#f92672">=</span> form<span style="color:#f92672">.</span>save()  <span style="color:#75715e"># form başarılıysa, kaydet.</span>
-        <span style="color:#66d9ef">return</span> redirect(<span style="color:#e6db74">&#39;palette:detail&#39;</span>, palette<span style="color:#f92672">.</span>pk)  <span style="color:#75715e"># namespace ve name&#39;ları işte burada kullanıyoruz.</span>
+    def form_valid(self, form):
+        palette = form.save()  # form başarılıysa, kaydet.
+        return redirect('palette:detail', palette.pk)  # namespace ve name'ları işte burada kullanıyoruz.
 
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PaletteDetailView</span>(DetailView):
-    template_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;palette/detail.html&#39;</span>  <span style="color:#75715e"># template dosyamızı sonra oluşturacağız.</span>
+class PaletteDetailView(DetailView):
+    template_name = 'palette/detail.html'  # template dosyamızı sonra oluşturacağız.
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_object</span>(self, queryset<span style="color:#f92672">=</span>None):
-        pk <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>kwargs<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;pk&#39;</span>)  <span style="color:#75715e"># URL&#39;deki pk&#39;i hatırladınız mı?</span>
-        <span style="color:#66d9ef">return</span> get_object_or_404(Palette, pk<span style="color:#f92672">=</span>pk, is_deleted<span style="color:#f92672">=</span>False)
-</code></pre></div><p>Model katmanı tamam, View katmanı tamam, şimdi Template katmanımızı tamamlamamız gerekiyor:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- templates/palette/new.html --&gt;</span>
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')  # URL'deki pk'i hatırladınız mı?
+        return get_object_or_404(Palette, pk=pk, is_deleted=False)
+</code></pre>
+
+<p>Model katmanı tamam, View katmanı tamam, şimdi Template katmanımızı tamamlamamız gerekiyor:</p>
+
+<pre><code class="language-html">&lt;!-- templates/palette/new.html --&gt;
 ...
-&lt;<span style="color:#f92672">body</span>&gt;
-    <span style="color:#75715e">&lt;!-- enctype resim dosyası yükleyebilmek için --&gt;</span>
-    &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;POST&#34;</span> <span style="color:#a6e22e">enctype</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;multipart/form-data&#34;</span>&gt;
-        {% csrf_token %} <span style="color:#75715e">&lt;!-- Cross Site Request Forgery Protection --&gt;</span>
-        &lt;<span style="color:#f92672">ul</span>&gt;
-            {{ form.as_ul }} <span style="color:#75715e">&lt;!-- PaletteForm burada --&gt;</span>
-        &lt;/<span style="color:#f92672">ul</span>&gt;
-        &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;Upload&lt;/<span style="color:#f92672">button</span>&gt;
-    &lt;/<span style="color:#f92672">form</span>&gt;
-&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;body&gt;
+    &lt;!-- enctype resim dosyası yükleyebilmek için --&gt;
+    &lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
+        {% csrf_token %} &lt;!-- Cross Site Request Forgery Protection --&gt;
+        &lt;ul&gt;
+            {{ form.as_ul }} &lt;!-- PaletteForm burada --&gt;
+        &lt;/ul&gt;
+        &lt;button type=&quot;submit&quot;&gt;Upload&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
 ...
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- templates/palette/detail.html --&gt;</span>
-...
-&lt;<span style="color:#f92672">body</span>&gt;
-    &lt;<span style="color:#f92672">div</span>&gt;
-        &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ palette.image.url }}&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">250</span> /&gt;
-    &lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre>
 
-    &lt;<span style="color:#f92672">p</span>&gt;{{ palette.colors }}&lt;/<span style="color:#f92672">p</span>&gt;
-&lt;/<span style="color:#f92672">body</span>&gt;
+<pre><code class="language-html">&lt;!-- templates/palette/detail.html --&gt;
 ...
-</code></pre></div><p>Şimdi resim yükleyip renk kodu almayı deneyebiliriz, bunun için super user olmaya ihtiyacımız yok. Biraz işlevsiz bir arayüz; ancak MTV için yeterli:</p>
-<a href="https://gokmengorgen.net/img/django-notes/palette-1.png" target="_blank">
-  ![Palette form view](/img/django-notes/palette-1.png "Palette form ekranı")
-</a>
-<a href="https://gokmengorgen.net/img/django-notes/palette-2.png" target="_blank">
-  ![Palette detail view](/img/django-notes/palette-2.png "Palette detay ekranı")
-</a>
+&lt;body&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;{{ palette.image.url }}&quot; height=250 /&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;{{ palette.colors }}&lt;/p&gt;
+&lt;/body&gt;
+...
+</code></pre>
+
+<p>Şimdi resim yükleyip renk kodu almayı deneyebiliriz, bunun için super user olmaya ihtiyacımız yok. Biraz işlevsiz bir arayüz; ancak MTV için yeterli:</p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/palette-1.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/palette-1.png" src="https://gokmengorgen.net/img/django-notes/low/palette-1.png" alt="Palette form view" title="Palette form ekranı" /></figure>
+</a></p>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/palette-2.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/palette-2.png" src="https://gokmengorgen.net/img/django-notes/low/palette-2.png" alt="Palette detail view" title="Palette detay ekranı" /></figure>
+</a></p>
+
 <p>View katmanımızı <a href="https://github.com/gkmngrgn/django-notes/blob/master/Article-03/hello_django/hello_palette/views.py">repo&rsquo;dan</a> inceleyin, orada bir Delete View örneği daha göreceksiniz. Bir sonraki yazımızda Template dosyalarımızın üzerinden bir kez daha geçelim.</p>
-<div class="footnotes" role="doc-endnotes">
+<div class="footnotes">
+
 <hr />
+
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p><strong>Signals</strong> konusunda daha fazla bilgi için Django&rsquo;nun <a href="https://docs.djangoproject.com/en/2.0/topics/signals/">kendi dökümantasyonuna</a> gözatmanızı öneririm. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p>CSRF, sunucuya sahte isteklerin gönderilmesini veya gerçek isteklerin gönderilirken değiştirilmesini engellemek için bir tür yöntemdir. Django dökümantasyonunda bu konuyla ilgili <a href="https://docs.djangoproject.com/en/2.0/ref/csrf/">detaylı bilgi</a> var. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
+<li id="fn:1"><strong>Signals</strong> konusunda daha fazla bilgi için Django&rsquo;nun <a href="https://docs.djangoproject.com/en/2.0/topics/signals/">kendi dökümantasyonuna</a> gözatmanızı öneririm.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">CSRF, sunucuya sahte isteklerin gönderilmesini veya gerçek isteklerin gönderilirken değiştirilmesini engellemek için bir tür yöntemdir. Django dökümantasyonunda bu konuyla ilgili <a href="https://docs.djangoproject.com/en/2.0/ref/csrf/">detaylı bilgi</a> var.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
 </ol>
 </div>
 

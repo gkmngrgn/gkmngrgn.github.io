@@ -173,23 +173,35 @@
                     <div class="markdown">
                         
     
-    <p>With just a command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># terminal</span>
-$ ENV<span style="color:#f92672">=</span>PROD ./do.sh deploy
-</code></pre></div><p>I have many projects using my script named <a href="https://gist.github.com/gkmngrgn/48303742353b0b17ae0e5c2d1d24ec3e">DOSH</a> and the parameters are mostly in common; <code>deploy</code>, <code>start</code>, <code>stop</code>, <code>runtests</code>, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like <a href="https://gohugo.io/">this one</a> but I run all the projects with the same command: <code>dosh start</code>.</p>
+    
+
+<p>With just a command:</p>
+
+<pre><code class="language-shell"># terminal
+$ ENV=PROD ./do.sh deploy
+</code></pre>
+
+<p>I have many projects using my script named <a href="https://gist.github.com/gkmngrgn/48303742353b0b17ae0e5c2d1d24ec3e">DOSH</a> and the parameters are mostly in common; <code>deploy</code>, <code>start</code>, <code>stop</code>, <code>runtests</code>, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like <a href="https://gohugo.io/">this one</a> but I run all the projects with the same command: <code>dosh start</code>.</p>
+
 <p>In Windows, the command may be a bit longer than in the other operating systems. So it&rsquo;s a good idea to shorten the command using some aliases, the default environment is <code>DEV</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># ~/.bash_profile</span>
-alias dosh<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;winpty bash do.sh&#34;</span>  <span style="color:#75715e"># or just type &#34;./do.sh&#34; in Linux or MacOS.</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># terminal</span>
-$ dosh start  <span style="color:#75715e"># in DEV</span>
-$ ENV<span style="color:#f92672">=</span>PROD dosh deploy  <span style="color:#75715e"># in PROD, my deploy parameter works only in production.</span>
-</code></pre></div><p>Do you use PowerShell? No problem, I think it&rsquo;s better to do the same thing in PowerShell, you can find the sample codes below, but let me show you how I use that, it&rsquo;s a bit different than BASH:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># powershell</span>
-~\Workspace\website [master <span style="color:#960050;background-color:#1e0010">≡</span>]&gt; $env:ENV = <span style="color:#e6db74">&#34;PROD&#34;</span>
-~\Workspace\website [master <span style="color:#960050;background-color:#1e0010">≡</span>]&gt; dosh deploy
-Environment<span style="color:#960050;background-color:#1e0010">:</span> production
+
+<pre><code class="language-bash"># ~/.bash_profile
+alias dosh=&quot;winpty bash do.sh&quot;  # or just type &quot;./do.sh&quot; in Linux or MacOS.
+</code></pre>
+
+<pre><code class="language-shell"># terminal
+$ dosh start  # in DEV
+$ ENV=PROD dosh deploy  # in PROD, my deploy parameter works only in production.
+</code></pre>
+
+<p>Do you use PowerShell? No problem, I think it&rsquo;s better to do the same thing in PowerShell, you can find the sample codes below, but let me show you how I use that, it&rsquo;s a bit different than BASH:</p>
+
+<pre><code class="language-powershell"># powershell
+~\Workspace\website [master ≡]&gt; $env:ENV = &quot;PROD&quot;
+~\Workspace\website [master ≡]&gt; dosh deploy
+Environment: production
 Deploying updates to GitHub...
-Building sites <span style="color:#960050;background-color:#1e0010">…</span>
+Building sites …
                    | EN | TR
 +------------------+----+----+
   Pages            | 13 | 67
@@ -201,168 +213,180 @@ Building sites <span style="color:#960050;background-color:#1e0010">…</span>
   Sitemaps         |  2 |  1
   Cleaned          |  0 |  0
 
-Total <span style="color:#66d9ef">in</span> 748 ms
-<span style="color:#66d9ef">[master 1686121]</span> rebuilding site 12/30/2018 15<span style="color:#960050;background-color:#1e0010">:</span>02<span style="color:#960050;background-color:#1e0010">:</span>32
+Total in 748 ms
+[master 1686121] rebuilding site 12/30/2018 15:02:32
  1 file changed, 3 insertions(+), 3 deletions(-)
-Enumerating objects<span style="color:#960050;background-color:#1e0010">:</span> 9, done.
-Counting objects<span style="color:#960050;background-color:#1e0010">:</span> 100% (9/9), done.
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
 Delta compression using up to 12 threads
-Compressing objects<span style="color:#960050;background-color:#1e0010">:</span> 100% (4/4), done.
-Writing objects<span style="color:#960050;background-color:#1e0010">:</span> 100% (5/5), 628 bytes | 628.00 KiB/s, done.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 628 bytes | 628.00 KiB/s, done.
 Total 5 (delta 3), reused 0 (delta 0)
-remote<span style="color:#960050;background-color:#1e0010">:</span> Resolving deltas<span style="color:#960050;background-color:#1e0010">:</span> 100% (3/3), completed with 3 local objects.
-To github.com<span style="color:#960050;background-color:#1e0010">:</span>gkmngrgn/gkmngrgn.github.io.git
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:gkmngrgn/gkmngrgn.github.io.git
    733793b..1686121  master -&gt; master
 DONE.
-</code></pre></div><h2 id="code-samples">Code samples</h2>
+</code></pre>
+
+<h2 id="code-samples">Code samples</h2>
+
 <p>You can find many sample codes here to write a deployment script and I didn&rsquo;t think of this idea <strong>first</strong> but still, I&rsquo;m sharing my scripts to be an alternative:</p>
-<h3 id="dosh">./do.sh</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env bash
-</span><span style="color:#75715e"></span>
-BLUE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\\033[1;34m&#34;</span>
-GREEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\\033[1;32m&#34;</span>
-NORMAL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\\033[0;39m&#34;</span>
-RED<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\\033[1;31m&#34;</span>
 
-print_help<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>BLUE<span style="color:#e6db74">}</span><span style="color:#e6db74">Available environments</span><span style="color:#e6db74">${</span>NORMAL<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-    echo <span style="color:#e6db74">&#34;  - DEV (default)&#34;</span>
-    echo <span style="color:#e6db74">&#34;  - PROD&#34;</span>
-    echo <span style="color:#e6db74">&#34;  - STAGING&#34;</span>
-    echo <span style="color:#e6db74">&#34;&#34;</span>
-    echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>BLUE<span style="color:#e6db74">}</span><span style="color:#e6db74">Available commands</span><span style="color:#e6db74">${</span>NORMAL<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-    echo -e <span style="color:#e6db74">&#34;  &gt; deploy [:message]      Deploy the changes&#34;</span>
-    echo -e <span style="color:#e6db74">&#34;  &gt; start                  Run development server&#34;</span>
-<span style="color:#f92672">}</span>
+<h3 id="do-sh">./do.sh</h3>
 
-deploy<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">${</span>ENV<span style="color:#e6db74">}</span> in
-        <span style="color:#e6db74">&#34;PROD&#34;</span><span style="color:#f92672">)</span>
-            echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>BLUE<span style="color:#e6db74">}</span><span style="color:#e6db74">Deploying updates to GitHub...</span><span style="color:#e6db74">${</span>NORMAL<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+<pre><code class="language-bash">#!/usr/bin/env bash
+
+BLUE=&quot;\\033[1;34m&quot;
+GREEN=&quot;\\033[1;32m&quot;
+NORMAL=&quot;\\033[0;39m&quot;
+RED=&quot;\\033[1;31m&quot;
+
+print_help() {
+    echo -e &quot;${BLUE}Available environments${NORMAL}&quot;
+    echo &quot;  - DEV (default)&quot;
+    echo &quot;  - PROD&quot;
+    echo &quot;  - STAGING&quot;
+    echo &quot;&quot;
+    echo -e &quot;${BLUE}Available commands${NORMAL}&quot;
+    echo -e &quot;  &gt; deploy [:message]      Deploy the changes&quot;
+    echo -e &quot;  &gt; start                  Run development server&quot;
+}
+
+deploy() {
+    case ${ENV} in
+        &quot;PROD&quot;)
+            echo -e &quot;${BLUE}Deploying updates to GitHub...${NORMAL}&quot;
             ;;
-        *<span style="color:#f92672">)</span>
-            echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>RED<span style="color:#e6db74">}</span><span style="color:#e6db74">This command only works in production.</span><span style="color:#e6db74">${</span>NORMAL<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+        *)
+            echo -e &quot;${RED}This command only works in production.${NORMAL}&quot;
             exit
             ;;
-    <span style="color:#66d9ef">esac</span>
+    esac
 
-    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $# -eq <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>
-    <span style="color:#66d9ef">then</span> msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>1<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-    <span style="color:#66d9ef">else</span> msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rebuilding site `date`&#34;</span>
-    <span style="color:#66d9ef">fi</span>
+    if [ $# -eq 1 ]
+    then msg=&quot;${1}&quot;
+    else msg=&quot;rebuilding site `date`&quot;
+    fi
 
     hugo
     cd public
     git add .
-    git commit -m <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>msg<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    git commit -m &quot;${msg}&quot;
     git push origin master
     cd ..
-    echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>GREEN<span style="color:#e6db74">}</span><span style="color:#e6db74">DONE.</span><span style="color:#e6db74">${</span>NORMAL<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-<span style="color:#f92672">}</span>
+    echo -e &quot;${GREEN}DONE.${NORMAL}&quot;
+}
 
-start<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+start() {
     hugo server -D
-<span style="color:#f92672">}</span>
+}
 
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -z <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>
-<span style="color:#66d9ef">then</span>
+if [ -z &quot;$1&quot; ]
+then
     print_help
-<span style="color:#66d9ef">else</span>
-    <span style="color:#66d9ef">case</span> $ENV in
-        <span style="color:#e6db74">&#34;PROD&#34;</span><span style="color:#f92672">)</span>
-            env_str<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;production&#34;</span>
+else
+    case $ENV in
+        &quot;PROD&quot;)
+            env_str=&quot;production&quot;
             ;;
-        <span style="color:#e6db74">&#34;STAGING&#34;</span><span style="color:#f92672">)</span>
-            env_str<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;staging&#34;</span>
+        &quot;STAGING&quot;)
+            env_str=&quot;staging&quot;
             ;;
-        *<span style="color:#f92672">)</span>
-            env_str<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;development&#34;</span>
+        *)
+            env_str=&quot;development&quot;
             ;;
-    <span style="color:#66d9ef">esac</span>
-    echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>BLUE<span style="color:#e6db74">}</span><span style="color:#e6db74">Environment:</span><span style="color:#e6db74">${</span>NORMAL<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span>$env_str<span style="color:#e6db74">&#34;</span>
-    <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
-<span style="color:#66d9ef">fi</span>
-</code></pre></div><h3 id="dops1">./do.ps1</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;# Variables #&gt;</span>
-<span style="color:#66d9ef">if</span> ($env:ENV <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;PROD&#34;</span>) {
-    $env_str = <span style="color:#e6db74">&#34;production&#34;</span>
+    esac
+    echo -e &quot;${BLUE}Environment:${NORMAL} $env_str&quot;
+    &quot;$@&quot;
+fi
+</code></pre>
+
+<h3 id="do-ps1">./do.ps1</h3>
+
+<pre><code class="language-powershell">&lt;# Variables #&gt;
+if ($env:ENV -eq &quot;PROD&quot;) {
+    $env_str = &quot;production&quot;
 }
-<span style="color:#66d9ef">elseif</span> ($env:ENV <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;STAGING&#34;</span>) {
-    $env_str = <span style="color:#e6db74">&#34;staging&#34;</span>
+elseif ($env:ENV -eq &quot;STAGING&quot;) {
+    $env_str = &quot;staging&quot;
 }
-<span style="color:#66d9ef">else</span> {
-    <span style="color:#66d9ef">if</span> ($env:ENV <span style="color:#f92672">-ne</span> <span style="color:#e6db74">&#34;DEV&#34;</span>) {
-        $env:ENV = <span style="color:#e6db74">&#34;DEV&#34;</span>
+else {
+    if ($env:ENV -ne &quot;DEV&quot;) {
+        $env:ENV = &quot;DEV&quot;
     }
-    $env_str = <span style="color:#e6db74">&#34;development&#34;</span>
+    $env_str = &quot;development&quot;
 }
 
-<span style="color:#75715e">&lt;# Functions #&gt;</span>
-<span style="color:#66d9ef">function</span> Get-Help {
-    Write-Host -ForegroundColor Cyan <span style="color:#e6db74">&#34;Available Environments&#34;</span>
-    Write-Output <span style="color:#e6db74">&#34;  - DEV (default)&#34;</span>
-    Write-Output <span style="color:#e6db74">&#34;  - PROD&#34;</span>
-    Write-Output <span style="color:#e6db74">&#34;  - STAGING&#34;</span>
-    Write-Output <span style="color:#e6db74">&#34;&#34;</span>
+&lt;# Functions #&gt;
+function Get-Help {
+    Write-Host -ForegroundColor Cyan &quot;Available Environments&quot;
+    Write-Output &quot;  - DEV (default)&quot;
+    Write-Output &quot;  - PROD&quot;
+    Write-Output &quot;  - STAGING&quot;
+    Write-Output &quot;&quot;
 
-    Write-Host -ForegroundColor Cyan <span style="color:#e6db74">&#34;Available commands&#34;</span>
-    Write-Output <span style="color:#e6db74">&#34;  &gt; deploy [:message]      Deploy the changes&#34;</span>
-    Write-Output <span style="color:#e6db74">&#34;  &gt; start                  Run development server&#34;</span>
+    Write-Host -ForegroundColor Cyan &quot;Available commands&quot;
+    Write-Output &quot;  &gt; deploy [:message]      Deploy the changes&quot;
+    Write-Output &quot;  &gt; start                  Run development server&quot;
 }
 
-<span style="color:#66d9ef">function</span> Start-Deploy (<span style="color:#66d9ef">[string]</span> $subParams) {
-    <span style="color:#66d9ef">if</span> ($env:ENV <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;PROD&#34;</span>) {
-        Write-Host -ForegroundColor Blue <span style="color:#e6db74">&#34;Deploying updates to GitHub...&#34;</span>
+function Start-Deploy ([string] $subParams) {
+    if ($env:ENV -eq &quot;PROD&quot;) {
+        Write-Host -ForegroundColor Blue &quot;Deploying updates to GitHub...&quot;
     }
-    <span style="color:#66d9ef">else</span> {
-        Write-Host -ForegroundColor Red <span style="color:#e6db74">&#34;This command only works in production.&#34;</span>
+    else {
+        Write-Host -ForegroundColor Red &quot;This command only works in production.&quot;
         exit
     }
 
-    <span style="color:#66d9ef">if</span> ($subParams <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;&#34;</span>) {
-        $msg = <span style="color:#e6db74">&#34;rebuilding site </span>$(Get-Date)<span style="color:#e6db74">&#34;</span>
-    } <span style="color:#66d9ef">else</span> {
+    if ($subParams -eq &quot;&quot;) {
+        $msg = &quot;rebuilding site $(Get-Date)&quot;
+    } else {
         $msg = $subParams
     }
 
-    Invoke-Expression <span style="color:#e6db74">&#34;hugo&#34;</span>
-    Invoke-Expression <span style="color:#e6db74">&#34;cd public&#34;</span>
-    Invoke-Expression <span style="color:#e6db74">&#34;git add .&#34;</span>
-    Invoke-Expression <span style="color:#e6db74">&#34;git commit -m &#39;$msg&#39;&#34;</span>
-    Invoke-Expression <span style="color:#e6db74">&#34;git push origin master&#34;</span>
-    Invoke-Expression <span style="color:#e6db74">&#34;cd ..&#34;</span>
-    Write-Host -ForegroundColor Green <span style="color:#e6db74">&#34;DONE.&#34;</span>
+    Invoke-Expression &quot;hugo&quot;
+    Invoke-Expression &quot;cd public&quot;
+    Invoke-Expression &quot;git add .&quot;
+    Invoke-Expression &quot;git commit -m '$msg'&quot;
+    Invoke-Expression &quot;git push origin master&quot;
+    Invoke-Expression &quot;cd ..&quot;
+    Write-Host -ForegroundColor Green &quot;DONE.&quot;
 }
 
-<span style="color:#66d9ef">function</span> Start-Server () {
-    Invoke-Expression <span style="color:#e6db74">&#34;hugo server -D&#34;</span>
+function Start-Server () {
+    Invoke-Expression &quot;hugo server -D&quot;
 }
 
-<span style="color:#75715e">&lt;# Set default parameter as help. #&gt;</span>
-<span style="color:#66d9ef">if</span> ($args.Length <span style="color:#f92672">-eq</span> 0) {
-    $param = <span style="color:#e6db74">&#34;help&#34;</span>
-    $subParams = <span style="color:#e6db74">&#34;&#34;</span>
+&lt;# Set default parameter as help. #&gt;
+if ($args.Length -eq 0) {
+    $param = &quot;help&quot;
+    $subParams = &quot;&quot;
 }
-<span style="color:#66d9ef">else</span> {
+else {
     $param, $subParams = $args
 }
 
-<span style="color:#66d9ef">if</span> ($param <span style="color:#f92672">-ne</span> <span style="color:#e6db74">&#34;help&#34;</span>) {
-    Write-Host -ForegroundColor Cyan -NoNewLine <span style="color:#e6db74">&#34;Environment: &#34;</span>
+if ($param -ne &quot;help&quot;) {
+    Write-Host -ForegroundColor Cyan -NoNewLine &quot;Environment: &quot;
     Write-Output $env_str
 }
 
-<span style="color:#75715e">&lt;# We use switch instead of alias because there are some constant variables like `start`. #&gt;</span>
-<span style="color:#66d9ef">switch</span> ($param) {
-    <span style="color:#e6db74">&#34;deploy&#34;</span> { Start-Deploy $subParams }
-    <span style="color:#e6db74">&#34;start&#34;</span> { Start-Server }
-    <span style="color:#66d9ef">Default</span> { Get-Help }
+&lt;# We use switch instead of alias because there are some constant variables like `start`. #&gt;
+switch ($param) {
+    &quot;deploy&quot; { Start-Deploy $subParams }
+    &quot;start&quot; { Start-Server }
+    Default { Get-Help }
 }
-</code></pre></div><p>Don&rsquo;t forget to set the alias in your config file, for example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># ~\Documents\PowerShell\profile.ps1</span>
-$env:ENV = <span style="color:#e6db74">&#34;DEV&#34;</span>
-Set-Alias dosh .\<span style="color:#66d9ef">do</span>.ps1
-</code></pre></div>
+</code></pre>
+
+<p>Don&rsquo;t forget to set the alias in your config file, for example:</p>
+
+<pre><code class="language-powershell"># ~\Documents\PowerShell\profile.ps1
+$env:ENV = &quot;DEV&quot;
+Set-Alias dosh .\do.ps1
+</code></pre>
+
 
 
                     </div>

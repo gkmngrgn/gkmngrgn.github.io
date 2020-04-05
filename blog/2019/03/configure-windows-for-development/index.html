@@ -169,44 +169,60 @@
                     <div class="markdown">
                         
     
-    <h2 id="environment-variables">Environment Variables</h2>
+    
+
+<h2 id="environment-variables">Environment Variables</h2>
+
 <p>I still use some development tools that are used by most Linux users and these tools need some environment variables like <strong>LC_ALL</strong>, <strong>HOME</strong>, etc. When I have a new PC with Windows 10, I start to use with defining these variables. Take a look at <a href="https://gokmengorgen.net/en/blog/important-windows-environment-variables/">this post</a> for more detail.</p>
+
 <h2 id="powershell-core">PowerShell Core</h2>
+
 <p>It&rsquo;s possible to use BASH on Windows indeed, but I think PowerShell Core is a good alternative. Git integration is working well, defining aliases and functions is easy:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Extensions</span>
+
+<pre><code class="language-powershell"># Extensions
 Import-Module posh-git
 Import-Module PSReadLine
 
-<span style="color:#75715e"># DOSH settings</span>
-$env:ENV = <span style="color:#e6db74">&#34;DEV&#34;</span>
-Set-Alias dosh .\<span style="color:#66d9ef">do</span>.ps1
+# DOSH settings
+$env:ENV = &quot;DEV&quot;
+Set-Alias dosh .\do.ps1
 
-<span style="color:#75715e"># Readline settings</span>
+# Readline settings
 Set-PSReadLineOption -EditMode Emacs
 
-<span style="color:#75715e"># Git prompt settings</span>
+# Git prompt settings
 $GitPromptSettings.DefaultPromptPath.ForegroundColor = 0xFFA500
 $GitPromptSettings.DefaultPromptWriteStatusFirst = $true
-$GitPromptSettings.DefaultPromptBeforeSuffix.Text = <span style="color:#e6db74">&#39;`n$([DateTime]::now.ToString(&#34;MM-dd HH:mm:ss&#34;))&#39;</span>
+$GitPromptSettings.DefaultPromptBeforeSuffix.Text = '`n$([DateTime]::now.ToString(&quot;MM-dd HH:mm:ss&quot;))'
 $GitPromptSettings.DefaultPromptBeforeSuffix.ForegroundColor = 0x808080
-$GitPromptSettings.DefaultPromptSuffix = <span style="color:#e6db74">&#39; $((Get-History -Count 1).id + 1)$(&#34; &gt;&#34; * ($nestedPromptLevel + 1)) &#39;</span>
+$GitPromptSettings.DefaultPromptSuffix = ' $((Get-History -Count 1).id + 1)$(&quot; &gt;&quot; * ($nestedPromptLevel + 1)) '
 
-<span style="color:#75715e"># Helper commands</span>
-<span style="color:#66d9ef">function</span> which ($command) {
+# Helper commands
+function which ($command) {
     Get-Command $command | Select-Object -ExpandProperty Definition
 }
 
-<span style="color:#66d9ef">function</span> touch ($filename) {
+function touch ($filename) {
     $null &gt; $filename
 }
-</code></pre></div><p><strong>Readline</strong> is a familiar extension for BASH users. If you want to use Emacs key bindings in PowerShell, I suggest you add Readline to the dependencies list.</p>
+</code></pre>
+
+<p><strong>Readline</strong> is a familiar extension for BASH users. If you want to use Emacs key bindings in PowerShell, I suggest you add Readline to the dependencies list.</p>
+
 <p>What if we want to use a Linux command-line app? Like Nano? Indeed, it&rsquo;s possible to use it as a default git-commit editor but, let&rsquo;s consider it&rsquo;s a program that only available in Linux. I use WSL for that case. Just install Ubuntu or another Linux distro with WSL, open PowerShell and run this command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">&gt; wsl -e nano README.md
-</code></pre></div><p>So you can reach all Ubuntu programs using this magic command. There&rsquo;s only a little problem here, you have to keep your configuration files (like <strong>.nanorc</strong>) in your WSL instead of in your local. You can find my configuration repo <a href="https://github.com/gkmngrgn/config/">here</a>.</p>
+
+<pre><code class="language-powershell">&gt; wsl -e nano README.md
+</code></pre>
+
+<p>So you can reach all Ubuntu programs using this magic command. There&rsquo;s only a little problem here, you have to keep your configuration files (like <strong>.nanorc</strong>) in your WSL instead of in your local. You can find my configuration repo <a href="https://github.com/gkmngrgn/config/">here</a>.</p>
+
 <h2 id="git-apply-eol-problem">Git-apply EOL Problem</h2>
+
 <p>If you don&rsquo;t ignore space changes in your patch command, you will get an error because the whitespaces in Linux environments. To solve this problem, use <strong>git-apply</strong> with these parameters:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git apply --ignore-space-change --ignore-whitespace a.diff
-</code></pre></div>
+
+<pre><code class="language-bash">$ git apply --ignore-space-change --ignore-whitespace a.diff
+</code></pre>
+
 
 
                     </div>

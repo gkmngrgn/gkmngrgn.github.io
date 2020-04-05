@@ -169,64 +169,86 @@
                     <div class="markdown">
                         
     
-    <p><em>Çalıştığım projelerin çoğunda Git kullanıyoruz ve tüm sürüm çıkarma, projenin teste açılması, testten sonra production sürümünün hazırlanması, acil düzeltilmesi gereken işler olduğunda sürecin esnetilmesi ve bunun gibi birçok iş akışı Git reposu üzerinden yürüyor. Aşama aşama deneyimlerimi paylaşıyorum.</em></p>
+    
+
+<p><em>Çalıştığım projelerin çoğunda Git kullanıyoruz ve tüm sürüm çıkarma, projenin teste açılması, testten sonra production sürümünün hazırlanması, acil düzeltilmesi gereken işler olduğunda sürecin esnetilmesi ve bunun gibi birçok iş akışı Git reposu üzerinden yürüyor. Aşama aşama deneyimlerimi paylaşıyorum.</em></p>
+
 <h2 id="1-aşama-prototipe-odaklan">1. Aşama: Prototipe odaklan</h2>
-<p>Yeni bir projeye başlıyorsunuz, ekip henüz oluşturulmamış veya tek başınasınız ve derhal kabul edilebilir bir prototip<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> hazırlamanız gerekiyor. Öncelikli kural, eğer hep aynı teknik araçları kullanıyorsanız bir öncekilerden <strong>iskelet yaratıp</strong> olduğu gibi yeni projeye aktarmanız. Çok az kuralımız var:</p>
+
+<p>Yeni bir projeye başlıyorsunuz, ekip henüz oluşturulmamış veya tek başınasınız ve derhal kabul edilebilir bir prototip<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> hazırlamanız gerekiyor. Öncelikli kural, eğer hep aynı teknik araçları kullanıyorsanız bir öncekilerden <strong>iskelet yaratıp</strong> olduğu gibi yeni projeye aktarmanız. Çok az kuralımız var:</p>
+
 <ul>
 <li>Ana branş <strong>master</strong> branşıdır ve bu branşın bir sorumlusu olur.</li>
 <li>Kod iskeleti hazırlanıp basit bir yayına alma süreci oturtulana kadar sorumlu, master branşını yönetir.</li>
 <li>Sorumlu, master branşına gönderilen değişiklikleri kontrol altına almak için isterse geliştiricilerin yetkilerini kısıtlar ve herkesin kendi branşında çalışmasını isteyebilir. Bu durumda geliştiriciler kendi dallarındaki çalışmaların master branşına yansıtılması için pull-request oluştururlar.</li>
 </ul>
+
 <p>Geliştiriciler kendi branşlarını oluştururken ana branş olarak <strong>master</strong> branşını kullanırlar ve iş numarasıyla kendi branşlarını isimlendirebilirler:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+
+<pre><code class="language-bash"># terminal
 $ git checkout master
-$ git checkout -b issue-692         <span style="color:#75715e"># iş numarası 692</span>
-$ git checkout -b issue-698.1       <span style="color:#75715e"># aynı iş için ikinci branş</span>
-$ git checkout -b issue-590-gokmen  <span style="color:#75715e"># aynı iş için ikinci geliştirici</span>
-$ git checkout -b hotfix-499        <span style="color:#75715e"># önemli bir hatayı düzelten branş</span>
-</code></pre></div><p>Bu aşamada tüm değişiklikler <strong>master</strong> branşına gider ve bu branştan bir prototip sürümü üretilir.</p>
-<h2 id="2-aşama-test-ve-productionu-ayır">2. Aşama: Test ve Production&rsquo;u ayır</h2>
+$ git checkout -b issue-692         # iş numarası 692
+$ git checkout -b issue-698.1       # aynı iş için ikinci branş
+$ git checkout -b issue-590-gokmen  # aynı iş için ikinci geliştirici
+$ git checkout -b hotfix-499        # önemli bir hatayı düzelten branş
+</code></pre>
+
+<p>Bu aşamada tüm değişiklikler <strong>master</strong> branşına gider ve bu branştan bir prototip sürümü üretilir.</p>
+
+<h2 id="2-aşama-test-ve-production-u-ayır">2. Aşama: Test ve Production&rsquo;u ayır</h2>
+
 <p>Proje belli bir noktadan sonra artık ekip arasında veya şirket içinde denenmekten çıkıp müşteriye gösterilmeye başlayınca (eğer proje sizin değilse müşterinizin müşterisine), artık <strong>master</strong> branşında çok esnek olamamaya başlarsınız ve bu branşa bir değişiklik yapmadan önce başka bir branşta test etme ihtiyacı duyarsınız. Bu branşı <strong>develop</strong> diye isimlendirelim ve bu branşı <strong>master</strong> branşını baz alarak oluşturalım. Müşteriye <strong>asla</strong> develop branşından oluşturulmuş bir test sürümü gösterilmeyecek, sadece master branşından üretilecek production sürümünü kullanabilecek, ona erişebilecek.</p>
+
 <p>Bu aşamada kurallar biraz değişecek:</p>
+
 <ul>
 <li>Birinci aşamadan farklı olarak geliştirme branşımız master yerine <strong>develop</strong> olacak. Bundan sonra yeni branşlar develop üzerinden oluşturulacak.</li>
 <li>Ancak buna tek istisna acil düzeltilmesi istenen <strong>hotfix</strong> branşları hariç. Hotfix branşları <strong>master</strong> branşı üzerinden oluşturulmaya devam edecek.</li>
 <li><strong>master</strong> branşının olduğu gibi <strong>develop</strong> branşının da bir sorumlusu olacak ve bu kişi aynı kişiler de olabilir, farklı kişiler de.</li>
 <li>Bu iki branşın sorumlularının sorumlulukları birbirinden farklı olacak. <strong>develop</strong> branşının sorumlusu gözden geçirme ve test süreçlerinden sorumlu olacak, <strong>master</strong> branşının sorumlusu müşteri için stable bir sürüm çıkarmaktan.</li>
 </ul>
+
 <p>Bu aşamada master branşına gönderilecek her değişiklikten sonra bir etiketleme yapılır:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+
+<pre><code class="language-bash"># terminal
 $ git checkout master
 $ git merge --no-ff develop
 $ git tag 5.6.0
 $ git push --all
 $ git push --tags
-</code></pre></div><h2 id="3-aşama-süreci-otomatikleştir">3. Aşama: Süreci otomatikleştir</h2>
-<p>Bu aşamaya kadar atladığım çok şey olmasına karşın kabaca süreç böyle işliyor. Fakat bir müddet sonra bazı işler sürekli tekrarlamaya başlayacak. Her seferinde sürüm numarasını düzelt, statik dosyaları oluştur ve gerekli yerlere taşı, çeviri dosyalarını güncelle, testleri çalıştır, hatta yeni sürümü belli bir tarih ve saatte yayınla, mail at, haber ver vesaire. Tüm bunları yapan bir script hazırlanabilir, Chef - Puppet - Ansible - Salt gibi otomasyon araçları kullanılabilir, onlarca Continuous Delivery, Continous Deployment, Continuous Integration gibi isimlendirmelerle bu süreçleri otomatikleştiren servisler var. Ben genellikle <a href="http://bit.ly/2tqY49q-bitbucket-pipelines">Bitbucket Pipelines</a> kullanıyorum ve Git barındırma servisi olarak Bitbucket kullanıyorsanız kesinlikle denemelisiniz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># bitbucket-pipelines.yml</span>
-<span style="color:#66d9ef">image</span>: python:<span style="color:#ae81ff">3.5</span>
+</code></pre>
 
-<span style="color:#66d9ef">pipelines</span>:
-  <span style="color:#66d9ef">branches</span>:
-    <span style="color:#66d9ef">master</span>:
-      - <span style="color:#66d9ef">step</span>:
-         <span style="color:#66d9ef">deployment</span>: production
-         <span style="color:#66d9ef">script</span>:
+<h2 id="3-aşama-süreci-otomatikleştir">3. Aşama: Süreci otomatikleştir</h2>
+
+<p>Bu aşamaya kadar atladığım çok şey olmasına karşın kabaca süreç böyle işliyor. Fakat bir müddet sonra bazı işler sürekli tekrarlamaya başlayacak. Her seferinde sürüm numarasını düzelt, statik dosyaları oluştur ve gerekli yerlere taşı, çeviri dosyalarını güncelle, testleri çalıştır, hatta yeni sürümü belli bir tarih ve saatte yayınla, mail at, haber ver vesaire. Tüm bunları yapan bir script hazırlanabilir, Chef - Puppet - Ansible - Salt gibi otomasyon araçları kullanılabilir, onlarca Continuous Delivery, Continous Deployment, Continuous Integration gibi isimlendirmelerle bu süreçleri otomatikleştiren servisler var. Ben genellikle <a href="http://bit.ly/2tqY49q-bitbucket-pipelines">Bitbucket Pipelines</a> kullanıyorum ve Git barındırma servisi olarak Bitbucket kullanıyorsanız kesinlikle denemelisiniz:</p>
+
+<pre><code class="language-yaml"># bitbucket-pipelines.yml
+image: python:3.5
+
+pipelines:
+  branches:
+    master:
+      - step:
+         deployment: production
+         script:
            - pip install fabric
            - fab production deploy
-   <span style="color:#66d9ef">develop</span>:
-     - <span style="color:#66d9ef">step</span>:
-         <span style="color:#66d9ef">deployment</span>: test
-         <span style="color:#66d9ef">script</span>:
+   develop:
+     - step:
+         deployment: test
+         script:
            - pip install fabric
            - fab staging deploy
-</code></pre></div><p>Artık bundan sonra projenin ihtiyaçlarına iş akışını arada bir gözden geçirmek, gerektiğinde güncellemek gerekir.</p>
-<div class="footnotes" role="doc-endnotes">
+</code></pre>
+
+<p>Artık bundan sonra projenin ihtiyaçlarına iş akışını arada bir gözden geçirmek, gerektiğinde güncellemek gerekir.</p>
+<div class="footnotes">
+
 <hr />
+
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p>MVP kısaltmasıyla bilinen Minimum Viable Product hakkında detaylı bilgiye <a href="http://bit.ly/2In1P4m-mvp-rachel-cabakoff">buradan</a> erişebilirsiniz. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
+<li id="fn:1">MVP kısaltmasıyla bilinen Minimum Viable Product hakkında detaylı bilgiye <a href="http://bit.ly/2In1P4m-mvp-rachel-cabakoff">buradan</a> erişebilirsiniz.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
 </ol>
 </div>
 

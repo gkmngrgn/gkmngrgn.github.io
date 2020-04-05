@@ -147,39 +147,61 @@
                       
     
     <p>Python kodlaması yaparken, terminalde çok sık kullandığım birçok komutu birer parametreyle halledebileceğim bir program yazmıştım ve geçenlerde de duyurmuştum: Tiss. Parametresiz haliyle, sadece uzantılarına göre silmesini istediğim dosyaları, boş dizinleri ve python programı inşa ederken ortaya çıkan inşa dizinini siliyor. Örneğin, hede.txt dosyasını Vim&rsquo;de yazıp tekrar kaydettiğimde, aynı dizinde hede.txt~ dosyası oluşuyor. Bir tane olsa hadi neyse; ama bazen .pyc, #, ~, .db gibi bir sürü gereksiz dosya öyle birikiyor ki, gerçekten tek bir komuta ihtiyacınız olabiliyor. Hangi parametreyle, ne yaptığını sitesindeki[1] kodlara bakarak görebilirsiniz. Yakında ana sayfasına parametreler hakkında bilgi gireceğim.</p>
+
 <p>Sonra dedim ki, ben parametresiz haliyle belli uzantılara sahip dosyaların silmesini sağlıyor olabilirim; ama ya kullanıcı bu uzantıları değiştirmek isterse? Ya benim öntanımlı olarak yazdığım uzantıların birkaçını kaldırmak istiyorsa? Bu halde kullanıcıyı, koda elle müdahale etmeye ve sonra tekrar kurmaya zorlamış olmuyor muyum? Oluyorum tabi ki..</p>
+
 <p>Bu nedenle, birçok program gibi, Tiss&rsquo;in de ev dizininde, ayar dosyalarının saklandığı bir dizin olacaktı: .tiss. Kodu açıp baktığımda, uzantıları bir listede tuttuğumu gördüm:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">backup_extensions <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;*~&#39;</span>, <span style="color:#e6db74">&#39;#*#&#39;</span>, <span style="color:#e6db74">&#39;*.db&#39;</span>, <span style="color:#e6db74">&#39;*.lay&#39;</span>, <span style="color:#e6db74">&#39;*.pyc&#39;</span>, <span style="color:#e6db74">&#39;*.log&#39;</span>, <span style="color:#e6db74">&#39;*.ini&#39;</span>]
-</code></pre></div><p>Hmm. Şimdi şöyle yapabiliriz. Eğer kullanıcı programı ilk defa çalıştırıyorsa veya ayarlarda hiçbir değişiklik yapmamışsa, öntanımlı olarak yukarıdaki listeyi silme fonksiyonunda kullanacağız. Hadi yapalım. Önce bize lazım olacak modülleri içe aktaralım:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os<span style="color:#f92672">,</span> glob<span style="color:#f92672">,</span> pickle
-</code></pre></div><p>Şimdi de lazım olacak değişkenleri tanımlayalım:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">files</span>:
-    <span style="color:#66d9ef">def</span> __init__(self):
-        self<span style="color:#f92672">.</span>home <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#39;HOME&#39;</span>]
-        self<span style="color:#f92672">.</span>tiss_home <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(self<span style="color:#f92672">.</span>home, <span style="color:#e6db74">&#39;.tiss&#39;</span>)
-        self<span style="color:#f92672">.</span>data_remove <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(self<span style="color:#f92672">.</span>tiss_home, <span style="color:#e6db74">&#39;remove.pickle&#39;</span>)
-</code></pre></div><p><strong>os.environ[&lsquo;HOME&rsquo;]</strong> ile, kullanıcının ev dizininin çıktısını alıyoruz. <strong>os.path.join</strong>&lsquo;i kullanarak ev dizin yoluna &lsquo;.tiss&rsquo; ekliyoruz. Üçüncü değişkeninse ikinci değişkenden bir farkı yok. Şimdi bu değişkenleri kullanarak <strong>.tiss</strong> dizininin varlığını kontrol edelim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_dir_files</span>(self):
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(self<span style="color:#f92672">.</span>tiss_home):
-            os<span style="color:#f92672">.</span>mkdir(self<span style="color:#f92672">.</span>tiss_home)
-            self<span style="color:#f92672">.</span>backups()
-</code></pre></div><p>Yani kod diyor ki, eğer kullanıcının ev dizininde .tiss diye bir dizin yoksa, önce onu oluştur, sonra da <strong>self.backups()</strong> fonksiyonunu çalıştır. Eee, o fonksiyon nerede ve neye yarar? Hemen söylüyorum. O fonksiyon, Tiss&rsquo;in ana görevi olan gereksiz uzantıları silme görevi için kullanıcının belirlediği herhangi bir ayar dosyası yoksa, öntanımlı backup_extensions listesini remove.pickle isimli bir dosyada turşu gibi saklamaya yarar. İşte kodumuz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">backups</span>(self):
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(self<span style="color:#f92672">.</span>data_remove):
-            backup_extensions <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;*~&#39;</span>, <span style="color:#e6db74">&#39;#*#&#39;</span>, <span style="color:#e6db74">&#39;*.db&#39;</span>, <span style="color:#e6db74">&#39;*.lay&#39;</span>, <span style="color:#e6db74">&#39;*.pyc&#39;</span>, <span style="color:#e6db74">&#39;*.log&#39;</span>, <span style="color:#e6db74">&#39;*.ini&#39;</span>]
-            pickle_file <span style="color:#f92672">=</span> file(self<span style="color:#f92672">.</span>data_remove, <span style="color:#e6db74">&#39;w&#39;</span>)
-            pickle<span style="color:#f92672">.</span>dump(backup_extensions, pickle_file)
-            <span style="color:#66d9ef">del</span> pickle_file
-</code></pre></div><p>İyi de, niye böyle bir şey yaptık? Doğrudan <strong>backup_extensions</strong> değişkenini, gereksiz uzantıları silmeye yarayan fonksiyonda kullanmayı neden denemedik? Deneyebilirdik; ama kullanıcıya bu değişkeni değiştirmekten mahrum da bırakırdık. O nedenle turşu olarak bir dosyaya yazdırma gereği duyduk. Ha, illa ki turşu mu? Elbette değil, dileseydik, doğrudan bir dosya açıp oraya satır satır yazdırmayı deneyebilirdik; ama satırı çağırmak, “\n”lerle uğraşmak, split&rsquo;lemek, sonra kullanıcının isteği doğrultusunda satırı değiştirmek, sonra yazdırıp dosyayı tekrar kapatmak.. İnanın, bana turşu denen bir şey varken bu amaç için başka yolu seçmek, css ile siteyi bölümlere ayırmak varken tablolarla bölmek, yani tabloları amacı dışında kullanarak siteyi ve kodu ağırlaştırmak gibi geliyor. Şimdi, turşuda saklanan değişken lazım olduğunda, nasıl çağrılır ve kullanılır onu gösterelim. Önce kod, sonra açıklaması:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">remove_files</span>():
-        pickle_file <span style="color:#f92672">=</span> file(self<span style="color:#f92672">.</span>data_remove)
-        backup_extensions <span style="color:#f92672">=</span> pickle<span style="color:#f92672">.</span>load(pickle_file)
-        <span style="color:#66d9ef">for</span> remove <span style="color:#f92672">in</span> backup_extensions:
-            backup_files <span style="color:#f92672">=</span> glob<span style="color:#f92672">.</span>glob(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">/&#39;</span> <span style="color:#f92672">%</span> os<span style="color:#f92672">.</span>getcwd() <span style="color:#f92672">+</span> remove)
-            <span style="color:#66d9ef">for</span> backup <span style="color:#f92672">in</span> backup_files:
-                os<span style="color:#f92672">.</span>remove(backup)
-</code></pre></div><p>Kodda da görüldüğü gibi, bir öncekinden farklı olarak, yazma izni vermeden <strong>pickle_file</strong> değişkenine <strong>self.data_remove</strong> yolunu atıyoruz. Sonra turşumuzda duran listeyi <strong>backup_extensions</strong> ile çağırıyoruz. Çağırdıkdan sonra da, bu listedeki her eleman için, bulunduğumuz dizinde tarama yapıyoruz. Eğer bulunduğumuz dizinde, <strong>backup_extensions</strong>&lsquo;taki uzantılardan herhangi birine sahip dosyalar bulunursa, onun için de ikinci bir döngü başlıyor: O uzantılara sahip dosyaları <strong>sil</strong>!</p>
+
+<pre><code class="language-python">backup_extensions = ['*~', '#*#', '*.db', '*.lay', '*.pyc', '*.log', '*.ini']
+</code></pre>
+
+<p>Hmm. Şimdi şöyle yapabiliriz. Eğer kullanıcı programı ilk defa çalıştırıyorsa veya ayarlarda hiçbir değişiklik yapmamışsa, öntanımlı olarak yukarıdaki listeyi silme fonksiyonunda kullanacağız. Hadi yapalım. Önce bize lazım olacak modülleri içe aktaralım:</p>
+
+<pre><code class="language-python">import os, glob, pickle
+</code></pre>
+
+<p>Şimdi de lazım olacak değişkenleri tanımlayalım:</p>
+
+<pre><code class="language-python">class files:
+    def __init__(self):
+        self.home = os.environ['HOME']
+        self.tiss_home = os.path.join(self.home, '.tiss')
+        self.data_remove = os.path.join(self.tiss_home, 'remove.pickle')
+</code></pre>
+
+<p><strong>os.environ[&lsquo;HOME&rsquo;]</strong> ile, kullanıcının ev dizininin çıktısını alıyoruz. <strong>os.path.join</strong>&lsquo;i kullanarak ev dizin yoluna &lsquo;.tiss&rsquo; ekliyoruz. Üçüncü değişkeninse ikinci değişkenden bir farkı yok. Şimdi bu değişkenleri kullanarak <strong>.tiss</strong> dizininin varlığını kontrol edelim:</p>
+
+<pre><code class="language-python">    def create_dir_files(self):
+        if not os.path.exists(self.tiss_home):
+            os.mkdir(self.tiss_home)
+            self.backups()
+</code></pre>
+
+<p>Yani kod diyor ki, eğer kullanıcının ev dizininde .tiss diye bir dizin yoksa, önce onu oluştur, sonra da <strong>self.backups()</strong> fonksiyonunu çalıştır. Eee, o fonksiyon nerede ve neye yarar? Hemen söylüyorum. O fonksiyon, Tiss&rsquo;in ana görevi olan gereksiz uzantıları silme görevi için kullanıcının belirlediği herhangi bir ayar dosyası yoksa, öntanımlı backup_extensions listesini remove.pickle isimli bir dosyada turşu gibi saklamaya yarar. İşte kodumuz:</p>
+
+<pre><code class="language-python">    def backups(self):
+        if not os.path.exists(self.data_remove):
+            backup_extensions = ['*~', '#*#', '*.db', '*.lay', '*.pyc', '*.log', '*.ini']
+            pickle_file = file(self.data_remove, 'w')
+            pickle.dump(backup_extensions, pickle_file)
+            del pickle_file
+</code></pre>
+
+<p>İyi de, niye böyle bir şey yaptık? Doğrudan <strong>backup_extensions</strong> değişkenini, gereksiz uzantıları silmeye yarayan fonksiyonda kullanmayı neden denemedik? Deneyebilirdik; ama kullanıcıya bu değişkeni değiştirmekten mahrum da bırakırdık. O nedenle turşu olarak bir dosyaya yazdırma gereği duyduk. Ha, illa ki turşu mu? Elbette değil, dileseydik, doğrudan bir dosya açıp oraya satır satır yazdırmayı deneyebilirdik; ama satırı çağırmak, “\n”lerle uğraşmak, split&rsquo;lemek, sonra kullanıcının isteği doğrultusunda satırı değiştirmek, sonra yazdırıp dosyayı tekrar kapatmak.. İnanın, bana turşu denen bir şey varken bu amaç için başka yolu seçmek, css ile siteyi bölümlere ayırmak varken tablolarla bölmek, yani tabloları amacı dışında kullanarak siteyi ve kodu ağırlaştırmak gibi geliyor. Şimdi, turşuda saklanan değişken lazım olduğunda, nasıl çağrılır ve kullanılır onu gösterelim. Önce kod, sonra açıklaması:</p>
+
+<pre><code class="language-python">    def remove_files():
+        pickle_file = file(self.data_remove)
+        backup_extensions = pickle.load(pickle_file)
+        for remove in backup_extensions:
+            backup_files = glob.glob('%s/' % os.getcwd() + remove)
+            for backup in backup_files:
+                os.remove(backup)
+</code></pre>
+
+<p>Kodda da görüldüğü gibi, bir öncekinden farklı olarak, yazma izni vermeden <strong>pickle_file</strong> değişkenine <strong>self.data_remove</strong> yolunu atıyoruz. Sonra turşumuzda duran listeyi <strong>backup_extensions</strong> ile çağırıyoruz. Çağırdıkdan sonra da, bu listedeki her eleman için, bulunduğumuz dizinde tarama yapıyoruz. Eğer bulunduğumuz dizinde, <strong>backup_extensions</strong>&lsquo;taki uzantılardan herhangi birine sahip dosyalar bulunursa, onun için de ikinci bir döngü başlıyor: O uzantılara sahip dosyaları <strong>sil</strong>!</p>
+
 <p>Evet. Buraya kadar öntanımlı listemizi nasıl turşu olarak saklayabileceğimizi, sonra lazım olduğunda nasıl çağırabileceğimizi görmüş olduk. Ama bizim amacımız neydi? Kullanıcıya bu listeyi değiştirme hakkı vermekti. Bunun için izlenecek adımlar da basit:</p>
+
 <ol>
 <li>Silme için bir ayar fonksiyonu oluştur.</li>
 <li>Bu fonksiyon için bir parametre ata.</li>
@@ -188,7 +210,9 @@
 <li>Eklenen ve çıkarılan uzantı elemanlarını tekrar turşuya kaydet.</li>
 <li>Ve kapat.</li>
 </ol>
+
 <p>Bu fonksiyonu da daha sonraki tarihte anlatırım. Eğer bu yazı ile ilgili bir yanlışlık veya daha iyi yöntem bulursanız, buraya mutlaka yorum olarak girmenizi istiyorum. Biz neydik? Python öğrenmeye ve onu tüm esnekliğiyle kullanmaya hevesli öğrencilerdik. Şimdiden teşekkürler.</p>
+
 <p>[1] <a href="http://tiss.googlecode.com">http://tiss.googlecode.com</a></p>
 
 

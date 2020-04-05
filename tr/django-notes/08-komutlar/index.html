@@ -142,168 +142,198 @@
                     <div class="markdown">
                         
     
-    <p><em>Web projelerinin en önemli bölümlerinden biri de teknik operasyonlar. Bazen birikmiş sessionları temizlemek, bazen çeviri dosyalarını oluşturmak, bazen de sadece arama motorlarına buradayım demek için komut satırı uygulamalarına ihtiyaç duyarız. Bizim de uptime uygulamasında, ekranları kontrol etmek için benzer bir komut satırı uygulamasına ihtiyacımız var.</em></p>
+    
+
+<p><em>Web projelerinin en önemli bölümlerinden biri de teknik operasyonlar. Bazen birikmiş sessionları temizlemek, bazen çeviri dosyalarını oluşturmak, bazen de sadece arama motorlarına buradayım demek için komut satırı uygulamalarına ihtiyaç duyarız. Bizim de uptime uygulamasında, ekranları kontrol etmek için benzer bir komut satırı uygulamasına ihtiyacımız var.</em></p>
+
 <h2 id="özet">Özet</h2>
+
 <ul>
 <li>URL&rsquo;lerin erişilebilir olup olmadığını anlayabileceğimiz bir komut yazacağız.</li>
 <li>Ekran durumlarını admin panelinden ve kullanıcı arayüzünden görünür hale getireceğiz.</li>
 <li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-08">buradan</a> erişebilirsiniz.</li>
 </ul>
+
 <h2 id="ekranları-kontrol-edelim">Ekranları kontrol edelim</h2>
+
 <p>Kullanıcılar için Uptime uygulamasını yazdık, kullanıcılar ekranları giriyor, bizim de bu ekranları periyodik olarak kontrol etmemiz gerekiyor. <strong>Periyodik</strong> kısmını sonraya bırakalım ve önce ekranları kontrol etme kısmına odaklanalım.</p>
+
 <p>En nihayetinde yapacağımız şey, komut satırından komutumuzu url parametreleriyle çalıştırmak ve o url&rsquo;i kullanan ekran sayısını öğrenmek, url&rsquo;in erişim durumunu kontrol etmek, ve bilgileri veritabanına işlemek:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+
+<pre><code class="language-bash"># terminal
 $ python manage.py checkurls https://blabla.com https://gokmengorgen.net https://radity.com
-https://blabla.com - <span style="color:#ae81ff">0</span> monitor<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>: offline
-https://gokmengorgen.net - <span style="color:#ae81ff">2</span> monitor<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>: online
-https://radity.com - <span style="color:#ae81ff">1</span> monitor<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>: online
-</code></pre></div><p>Hatırlamak için modelimizi tekrar incelemekte fayda var:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_uptime/models.py</span>
-<span style="color:#f92672">...</span>
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Monitor</span>(models<span style="color:#f92672">.</span>Model):
-    user <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(
-        verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;User&#34;</span>), to<span style="color:#f92672">=</span>settings<span style="color:#f92672">.</span>AUTH_USER_MODEL, related_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;monitors&#39;</span>, on_delete<span style="color:#f92672">=</span>models<span style="color:#f92672">.</span>CASCADE,
-        null<span style="color:#f92672">=</span>True)
-    url <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>URLField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;URL&#34;</span>))
-    interval <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>PositiveSmallIntegerField(
-        verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Monitoring interval&#34;</span>), choices<span style="color:#f92672">=</span>MonitoringInterval<span style="color:#f92672">.</span>get_choices(),
-        default<span style="color:#f92672">=</span>MonitoringInterval<span style="color:#f92672">.</span>get_default())
-    status <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Status&#34;</span>), max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">9</span>, choices<span style="color:#f92672">=</span>MonitorStatus<span style="color:#f92672">.</span>get_choices(), blank<span style="color:#f92672">=</span>True)
-    is_active <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>BooleanField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Is active?&#34;</span>), blank<span style="color:#f92672">=</span>True, default<span style="color:#f92672">=</span>True)
-    checked_at <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>DateTimeField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Checked at&#34;</span>), null<span style="color:#f92672">=</span>True, editable<span style="color:#f92672">=</span>False)
-    created_at <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>DateTimeField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Created at&#34;</span>), auto_now_add<span style="color:#f92672">=</span>True)
-<span style="color:#f92672">...</span>
-</code></pre></div><p>Burada bazı field&rsquo;ları henüz tam anlamıyla kullanmadık:</p>
+https://blabla.com - 0 monitor(s): offline
+https://gokmengorgen.net - 2 monitor(s): online
+https://radity.com - 1 monitor(s): online
+</code></pre>
+
+<p>Hatırlamak için modelimizi tekrar incelemekte fayda var:</p>
+
+<pre><code class="language-python"># hello_uptime/models.py
+...
+class Monitor(models.Model):
+    user = models.ForeignKey(
+        verbose_name=_(&quot;User&quot;), to=settings.AUTH_USER_MODEL, related_name='monitors', on_delete=models.CASCADE,
+        null=True)
+    url = models.URLField(verbose_name=_(&quot;URL&quot;))
+    interval = models.PositiveSmallIntegerField(
+        verbose_name=_(&quot;Monitoring interval&quot;), choices=MonitoringInterval.get_choices(),
+        default=MonitoringInterval.get_default())
+    status = models.CharField(verbose_name=_(&quot;Status&quot;), max_length=9, choices=MonitorStatus.get_choices(), blank=True)
+    is_active = models.BooleanField(verbose_name=_(&quot;Is active?&quot;), blank=True, default=True)
+    checked_at = models.DateTimeField(verbose_name=_(&quot;Checked at&quot;), null=True, editable=False)
+    created_at = models.DateTimeField(verbose_name=_(&quot;Created at&quot;), auto_now_add=True)
+...
+</code></pre>
+
+<p>Burada bazı field&rsquo;ları henüz tam anlamıyla kullanmadık:</p>
+
 <ul>
 <li><strong>status:</strong> URL&rsquo;in erişim durumunu burada saklayacağız.</li>
 <li><strong>is_active:</strong> Aktif olmayan ekranları pas geçeceğiz.</li>
 <li><strong>checked_at:</strong> En son ne zaman kontrol ettiğimiz bilgisini saklayacağız.</li>
 </ul>
-<p>Bizim komutumuz, ekran bilgilerini bu fieldları kullanarak saklayacak. Django belgesinde anlatıldığı<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> üzere özel bir komut yazabilmemiz için, script&rsquo;imizi <strong>management/commands/</strong> içinde tutmamız gerekiyor<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. Komutu hazırlarken bir kuralımız var, bu komutu kullanacak kişinin veya uygulamanın hiçbir şekilde yanlış ve saçmasapan URL girmeyeceğini varsayıyoruz. Bunu varsayabiliriz, çünkü hem uptime uygulamasında, hem admin panelinde URL&rsquo;ler için bir kontrolümüz var ki geçerli URL girilmemişse veritabanına kaydedilemiyor:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_uptime/management/commands/checkurls.py</span>
-<span style="color:#f92672">import</span> requests
-<span style="color:#f92672">from</span> django.core.management.base <span style="color:#f92672">import</span> BaseCommand
-<span style="color:#f92672">from</span> django.utils <span style="color:#f92672">import</span> timezone
-<span style="color:#f92672">from</span> requests.exceptions <span style="color:#f92672">import</span> SSLError
 
-<span style="color:#f92672">from</span> hello_uptime.models <span style="color:#f92672">import</span> Monitor
-<span style="color:#f92672">from</span> hello_uptime.utils <span style="color:#f92672">import</span> MonitorStatus
+<p>Bizim komutumuz, ekran bilgilerini bu fieldları kullanarak saklayacak. Django belgesinde anlatıldığı<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> üzere özel bir komut yazabilmemiz için, script&rsquo;imizi <strong>management/commands/</strong> içinde tutmamız gerekiyor<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>. Komutu hazırlarken bir kuralımız var, bu komutu kullanacak kişinin veya uygulamanın hiçbir şekilde yanlış ve saçmasapan URL girmeyeceğini varsayıyoruz. Bunu varsayabiliriz, çünkü hem uptime uygulamasında, hem admin panelinde URL&rsquo;ler için bir kontrolümüz var ki geçerli URL girilmemişse veritabanına kaydedilemiyor:</p>
+
+<pre><code class="language-python"># hello_uptime/management/commands/checkurls.py
+import requests
+from django.core.management.base import BaseCommand
+from django.utils import timezone
+from requests.exceptions import SSLError
+
+from hello_uptime.models import Monitor
+from hello_uptime.utils import MonitorStatus
 
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Command</span>(BaseCommand):
-    help <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Checks the urls for monitors&#34;</span>
+class Command(BaseCommand):
+    help = &quot;Checks the urls for monitors&quot;
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_arguments</span>(self, parser):
-        <span style="color:#75715e"># Komutumuz çoklu parametre alıyor ve zorunlu. URL&#39;leri komut satırında yazacağız.</span>
-        parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;urls&#39;</span>, nargs<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;+&#39;</span>, type<span style="color:#f92672">=</span>str)
+    def add_arguments(self, parser):
+        # Komutumuz çoklu parametre alıyor ve zorunlu. URL'leri komut satırında yazacağız.
+        parser.add_argument('urls', nargs='+', type=str)
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handle</span>(self, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>options):
-        <span style="color:#75715e"># Komutumuz çalıştırıldığında bu fonksiyonu çalıştıracak. Parametrelerimize de buradan erişebileceğiz.</span>
-        urls <span style="color:#f92672">=</span> options[<span style="color:#e6db74">&#39;urls&#39;</span>]
+    def handle(self, *args, **options):
+        # Komutumuz çalıştırıldığında bu fonksiyonu çalıştıracak. Parametrelerimize de buradan erişebileceğiz.
+        urls = options['urls']
 
-        <span style="color:#66d9ef">for</span> url <span style="color:#f92672">in</span> urls:
-            monitors <span style="color:#f92672">=</span> Monitor<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(is_active<span style="color:#f92672">=</span>True, url<span style="color:#f92672">=</span>url)
-            <span style="color:#75715e"># Komut satırından ekranlar hakkında bilgi almak için birkaç satır ekliyoruz.</span>
-            self<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>write(self<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>WARNING(<span style="color:#e6db74">&#34;{} - {} monitor(s)&#34;</span><span style="color:#f92672">.</span>format(url, monitors<span style="color:#f92672">.</span>count())), ending<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;: &#39;</span>)
+        for url in urls:
+            monitors = Monitor.objects.filter(is_active=True, url=url)
+            # Komut satırından ekranlar hakkında bilgi almak için birkaç satır ekliyoruz.
+            self.stdout.write(self.style.WARNING(&quot;{} - {} monitor(s)&quot;.format(url, monitors.count())), ending=': ')
 
-            <span style="color:#66d9ef">try</span>:
-                response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)
-                status <span style="color:#f92672">=</span> MonitorStatus<span style="color:#f92672">.</span>ONLINE <span style="color:#66d9ef">if</span> response<span style="color:#f92672">.</span>status_code <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span> <span style="color:#66d9ef">else</span> MonitorStatus<span style="color:#f92672">.</span>OFFLINE
-            <span style="color:#66d9ef">except</span> SSLError:
-                status <span style="color:#f92672">=</span> MonitorStatus<span style="color:#f92672">.</span>OFFLINE
+            try:
+                response = requests.get(url)
+                status = MonitorStatus.ONLINE if response.status_code == 200 else MonitorStatus.OFFLINE
+            except SSLError:
+                status = MonitorStatus.OFFLINE
 
-            monitors<span style="color:#f92672">.</span>update(status<span style="color:#f92672">=</span>status, checked_at<span style="color:#f92672">=</span>timezone<span style="color:#f92672">.</span>now())  <span style="color:#75715e"># Sonucu saklıyoruz.</span>
-            status_style <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>ERROR <span style="color:#66d9ef">if</span> status <span style="color:#f92672">==</span> MonitorStatus<span style="color:#f92672">.</span>OFFLINE <span style="color:#66d9ef">else</span> self<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>SUCCESS
-            self<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>write(status_style(status))
-</code></pre></div><h2 id="kullanıcı-ekran-durumlarını-nasıl-görecek">Kullanıcı ekran durumlarını nasıl görecek?</h2>
+            monitors.update(status=status, checked_at=timezone.now())  # Sonucu saklıyoruz.
+            status_style = self.style.ERROR if status == MonitorStatus.OFFLINE else self.style.SUCCESS
+            self.stdout.write(status_style(status))
+</code></pre>
+
+<h2 id="kullanıcı-ekran-durumlarını-nasıl-görecek">Kullanıcı ekran durumlarını nasıl görecek?</h2>
+
 <p>Komutumuzu çalıştırdıktan sonra sonuçları iki yerde göreceğiz. Birincisi admin paneli:</p>
-<a href="https://gokmengorgen.net/img/django-notes/uptime-monitor-status.png" target="_blank">
-  ![Monitor status](/img/django-notes/uptime-monitor-status.png "Ekranların durumu")
-</a>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/uptime-monitor-status.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/uptime-monitor-status.png" src="https://gokmengorgen.net/img/django-notes/low/uptime-monitor-status.png" alt="Monitor status" title="Ekranların durumu" /></figure>
+</a></p>
+
 <p>Ama admin paneli sadece yetkili kullanıcılar için. Normal kullanıcılar ne yapacak? <strong>main.css</strong> içine birkaç satır stil ekleyelim ve sonra <strong>dashboard.html</strong> dosyasını düzenleyelim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/* static/main.css */</span>
-<span style="color:#f92672">...</span>
-<span style="color:#f92672">table</span>.<span style="color:#a6e22e">monitor-form</span> {
-    <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">40</span><span style="color:#66d9ef">px</span>;
-}
 
-<span style="color:#f92672">table</span>.<span style="color:#a6e22e">monitor-form</span> <span style="color:#f92672">th</span><span style="color:#f92672">,</span>
-<span style="color:#f92672">table</span>.<span style="color:#a6e22e">monitor-buttons</span> <span style="color:#f92672">th</span> {
-    <span style="color:#66d9ef">padding-right</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
-    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">right</span>;
-    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
-}
-
-<span style="color:#f92672">table</span>.<span style="color:#a6e22e">monitor-form</span> <span style="color:#f92672">td</span>.<span style="color:#a6e22e">status-online</span><span style="color:#f92672">,</span>
-<span style="color:#f92672">table</span>.<span style="color:#a6e22e">monitor-form</span> <span style="color:#f92672">td</span>.<span style="color:#a6e22e">status-offline</span> {
-    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
-    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
-}
-
-<span style="color:#f92672">table</span>.<span style="color:#a6e22e">monitor-form</span> <span style="color:#f92672">td</span>.<span style="color:#a6e22e">status-online</span> {
-    <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">green</span>;
-}
-
-<span style="color:#f92672">table</span>.<span style="color:#a6e22e">monitor-form</span> <span style="color:#f92672">td</span>.<span style="color:#a6e22e">status-offline</span> {
-    <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">red</span>;
-}
-
-<span style="color:#f92672">table</span>.<span style="color:#a6e22e">monitor-buttons</span> {
-    <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
-}
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- templates/uptime/dashboard.html --&gt;</span>
+<pre><code class="language-css">/* static/main.css */
 ...
-&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{% url &#39;uptime:dashboard&#39; %}&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;POST&#34;</span>&gt;
+table.monitor-form {
+    margin-top: 40px;
+}
+
+table.monitor-form th,
+table.monitor-buttons th {
+    padding-right: 10px;
+    text-align: right;
+    width: 200px;
+}
+
+table.monitor-form td.status-online,
+table.monitor-form td.status-offline {
+    padding: 0 5px;
+    color: white;
+}
+
+table.monitor-form td.status-online {
+    background-color: green;
+}
+
+table.monitor-form td.status-offline {
+    background-color: red;
+}
+
+table.monitor-buttons {
+    margin-top: 20px;
+}
+</code></pre>
+
+<pre><code class="language-html">&lt;!-- templates/uptime/dashboard.html --&gt;
+...
+&lt;form action=&quot;{% url 'uptime:dashboard' %}&quot; method=&quot;POST&quot;&gt;
     {% csrf_token %}
     {{ formset.management_form }}
 
     {% for form in formset %}
-        &lt;<span style="color:#f92672">table</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;monitor-form&#34;</span>&gt;
-            &lt;<span style="color:#f92672">tr</span>&gt;
-                &lt;<span style="color:#f92672">th</span>&gt;&lt;/<span style="color:#f92672">th</span>&gt;
-                &lt;<span style="color:#f92672">td</span>&gt;{% blocktrans with number=forloop.counter %}Monitor {{ number }}{% endblocktrans %}&lt;/<span style="color:#f92672">td</span>&gt;
-            &lt;/<span style="color:#f92672">tr</span>&gt;
+        &lt;table class=&quot;monitor-form&quot;&gt;
+            &lt;tr&gt;
+                &lt;th&gt;&lt;/th&gt;
+                &lt;td&gt;{% blocktrans with number=forloop.counter %}Monitor {{ number }}{% endblocktrans %}&lt;/td&gt;
+            &lt;/tr&gt;
             {% if form.instance.pk %}
-                &lt;<span style="color:#f92672">tr</span>&gt;
-                    &lt;<span style="color:#f92672">th</span>&gt;{% trans &#34;Status&#34; %}:&lt;/<span style="color:#f92672">th</span>&gt;
-                    &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;status-{{ form.instance.status }}&#34;</span>&gt;{{ form.instance.get_status_display }}&lt;/<span style="color:#f92672">td</span>&gt;
-                &lt;/<span style="color:#f92672">tr</span>&gt;
-                &lt;<span style="color:#f92672">tr</span>&gt;
-                    &lt;<span style="color:#f92672">th</span>&gt;{% trans &#34;Checked at&#34; %}:&lt;/<span style="color:#f92672">th</span>&gt;
-                    &lt;<span style="color:#f92672">td</span>&gt;{{ form.instance.checked_at }}&lt;/<span style="color:#f92672">td</span>&gt;
-                &lt;/<span style="color:#f92672">tr</span>&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;{% trans &quot;Status&quot; %}:&lt;/th&gt;
+                    &lt;td class=&quot;status-{{ form.instance.status }}&quot;&gt;{{ form.instance.get_status_display }}&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;{% trans &quot;Checked at&quot; %}:&lt;/th&gt;
+                    &lt;td&gt;{{ form.instance.checked_at }}&lt;/td&gt;
+                &lt;/tr&gt;
             {% endif %}
             {{ form.as_table }}
-        &lt;/<span style="color:#f92672">table</span>&gt;
+        &lt;/table&gt;
     {% endfor %}
-    &lt;<span style="color:#f92672">table</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;monitor-buttons&#34;</span>&gt;
-        &lt;<span style="color:#f92672">tr</span>&gt;
-            &lt;<span style="color:#f92672">th</span>&gt;&lt;/<span style="color:#f92672">th</span>&gt;
-            &lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;{% trans &#34;Save&#34; %}&lt;/<span style="color:#f92672">button</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
-        &lt;/<span style="color:#f92672">tr</span>&gt;
-    &lt;/<span style="color:#f92672">table</span>&gt;
-&lt;/<span style="color:#f92672">form</span>&gt;
+    &lt;table class=&quot;monitor-buttons&quot;&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;td&gt;&lt;button type=&quot;submit&quot;&gt;{% trans &quot;Save&quot; %}&lt;/button&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/form&gt;
 ...
-</code></pre></div><a href="https://gokmengorgen.net/img/django-notes/uptime-monitor-status-frontend.png" target="_blank">
-  ![Monitor status in frontend](/img/django-notes/uptime-monitor-status-frontend.png "Kullanıcı arayüzünde ekranların durumu")
-</a>
+</code></pre>
+
+<p><a href="https://gokmengorgen.net/img/django-notes/uptime-monitor-status-frontend.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/uptime-monitor-status-frontend.png" src="https://gokmengorgen.net/img/django-notes/low/uptime-monitor-status-frontend.png" alt="Monitor status in frontend" title="Kullanıcı arayüzünde ekranların durumu" /></figure>
+</a></p>
+
 <h2 id="peki-nasıl-komutu-periyodik-çalıştıracağız">Peki nasıl komutu periyodik çalıştıracağız?</h2>
+
 <p>Bunu anlatabilmem için sunucu tarafına biraz değinmemiz gerekiyor. Bu zamana kadar Django projelerini hep Linux dağıtımlarını kullanarak servis ettim ve periyodik çalıştırılacak işler konusunda projemizi barındırdığımız sistemden destek almamız gerekiyor. Birkaç yolu var, en basiti crontab kullanmak, kullanımı çok basit, bir shell script&rsquo;i hazırladıktan sonra sunucuda <code>crontab -e</code> komutunu çalıştırıp buna benzer bir satır eklememiz gerekiyor:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
-<span style="color:#ae81ff">5</span> * * * * django-notes /home/django-notes/sync_monitors.sh
-</code></pre></div><p>Böylece 5 dakikada bir ekranları kontrol ederdik. Ama bana bir hafta daha izin verin, size bunu başka bir yöntem olan Celery<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> ile nasıl yapılacağını göstereceğim. İyi günler!</p>
-<div class="footnotes" role="doc-endnotes">
+
+<pre><code class="language-bash"># terminal
+5 * * * * django-notes /home/django-notes/sync_monitors.sh
+</code></pre>
+
+<p>Böylece 5 dakikada bir ekranları kontrol ederdik. Ama bana bir hafta daha izin verin, size bunu başka bir yöntem olan Celery<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">3</a></sup> ile nasıl yapılacağını göstereceğim. İyi günler!</p>
+<div class="footnotes">
+
 <hr />
+
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p>Komutlar çok detaylı bir konu olduğu için, <a href="https://docs.djangoproject.com/en/2.0/howto/custom-management-commands/">bu belgeye</a> mutlaka bakmanızı öneriyorum. Ben burada sadece Uptime uygulamasında gerekli olduğu kadarıyla ele aldım. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p>Daha önce de belirttiğimiz gibi, bir dizinin python modülü olarak algılanabilmesi için **_<em>init</em>_.py** dosyasına ihtiyacımız var. Bu her dizin için geçerlidir, iç içe olsa bile. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:3" role="doc-endnote">
-<p>Celery için mutlaka <a href="http://www.celeryproject.org/">sitesine</a> bir göz atın. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
+<li id="fn:1">Komutlar çok detaylı bir konu olduğu için, <a href="https://docs.djangoproject.com/en/2.0/howto/custom-management-commands/">bu belgeye</a> mutlaka bakmanızı öneriyorum. Ben burada sadece Uptime uygulamasında gerekli olduğu kadarıyla ele aldım.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Daha önce de belirttiğimiz gibi, bir dizinin python modülü olarak algılanabilmesi için <strong>__init__.py</strong> dosyasına ihtiyacımız var. Bu her dizin için geçerlidir, iç içe olsa bile.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:4">Celery için mutlaka <a href="http://www.celeryproject.org/">sitesine</a> bir göz atın.
+ <a class="footnote-return" href="#fnref:4"><sup>[return]</sup></a></li>
 </ol>
 </div>
 

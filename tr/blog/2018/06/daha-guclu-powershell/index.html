@@ -161,33 +161,49 @@
                     <div class="markdown">
                         
     
-    <p>Uzun süre Linux dağıtımı kullanmış birisi için komut satırı uygulamaları ve komut istemi Windows&rsquo;ta kanayan yara. Henüz aynı rahatlığı bulamamış olsam da, terminal emulator olarak ConEmu, Shell olarak PowerShell kullanıyorum. Tabi birkaç ayarlamayla birlikte.</p>
+    
+
+<p>Uzun süre Linux dağıtımı kullanmış birisi için komut satırı uygulamaları ve komut istemi Windows&rsquo;ta kanayan yara. Henüz aynı rahatlığı bulamamış olsam da, terminal emulator olarak ConEmu, Shell olarak PowerShell kullanıyorum. Tabi birkaç ayarlamayla birlikte.</p>
+
 <h2 id="sorunlar">Sorunlar</h2>
+
 <p>En çok kullandığım komut satırı uygulaması Git. Git, Windows&rsquo;ta Bash ile birlikte geliyor. Henüz Windows&rsquo;ta yeniyseniz, Git en iyi Bash ile birlikte çalışıyor, ona bir şans verin. Çünkü PowerShell&rsquo;de ha deyip kullanamıyorsunuz. PowerShell&rsquo;de kullanabilmek için yükleme aşamasında size sunulan seçenekleri ona göre seçmelisiniz. Git ile ilgili diğer ayarlar için <a href="https://gokmengorgen.net/blog/gelistiriciler-icin-windows-10-pro/">bu yazıma</a> mutlaka göz atın.</p>
+
 <p>Git ile ilgili iki önemli ayar var:</p>
+
 <ol>
 <li><code>.gitconfig</code> dosyanızda <strong>autocrlf</strong> tanımlaması <strong>false</strong> olmalı. Ben her zaman satır sonu biçimleme tipi olarak <strong>LF</strong> tercih ediyorum ve daha az baş ağrısı için size de öneririm.</li>
 <li><code>git log</code> gibi çıktılarda Unicode veya Türkçe karakter problemleriyle uğraşmamak için <strong>LC_ALL</strong> tanımlaması <strong>C.UTF-8</strong> olmalı.</li>
 </ol>
-<a href="https://gokmengorgen.net/img/powershell-environment-variables.png" target="_blank">
-  ![Environment variables](/img/powershell-environment-variables.png "Çevre değişkenleri")
-</a>
+
+<p><a href="https://gokmengorgen.net/img/powershell-environment-variables.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/powershell-environment-variables.png" src="https://gokmengorgen.net/img/low/powershell-environment-variables.png" alt="Environment variables" title="Çevre değişkenleri" /></figure>
+</a></p>
+
 <h2 id="terminal-emulator-ve-eklentiler">Terminal emulator ve eklentiler</h2>
-<p>Bir framework, dil veya araca ilk bulaştığımızda nasıl yapıyorsak öyle yapalım ve Google&rsquo;da <strong>Awesome PowerShell</strong> diye aratalım. Blog yazıları, videolar, eklentiler, paket yöneticileri, IDE&rsquo;ler<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, birçok şey <a href="https://github.com/janikvonrotz/awesome-powershell">bulacaksınız</a>. Eklentilerden en çok kullandığım <a href="https://github.com/dahlbyk/posh-git">posh-git</a>, Git kullanırken çok yardımcı oluyor.</p>
+
+<p>Bir framework, dil veya araca ilk bulaştığımızda nasıl yapıyorsak öyle yapalım ve Google&rsquo;da <strong>Awesome PowerShell</strong> diye aratalım. Blog yazıları, videolar, eklentiler, paket yöneticileri, IDE&rsquo;ler<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>, birçok şey <a href="https://github.com/janikvonrotz/awesome-powershell">bulacaksınız</a>. Eklentilerden en çok kullandığım <a href="https://github.com/dahlbyk/posh-git">posh-git</a>, Git kullanırken çok yardımcı oluyor.</p>
+
 <p>Tab desteği, daha fazla font desteği ve tek pencerede birden fazla shell desteği için <a href="https://conemu.github.io/">ConEmu</a> kullanıyorum. Font olarak <strong>Meslo Regular for Powerline Nerd</strong> kullanıyorum. ConEmu ile birlikte prompt&rsquo;u unicode karakterlerle özelleştirmek de mümkün oluyor. Bunun için oh-my-zsh gibi <a href="https://github.com/JanDeDobbeleer/oh-my-posh">oh-my-posh</a> var. Tema olarak Paradox tercih ediyorum:</p>
-<a href="https://gokmengorgen.net/img/powershell-oh-my-posh.png" target="_blank">
-  ![Oh my posh](/img/powershell-oh-my-posh.png "Oh my posh")
-</a>
+
+<p><a href="https://gokmengorgen.net/img/powershell-oh-my-posh.png" target="_blank">
+  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/powershell-oh-my-posh.png" src="https://gokmengorgen.net/img/low/powershell-oh-my-posh.png" alt="Oh my posh" title="Oh my posh" /></figure>
+</a></p>
+
 <p>Visual Studio Code içinde de bu tema epey güzel çalışıyor.</p>
+
 <h2 id="ve-powershell-core-açık-kaynak">Ve PowerShell Core açık kaynak</h2>
+
 <p>Hem <a href="https://github.com/powershell/powershell">açık kaynak</a>, hem multi-platform. Linux dağıtımı kullanıyor olsaydım başka bir shell&rsquo;e ihtiyaç duyar mıydım bilmiyorum; ama sanırım bir şans verirdim.</p>
+
 <p>İyi denemeler.</p>
-<div class="footnotes" role="doc-endnotes">
+<div class="footnotes">
+
 <hr />
+
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p>IDE var, PowerShell için?! <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
+<li id="fn:1">IDE var, PowerShell için?!
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
 </ol>
 </div>
 

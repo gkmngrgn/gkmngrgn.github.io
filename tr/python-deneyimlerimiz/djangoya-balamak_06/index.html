@@ -146,85 +146,124 @@
                       </div>
                       
     
-    <h2 id="girizgah">Girizgah</h2>
+    
+
+<h2 id="girizgah">Girizgah</h2>
+
 <p>Merhabalar. Bu belge, Django&rsquo;yu öğrenirken DjangoBook1 sitesinden aldığım, biriktirdiğim notlardan oluşmuştur. Belgenin tamamen kusursuz olduğu veya anlatımının çok iyi olduğu konusunda bir garanti vermiyorum; fakat yine de size yardımcı olabilecek notlar bulabileceğinizi umuyorum. Ayrıca, belge ile ilgili bir yanlışlık veya anlatmamı istediğiniz bir nokta olursa, eposta adresimi kullanarak benimle iletişime geçebilirsiniz:</p>
+
 <p><em><strong>Not:</strong> Django&rsquo;nun ne olduğu, neden onu seçmemiz gerektiği; bu projenin hangi amaçla ortaya çıkarıldığı ve gelişimi hakkında bilgiler, belgeyi kısa tutmak için verilmemiştir. İnternet zengin bir okyanus :-)</em></p>
-<h2 id="djangoya-başlamak">Django&rsquo;ya Başlamak</h2>
+
+<h2 id="django-ya-başlamak">Django&rsquo;ya Başlamak</h2>
+
 <p>Çok değil, Şubat 2007&rsquo;den beri GNU / Linux kullanıyorum ve onu kullanmaya başlamakla programlamaya ilgim hemen hemen aynı zamanlara denk geliyor. İnternet sitesi tasarımlarına ve programlamasına ilgi duyduğum için ilk olarak PHP&rsquo;ye yönelmiştim ve hiçbir şekilde <strong>framework</strong>&lsquo;un ne anlama geldiğini, ne işe yaradığını çözemememiştim. Hatta bir ara framework ile kastedilen şeyin Wordpress, Joomla ve benzeri şeyler olduğunu zannederdim (belki onlara da framework deniliyor olabilir). İngilizce sözlüğe baktığım zaman karşıma çıkan Türkçe anlamları da beni bir o kadar çıldırtmaya yeterdi: Çatı, çerçeve, web çatısı, web framework.. Yeni başlayan, tecrübesiz kişiler için bu sözcükler gerçekten bir anlam ifade etmiyor.</p>
+
 <p>Sonra, güzel bir deneyim yaşadım. Ben yapacağım her site için tekrar tekrar açıp kodlara bakmak durumunda mıyım? Örneğin, alt tarafı sitenin ana sayfasında bir yazı göstermek için her defasında kodlarla cebelleşmek ne kadar akla mantığa uygundur? Üstelik zaman kavramı da hayatımızın her alanında olduğu gibi, programlamada da son derece önemli, sizce de öyle değil mi? Sıfırdan site yapmak yerine Joomla kuralım, temasını biraz değiştiririz, hazır site kalıbından çıkarmak da çok zor bir şey olmasa gerek hem, öyle değil mi?</p>
+
 <p>Nitekim, nasıl ki kaslarımızı amacı doğrultusunda daha rahat kullanabilmek için kemiklere ihtiyaç duyuyorsak, yapacağımız siteler için de güzel bir altyapıya ihtiyaç duymamız olası, hele ki Python&rsquo;da. İşte, buna <strong>framework</strong> deniyor. Düşünün, bir forum veya portal site yapacaksınız. Ama yönetim arayüzü yok :-). Ya da hiç düşünmeyin, hemen Django&rsquo;yu kullanabilmemiz için neler gerekiyor, ona bakalım.</p>
+
 <h2 id="django-için-gerekli-programlar">Django İçin Gerekli Programlar</h2>
+
 <p>Kullandığınız dağıtım veya işletim sistemine göre kurulumları değişeceği için, nasıl kurulacağını burada anlatamayacağım. Basit bir araştırma yeter diye umuyorum.</p>
+
 <ol>
 <li>Python</li>
 <li>Django</li>
 <li>Veritabanı tercihinize göre, Python&rsquo;a veritabanı desteği:
+
 <ul>
 <li>Mysql</li>
 <li>PostgreSQL</li>
 <li>Sqlite</li>
-</ul>
-</li>
+</ul></li>
 </ol>
+
 <p><em><strong>Not:</strong> Dipnotlarda verilen linkleri kullanmadan önce Paket Yönetici&rsquo;nizde araştırma yapınız. Tek başlarına çalışmamakla birlikte, birkaç bağımlılığa da ihtiyaç duymaktadırlar. Örneğin <strong>python-mysql</strong>&lsquo;in MySQL&rsquo;a ihtiyaç duyması gibi</em>.</p>
+
 <h2 id="nihayet-projemizi-başlatıyoruz">Nihayet Projemizi Başlatıyoruz</h2>
+
 <p>Django için gerekli paketler kurulduktan sonra, projenizi barındırabileceğiniz uygun bir dizinde ilk olarak şu komutu veriyoruz:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">gkmngrgn <span style="color:#f92672">~/</span>programming  <span style="color:#960050;background-color:#1e0010">$</span>  django<span style="color:#f92672">-</span>admin<span style="color:#f92672">.</span>py startproject mysite
-</code></pre></div><p>Böylece mysite dizinimiz ve dizin içinde de proje için gerekli dosyalarımız oluşturulacak:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mysite/
+
+<pre><code class="language-python">gkmngrgn ~/programming  $  django-admin.py startproject mysite
+</code></pre>
+
+<p>Böylece mysite dizinimiz ve dizin içinde de proje için gerekli dosyalarımız oluşturulacak:</p>
+
+<pre><code class="language-shell">mysite/
     __init__.py
     manage.py
     settings.py
     urls.py
-</code></pre></div><p>Projemiz ile ilgili yapacağımız tüm işlemler, oluşturduğumuz <strong>mysite</strong> isimli dizinimizde yapılacak. Diyelim önemli değişiklikler yaptınız ve sitenizi web tarayıcınız ile kontrol etmek istiyorsunuz. O zaman <strong>mysite</strong> dizinimizde şu komutu vermeniz gerekir:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">gkmngrgn ~/programming/mysite $  python manage.py runserver
-Validating models...
-<span style="color:#ae81ff">0</span> errors found.
+</code></pre>
 
-Django version 1.0, using settings <span style="color:#e6db74">&#39;mysite.settings&#39;</span>
+<p>Projemiz ile ilgili yapacağımız tüm işlemler, oluşturduğumuz <strong>mysite</strong> isimli dizinimizde yapılacak. Diyelim önemli değişiklikler yaptınız ve sitenizi web tarayıcınız ile kontrol etmek istiyorsunuz. O zaman <strong>mysite</strong> dizinimizde şu komutu vermeniz gerekir:</p>
+
+<pre><code class="language-shell">gkmngrgn ~/programming/mysite $  python manage.py runserver
+Validating models...
+0 errors found.
+
+Django version 1.0, using settings 'mysite.settings'
 Development server is running at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
-</code></pre></div><p>Evet, komutun çıktısında da görebileceğiniz gibi, sitenizi http://127.0.0.1:8000/ adresinden kontrol edebilirsiniz. İşlemi sonlandırmak için <strong>CONTROL-C</strong> tuş kombinasyonunu kullanmanız yeterli. İsterseniz, sonraki adıma geçmeden önce bir bakalım, localhost&rsquo;tan nasıl görünüyor?</p>
+</code></pre>
+
+<p>Evet, komutun çıktısında da görebileceğiniz gibi, sitenizi <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> adresinden kontrol edebilirsiniz. İşlemi sonlandırmak için <strong>CONTROL-C</strong> tuş kombinasyonunu kullanmanız yeterli. İsterseniz, sonraki adıma geçmeden önce bir bakalım, localhost&rsquo;tan nasıl görünüyor?</p>
+
 <p>(ekran görüntüsü eksik)</p>
+
 <p>Çok tatlı, öyle değil mi? Şimdi proje dizinimizde (mysite) <strong>views.py</strong> isminde bir dosya oluşturup, örnek olarak şunları yazalım, açıklama satırlarını (en baştaki hariç, diğer &ldquo;#&rdquo; ile başlayan satırlar) yazmasanız da olur:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
-<span style="color:#75715e"># Önce Türkçe karakter desteğimiz için utf-8&#39;i yazdık.</span>
-<span style="color:#75715e"># Şimdi gerekli modülleri çağıralım.</span>
-<span style="color:#f92672">from</span> django.http <span style="color:#f92672">import</span> HttpResponse
-<span style="color:#f92672">import</span> datetime
 
-<span style="color:#75715e"># Sonra da datetime ile saat &amp; tarih bilgilerini alarak HttpResponse&#39;u döndürelim.</span>
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">current_datetime</span>(request):
-    now <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()
-    html <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;html&gt;&lt;body&gt;Saat ve tarihimizi, python modülü kullanarak yazdırdık: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">.&lt;/body&gt;&lt;/html&gt;&#34;</span> <span style="color:#f92672">%</span> now
-    <span style="color:#66d9ef">return</span> HttpResponse(html)
-</code></pre></div><p>Proje dizinimizdeki var olan örnek <strong>urls.py</strong> dosyasını da şu şekilde değiştirelim:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+# Önce Türkçe karakter desteğimiz için utf-8'i yazdık.
+# Şimdi gerekli modülleri çağıralım.
+from django.http import HttpResponse
+import datetime
 
-<span style="color:#f92672">from</span> django.conf.urls.defaults <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+# Sonra da datetime ile saat &amp; tarih bilgilerini alarak HttpResponse'u döndürelim.
+def current_datetime(request):
+    now = datetime.datetime.now()
+    html = &quot;&lt;html&gt;&lt;body&gt;Saat ve tarihimizi, python modülü kullanarak yazdırdık: %s.&lt;/body&gt;&lt;/html&gt;&quot; % now
+    return HttpResponse(html)
+</code></pre>
 
-<span style="color:#75715e"># views.py dosyasında yazdığımız fonksiyonu burada çağırıyoruz.</span>
-<span style="color:#75715e"># ama hangi sayfaya..</span>
-<span style="color:#f92672">from</span> mysite.views <span style="color:#f92672">import</span> current_datetime
+<p>Proje dizinimizdeki var olan örnek <strong>urls.py</strong> dosyasını da şu şekilde değiştirelim:</p>
 
-<span style="color:#75715e"># işte hangi sayfaya olduğunu buradan belirliyoruz.</span>
-urlpatterns <span style="color:#f92672">=</span> patterns(<span style="color:#e6db74">&#39;&#39;</span>,
-    (<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^time/$&#39;</span>, current_datetime),
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+
+from django.conf.urls.defaults import *
+
+# views.py dosyasında yazdığımız fonksiyonu burada çağırıyoruz.
+# ama hangi sayfaya..
+from mysite.views import current_datetime
+
+# işte hangi sayfaya olduğunu buradan belirliyoruz.
+urlpatterns = patterns('',
+    (r'^time/$', current_datetime),
 )
-</code></pre></div><p>Bu iki kod hakkında şimdilik sadece http://localhost:8000/time sayfasına, zaman ile ilgili bilgilerimizi yazdırdığımızı söyleyeyim. <strong>Dikkat edin</strong>, eğer Python dosyalarınızda Türkçe karakter kullanırsanız, kodun başına şunu eklemeyi unutmayın:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
-[<span style="color:#f92672">...</span>]
-</code></pre></div><p>Hadi, hazır <strong>python manage.py runserver</strong> komutu yürürlükteyken, bir de şu linke bakalım; http://127.0.0.1:8000/time:</p>
+</code></pre>
+
+<p>Bu iki kod hakkında şimdilik sadece <a href="http://localhost:8000/time">http://localhost:8000/time</a> sayfasına, zaman ile ilgili bilgilerimizi yazdırdığımızı söyleyeyim. <strong>Dikkat edin</strong>, eğer Python dosyalarınızda Türkçe karakter kullanırsanız, kodun başına şunu eklemeyi unutmayın:</p>
+
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+[...]
+</code></pre>
+
+<p>Hadi, hazır <strong>python manage.py runserver</strong> komutu yürürlükteyken, bir de şu linke bakalım; <a href="http://127.0.0.1:8000/time:">http://127.0.0.1:8000/time:</a></p>
+
 <p>(ekran görüntüsü eksik)</p>
-<p><em><strong>NOT:</strong> Saat yanlış mı gösteriyor? settings.py dosyasını açın. TIME_ZONE satırını kendinize göre ayarlayın. Türkiye için:</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[<span style="color:#f92672">...</span>]
 
-<span style="color:#75715e"># If running in a Windows environment this must be set to the same as your</span>
-<span style="color:#75715e"># system time zone.</span>
-TIME_ZONE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Europe/Istanbul&#39;</span>
+<p>_<strong>NOT:</strong> Saat yanlış mı gösteriyor? settings.py dosyasını açın. TIME<em>ZONE satırını kendinize göre ayarlayın. Türkiye için:</em></p>
 
-[<span style="color:#f92672">...</span>]
-</code></pre></div><p>Bir dahaki yazımızda emeklemeye başlayacağız.. :)</p>
+<pre><code class="language-python">[...]
+
+# If running in a Windows environment this must be set to the same as your
+# system time zone.
+TIME_ZONE = 'Europe/Istanbul'
+
+[...]
+</code></pre>
+
+<p>Bir dahaki yazımızda emeklemeye başlayacağız.. :)</p>
 
 
 

@@ -147,26 +147,31 @@
                       
     
     <p>Python ile programlama yaparken proje arkadaşım Mirat&rsquo;le beraber (hatta ona çaktırmadan) bir kural listesi oluşturmuştum. Paylaşayım dedim:</p>
+
 <ol>
 <li>Programın anadili İngilizce olmalı.</li>
 <li>Noktalama işaretlerinden önce boşluk bırakılmaz, sonra bırakılır.</li>
 <li>Operatörlerden hem önce, hem de sonra boşluk bırakılır.</li>
 <li>(), {} ve []&lsquo;lerden önce boşluk bırakılmaz, sonra bırakılır; hatta bir alt satıra konulur.</li>
-<li>Eğer çıktı ekrana yazdırılacaksa &quot; &ldquo;; yazdırılmayacaksa ' ' kullan.</li>
+<li>Eğer çıktı ekrana yazdırılacaksa &ldquo; &ldquo;; yazdırılmayacaksa &lsquo; &rsquo; kullan.</li>
 <li>Her fonksiyonun altına açıklama gir.</li>
 <li>Türkçe&rsquo;mizi güzel kullanalım, trafik kurallarına uyalım.</li>
 <li>Her fonksiyon, sınıf, döngü ve try - except arasında bir satır boşluk olsun.</li>
 <li>Tab mutlaka 4 boşluk olarak ayarlanmalı.</li>
 <li>Emacs veya Vim&rsquo;in güzelliği, gereksiz boşlukları göze batırıp (hele ki emacs&rsquo;te) kodu kirli göstermesindedir. Gereksiz boşluklar, Emacs&rsquo;te kırmızı arkaplan, Vim&rsquo;de ise nokta şeklinde gözükür.</li>
-<li>Fonksiyon ve sınıf isimleri İngilizce olmalı. Eğer birden fazla kelimeden oluşuyorsa, boşluk yerine alt çizgi konulmalı ve hepsi küçük harfle yazılmalı; veya boşluk bırakmaksızın, sonraki kelimenin ilk harfi büyük yazılmalı. Örneğin:</li>
+
+<li><p>Fonksiyon ve sınıf isimleri İngilizce olmalı. Eğer birden fazla kelimeden oluşuyorsa, boşluk yerine alt çizgi konulmalı ve hepsi küçük harfle yazılmalı; veya boşluk bırakmaksızın, sonraki kelimenin ilk harfi büyük yazılmalı. Örneğin:</p>
+
+<pre><code class="language-python">def check_local_folder():
+print &quot;hede&quot;
+
+
+def CheckLocalFolder():
+print &quot;dede&quot;
+</code></pre></li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check_local_folder</span>():
-    <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;hede&#34;</span>
 
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">CheckLocalFolder</span>():
-    <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;dede&#34;</span>
-</code></pre></div><p>Evet çok acemice; ama biz bunları uyguluyoruz. Bir de boşluklara çok mu kafayı taktık, ne.. Bu arada Alper Kanat'ın önerileriyle bir iki şey değiştirdim. Esasında biz bunu uyguluyoruz :P</p>
+<p>Evet çok acemice; ama biz bunları uyguluyoruz. Bir de boşluklara çok mu kafayı taktık, ne.. Bu arada Alper Kanat&rsquo;ın önerileriyle bir iki şey değiştirdim. Esasında biz bunu uyguluyoruz :P</p>
 
 
 

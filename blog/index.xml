@@ -67,8 +67,7 @@ If you have a photographic memory to remind something quickly, then you may like
       
       <guid>https://gokmengorgen.net/blog/2019/08/first-review-on-my-ipad/</guid>
       <description>I started using an iPad instead of a second laptop for more effective use. Although it is excellent for reading things, answering emails, checking tasks, it is still not possible to use as a laptop with these devices.
-So I tried to connect to my primary PC remotely. But this was not satisfactory for me either. I took some notes to compare when iOS 13 and some updates came.
-Pros  In tablet mode, all screens are full-sized automatically.</description>
+So I tried to connect to my primary PC remotely. But this was not satisfactory for me either. I took some notes to compare when iOS 13 and some updates came.</description>
     </item>
     
     <item>
@@ -139,7 +138,7 @@ I&amp;rsquo;ll update this article when I find a more functional application.</d
       
       <guid>https://gokmengorgen.net/blog/2018/12/how-do-i-publish-my-articles/</guid>
       <description>With just a command:
-# terminal $ ENV=PROD ./do.sh deploy I have many projects using my script named DOSH and the parameters are mostly in common; deploy, start, stop, runtests, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like this one but I run all the projects with the same command: dosh start.
+# terminal $ ENV=PROD ./do.sh deploy  I have many projects using my script named DOSH and the parameters are mostly in common; deploy, start, stop, runtests, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like this one but I run all the projects with the same command: dosh start.
 In Windows, the command may be a bit longer than in the other operating systems.</description>
     </item>
     
@@ -150,8 +149,8 @@ In Windows, the command may be a bit longer than in the other operating systems.
       
       <guid>https://gokmengorgen.net/blog/2018/12/important-windows-environment-variables/</guid>
       <description>PowerShell and Git encoding problems To make git log command output properly display on Windows, we need to set a variable named LC_ALL:
-LC_ALL=&amp;#34;C.UTF-8&amp;#34; Incorrect home folder in Emacs This problem is not only about Emacs. If you try to find a file from HOME variable, you may need to define the variable first:
-HOME=&amp;#34;%USERPROFILE%&amp;#34; ;; place all backup files in one directory (setq backup-directory-alist `((&amp;#34;.*&amp;#34; . ,temporary-file-directory))) (setq auto-save-file-name-transforms `((&amp;#34;.</description>
+LC_ALL=&amp;quot;C.UTF-8&amp;quot;  Incorrect home folder in Emacs This problem is not only about Emacs. If you try to find a file from HOME variable, you may need to define the variable first:
+HOME=&amp;quot;%USERPROFILE%&amp;quot;  ;; place all backup files in one directory (setq backup-directory-alist `((&amp;quot;.*&amp;quot; . ,temporary-file-directory))) (setq auto-save-file-name-transforms `((&amp;quot;.</description>
     </item>
     
   </channel>

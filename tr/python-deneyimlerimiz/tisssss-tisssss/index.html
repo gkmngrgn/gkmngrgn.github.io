@@ -147,18 +147,12 @@
                       
     
     <p>Python&rsquo;da programlama yaparken işleri terminalden yürütmek açıkçası bana çok fazla zaman kazandırıyor; ama bazen feci yanlışlar yaptığım oluyor. Mesela, yanlışlıkla *.pyc&rsquo;leri de svn&rsquo;ye aktarmak (özellikle bkz: Mirat Can Bayrak), build dizinini silmek yerine src dizinini svn&rsquo;ye atamadan yanlışlıkla silmek vesaire..</p>
-
 <p>Bu tip felaketlerin üstesinden gelmek için, ben de ilk başlarda &ldquo;silgi&rdquo; diye bir program yapmıştım. Amacım boş dizinleri ve inşa dosyalarının bulunduğu &ldquo;build&rdquo; dizinlerini silmek, *.pyc, *~, *#, *.db ve benzeri işime yaramayacak dosyaları tek seferde yok etmekti.</p>
-
 <p>Programı yaparken başta, genel bir amaç edinmeyi düşünmüştüm. Sonra ne olduysa, bu programı salt python programcılara yönelik olarak tekrar tasarlayıp, ismini de &ldquo;tiss&rdquo; diye değiştirdim. Önce küçük bir şemayla, programın planını göstereyim:</p>
-
-<p>src dizininde iki önemli .py dosyası var. &ldquo;remove.py&rdquo; dosyasında, tiss&rsquo;in ana fonksiyonu olan silme fonksiyonunu tanımladım, &ldquo;main.py&rdquo;de de belli parametreler dahilinde çeşitli işlemler tanımlanıyor. Her parametre için gerektiğinde ayrı modul dosyası oluşturup sonradan import edebiliriz.</p>
-
+<p>src dizininde iki önemli .py dosyası var. &ldquo;remove.py&rdquo; dosyasında, tiss&rsquo;in ana fonksiyonu olan silme fonksiyonunu tanımladım, &ldquo;main.py&quot;de de belli parametreler dahilinde çeşitli işlemler tanımlanıyor. Her parametre için gerektiğinde ayrı modul dosyası oluşturup sonradan import edebiliriz.</p>
 <p>Peki bunları size niye anlatıyorum? Eğer sizin de bir fikriniz varsa, modülünüzü yazıp bana gönderesiniz diye =) Kodları ve fikri gerçekten beğenirsem, buradan size <strong>svn hesabı verme sözü de</strong> veriyorum, herhangi bir eşeklik olursa iptal edebilirim de :P. Hadi, Tiss&rsquo;i kendi isteğimize göre şekillendirelim. İşte tiss burada:</p>
-
 <p><a href="http://tiss.googlecode.com">http://tiss.googlecode.com</a></p>
-
-<p>(Bu arada diyagram çok uyduruk olmuş ama Mirat&rsquo;ın yazısı gaza getirdi, bir başlangıç yapalım dedik, heheh.)</p>
+<p>(Bu arada diyagram çok uyduruk olmuş ama Mirat'ın yazısı gaza getirdi, bir başlangıç yapalım dedik, heheh.)</p>
 
 
 

@@ -183,27 +183,20 @@
                         
     
     <p>Üç haftalık tatilimin sonunda görünürde basit bir iş talep edildi. Geliştirdiğimiz projenin yeni sürümünü yayınlayacaktık:</p>
-
 <ul>
 <li>Bugün haftanın son çalışma günü mü? <strong>Hayır</strong>.</li>
 <li>Unit testlerde sorun var mı? <strong>Hayır</strong>.</li>
 <li>Yapılan tüm değişiklikler test sunucusunda ürün yöneticisi tarafından onaylandı mı? <strong>Evet</strong>.</li>
 </ul>
-
 <p>Ben her şeyi not ederim ve bu yazıyı da aynı amaçla, bu deneyimimi hatırlamak için yazıyorum. Bir diğer alışkanlığım, <a href="https://gokmengorgen.net/blog/komutlar-icin-yardimci-script/"><strong>dosh</strong></a> ile sık kullandığım komutları tüm projelerimde ortak belli başlı alt-komutlar altında toplamak. Proje .NET ile yazılmış, Django olmuş farketmez;</p>
-
 <ul>
 <li><code>dosh start</code> dediğimde o projenin geliştirme ortamımda başlayacağını,</li>
 <li><code>dosh build</code> dediğimde build edileceğini,</li>
 <li>Belli git branch&rsquo;ları güncellendiğinde, sunucularda <code>dosh deploy</code> çalışacağını biliyorum. Her şey benim için bu kadar standart.</li>
 </ul>
-
 <p>Peki standart olmayan neydi?</p>
-
 <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/blog/server-updates.png" src="https://gokmengorgen.net/img/blog/low/server-updates.png" alt="" /></p></figure>
-
 <p>Bir projede sunucunun bakımı hariç bütün her şeyi yönetiyorum. İletişim kopukluğu, sitenin bir saat offline kalmasına sebep oldu. Her zaman olmasa da, ara sıra sunucuda küçük ama önemli güncellemeler oluyor. Bu güncelleme, projenin psycopg2 bağımlılığının SSL modülünü tabiri caizse kırdı. Loglarda sadece bu vardı:</p>
-
 <pre><code>DAMN ! worker 1 (pid: 28018) died :( trying respawn ...
 Respawned uWSGI worker 1 (new pid: 28021)
 !!! uWSGI process 27988 got Segmentation Fault !!!
@@ -216,28 +209,20 @@ Respawned uWSGI worker 1 (new pid: 28021)
 /project/venv/lib/python3.6/site-packages/psycopg2/.libs/./libssl-8bb9b3dd.so.1.0.2o(tls1_clear+0x9) [0x7f480a751229]
 /usr/lib/x86_64-linux-gnu/libssl.so.1.1(SSL_new+0x3f2) [0x7f4812b429d2]
 /project/venv/lib/python3.6/site-packages/psycopg2/.libs/libpq-239f9ac8.so.5.10(+0x23399) [0x7f480a9dc399]
-</code></pre>
-
-<p>Segmentation Fault&rsquo;a ya C programlama dilinden ya da herhangi bir paket yöneticisiyle uğraştıysanız tanık olmuşsunuzdur. Psycopg2&rsquo;nin binary sürümünü kullandığımız için, içindeki bazı kütüphaneler eski libssl kütüphanesini kullanıyordu ve bu nedenle son sunucu güncellemesi <mark>bağımlılıkları kırdı<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></mark>.</p>
-
+</code></pre><p>Segmentation Fault&rsquo;a ya C programlama dilinden ya da herhangi bir paket yöneticisiyle uğraştıysanız tanık olmuşsunuzdur. Psycopg2&rsquo;nin binary sürümünü kullandığımız için, içindeki bazı kütüphaneler eski libssl kütüphanesini kullanıyordu ve bu nedenle son sunucu güncellemesi <mark>bağımlılıkları kırdı<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></mark>.</p>
 <pre><code>lib/python3.6/site-packages/psycopg2/.libs/libssl-8bb9b3dd.so.1.0.2o   # 1.0'dan
 lib/python3.6/site-packages/psycopg2/.libs/libssl-7a80b951.so.1.1.1b   # 1.1'e
-</code></pre>
-
-<p>Bazı projelerde çeşitli regülasyonlar ve kaynak kısıtları nedeniyle her şeyi istediğimiz gibi çözmek mümkün değil; ama tatil sonrası bende oluşan bir rehavetle, benim kontrolümün dışında ne değişiklikler olduğunu kontrol etmeden sunucuları güncellemeye kalktım ve daha kötüsü bana söylenene kadar sorunu fark etmedim.</p>
-
+</code></pre><p>Bazı projelerde çeşitli regülasyonlar ve kaynak kısıtları nedeniyle her şeyi istediğimiz gibi çözmek mümkün değil; ama tatil sonrası bende oluşan bir rehavetle, benim kontrolümün dışında ne değişiklikler olduğunu kontrol etmeden sunucuları güncellemeye kalktım ve daha kötüsü bana söylenene kadar sorunu fark etmedim.</p>
 <p>Onun için, tatil sonrası ilk iş gününde biraz yavaş olmakta fayda var ve kendime bir kural daha ekledim:</p>
-
 <ul>
 <li>Bugün tatilden sonraki ilk çalışma günü mü? <strong>Evet (öyleyse yapma)</strong>.</li>
 </ul>
-<div class="footnotes">
-
+<div class="footnotes" role="doc-endnotes">
 <hr />
-
 <ol>
-<li id="fn:1">Özlemişim bu tarz kelimeler kullanmayı. Taa Pardus zamanlarından.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>Özlemişim bu tarz kelimeler kullanmayı. Taa Pardus zamanlarından. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
 </div>
 

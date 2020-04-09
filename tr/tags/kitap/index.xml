@@ -17,7 +17,7 @@
       <pubDate>Mon, 13 Jan 2020 22:15:47 +0100</pubDate>
       
       <guid>https://gokmengorgen.net/tr/blog/2020/01/fsharp-ile-fonksiyonel-programlama/</guid>
-      <description>Bu kitaba başlama hikayem biraz karışık. 2019 yılının başında, .NET topluluğuna giriş niyetim vardı. 6 ay epey uğraştım. Sonrasında Rust ile devam etmeye karar verdim. Hem fonksiyonel paradigmalara hakim olmak açısından, hem de -biraz garip olacak ama- Rust&amp;rsquo;ı öğrenirken bu kitabın faydasını gördüm. Some - None, pattern matching, value immutability, higher order functions, discriminated unions, hatta generics kullanımı birbirine benzer. Fakat amaç ve hedefleri arasında ciddi bir fark var. Kitapta şöyle bir not vardı:</description>
+      <description>Bu kitaba başlama hikayem biraz karışık. 2019 yılının başında, .NET topluluğuna giriş niyetim vardı. 6 ay epey uğraştım. Sonrasında Rust ile devam etmeye karar verdim. Hem fonksiyonel paradigmalara hakim olmak açısından, hem de -biraz garip olacak ama- Rust&#39;ı öğrenirken bu kitabın faydasını gördüm. Some - None, pattern matching, value immutability, higher order functions, discriminated unions, hatta generics kullanımı birbirine benzer. Fakat amaç ve hedefleri arasında ciddi bir fark var. Kitapta şöyle bir not vardı:</description>
     </item>
     
     <item>

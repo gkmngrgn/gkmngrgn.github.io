@@ -142,250 +142,200 @@
                     <div class="markdown">
                         
     
-    
-
-<p><em>En son, ekranlarımızı güncelleyen bir komut hazırlamıştık. Şimdi bu komutu periyodik olarak çalıştırmamız gerekiyor. Önceki yazımızda cron ile bunu nasıl yapabileceğimize dair değinmiştik; ama biz bunu Celery<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> ile yapmayı deneyeceğiz.</em></p>
-
+    <p><em>En son, ekranlarımızı güncelleyen bir komut hazırlamıştık. Şimdi bu komutu periyodik olarak çalıştırmamız gerekiyor. Önceki yazımızda cron ile bunu nasıl yapabileceğimize dair değinmiştik; ama biz bunu Celery<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> ile yapmayı deneyeceğiz.</em></p>
 <h2 id="özet">Özet</h2>
-
 <ul>
 <li>Docker ile, Celery&rsquo;i kolayca kurup kullanabileceğimiz geliştirme ortamını hazırlayacağız.</li>
 <li>Django komutumuzu Celery görev fonksiyonunda kullanabilir hale getireceğiz.</li>
 <li>Admin panelinden görevlerin çalışma zamanlarını ayarlayacağız.</li>
 <li>Bu yazıyla ilgili kodlara <a href="https://github.com/gkmngrgn/django-notes/tree/master/Article-09">buradan</a> erişebilirsiniz.</li>
 </ul>
-
 <div class="alert alert-danger" role="alert">
   <h4>Yazıyla ilgili önemli bir uyarı</h4>
-
   <p>Konuyu uzatmamak için bir Django komutunu doğrudan Celery görev fonksiyonları içinde kullandım; ama bu çok doğru bir yöntem <strong>olmayabilir</strong>. Örneğin, komutun zorunlu olmayan parametreleri kod içinde farklı yorumlanabilir, <code>None</code> beklerken boş bir string alabilirsiniz.</p>
-
   <p class="mb-0">Bunun yerine, hem Django komutu, hem de Celery fonksiyonunda kullanabileceğiniz <strong>ortak bir kod</strong> yazmanız daha mantıklıdır.</p>
 </div>
-
 <h2 id="neden-celery-ve-neden-docker">Neden Celery ve neden Docker?</h2>
-
 <p>Önceki yazımızda hazırladığımız <strong>checkurls</strong> komutunu periyodik olarak çalıştırabilmek için bir görev yöneticisine ihtiyacımız var. Celery benim bu tip işler için en sık kullandığım araç. Celery ile görevleri yönetmek kolay, deployment süreçlerinde sunucuya daha az müdahale ediliyor, görev çalıştırma zamanlarını admin panelinden programlamak mümkün.</p>
-
-<p>Bir web projesi geliştirirken <strong>DEVELOPMENT</strong>, <strong>STAGING</strong>, <strong>PRODUCTION</strong> gibi farklı sunucu ortamları hazırlanır<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> ve bu ortamların birbirine olabildiğince benzemesi arzu edilir, böylece çevre farklılıklarından doğacak sorunları önlemiş oluruz. Bunu yapabilmek için sanallaştırmaya ihtiyacımız var ve bunun çeşitli yöntemleri var:</p>
-
+<p>Bir web projesi geliştirirken <strong>DEVELOPMENT</strong>, <strong>STAGING</strong>, <strong>PRODUCTION</strong> gibi farklı sunucu ortamları hazırlanır<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> ve bu ortamların birbirine olabildiğince benzemesi arzu edilir, böylece çevre farklılıklarından doğacak sorunları önlemiş oluruz. Bunu yapabilmek için sanallaştırmaya ihtiyacımız var ve bunun çeşitli yöntemleri var:</p>
 <ol>
 <li>Daha önce ben <strong>Vagrant</strong> üzerine bir yazı <a href="https://gokmengorgen.net/blog/vagrant-ile-proje-gelistirme/">yazmıştım</a>. Alışıldığında oldukça pratik yöntemdir, hiçbir ayar yapmasanız bile elinizin altında <strong>PRODUCTION</strong> sunucunuza benzer geliştirme ortamınız olur.</li>
 <li><strong>Docker</strong> kullanabilirsiniz, alışması yeni başlayanlar için öğrenme süreci zaman alıyor. Ama uzun vadede hız ve esneklik kazanırsınız.</li>
 <li><strong><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL</a></strong>, <strong>VMware</strong> veya <strong>Virtualbox</strong> ile sanal işletim sistemi yükleme ve onun üzerinden geliştirme yapabilirsiniz. Olabilecek en kötü sanallaştırma yöntemidir, kısa vadede belki hız kazandırır; ama uzun vadede deployment süreçlerinde canınızı sıkabilir.</li>
 </ol>
-
-<p>Ben Docker&rsquo;i seçtim ve merak etmeyin, bu eğitimi devam ettirebilmek için Docker konusuna olabildiğince az değineceğim. Şimdilik <strong>Docker</strong> ve <strong>Docker Compose</strong>&lsquo;u yükleyin<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup> ve Docker servisinin başladığına emin olun. Sonra repomuzdan <strong>Article-09/hello_django</strong> dizinine girin ve aşağıdaki komutu çalıştırın:</p>
-
-<pre><code class="language-bash"># terminal
+<p>Ben Docker&rsquo;i seçtim ve merak etmeyin, bu eğitimi devam ettirebilmek için Docker konusuna olabildiğince az değineceğim. Şimdilik <strong>Docker</strong> ve <strong>Docker Compose</strong>&lsquo;u yükleyin<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> ve Docker servisinin başladığına emin olun. Sonra repomuzdan <strong>Article-09/hello_django</strong> dizinine girin ve aşağıdaki komutu çalıştırın:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
 $ docker-compose up --build -d
-Creating network &quot;hello_django_default&quot; with the default driver
+Creating network <span style="color:#e6db74">&#34;hello_django_default&#34;</span> with the default driver
 Building web
 Step 1/7 : FROM python:3.6
  ---&gt; d69bc9d9b016
 ...
-Creating hello_django_web_1  ... done
-Creating hello_django_amqp_1 ... done
-Creating hello_django_celery_1 ... done
-Creating hello_django_celery-beat_1 ... done
-</code></pre>
-
-<p>Uzun bir çıktı ve nihayetinde dört konteyner ile geliştirme ortamımız hazır. Her konteynerin içinde bir komut çalışıyor, örneğin web&rsquo;in içinde <code>python manage.py runserver 0:8000</code> komutu çalışıyor, Python yorumlayıcımız artık bu konteynerin içinde ve konteyner ayağa kalktığında <code>http://localhost:8000</code> bağlantısından projemize de erişebiliyor olacağız. Diğer üç konteynerin birinde Celery için gerekli <strong>AMQP</strong> hizmeti çalışıyor, diğer ikisinde de görevlerimizi çalıştıran bir <strong>Celery worker</strong> ve periyodik olarak görev emirlerini oluşturan <strong>Celery beat</strong> var.</p>
-
+Creating hello_django_web_1  ... <span style="color:#66d9ef">done</span>
+Creating hello_django_amqp_1 ... <span style="color:#66d9ef">done</span>
+Creating hello_django_celery_1 ... <span style="color:#66d9ef">done</span>
+Creating hello_django_celery-beat_1 ... <span style="color:#66d9ef">done</span>
+</code></pre></div><p>Uzun bir çıktı ve nihayetinde dört konteyner ile geliştirme ortamımız hazır. Her konteynerin içinde bir komut çalışıyor, örneğin web&rsquo;in içinde <code>python manage.py runserver 0:8000</code> komutu çalışıyor, Python yorumlayıcımız artık bu konteynerin içinde ve konteyner ayağa kalktığında <code>http://localhost:8000</code> bağlantısından projemize de erişebiliyor olacağız. Diğer üç konteynerin birinde Celery için gerekli <strong>AMQP</strong> hizmeti çalışıyor, diğer ikisinde de görevlerimizi çalıştıran bir <strong>Celery worker</strong> ve periyodik olarak görev emirlerini oluşturan <strong>Celery beat</strong> var.</p>
 <h2 id="celery-ile-ilk-görevin-tanımlanması">Celery ile ilk görevin tanımlanması</h2>
-
 <p>Docker konteynerlerimiz hazırlanırken <strong>requirements.txt</strong> dosyamızdan bağımlılıklarımız da okunuyor. Birkaç yeni bağımlılık ekledik:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#75715e"># requirements.txt</span>
 
-<pre><code class="language-ini"># requirements.txt
-
-# Görev yönetimi için Celery
-celery==4.1.1
-# Görev zamanlarını Django Admin panelinden yönetmek
-# için ek bir bağımlılık daha
-django_celery_beat==1.1.1
-# Bu da ekranlarımızı filtrelerken kullanacağımız yardımcı bir bağımlılık
-python-dateutil==2.7.3
-</code></pre>
-
-<p>Şimdi Celery konteynerimizin nasıl çalıştığını ve hangi komutu çalıştırdığını anlayalım. Önce <strong>settings.py</strong> dosyamızda Celery ile ilgili kurulum ve ayarlarımızı ekledik:</p>
-
-<pre><code class="language-python"># settings.py
-...
-INSTALLED_APPS = [
-    ...
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_celery_beat',  # Admin panelinde görev zamanlarını yönetmek için
-    'hello_palette',
-    ...
+<span style="color:#75715e"># Görev yönetimi için Celery</span>
+<span style="color:#a6e22e">celery</span><span style="color:#f92672">=</span><span style="color:#e6db74">=4.1.1</span>
+<span style="color:#75715e"># Görev zamanlarını Django Admin panelinden yönetmek</span>
+<span style="color:#75715e"># için ek bir bağımlılık daha</span>
+<span style="color:#a6e22e">django_celery_beat</span><span style="color:#f92672">=</span><span style="color:#e6db74">=1.1.1</span>
+<span style="color:#75715e"># Bu da ekranlarımızı filtrelerken kullanacağımız yardımcı bir bağımlılık</span>
+<span style="color:#a6e22e">python-dateutil</span><span style="color:#f92672">=</span><span style="color:#e6db74">=2.7.3</span>
+</code></pre></div><p>Şimdi Celery konteynerimizin nasıl çalıştığını ve hangi komutu çalıştırdığını anlayalım. Önce <strong>settings.py</strong> dosyamızda Celery ile ilgili kurulum ve ayarlarımızı ekledik:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># settings.py</span>
+<span style="color:#f92672">...</span>
+INSTALLED_APPS <span style="color:#f92672">=</span> [
+    <span style="color:#f92672">...</span>
+    <span style="color:#e6db74">&#39;django.contrib.messages&#39;</span>,
+    <span style="color:#e6db74">&#39;django.contrib.staticfiles&#39;</span>,
+    <span style="color:#e6db74">&#39;django_celery_beat&#39;</span>,  <span style="color:#75715e"># Admin panelinde görev zamanlarını yönetmek için</span>
+    <span style="color:#e6db74">&#39;hello_palette&#39;</span>,
+    <span style="color:#f92672">...</span>
 ]
-...
-CELERY_BROKER_URL = 'amqp'  # Docker konteynerimizin adını yazdık.
-CELERY_IMPORTS = [
-    'hello_uptime.tasks'  # Görevlerimizi bu modülde saklayacağız.
+<span style="color:#f92672">...</span>
+CELERY_BROKER_URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;amqp&#39;</span>  <span style="color:#75715e"># Docker konteynerimizin adını yazdık.</span>
+CELERY_IMPORTS <span style="color:#f92672">=</span> [
+    <span style="color:#e6db74">&#39;hello_uptime.tasks&#39;</span>  <span style="color:#75715e"># Görevlerimizi bu modülde saklayacağız.</span>
 ]
-# Test mesajlarımız için basit bir email backend yapılandırması.
-# Emailleri konsolda göreceğiz.
-DEFAULT_FROM_EMAIL = 'hello_django@localhost'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-</code></pre>
+<span style="color:#75715e"># Test mesajlarımız için basit bir email backend yapılandırması.</span>
+<span style="color:#75715e"># Emailleri konsolda göreceğiz.</span>
+DEFAULT_FROM_EMAIL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello_django@localhost&#39;</span>
+EMAIL_BACKEND <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;django.core.mail.backends.console.EmailBackend&#39;</span>
+</code></pre></div><p>Sonra, Celery uygulamamızı Django projemiz ile entegre çalışabilmesi için bir script hazırladık:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_django/celery.py</span>
+<span style="color:#f92672">from</span> __future__ <span style="color:#f92672">import</span> absolute_import, unicode_literals
+<span style="color:#f92672">import</span> os
+<span style="color:#f92672">from</span> celery <span style="color:#f92672">import</span> Celery
 
-<p>Sonra, Celery uygulamamızı Django projemiz ile entegre çalışabilmesi için bir script hazırladık:</p>
+<span style="color:#75715e"># Ayarları settings.py dosyamızdan alacak.</span>
+os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>setdefault(<span style="color:#e6db74">&#39;DJANGO_SETTINGS_MODULE&#39;</span>, <span style="color:#e6db74">&#39;hello_django.settings&#39;</span>)
 
-<pre><code class="language-python"># hello_django/celery.py
-from __future__ import absolute_import, unicode_literals
-import os
-from celery import Celery
+app <span style="color:#f92672">=</span> Celery(<span style="color:#e6db74">&#39;hello_django&#39;</span>)
 
-# Ayarları settings.py dosyamızdan alacak.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hello_django.settings')
+<span style="color:#75715e"># Ayar değişkenlerimiz hep CELERY diye başlayacak.</span>
+app<span style="color:#f92672">.</span>config_from_object(<span style="color:#e6db74">&#39;django.conf:settings&#39;</span>, namespace<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;CELERY&#39;</span>)
 
-app = Celery('hello_django')
+<span style="color:#75715e"># Tüm görev fonksiyonlarımızı Celery kendisi tespit edecek.</span>
+app<span style="color:#f92672">.</span>autodiscover_tasks()
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_django/__init__.py</span>
+<span style="color:#f92672">from</span> __future__ <span style="color:#f92672">import</span> absolute_import, unicode_literals
 
-# Ayar değişkenlerimiz hep CELERY diye başlayacak.
-app.config_from_object('django.conf:settings', namespace='CELERY')
+<span style="color:#75715e"># Bu aslında zorunlu değil; ama görevlerimizi tanımlarken `shared_task` yardımcı</span>
+<span style="color:#75715e"># fonksiyonunu kullanmak, uygulamayı bağımsız hale getiriyor. Örneğini sonra göreceğiz.</span>
+<span style="color:#f92672">from</span> .celery <span style="color:#f92672">import</span> app <span style="color:#66d9ef">as</span> celery_app
 
-# Tüm görev fonksiyonlarımızı Celery kendisi tespit edecek.
-app.autodiscover_tasks()
-</code></pre>
-
-<pre><code class="language-python"># hello_django/__init__.py
-from __future__ import absolute_import, unicode_literals
-
-# Bu aslında zorunlu değil; ama görevlerimizi tanımlarken `shared_task` yardımcı
-# fonksiyonunu kullanmak, uygulamayı bağımsız hale getiriyor. Örneğini sonra göreceğiz.
-from .celery import app as celery_app
-
-__all__ = ['celery_app']
-</code></pre>
-
-<p>Bunu her projede bir seferlik yapıyoruz. Bundan sonraki aşamadak artık görev fonksiyonları yazmak. Şimdi <strong>checkurls</strong> komutumuzu bir görev fonksiyonu haline getirelim:</p>
-
-<pre><code class="language-python"># hello_uptime/tasks.py
-from celery import shared_task
-from django.core.management import call_command
+__all__ <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;celery_app&#39;</span>]
+</code></pre></div><p>Bunu her projede bir seferlik yapıyoruz. Bundan sonraki aşamadak artık görev fonksiyonları yazmak. Şimdi <strong>checkurls</strong> komutumuzu bir görev fonksiyonu haline getirelim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_uptime/tasks.py</span>
+<span style="color:#f92672">from</span> celery <span style="color:#f92672">import</span> shared_task
+<span style="color:#f92672">from</span> django.core.management <span style="color:#f92672">import</span> call_command
 
 
-@shared_task
-def check_monitors():
-    call_command('checkurls', mail_clients=True)
-</code></pre>
+<span style="color:#a6e22e">@shared_task</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check_monitors</span>():
+    call_command(<span style="color:#e6db74">&#39;checkurls&#39;</span>, mail_clients<span style="color:#f92672">=</span>True)
+</code></pre></div><p>Django komutumuzu görev fonksiyonu içinde <code>--mail_clients</code> parametresiyle çalıştırmış olduk. Fakat önceki yazımızda parametre olarak sadece <strong>urls</strong> vardı ve onu da zorunlu yapmıştık. Şimdi <code>--mail_clients</code> parametresine ihtiyacımız var; çünkü herhangi bir ekran erişilemez olduğunda, kullanıcıya bir bildirim epostası göndermek istiyoruz. Komut satırında böyle bir ihtiyacımız yoktu, çünkü her şeyi zaten komut satırında görüyorduk:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_uptime/management/commands/checkurls.py</span>
+<span style="color:#f92672">...</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Command</span>(BaseCommand):
+    <span style="color:#f92672">...</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_arguments</span>(self, parser):
+        <span style="color:#75715e"># urls parametresi artık zorunlu değil</span>
+        parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;urls&#39;</span>, nargs<span style="color:#f92672">=</span>argparse<span style="color:#f92672">.</span>ZERO_OR_MORE, type<span style="color:#f92672">=</span>str)
+        <span style="color:#75715e"># mail_clients parametresi de tercihe bağlı</span>
+        parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;--mail_clients&#39;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;store_true&#39;</span>, dest<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mail_clients&#39;</span>)
 
-<p>Django komutumuzu görev fonksiyonu içinde <code>--mail_clients</code> parametresiyle çalıştırmış olduk. Fakat önceki yazımızda parametre olarak sadece <strong>urls</strong> vardı ve onu da zorunlu yapmıştık. Şimdi <code>--mail_clients</code> parametresine ihtiyacımız var; çünkü herhangi bir ekran erişilemez olduğunda, kullanıcıya bir bildirim epostası göndermek istiyoruz. Komut satırında böyle bir ihtiyacımız yoktu, çünkü her şeyi zaten komut satırında görüyorduk:</p>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handle</span>(self, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>options):
+        now <span style="color:#f92672">=</span> timezone<span style="color:#f92672">.</span>now()
+        offline_urls <span style="color:#f92672">=</span> []
 
-<pre><code class="language-python"># hello_uptime/management/commands/checkurls.py
-...
-class Command(BaseCommand):
-    ...
-    def add_arguments(self, parser):
-        # urls parametresi artık zorunlu değil
-        parser.add_argument('urls', nargs=argparse.ZERO_OR_MORE, type=str)
-        # mail_clients parametresi de tercihe bağlı
-        parser.add_argument('--mail_clients', action='store_true', dest='mail_clients')
+        <span style="color:#75715e"># Monitörler kaç dakikada bir kontrol edilmesi istendiyse, en az bir o kadar dakika kadar öncesine göre</span>
+        <span style="color:#75715e"># monitörleri filtreliyoruz. Bir de sadece aktif olanları tekrar kontrol edeceğiz.</span>
+        available_monitors <span style="color:#f92672">=</span> Monitor<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(is_active<span style="color:#f92672">=</span>True)<span style="color:#f92672">.</span>filter(
+            models<span style="color:#f92672">.</span>Q(interval<span style="color:#f92672">=</span>MonitoringInterval<span style="color:#f92672">.</span>MIN_5,
+                     checked_at__lt<span style="color:#f92672">=</span>now <span style="color:#f92672">-</span> relativedelta(seconds<span style="color:#f92672">=</span>MonitoringInterval<span style="color:#f92672">.</span>MIN_5)) <span style="color:#f92672">|</span>
+            <span style="color:#f92672">...</span>
+            models<span style="color:#f92672">.</span>Q(interval<span style="color:#f92672">=</span>MonitoringInterval<span style="color:#f92672">.</span>HOUR_6,
+                     checked_at__lt<span style="color:#f92672">=</span>now <span style="color:#f92672">-</span> relativedelta(seconds<span style="color:#f92672">=</span>MonitoringInterval<span style="color:#f92672">.</span>HOUR_6)))
+        <span style="color:#f92672">...</span>
+        <span style="color:#75715e"># Burada da tüm erişilemeyen ekranlar için her kullanıcıya eposta göndereceğiz.</span>
+        <span style="color:#66d9ef">if</span> options[<span style="color:#e6db74">&#39;mail_clients&#39;</span>] <span style="color:#f92672">and</span> offline_urls:
+            <span style="color:#66d9ef">for</span> url <span style="color:#f92672">in</span> offline_urls:
+                self<span style="color:#f92672">.</span>mail_clients(url, available_monitors)
 
-    def handle(self, *args, **options):
-        now = timezone.now()
-        offline_urls = []
-
-        # Monitörler kaç dakikada bir kontrol edilmesi istendiyse, en az bir o kadar dakika kadar öncesine göre
-        # monitörleri filtreliyoruz. Bir de sadece aktif olanları tekrar kontrol edeceğiz.
-        available_monitors = Monitor.objects.filter(is_active=True).filter(
-            models.Q(interval=MonitoringInterval.MIN_5,
-                     checked_at__lt=now - relativedelta(seconds=MonitoringInterval.MIN_5)) |
-            ...
-            models.Q(interval=MonitoringInterval.HOUR_6,
-                     checked_at__lt=now - relativedelta(seconds=MonitoringInterval.HOUR_6)))
-        ...
-        # Burada da tüm erişilemeyen ekranlar için her kullanıcıya eposta göndereceğiz.
-        if options['mail_clients'] and offline_urls:
-            for url in offline_urls:
-                self.mail_clients(url, available_monitors)
-
-    def mail_clients(self, url, available_monitors):
-        subject = &quot;[Hello Uptime] Monitor is DOWN: {}&quot;.format(url)
-        for monitor in available_monitors.filter(url=url, user__isnull=False):
-            message_list = [
-                &quot;Hi {},&quot;.format(monitor.user.get_full_name()),
-                &quot;The monitor ({}) is currently DOWN.&quot;.format(url),
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mail_clients</span>(self, url, available_monitors):
+        subject <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;[Hello Uptime] Monitor is DOWN: {}&#34;</span><span style="color:#f92672">.</span>format(url)
+        <span style="color:#66d9ef">for</span> monitor <span style="color:#f92672">in</span> available_monitors<span style="color:#f92672">.</span>filter(url<span style="color:#f92672">=</span>url, user__isnull<span style="color:#f92672">=</span>False):
+            message_list <span style="color:#f92672">=</span> [
+                <span style="color:#e6db74">&#34;Hi {},&#34;</span><span style="color:#f92672">.</span>format(monitor<span style="color:#f92672">.</span>user<span style="color:#f92672">.</span>get_full_name()),
+                <span style="color:#e6db74">&#34;The monitor ({}) is currently DOWN.&#34;</span><span style="color:#f92672">.</span>format(url),
             ]
             send_mail(
-                subject, '\n'.join(message_list), from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[monitor.user.email])
-</code></pre>
-
-<h2 id="görevin-periyodik-olarak-çalıştırılması">Görevin periyodik olarak çalıştırılması</h2>
-
+                subject, <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>join(message_list), from_email<span style="color:#f92672">=</span>settings<span style="color:#f92672">.</span>DEFAULT_FROM_EMAIL,
+                recipient_list<span style="color:#f92672">=</span>[monitor<span style="color:#f92672">.</span>user<span style="color:#f92672">.</span>email])
+</code></pre></div><h2 id="görevin-periyodik-olarak-çalıştırılması">Görevin periyodik olarak çalıştırılması</h2>
 <p>Artık sona yaklaşmak üzereyiz. Konteynerimizde <strong>checkurls</strong> komutumuzu şöyle çalıştırabiliriz:</p>
-
-<pre><code class="language-bash"># terminal
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
 $ docker-compose exec web python manage.py checkurls
-https://gokmengorgen.net - 2 monitor(s): online
-</code></pre>
-
-<p>Şimdi Celery ile görev fonksiyonumuzu çalıştıralım:</p>
-
-<pre><code class="language-bash"># terminal
+https://gokmengorgen.net - <span style="color:#ae81ff">2</span> monitor<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>: online
+</code></pre></div><p>Şimdi Celery ile görev fonksiyonumuzu çalıştıralım:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
 $ docker-compose exec web python manage.py shell
-Python 3.6.5 (default, May  5 2018, 03:09:35)
-Type 'copyright', 'credits' or 'license' for more information
-IPython 6.4.0 -- An enhanced Interactive Python. Type '?' for help.
+Python 3.6.5 <span style="color:#f92672">(</span>default, May  <span style="color:#ae81ff">5</span> 2018, 03:09:35<span style="color:#f92672">)</span>
+Type <span style="color:#e6db74">&#39;copyright&#39;</span>, <span style="color:#e6db74">&#39;credits&#39;</span> or <span style="color:#e6db74">&#39;license&#39;</span> <span style="color:#66d9ef">for</span> more information
+IPython 6.4.0 -- An enhanced Interactive Python. Type <span style="color:#e6db74">&#39;?&#39;</span> <span style="color:#66d9ef">for</span> help.
 
-In [1]: from hello_uptime.tasks import check_monitors
+In <span style="color:#f92672">[</span>1<span style="color:#f92672">]</span>: from hello_uptime.tasks import check_monitors
 
-In [2]: check_monitors.delay()
-Out[2]: &lt;AsyncResult: c2f340dc-...f&gt;
+In <span style="color:#f92672">[</span>2<span style="color:#f92672">]</span>: check_monitors.delay<span style="color:#f92672">()</span>
+Out<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span>: &lt;AsyncResult: c2f340dc-...f&gt;
 
-In [3]:
-</code></pre>
-
-<p>Görev asenkron çalıştığı için bir sonuç göremedik, onun için Celery konteynerindeki logları okumamız gerekiyor:</p>
-
-<pre><code class="language-bash"># terminal
-$ docker-compose logs -f --tail 100 celery
-celery_1  | [...] Received task: hello_uptime.tasks.check_monitors[31399a19-...e]
-celery_1  | [...] https://gokmengorgen.net - 2 monitor(s):
-celery_1  | [...] online
-celery_1  | [...] Task hello_uptime.tasks.check_monitors[31399a19-...e] succeeded in 0.8740212999982759s: None
-celery_1  | [...] Received task: hello_uptime.tasks.check_monitors[c2f340dc-...f]
-celery_1  | [...] Task hello_uptime.tasks.check_monitors[c2f340dc-...f] succeeded in 0.013204600007156841s: None
-</code></pre>
-
-<p>Logları sadeleştirdim yine de çirkin, bu konuya daha sonra değiniriz, ama başarılı bir şekilde çalıştığını gördük. Peki ama nasıl periyodik çalıştırılacak bu görev? Hemen Admin panelimizi açıp bir <strong>Interval</strong> girdisi oluşturalım:</p>
-
-<p><a href="https://gokmengorgen.net/img/django-notes/celery-admin-interval.jpg" target="_blank">
-  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/celery-admin-interval.jpg" src="https://gokmengorgen.net/img/django-notes/low/celery-admin-interval.jpg" alt="Celery admin interval" title="Celery admin interval" /></figure>
-</a></p>
-
+In <span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>:
+</code></pre></div><p>Görev asenkron çalıştığı için bir sonuç göremedik, onun için Celery konteynerindeki logları okumamız gerekiyor:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+$ docker-compose logs -f --tail <span style="color:#ae81ff">100</span> celery
+celery_1  | <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span> Received task: hello_uptime.tasks.check_monitors<span style="color:#f92672">[</span>31399a19-...e<span style="color:#f92672">]</span>
+celery_1  | <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span> https://gokmengorgen.net - <span style="color:#ae81ff">2</span> monitor<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>:
+celery_1  | <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span> online
+celery_1  | <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span> Task hello_uptime.tasks.check_monitors<span style="color:#f92672">[</span>31399a19-...e<span style="color:#f92672">]</span> succeeded in 0.8740212999982759s: None
+celery_1  | <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span> Received task: hello_uptime.tasks.check_monitors<span style="color:#f92672">[</span>c2f340dc-...f<span style="color:#f92672">]</span>
+celery_1  | <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span> Task hello_uptime.tasks.check_monitors<span style="color:#f92672">[</span>c2f340dc-...f<span style="color:#f92672">]</span> succeeded in 0.013204600007156841s: None
+</code></pre></div><p>Logları sadeleştirdim yine de çirkin, bu konuya daha sonra değiniriz, ama başarılı bir şekilde çalıştığını gördük. Peki ama nasıl periyodik çalıştırılacak bu görev? Hemen Admin panelimizi açıp bir <strong>Interval</strong> girdisi oluşturalım:</p>
+<a href="https://gokmengorgen.net/img/django-notes/celery-admin-interval.jpg" target="_blank">
+  ![Celery admin interval](/img/django-notes/celery-admin-interval.jpg "Celery admin interval")
+</a>
 <p>Ve bir de <strong>Periodic Task</strong> girdisi:</p>
-
-<p><a href="https://gokmengorgen.net/img/django-notes/celery-admin-periodic-task.jpg" target="_blank">
-  <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/django-notes/celery-admin-periodic-task.jpg" src="https://gokmengorgen.net/img/django-notes/low/celery-admin-periodic-task.jpg" alt="Celery admin periodic task" title="Celery admin periodic task" /></figure>
-</a></p>
-
+<a href="https://gokmengorgen.net/img/django-notes/celery-admin-periodic-task.jpg" target="_blank">
+  ![Celery admin periodic task](/img/django-notes/celery-admin-periodic-task.jpg "Celery admin periodic task")
+</a>
 <p>Şimdi tekrar Celery loglarımıza bakıp süreci takip edelim, gerçekten de dakikada bir çalışıyor mu:</p>
-
-<pre><code class="language-bash"># terminal
-$ docker-compose logs -f --tail 100 celery
-celery_1  | [2018-06-12 16:34:08,298: INFO] Received task: hello_uptime.tasks.check_monitors[92ef036c-...3]
-celery_1  | [2018-06-12 16:34:09,926: INFO] Task hello_uptime.tasks.check_monitors[92ef036c-5341-...3] succeeded in 1.6s: None
-celery_1  | [2018-06-12 16:35:08,298: INFO] Received task: hello_uptime.tasks.check_monitors[e9a53576-...c]
-celery_1  | [2018-06-12 16:35:08,305: INFO] Task hello_uptime.tasks.check_monitors[e9a53576-...c] succeeded in 0.01s: None
-celery_1  | [2018-06-12 16:36:08,298: INFO] Received task: hello_uptime.tasks.check_monitors[5574fbc6-...0]
-celery_1  | [2018-06-12 16:36:08,306: INFO] Task hello_uptime.tasks.check_monitors[5574fbc6-...0] succeeded in 0.01s: None
-</code></pre>
-
-<p>Gayet beklediğimiz gibi ilerliyor. Yazıyı 5 dakikaya sığdırmak epey zor oldu; ama seriyi devam ettirmeye enerjim var, merak etmeyin. Sonraki yazımızda görüşmek üzere.</p>
-<div class="footnotes">
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
+$ docker-compose logs -f --tail <span style="color:#ae81ff">100</span> celery
+celery_1  | <span style="color:#f92672">[</span>2018-06-12 16:34:08,298: INFO<span style="color:#f92672">]</span> Received task: hello_uptime.tasks.check_monitors<span style="color:#f92672">[</span>92ef036c-...3<span style="color:#f92672">]</span>
+celery_1  | <span style="color:#f92672">[</span>2018-06-12 16:34:09,926: INFO<span style="color:#f92672">]</span> Task hello_uptime.tasks.check_monitors<span style="color:#f92672">[</span>92ef036c-5341-...3<span style="color:#f92672">]</span> succeeded in 1.6s: None
+celery_1  | <span style="color:#f92672">[</span>2018-06-12 16:35:08,298: INFO<span style="color:#f92672">]</span> Received task: hello_uptime.tasks.check_monitors<span style="color:#f92672">[</span>e9a53576-...c<span style="color:#f92672">]</span>
+celery_1  | <span style="color:#f92672">[</span>2018-06-12 16:35:08,305: INFO<span style="color:#f92672">]</span> Task hello_uptime.tasks.check_monitors<span style="color:#f92672">[</span>e9a53576-...c<span style="color:#f92672">]</span> succeeded in 0.01s: None
+celery_1  | <span style="color:#f92672">[</span>2018-06-12 16:36:08,298: INFO<span style="color:#f92672">]</span> Received task: hello_uptime.tasks.check_monitors<span style="color:#f92672">[</span>5574fbc6-...0<span style="color:#f92672">]</span>
+celery_1  | <span style="color:#f92672">[</span>2018-06-12 16:36:08,306: INFO<span style="color:#f92672">]</span> Task hello_uptime.tasks.check_monitors<span style="color:#f92672">[</span>5574fbc6-...0<span style="color:#f92672">]</span> succeeded in 0.01s: None
+</code></pre></div><p>Gayet beklediğimiz gibi ilerliyor. Yazıyı 5 dakikaya sığdırmak epey zor oldu; ama seriyi devam ettirmeye enerjim var, merak etmeyin. Sonraki yazımızda görüşmek üzere.</p>
+<div class="footnotes" role="doc-endnotes">
 <hr />
-
 <ol>
-<li id="fn:1"><a href="http://www.celeryproject.org/">Celery</a> websitesinde detaylı bilgi bulabilirsiniz.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:2">Önce development konusunu uptime ile bitirelim, sonraki yazılarda deployment konusuna değineceğiz.
- <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
-<li id="fn:3"><a href="https://store.docker.com/search?type=edition&amp;offering=community">Buradan</a> indirebilirsiniz. MacOS, Windows, Ubuntu, hatta yerele kurmayıp AWS gibi cloud çözümler üzerinden bile Docker kullanmak mümkün.
- <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p><a href="http://www.celeryproject.org/">Celery</a> websitesinde detaylı bilgi bulabilirsiniz. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Önce development konusunu uptime ile bitirelim, sonraki yazılarda deployment konusuna değineceğiz. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p><a href="https://store.docker.com/search?type=edition&amp;offering=community">Buradan</a> indirebilirsiniz. MacOS, Windows, Ubuntu, hatta yerele kurmayıp AWS gibi cloud çözümler üzerinden bile Docker kullanmak mümkün. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
 </div>
 

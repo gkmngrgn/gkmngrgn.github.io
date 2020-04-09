@@ -23,30 +23,25 @@ their websites to promote the programming language beautifully as in Python and
 Rust. In these websites, you can find documentation, tutorials, even a free
 ebook that allows you to read from the website directly, and they&amp;rsquo;re mostly
 up-to-date.&lt;/p&gt;
-
 &lt;p&gt;As you know, Rust is not an easy-to-learn programming language. So I frequently
 look at the official documentation of Rust, and sometimes I choose a random
 topic and read them again and again. Before starting to read this book, I took a
 look at the pages and saw some details that I still missed on the Rust
 documentation. Then I read the entire book thoroughly.&lt;/p&gt;
-
 &lt;p&gt;My ebook was the &lt;a href=&#34;https://www.packtpub.com/application-development/rust-essentials&#34;&gt;first edition&lt;/a&gt;, and there were missing topics like async
 programming. The author published the second edition in 2017, and it seems he
 will need to prepare a new version to include the last changes in the
 language. That&amp;rsquo;s why I do not prefer to learn a programming language from a
 book. Rust is improving rapidly, so you need to follow the official
 documentation always.&lt;/p&gt;
-
 &lt;p&gt;Another issue that I feel most lacking right now is macros. I know that they&amp;rsquo;re
 similar to Lisp macros, but I still couldn&amp;rsquo;t have a chance to try it in my pet
 projects yet. The book shows me an example of usage, but I don&amp;rsquo;t understand how
 and where to use it. I wish to see the samples from a specific project or all
 samples come from the same project.&lt;/p&gt;
-
 &lt;p&gt;Finally, I share a table about the pointer types in Rust, when I started
 learning Rust, it was pretty intimidating. Now it seems a little more
 meaningful.&lt;/p&gt;
-
 &lt;!-- copy the rendered table from the browser, and add table class manually.
 | Type       | Name                | Description                                                            |
 |------------|---------------------|------------------------------------------------------------------------|
@@ -58,7 +53,6 @@ meaningful.&lt;/p&gt;
 | `*const T` | Raw pointer         | Unsafe read access to **T**                                            |
 | `*mut T`   | Mutable raw pointer | Unsafe read and write access to **T**                                  |
 --&gt;
-
 &lt;div class=&#34;table-responsive&#34;&gt;
 &lt;table class=&#34;table table-dark table-bordered table-sm&#34;&gt;
 &lt;thead&gt;
@@ -68,44 +62,37 @@ meaningful.&lt;/p&gt;
 &lt;th&gt;Description&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;&amp;amp;T&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Reference&lt;/td&gt;
 &lt;td&gt;One or more references to read &lt;strong&gt;T&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;&amp;amp;mut T&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Mutable reference&lt;/td&gt;
 &lt;td&gt;Single reference to read and write &lt;strong&gt;T&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;Box&amp;lt;T&amp;gt;&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Box&lt;/td&gt;
 &lt;td&gt;Heap-allocated &lt;strong&gt;T&lt;/strong&gt; with a single owner that may read and write &lt;strong&gt;T&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;Rc&amp;lt;T&amp;gt;&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Rc pointer&lt;/td&gt;
 &lt;td&gt;Heap-allocated &lt;strong&gt;T&lt;/strong&gt; with many readers&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;Arc&amp;lt;T&amp;gt;&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Arc pointer&lt;/td&gt;
 &lt;td&gt;Like &lt;strong&gt;Rc&lt;t&gt;&lt;/t&gt;&lt;/strong&gt;, but enables safe mutable sharing accross threads&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;*const T&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Raw pointer&lt;/td&gt;
 &lt;td&gt;Unsafe read access to &lt;strong&gt;T&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;*mut T&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Mutable raw pointer&lt;/td&gt;
@@ -114,7 +101,6 @@ meaningful.&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/books/rust-essentials.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
@@ -131,7 +117,6 @@ sword and shield, so you think that the story is in the past, but you also have
 a kind of motorcycle that has no wheels but can fly. Also, you have a brother in
 arms named Gen, and it&amp;rsquo;s a robot. The other friend Trin tells you the story
 during the game, help you to solve the puzzle.&lt;/p&gt;
-
 &lt;p&gt;Warlock Mesmeroth is the primary foe in the game; he is coming back somehow. So
 the first goal is to convince the knights of the lost realm to be together
 against him. It&amp;rsquo;s beneficial to learn of the abilities of your character to
@@ -139,12 +124,10 @@ solve the puzzles quickly. It can&amp;rsquo;t jump, can&amp;rsquo;t swim more th
 it can burn somethings and throw them away, can sweep the grass to find heart,
 coin, or bullet. It can blow up the walls with a bomb. Also, you can give some
 directions to Trin or Gen to do something that you want.&lt;/p&gt;
-
 &lt;p&gt;The maps of the sections are too large, so it may take a while to find a way to
 pass to the next section. It was the first time that I played a game in a PC
 quality on the iPad. But the game poorly finished; it is as if the development
 of the game has been left unfinished. I think the third version of &lt;a href=&#34;https://www.cornfox.com/oceanhorn-2&#34;&gt;Oceanhorn&lt;/a&gt; will come out.&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/games/oceanhorn2.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
@@ -158,21 +141,17 @@ of the game has been left unfinished. I think the third version of &lt;a href=&#
       <description>&lt;p&gt;I have a gaming PC for two years but couldn&amp;rsquo;t have time to play a game. So I
 decided to change my priorities in my life and will try to play more games and
 read more books this year.&lt;/p&gt;
-
 &lt;p&gt;My first plan was to play this game with my daughter, but I realized that it was
 not a suitable game for kids after I bought it, so I&amp;rsquo;ll pay attention to use the
 family filter from now on.&lt;/p&gt;
-
 &lt;p&gt;Fortunately, I did not regret it. There are some characters you play in the
 game. And the painful past of them is creating the story of the game. Especially
 the imagination of the girl was very shocking for me. I&amp;rsquo;ll not give you a
 spoiler, but the story helps you to understand what depression is and how human
 relations are so crucial for the traumatized people.&lt;/p&gt;
-
 &lt;p&gt;This game is first for me in many ways.  It&amp;rsquo;s my first indie game, first
 story-driven atmospheric game, and the first game that I played with a game
 controller. If you want to spend a weekend playing a game, I recommend &lt;a href=&#34;https://inmostgame.com/&#34;&gt;Inmost&lt;/a&gt;.&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/games/inmost.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
@@ -184,13 +163,11 @@ controller. If you want to spend a weekend playing a game, I recommend &lt;a hre
       
       <guid>https://gokmengorgen.net/blog/2019/12/being-a-polyglot-developer/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/commodore.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
 &lt;p&gt;My objective for the year 2019 was joining one more programming language
 community after Python and Lisp. I followed .NET Core in my first six months and
 did some projects using C# and F#. But then, I decided that learning Rust is a
 better idea. Some of the Python and Django developers I&amp;rsquo;ve followed have had a
 significant impact on my decision.&lt;/p&gt;
-
 &lt;p&gt;Python is a programming language that easy to learn, it has a significant and
 active community, and I believe that it will keep its popularity for a longer
 time. Therefore, when choosing another programming language, I make sure that it
@@ -201,7 +178,6 @@ Python. But I would not have preferred Python if I want to make a mobile
 application, that would not make sense. Or I would use Rust for embedded or
 blockchain projects; I would code data or text mining tools in Lisp, for
 example.&lt;/p&gt;
-
 &lt;p&gt;In the past, being a full-stack developer was an extremely wanted job
 position. Now I don&amp;rsquo;t know how it is, but I suggest you stay away and become a
 polyglot developer instead.&lt;/p&gt;
@@ -215,21 +191,13 @@ polyglot developer instead.&lt;/p&gt;
       
       <guid>https://gokmengorgen.net/blog/2019/08/data-types-in-programming/</guid>
       <description>&lt;p&gt;I started to take a look at C++ courses to understand Rust better because it helps me to see the advantages of Rust. The following images are from a Linkedin course, the instructor is &lt;a href=&#34;https://www.linkedin.com/learning/c-plus-plus-essential-training-2/&#34;&gt;Bill Weinman&lt;/a&gt;, and his courses are perfect if you want to program with C++.&lt;/p&gt;
-
 &lt;p&gt;If you have a photographic memory to remind something quickly, then you may like these images explaining data types in programming.&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-iostream.jpg&#34; alt=&#34;IOStream&#34; /&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-list.jpg&#34; alt=&#34;List&#34; /&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-map.jpg&#34; alt=&#34;Map&#34; /&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-queue.jpg&#34; alt=&#34;Queue&#34; /&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-set.jpg&#34; alt=&#34;Set&#34; /&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-string.jpg&#34; alt=&#34;String&#34; /&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/cpp-vector.jpg&#34; alt=&#34;Vector&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
@@ -240,16 +208,10 @@ polyglot developer instead.&lt;/p&gt;
       <pubDate>Sat, 03 Aug 2019 15:24:01 +0200</pubDate>
       
       <guid>https://gokmengorgen.net/blog/2019/08/first-review-on-my-ipad/</guid>
-      <description>
-
-&lt;p&gt;&lt;em&gt;I started using an iPad instead of a second laptop for more effective use. Although it is excellent for reading things, answering emails, checking tasks, it is still not possible to use as a laptop with these devices.&lt;/em&gt;&lt;/p&gt;
-
+      <description>&lt;p&gt;&lt;em&gt;I started using an iPad instead of a second laptop for more effective use. Although it is excellent for reading things, answering emails, checking tasks, it is still not possible to use as a laptop with these devices.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;So I tried to connect to my primary PC remotely. But this was not satisfactory for me either. I took some notes to compare when iOS 13 and some updates came.&lt;/em&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/ipad-remote-desktop.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
 &lt;h2 id=&#34;pros&#34;&gt;Pros&lt;/h2&gt;
-
 &lt;ul&gt;
 &lt;li&gt;In tablet mode, all screens are full-sized automatically.&lt;/li&gt;
 &lt;li&gt;The density of UI components is more comfortable to manage cursor with touching.&lt;/li&gt;
@@ -257,17 +219,13 @@ polyglot developer instead.&lt;/p&gt;
 &lt;li&gt;The virtual keyboard is great! I didn’t need to use the iPad’s native on-screen keyboard.&lt;/li&gt;
 &lt;li&gt;We can’t see the running apps in the taskbar in tablet mode, but it&amp;rsquo;s possible to use the gestures to show all running apps.&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;cons&#34;&gt;Cons&lt;/h2&gt;
-
 &lt;ul&gt;
 &lt;li&gt;You need a remote desktop or a server. It&amp;rsquo;s impossible to work offline.&lt;/li&gt;
 &lt;li&gt;If you decide to use a remote desktop and you are obsessed about fonts, there&amp;rsquo;s no way to fix screen quality.&lt;/li&gt;
 &lt;li&gt;I&amp;rsquo;m not sure that I can code with iPad for hours even I have a good physical keyboard.&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;so&#34;&gt;So..&lt;/h2&gt;
-
 &lt;ul&gt;
 &lt;li&gt;With the new updates in macOS and iOS 13, it will be possible to run iPad applications on macOS. So iPadOS may affect the quality and variety of applications.&lt;/li&gt;
 &lt;li&gt;I’m still waiting for a new version of Microsoft Surface or Surface Go that using ARM CPU, has Thunderbolt 3 and USB-C ports.&lt;/li&gt;
@@ -283,27 +241,20 @@ polyglot developer instead.&lt;/p&gt;
       
       <guid>https://gokmengorgen.net/blog/2019/06/my-first-wrong-after-the-vacation/</guid>
       <description>&lt;p&gt;At the end of my three-week vacation, I was asked for a seemingly easy task. We were going to release the new version of the project we developed:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Is today is the last working of the week? &lt;strong&gt;No&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Is there any problem with the unit tests? &lt;strong&gt;No&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Are all changes confirmed by the product manager, in the staging server? &lt;strong&gt;Yes&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;I always note everything, and so I write this article to remind this experience. My other habit is to define &lt;a href=&#34;https://gokmengorgen.net/en/blog/how-do-i-publish-my-articles/&#34;&gt;&lt;strong&gt;dosh&lt;/strong&gt;&lt;/a&gt; sub-commands to access frequently used commands in my whole projects. It doesn&amp;rsquo;t matter if the project is written in .NET Core or used Django;&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;I know that the project will start in my development environment with &lt;code&gt;dosh start&lt;/code&gt;,&lt;/li&gt;
 &lt;li&gt;I know that the project will build with &lt;code&gt;dosh build&lt;/code&gt;,&lt;/li&gt;
 &lt;li&gt;I know that &lt;code&gt;dosh deploy&lt;/code&gt; command will be running if I push my commits to some specific git branches. All these things are common sub-commands in my projects.&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;So what was not a standard?&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/server-updates.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
 &lt;p&gt;I manage everything in a project except the server maintenance. Today the site was offline about an hour because of the communication failure. Sometimes there are small but critical upgrades on the servers, and one of them broke SSL module of the project&amp;rsquo;s &lt;strong&gt;psycopg2&lt;/strong&gt; dependency. I had only these logs:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;DAMN ! worker 1 (pid: 28018) died :( trying respawn ...
 Respawned uWSGI worker 1 (new pid: 28021)
 !!! uWSGI process 27988 got Segmentation Fault !!!
@@ -316,28 +267,20 @@ Respawned uWSGI worker 1 (new pid: 28021)
 /project/venv/lib/python3.6/site-packages/psycopg2/.libs/./libssl-8bb9b3dd.so.1.0.2o(tls1_clear+0x9) [0x7f480a751229]
 /usr/lib/x86_64-linux-gnu/libssl.so.1.1(SSL_new+0x3f2) [0x7f4812b429d2]
 /project/venv/lib/python3.6/site-packages/psycopg2/.libs/libpq-239f9ac8.so.5.10(+0x23399) [0x7f480a9dc399]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You may know &lt;strong&gt;Segmentation Fault&lt;/strong&gt; if you coded in C or if you worked with a package manager. Some included libraries that are coming with psycopg2 binary package are linked to the old version of libssl, so the last server update &lt;mark&gt;broke the dependencies&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/mark&gt;.&lt;/p&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You may know &lt;strong&gt;Segmentation Fault&lt;/strong&gt; if you coded in C or if you worked with a package manager. Some included libraries that are coming with psycopg2 binary package are linked to the old version of libssl, so the last server update &lt;mark&gt;broke the dependencies&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/mark&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;lib/python3.6/site-packages/psycopg2/.libs/libssl-8bb9b3dd.so.1.0.2o   # from 1.0
 lib/python3.6/site-packages/psycopg2/.libs/libssl-7a80b951.so.1.1.1b   # to 1.1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In some projects, it’s not possible to solve the problems as we wanted because of some regulations and source limits. I could find prevention for that case, but somehow, I forgot to check the updates in the source code and server packages and tried to make the deployment. And the worst thing, I didn’t realise the problem until someone warned me.&lt;/p&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In some projects, it’s not possible to solve the problems as we wanted because of some regulations and source limits. I could find prevention for that case, but somehow, I forgot to check the updates in the source code and server packages and tried to make the deployment. And the worst thing, I didn’t realise the problem until someone warned me.&lt;/p&gt;
 &lt;p&gt;So, I added one more rule for myself to make a deployment:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Is today the first day after the vacation? &lt;strong&gt;Yes (so, don&amp;rsquo;t touch it.)&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr /&gt;
-
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;&amp;ldquo;Don&amp;rsquo;t break the dependencies&amp;rdquo;, I missed contributing a Linux distro like Pardus.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&amp;ldquo;Don&amp;rsquo;t break the dependencies&amp;rdquo;, I missed contributing a Linux distro like Pardus. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -349,60 +292,44 @@ lib/python3.6/site-packages/psycopg2/.libs/libssl-7a80b951.so.1.1.1b   # to 1.1
       <pubDate>Sat, 16 Mar 2019 19:35:51 +0200</pubDate>
       
       <guid>https://gokmengorgen.net/blog/2019/03/configure-windows-for-development/</guid>
-      <description>
-
-&lt;h2 id=&#34;environment-variables&#34;&gt;Environment Variables&lt;/h2&gt;
-
+      <description>&lt;h2 id=&#34;environment-variables&#34;&gt;Environment Variables&lt;/h2&gt;
 &lt;p&gt;I still use some development tools that are used by most Linux users and these tools need some environment variables like &lt;strong&gt;LC_ALL&lt;/strong&gt;, &lt;strong&gt;HOME&lt;/strong&gt;, etc. When I have a new PC with Windows 10, I start to use with defining these variables. Take a look at &lt;a href=&#34;https://gokmengorgen.net/en/blog/important-windows-environment-variables/&#34;&gt;this post&lt;/a&gt; for more detail.&lt;/p&gt;
-
 &lt;h2 id=&#34;powershell-core&#34;&gt;PowerShell Core&lt;/h2&gt;
-
 &lt;p&gt;It&amp;rsquo;s possible to use BASH on Windows indeed, but I think PowerShell Core is a good alternative. Git integration is working well, defining aliases and functions is easy:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-powershell&#34;&gt;# Extensions
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Extensions&lt;/span&gt;
 Import-Module posh-git
 Import-Module PSReadLine
 
-# DOSH settings
-$env:ENV = &amp;quot;DEV&amp;quot;
-Set-Alias dosh .\do.ps1
+&lt;span style=&#34;color:#75715e&#34;&gt;# DOSH settings&lt;/span&gt;
+$env:ENV = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;DEV&amp;#34;&lt;/span&gt;
+Set-Alias dosh .\&lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;.ps1
 
-# Readline settings
+&lt;span style=&#34;color:#75715e&#34;&gt;# Readline settings&lt;/span&gt;
 Set-PSReadLineOption -EditMode Emacs
 
-# Git prompt settings
+&lt;span style=&#34;color:#75715e&#34;&gt;# Git prompt settings&lt;/span&gt;
 $GitPromptSettings.DefaultPromptPath.ForegroundColor = 0xFFA500
 $GitPromptSettings.DefaultPromptWriteStatusFirst = $true
-$GitPromptSettings.DefaultPromptBeforeSuffix.Text = &#39;`n$([DateTime]::now.ToString(&amp;quot;MM-dd HH:mm:ss&amp;quot;))&#39;
+$GitPromptSettings.DefaultPromptBeforeSuffix.Text = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;`n$([DateTime]::now.ToString(&amp;#34;MM-dd HH:mm:ss&amp;#34;))&amp;#39;&lt;/span&gt;
 $GitPromptSettings.DefaultPromptBeforeSuffix.ForegroundColor = 0x808080
-$GitPromptSettings.DefaultPromptSuffix = &#39; $((Get-History -Count 1).id + 1)$(&amp;quot; &amp;gt;&amp;quot; * ($nestedPromptLevel + 1)) &#39;
+$GitPromptSettings.DefaultPromptSuffix = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; $((Get-History -Count 1).id + 1)$(&amp;#34; &amp;gt;&amp;#34; * ($nestedPromptLevel + 1)) &amp;#39;&lt;/span&gt;
 
-# Helper commands
-function which ($command) {
+&lt;span style=&#34;color:#75715e&#34;&gt;# Helper commands&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; which ($command) {
     Get-Command $command | Select-Object -ExpandProperty Definition
 }
 
-function touch ($filename) {
+&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; touch ($filename) {
     $null &amp;gt; $filename
 }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Readline&lt;/strong&gt; is a familiar extension for BASH users. If you want to use Emacs key bindings in PowerShell, I suggest you add Readline to the dependencies list.&lt;/p&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Readline&lt;/strong&gt; is a familiar extension for BASH users. If you want to use Emacs key bindings in PowerShell, I suggest you add Readline to the dependencies list.&lt;/p&gt;
 &lt;p&gt;What if we want to use a Linux command-line app? Like Nano? Indeed, it&amp;rsquo;s possible to use it as a default git-commit editor but, let&amp;rsquo;s consider it&amp;rsquo;s a program that only available in Linux. I use WSL for that case. Just install Ubuntu or another Linux distro with WSL, open PowerShell and run this command:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-powershell&#34;&gt;&amp;gt; wsl -e nano README.md
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So you can reach all Ubuntu programs using this magic command. There&amp;rsquo;s only a little problem here, you have to keep your configuration files (like &lt;strong&gt;.nanorc&lt;/strong&gt;) in your WSL instead of in your local. You can find my configuration repo &lt;a href=&#34;https://github.com/gkmngrgn/config/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&amp;gt; wsl -e nano README.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;So you can reach all Ubuntu programs using this magic command. There&amp;rsquo;s only a little problem here, you have to keep your configuration files (like &lt;strong&gt;.nanorc&lt;/strong&gt;) in your WSL instead of in your local. You can find my configuration repo &lt;a href=&#34;https://github.com/gkmngrgn/config/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;git-apply-eol-problem&#34;&gt;Git-apply EOL Problem&lt;/h2&gt;
-
 &lt;p&gt;If you don&amp;rsquo;t ignore space changes in your patch command, you will get an error because the whitespaces in Linux environments. To solve this problem, use &lt;strong&gt;git-apply&lt;/strong&gt; with these parameters:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ git apply --ignore-space-change --ignore-whitespace a.diff
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git apply --ignore-space-change --ignore-whitespace a.diff
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -412,7 +339,6 @@ function touch ($filename) {
       
       <guid>https://gokmengorgen.net/blog/2019/02/consumer/</guid>
       <description>&lt;p&gt;For good things in life, you need labour, patience, and time.&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;To draw a picture,&lt;/li&gt;
 &lt;li&gt;To play an instrument,&lt;/li&gt;
@@ -425,7 +351,6 @@ function touch ($filename) {
 &lt;li&gt;To prepare a broadcast,&lt;/li&gt;
 &lt;li&gt;For everything.&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Just sharing something in social media and consuming it is easy.&lt;/p&gt;
 </description>
     </item>
@@ -437,7 +362,6 @@ function touch ($filename) {
       
       <guid>https://gokmengorgen.net/blog/2019/02/what-age-do-we-live/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/train-station.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
 &lt;blockquote&gt;
 &lt;p&gt;Our technology is not so advanced to be an eye or an ear for us.&lt;br /&gt;
 Or we&amp;rsquo;re not in an age where we don&amp;rsquo;t need our body yet.&lt;/p&gt;
@@ -452,9 +376,7 @@ Or we&amp;rsquo;re not in an age where we don&amp;rsquo;t need our body yet.&lt;
       
       <guid>https://gokmengorgen.net/blog/2019/01/string-quotes-in-pep8/</guid>
       <description>&lt;p&gt;I use PEP8 in my Python projects except for &lt;a href=&#34;https://www.python.org/dev/peps/pep-0008/#string-quotes&#34;&gt;a few rules&lt;/a&gt;.&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/pep8-string-quotes.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
 &lt;p&gt;I think &amp;lsquo;single-quote&amp;rsquo; and &amp;ldquo;double-quote&amp;rdquo; characters should &lt;strong&gt;NOT&lt;/strong&gt; be the same. It could be better if these two characters had different counterparts in the Python language parser system. So we could use one of them for the template-strings (or f-strings). It doesn&amp;rsquo;t provide readability, causes inconsistency instead. Until now, I used string-quotes for the variable definitions and double-quotes for the visible texts. &lt;a href=&#34;https://github.com/gkmngrgn/style-guide/blob/master/python.md&#34;&gt;But now&lt;/a&gt;, I plan to use always double-quote as in many other programming languages.&lt;/p&gt;
 </description>
     </item>
@@ -466,9 +388,7 @@ Or we&amp;rsquo;re not in an age where we don&amp;rsquo;t need our body yet.&lt;
       
       <guid>https://gokmengorgen.net/blog/2019/01/spreasheet-apps/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/spreadsheet-apps.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
 &lt;p&gt;Spreadsheet applications are the most functional applications I&amp;rsquo;ve used. Excel, Gnumeric, Google Sheet, OpenOffice Calc or whatever, it doesn&amp;rsquo;t matter. You can use it as task management like Trello, make daily - weekly - monthly plans, store and transfer data, and follow your financial situation. It&amp;rsquo;s like a Swiss army knife and not a new invention.&lt;/p&gt;
-
 &lt;p&gt;I&amp;rsquo;ll update this article when I find a more functional application.&lt;/p&gt;
 </description>
     </item>
@@ -479,35 +399,23 @@ Or we&amp;rsquo;re not in an age where we don&amp;rsquo;t need our body yet.&lt;
       <pubDate>Sun, 30 Dec 2018 15:06:17 +0100</pubDate>
       
       <guid>https://gokmengorgen.net/blog/2018/12/how-do-i-publish-my-articles/</guid>
-      <description>
-
-&lt;p&gt;With just a command:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# terminal
-$ ENV=PROD ./do.sh deploy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I have many projects using my script named &lt;a href=&#34;https://gist.github.com/gkmngrgn/48303742353b0b17ae0e5c2d1d24ec3e&#34;&gt;DOSH&lt;/a&gt; and the parameters are mostly in common; &lt;code&gt;deploy&lt;/code&gt;, &lt;code&gt;start&lt;/code&gt;, &lt;code&gt;stop&lt;/code&gt;, &lt;code&gt;runtests&lt;/code&gt;, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like &lt;a href=&#34;https://gohugo.io/&#34;&gt;this one&lt;/a&gt; but I run all the projects with the same command: &lt;code&gt;dosh start&lt;/code&gt;.&lt;/p&gt;
-
+      <description>&lt;p&gt;With just a command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# terminal&lt;/span&gt;
+$ ENV&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;PROD ./do.sh deploy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I have many projects using my script named &lt;a href=&#34;https://gist.github.com/gkmngrgn/48303742353b0b17ae0e5c2d1d24ec3e&#34;&gt;DOSH&lt;/a&gt; and the parameters are mostly in common; &lt;code&gt;deploy&lt;/code&gt;, &lt;code&gt;start&lt;/code&gt;, &lt;code&gt;stop&lt;/code&gt;, &lt;code&gt;runtests&lt;/code&gt;, etc. It can be a .NET Core or a Django project, or just a website using any static site generator like &lt;a href=&#34;https://gohugo.io/&#34;&gt;this one&lt;/a&gt; but I run all the projects with the same command: &lt;code&gt;dosh start&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;In Windows, the command may be a bit longer than in the other operating systems. So it&amp;rsquo;s a good idea to shorten the command using some aliases, the default environment is &lt;code&gt;DEV&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# ~/.bash_profile
-alias dosh=&amp;quot;winpty bash do.sh&amp;quot;  # or just type &amp;quot;./do.sh&amp;quot; in Linux or MacOS.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# terminal
-$ dosh start  # in DEV
-$ ENV=PROD dosh deploy  # in PROD, my deploy parameter works only in production.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Do you use PowerShell? No problem, I think it&amp;rsquo;s better to do the same thing in PowerShell, you can find the sample codes below, but let me show you how I use that, it&amp;rsquo;s a bit different than BASH:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-powershell&#34;&gt;# powershell
-~\Workspace\website [master ≡]&amp;gt; $env:ENV = &amp;quot;PROD&amp;quot;
-~\Workspace\website [master ≡]&amp;gt; dosh deploy
-Environment: production
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# ~/.bash_profile&lt;/span&gt;
+alias dosh&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;winpty bash do.sh&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# or just type &amp;#34;./do.sh&amp;#34; in Linux or MacOS.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# terminal&lt;/span&gt;
+$ dosh start  &lt;span style=&#34;color:#75715e&#34;&gt;# in DEV&lt;/span&gt;
+$ ENV&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;PROD dosh deploy  &lt;span style=&#34;color:#75715e&#34;&gt;# in PROD, my deploy parameter works only in production.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Do you use PowerShell? No problem, I think it&amp;rsquo;s better to do the same thing in PowerShell, you can find the sample codes below, but let me show you how I use that, it&amp;rsquo;s a bit different than BASH:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# powershell&lt;/span&gt;
+~\Workspace\website [master &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;≡&lt;/span&gt;]&amp;gt; $env:ENV = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PROD&amp;#34;&lt;/span&gt;
+~\Workspace\website [master &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;≡&lt;/span&gt;]&amp;gt; dosh deploy
+Environment&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; production
 Deploying updates to GitHub...
-Building sites …
+Building sites &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;…&lt;/span&gt;
                    | EN | TR
 +------------------+----+----+
   Pages            | 13 | 67
@@ -519,180 +427,168 @@ Building sites …
   Sitemaps         |  2 |  1
   Cleaned          |  0 |  0
 
-Total in 748 ms
-[master 1686121] rebuilding site 12/30/2018 15:02:32
+Total &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; 748 ms
+&lt;span style=&#34;color:#66d9ef&#34;&gt;[master 1686121]&lt;/span&gt; rebuilding site 12/30/2018 15&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt;02&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt;32
  1 file changed, 3 insertions(+), 3 deletions(-)
-Enumerating objects: 9, done.
-Counting objects: 100% (9/9), done.
+Enumerating objects&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; 9, done.
+Counting objects&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; 100% (9/9), done.
 Delta compression using up to 12 threads
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (5/5), 628 bytes | 628.00 KiB/s, done.
+Compressing objects&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; 100% (4/4), done.
+Writing objects&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; 100% (5/5), 628 bytes | 628.00 KiB/s, done.
 Total 5 (delta 3), reused 0 (delta 0)
-remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
-To github.com:gkmngrgn/gkmngrgn.github.io.git
+remote&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; Resolving deltas&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; 100% (3/3), completed with 3 local objects.
+To github.com&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt;gkmngrgn/gkmngrgn.github.io.git
    733793b..1686121  master -&amp;gt; master
 DONE.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;code-samples&#34;&gt;Code samples&lt;/h2&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;code-samples&#34;&gt;Code samples&lt;/h2&gt;
 &lt;p&gt;You can find many sample codes here to write a deployment script and I didn&amp;rsquo;t think of this idea &lt;strong&gt;first&lt;/strong&gt; but still, I&amp;rsquo;m sharing my scripts to be an alternative:&lt;/p&gt;
+&lt;h3 id=&#34;dosh&#34;&gt;./do.sh&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+BLUE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\033[1;34m&amp;#34;&lt;/span&gt;
+GREEN&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\033[1;32m&amp;#34;&lt;/span&gt;
+NORMAL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\033[0;39m&amp;#34;&lt;/span&gt;
+RED&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\033[1;31m&amp;#34;&lt;/span&gt;
 
-&lt;h3 id=&#34;do-sh&#34;&gt;./do.sh&lt;/h3&gt;
+print_help&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+    echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;BLUE&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Available environments&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;NORMAL&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;  - DEV (default)&amp;#34;&lt;/span&gt;
+    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;  - PROD&amp;#34;&lt;/span&gt;
+    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;  - STAGING&amp;#34;&lt;/span&gt;
+    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+    echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;BLUE&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Available commands&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;NORMAL&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+    echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;  &amp;gt; deploy [:message]      Deploy the changes&amp;#34;&lt;/span&gt;
+    echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;  &amp;gt; start                  Run development server&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/usr/bin/env bash
-
-BLUE=&amp;quot;\\033[1;34m&amp;quot;
-GREEN=&amp;quot;\\033[1;32m&amp;quot;
-NORMAL=&amp;quot;\\033[0;39m&amp;quot;
-RED=&amp;quot;\\033[1;31m&amp;quot;
-
-print_help() {
-    echo -e &amp;quot;${BLUE}Available environments${NORMAL}&amp;quot;
-    echo &amp;quot;  - DEV (default)&amp;quot;
-    echo &amp;quot;  - PROD&amp;quot;
-    echo &amp;quot;  - STAGING&amp;quot;
-    echo &amp;quot;&amp;quot;
-    echo -e &amp;quot;${BLUE}Available commands${NORMAL}&amp;quot;
-    echo -e &amp;quot;  &amp;gt; deploy [:message]      Deploy the changes&amp;quot;
-    echo -e &amp;quot;  &amp;gt; start                  Run development server&amp;quot;
-}
-
-deploy() {
-    case ${ENV} in
-        &amp;quot;PROD&amp;quot;)
-            echo -e &amp;quot;${BLUE}Deploying updates to GitHub...${NORMAL}&amp;quot;
+deploy&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;ENV&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt; in
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PROD&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+            echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;BLUE&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Deploying updates to GitHub...&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;NORMAL&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
             ;;
-        *)
-            echo -e &amp;quot;${RED}This command only works in production.${NORMAL}&amp;quot;
+        *&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+            echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;RED&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;This command only works in production.&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;NORMAL&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
             exit
             ;;
-    esac
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;esac&lt;/span&gt;
 
-    if [ $# -eq 1 ]
-    then msg=&amp;quot;${1}&amp;quot;
-    else msg=&amp;quot;rebuilding site `date`&amp;quot;
-    fi
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $# -eq &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;1&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rebuilding site `date`&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
 
     hugo
     cd public
     git add .
-    git commit -m &amp;quot;${msg}&amp;quot;
+    git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;msg&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
     git push origin master
     cd ..
-    echo -e &amp;quot;${GREEN}DONE.${NORMAL}&amp;quot;
-}
+    echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;GREEN&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;DONE.&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;NORMAL&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 
-start() {
+start&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
     hugo server -D
-}
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 
-if [ -z &amp;quot;$1&amp;quot; ]
-then
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -z &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$1&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
     print_help
-else
-    case $ENV in
-        &amp;quot;PROD&amp;quot;)
-            env_str=&amp;quot;production&amp;quot;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; $ENV in
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PROD&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+            env_str&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;production&amp;#34;&lt;/span&gt;
             ;;
-        &amp;quot;STAGING&amp;quot;)
-            env_str=&amp;quot;staging&amp;quot;
+        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;STAGING&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+            env_str&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;staging&amp;#34;&lt;/span&gt;
             ;;
-        *)
-            env_str=&amp;quot;development&amp;quot;
+        *&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+            env_str&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;development&amp;#34;&lt;/span&gt;
             ;;
-    esac
-    echo -e &amp;quot;${BLUE}Environment:${NORMAL} $env_str&amp;quot;
-    &amp;quot;$@&amp;quot;
-fi
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;do-ps1&#34;&gt;./do.ps1&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-powershell&#34;&gt;&amp;lt;# Variables #&amp;gt;
-if ($env:ENV -eq &amp;quot;PROD&amp;quot;) {
-    $env_str = &amp;quot;production&amp;quot;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;esac&lt;/span&gt;
+    echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;BLUE&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Environment:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;NORMAL&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &lt;/span&gt;$env_str&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$@&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;dops1&#34;&gt;./do.ps1&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;# Variables #&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ($env:ENV &lt;span style=&#34;color:#f92672&#34;&gt;-eq&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PROD&amp;#34;&lt;/span&gt;) {
+    $env_str = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;production&amp;#34;&lt;/span&gt;
 }
-elseif ($env:ENV -eq &amp;quot;STAGING&amp;quot;) {
-    $env_str = &amp;quot;staging&amp;quot;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;elseif&lt;/span&gt; ($env:ENV &lt;span style=&#34;color:#f92672&#34;&gt;-eq&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;STAGING&amp;#34;&lt;/span&gt;) {
+    $env_str = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;staging&amp;#34;&lt;/span&gt;
 }
-else {
-    if ($env:ENV -ne &amp;quot;DEV&amp;quot;) {
-        $env:ENV = &amp;quot;DEV&amp;quot;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ($env:ENV &lt;span style=&#34;color:#f92672&#34;&gt;-ne&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;DEV&amp;#34;&lt;/span&gt;) {
+        $env:ENV = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;DEV&amp;#34;&lt;/span&gt;
     }
-    $env_str = &amp;quot;development&amp;quot;
+    $env_str = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;development&amp;#34;&lt;/span&gt;
 }
 
-&amp;lt;# Functions #&amp;gt;
-function Get-Help {
-    Write-Host -ForegroundColor Cyan &amp;quot;Available Environments&amp;quot;
-    Write-Output &amp;quot;  - DEV (default)&amp;quot;
-    Write-Output &amp;quot;  - PROD&amp;quot;
-    Write-Output &amp;quot;  - STAGING&amp;quot;
-    Write-Output &amp;quot;&amp;quot;
+&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;# Functions #&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; Get-Help {
+    Write-Host -ForegroundColor Cyan &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Available Environments&amp;#34;&lt;/span&gt;
+    Write-Output &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;  - DEV (default)&amp;#34;&lt;/span&gt;
+    Write-Output &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;  - PROD&amp;#34;&lt;/span&gt;
+    Write-Output &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;  - STAGING&amp;#34;&lt;/span&gt;
+    Write-Output &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
 
-    Write-Host -ForegroundColor Cyan &amp;quot;Available commands&amp;quot;
-    Write-Output &amp;quot;  &amp;gt; deploy [:message]      Deploy the changes&amp;quot;
-    Write-Output &amp;quot;  &amp;gt; start                  Run development server&amp;quot;
+    Write-Host -ForegroundColor Cyan &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Available commands&amp;#34;&lt;/span&gt;
+    Write-Output &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;  &amp;gt; deploy [:message]      Deploy the changes&amp;#34;&lt;/span&gt;
+    Write-Output &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;  &amp;gt; start                  Run development server&amp;#34;&lt;/span&gt;
 }
 
-function Start-Deploy ([string] $subParams) {
-    if ($env:ENV -eq &amp;quot;PROD&amp;quot;) {
-        Write-Host -ForegroundColor Blue &amp;quot;Deploying updates to GitHub...&amp;quot;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; Start-Deploy (&lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt; $subParams) {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ($env:ENV &lt;span style=&#34;color:#f92672&#34;&gt;-eq&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PROD&amp;#34;&lt;/span&gt;) {
+        Write-Host -ForegroundColor Blue &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Deploying updates to GitHub...&amp;#34;&lt;/span&gt;
     }
-    else {
-        Write-Host -ForegroundColor Red &amp;quot;This command only works in production.&amp;quot;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+        Write-Host -ForegroundColor Red &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This command only works in production.&amp;#34;&lt;/span&gt;
         exit
     }
 
-    if ($subParams -eq &amp;quot;&amp;quot;) {
-        $msg = &amp;quot;rebuilding site $(Get-Date)&amp;quot;
-    } else {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ($subParams &lt;span style=&#34;color:#f92672&#34;&gt;-eq&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;) {
+        $msg = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rebuilding site &lt;/span&gt;$(Get-Date)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+    } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
         $msg = $subParams
     }
 
-    Invoke-Expression &amp;quot;hugo&amp;quot;
-    Invoke-Expression &amp;quot;cd public&amp;quot;
-    Invoke-Expression &amp;quot;git add .&amp;quot;
-    Invoke-Expression &amp;quot;git commit -m &#39;$msg&#39;&amp;quot;
-    Invoke-Expression &amp;quot;git push origin master&amp;quot;
-    Invoke-Expression &amp;quot;cd ..&amp;quot;
-    Write-Host -ForegroundColor Green &amp;quot;DONE.&amp;quot;
+    Invoke-Expression &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hugo&amp;#34;&lt;/span&gt;
+    Invoke-Expression &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cd public&amp;#34;&lt;/span&gt;
+    Invoke-Expression &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git add .&amp;#34;&lt;/span&gt;
+    Invoke-Expression &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git commit -m &amp;#39;$msg&amp;#39;&amp;#34;&lt;/span&gt;
+    Invoke-Expression &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git push origin master&amp;#34;&lt;/span&gt;
+    Invoke-Expression &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cd ..&amp;#34;&lt;/span&gt;
+    Write-Host -ForegroundColor Green &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;DONE.&amp;#34;&lt;/span&gt;
 }
 
-function Start-Server () {
-    Invoke-Expression &amp;quot;hugo server -D&amp;quot;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; Start-Server () {
+    Invoke-Expression &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hugo server -D&amp;#34;&lt;/span&gt;
 }
 
-&amp;lt;# Set default parameter as help. #&amp;gt;
-if ($args.Length -eq 0) {
-    $param = &amp;quot;help&amp;quot;
-    $subParams = &amp;quot;&amp;quot;
+&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;# Set default parameter as help. #&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ($args.Length &lt;span style=&#34;color:#f92672&#34;&gt;-eq&lt;/span&gt; 0) {
+    $param = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;
+    $subParams = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
 }
-else {
+&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
     $param, $subParams = $args
 }
 
-if ($param -ne &amp;quot;help&amp;quot;) {
-    Write-Host -ForegroundColor Cyan -NoNewLine &amp;quot;Environment: &amp;quot;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ($param &lt;span style=&#34;color:#f92672&#34;&gt;-ne&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;) {
+    Write-Host -ForegroundColor Cyan -NoNewLine &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Environment: &amp;#34;&lt;/span&gt;
     Write-Output $env_str
 }
 
-&amp;lt;# We use switch instead of alias because there are some constant variables like `start`. #&amp;gt;
-switch ($param) {
-    &amp;quot;deploy&amp;quot; { Start-Deploy $subParams }
-    &amp;quot;start&amp;quot; { Start-Server }
-    Default { Get-Help }
+&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;# We use switch instead of alias because there are some constant variables like `start`. #&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;switch&lt;/span&gt; ($param) {
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;deploy&amp;#34;&lt;/span&gt; { Start-Deploy $subParams }
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;start&amp;#34;&lt;/span&gt; { Start-Server }
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;Default&lt;/span&gt; { Get-Help }
 }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Don&amp;rsquo;t forget to set the alias in your config file, for example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-powershell&#34;&gt;# ~\Documents\PowerShell\profile.ps1
-$env:ENV = &amp;quot;DEV&amp;quot;
-Set-Alias dosh .\do.ps1
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Don&amp;rsquo;t forget to set the alias in your config file, for example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# ~\Documents\PowerShell\profile.ps1&lt;/span&gt;
+$env:ENV = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;DEV&amp;#34;&lt;/span&gt;
+Set-Alias dosh .\&lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;.ps1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -701,34 +597,19 @@ Set-Alias dosh .\do.ps1
       <pubDate>Tue, 25 Dec 2018 21:25:57 +0100</pubDate>
       
       <guid>https://gokmengorgen.net/blog/2018/12/important-windows-environment-variables/</guid>
-      <description>
-
-&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/windows-env-variables.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
+      <description>&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/windows-env-variables.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;powershell-and-git-encoding-problems&#34;&gt;PowerShell and Git encoding problems&lt;/h2&gt;
-
 &lt;p&gt;To make &lt;code&gt;git log&lt;/code&gt; command output properly display on Windows, we need to set a variable named &lt;code&gt;LC_ALL&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;LC_ALL=&amp;quot;C.UTF-8&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/powershell-git-encoding-problem.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;LC_ALL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C.UTF-8&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://gokmengorgen.net/img/powershell-git-encoding-problem.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;incorrect-home-folder-in-emacs&#34;&gt;Incorrect home folder in Emacs&lt;/h2&gt;
-
 &lt;p&gt;This problem is not only about Emacs. If you try to find a file from &lt;code&gt;HOME&lt;/code&gt; variable, you may need to define the variable first:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;HOME=&amp;quot;%USERPROFILE%&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;;; place all backup files in one directory
-(setq backup-directory-alist `((&amp;quot;.*&amp;quot; . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms `((&amp;quot;.*&amp;quot; ,temporary-file-directory t)))
-(setq default-directory (concat (getenv &amp;quot;HOME&amp;quot;) &amp;quot;/Workspace&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;more&#34;&gt;More..&lt;/h2&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;HOME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%USERPROFILE%&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;;; place all backup files in one directory&lt;/span&gt;
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; backup-directory-alist &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.*&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;temporary-file-directory)))
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; auto-save-file-name-transforms &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.*&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;temporary-file-directory &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)))
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; default-directory (concat (getenv &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HOME&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Workspace&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;more&#34;&gt;More..&lt;/h2&gt;
 &lt;p&gt;Take a look at the &lt;a href=&#34;https://gokmengorgen.net/en/tags/windows/&#34;&gt;other posts&lt;/a&gt; about my Windows development environment.&lt;/p&gt;
 </description>
     </item>
@@ -740,14 +621,12 @@ Set-Alias dosh .\do.ps1
       
       <guid>https://gokmengorgen.net/comment-policy/</guid>
       <description>&lt;p&gt;I want you to help me to improve my articles with your comments. If necessary, I can &lt;mark&gt;quote your comments&lt;/mark&gt; to the content, or I can update the content according to the constructive criticisms received. If your comment was not published, you might have used blasphemy or similar banned words, or you might not have complied with the following rules:&lt;/p&gt;
-
 &lt;ol&gt;
 &lt;li&gt;Racism, sexism, homophobic discourses are &lt;strong&gt;prohibited&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Your comment should be related to the subject of the article.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Do not respond&lt;/strong&gt; to trolls. You are free to discuss in the context, but you should be respectful to the other people.&lt;/li&gt;
 &lt;li&gt;You can promote your brand, product, or your blog; but it is more convenient to send me a direct e-mail about the topic.&lt;/li&gt;
 &lt;/ol&gt;
-
 &lt;p&gt;I think these rules are enough.&lt;/p&gt;
 </description>
     </item>
@@ -759,7 +638,6 @@ Set-Alias dosh .\do.ps1
       
       <guid>https://gokmengorgen.net/license/</guid>
       <description>&lt;p&gt;Content licensed under the Creative Commons attribution-noncommercial-sharealike License. Please look at &lt;a href=&#34;https://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;this url&lt;/a&gt; for more information.&lt;/p&gt;
-
 &lt;p&gt;Did you like my website theme? It&amp;rsquo;s &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; static site generator with &lt;a href=&#34;https://themes.gohugo.io/hugo-alageek-theme/&#34;&gt;alaGeek theme&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
@@ -771,10 +649,9 @@ Set-Alias dosh .\do.ps1
       
       <guid>https://gokmengorgen.net/live/</guid>
       <description>&lt;p&gt;You can follow me to see how I play a game or code open source projects&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;div id=&#34;twitch-embed&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;twitch-embed&#34;&gt;&lt;/div&gt;
 &lt;script src=&#34;https://embed.twitch.tv/embed/v1.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://gokmengorgen.net/scripts/twitch.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gokmengorgen.net/scripts/twitch.js&#34;&gt;&lt;/script&gt;
 </description>
     </item>
     

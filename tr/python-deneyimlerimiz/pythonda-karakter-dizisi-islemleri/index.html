@@ -147,80 +147,59 @@
                       
     
     <p>(<a href="http://www.gokmengorgen.net">http://www.gokmengorgen.net</a> adresinden alıntıdır.)</p>
-
 <p>Geçenlerde bir arkadaşım, Python 3′te <strong>gettext</strong> modülünün nasıl kullanılacağını sormuştu, ben de henüz 3.* sürümünü denemediğim için bir cevap verememiştim. Hala da verebilecek aşamada değilim; ama bu konu üzerinde biraz araştırma yaparken, ilginç bir internet sayfasıyla<a href="http://www.python.org/dev/peps/pep-3101/">1</a> karşılaştım. Aşağıda paylaşacağım kodların ve bilgilerin Python 2.* serisinde çalışmaması söz konusu olabilir.</p>
-
 <p>Python’da karakter dizilerini iki biçimde çağırabiliyoruz:</p>
-
 <ul>
 <li>Karakter dizileri için % işleyicisi<a href="http://docs.python.org/library/stdtypes.html#string-formatting-operations">2</a>.</li>
 <li>string.Template modülü<a href="http://docs.python.org/library/string.html#string.Template">3</a></li>
 </ul>
-
 <p><strong>%</strong> işleyicisiyle kullanım örneği, Python belgelerinde verilmiş:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%(language)s</span><span style="color:#e6db74"> has %(#)03d quot types.&#39;</span> <span style="color:#f92672">%</span> {<span style="color:#e6db74">&#39;language&#39;</span>: <span style="color:#e6db74">&#34;Python&#34;</span>, <span style="color:#e6db74">&#34;#&#34;</span>: <span style="color:#ae81ff">2</span>})
+<span style="color:#75715e">#Python has 002 quot types.</span>
+</code></pre></div><p>Bu kodda değişkenler bir sözlük içinde eşleştirilmekte ve print çıktısında tanımlanmış değerleriyle ekrana yazılmaktadır. Bunun aynısı şu şekilde de yapabilirdik:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> has </span><span style="color:#e6db74">%03d</span><span style="color:#e6db74"> quot types.&#39;</span> <span style="color:#f92672">%</span> (<span style="color:#e6db74">&#34;Python&#34;</span>, <span style="color:#ae81ff">2</span>))
+<span style="color:#75715e">#Python has 002 quot types.</span>
+</code></pre></div><p>Birincisine göre daha basit olsa da, birinci kodda şöyle bir avantaj söz konusudur:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;The </span><span style="color:#e6db74">%(first)s</span><span style="color:#e6db74"> variable, and the </span><span style="color:#e6db74">%(second)s</span><span style="color:#e6db74"> variable.&#39;</span> <span style="color:#f92672">%</span> {<span style="color:#e6db74">&#39;second&#39;</span>: <span style="color:#e6db74">&#34;New&#34;</span>, <span style="color:#e6db74">&#39;first&#39;</span>: <span style="color:#e6db74">&#34;Old&#34;</span>})
+<span style="color:#75715e">#The Old variable, and the New variable.</span>
+</code></pre></div><p>Bu şekilde kullandığımız zaman, ikinci işleyiciyi ilk olarak tanımlayıp, ikinci işleyiciyi ise sonra tanımlayabilme fırsatımız olabiliyor. Nerelerde kullanılabileceği ayrı bir merak konusu. Bu merakı gidermeden önce bir de şu şekilde kullanıma bir bakalım:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;The {1} variable, and the {0} variable.&#39;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;New&#34;</span>, <span style="color:#e6db74">&#34;Old&#34;</span>))
+<span style="color:#75715e">#The Old variable, and the New variable.</span>
+</code></pre></div><p>İlginç, değil mi? Aslında bu kadar çeşitlilik olması garibime gidiyor; ama bu son yöntemin yüksek seviye programlama diline daha yakın bir tarz olduğunu düşünmeden edemiyorum. Yanılmıyorsam bu tip kullanım, C# ve Java’da da var. Şimdi son olarak aşağıdaki kodu inceleyelim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys
 
-<pre><code class="language-python">&gt;&gt;&gt; print('%(language)s has %(#)03d quot types.' % {'language': &quot;Python&quot;, &quot;#&quot;: 2})
-#Python has 002 quot types.
-</code></pre>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Python version is, {0}.&#34;</span><span style="color:#f92672">.</span>format(sys<span style="color:#f92672">.</span>version[:<span style="color:#ae81ff">5</span>])) <span style="color:#75715e"># print&#39;lerin yazimina dikkat..</span>
 
-<p>Bu kodda değişkenler bir sözlük içinde eşleştirilmekte ve print çıktısında tanımlanmış değerleriyle ekrana yazılmaktadır. Bunun aynısı şu şekilde de yapabilirdik:</p>
+        digits_list <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>digits()
 
-<pre><code class="language-python">&gt;&gt;&gt; print('%s has %03d quot types.' % (&quot;Python&quot;, 2))
-#Python has 002 quot types.
-</code></pre>
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;{1} is bigger than {0} as digit.&#34;</span><span style="color:#f92672">.</span>format(digits_list[<span style="color:#ae81ff">0</span>], digits_list[<span style="color:#ae81ff">1</span>]))
 
-<p>Birincisine göre daha basit olsa da, birinci kodda şöyle bir avantaj söz konusudur:</p>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">digits</span>(self):
+        <span style="color:#66d9ef">try</span>:
+            first_digit <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;Please write a digit: &#34;</span>)) <span style="color:#75715e"># raw_input yerine input kullaniliyor.</span>
+            second_digit <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;And second digit: &#34;</span>))
 
-<pre><code class="language-python">&gt;&gt;&gt; print('The %(first)s variable, and the %(second)s variable.' % {'second': &quot;New&quot;, 'first': &quot;Old&quot;})
-#The Old variable, and the New variable.
-</code></pre>
-
-<p>Bu şekilde kullandığımız zaman, ikinci işleyiciyi ilk olarak tanımlayıp, ikinci işleyiciyi ise sonra tanımlayabilme fırsatımız olabiliyor. Nerelerde kullanılabileceği ayrı bir merak konusu. Bu merakı gidermeden önce bir de şu şekilde kullanıma bir bakalım:</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; print('The {1} variable, and the {0} variable.'.format(&quot;New&quot;, &quot;Old&quot;))
-#The Old variable, and the New variable.
-</code></pre>
-
-<p>İlginç, değil mi? Aslında bu kadar çeşitlilik olması garibime gidiyor; ama bu son yöntemin yüksek seviye programlama diline daha yakın bir tarz olduğunu düşünmeden edemiyorum. Yanılmıyorsam bu tip kullanım, C# ve Java’da da var. Şimdi son olarak aşağıdaki kodu inceleyelim:</p>
-
-<pre><code class="language-python">import sys
-
-class Main:
-    def __init__(self):
-        print(&quot;Python version is, {0}.&quot;.format(sys.version[:5])) # print'lerin yazimina dikkat..
-
-        digits_list = self.digits()
-
-        print(&quot;{1} is bigger than {0} as digit.&quot;.format(digits_list[0], digits_list[1]))
-
-    def digits(self):
-        try:
-            first_digit = int(input(&quot;Please write a digit: &quot;)) # raw_input yerine input kullaniliyor.
-            second_digit = int(input(&quot;And second digit: &quot;))
-
-        except ValueError:
-            print(&quot;\nSorry, you must enter a digit.&quot;)
+        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span>:
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Sorry, you must enter a digit.&#34;</span>)
             exit()
 
-        return self.sort(first_digit, second_digit)
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>sort(first_digit, second_digit)
 
-    def sort(self, x, y):
-        return sorted([x,y])
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sort</span>(self, x, y):
+        <span style="color:#66d9ef">return</span> sorted([x,y])
 
-if __name__ == &quot;__main__&quot;:
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
     Main()
-</code></pre>
-
-<p>Kodun yaptığı şey basit: Sizden iki sayı girmeniz isteniyor ve sayıları, büyüklüklerine göre {0} ve {1} ile eşleştirip, “X, Y’den sayıca büyüktür.” gibisinden bir cümle döndürüyor. Kod basit olduğu için bu tip karakter dizisi işleyicilerin faydası pek belli olmuyor; ama mutlaka bir yerde faydası vardır =). Son kodun çıktısı şu şekilde:</p>
-
-<pre><code class="language-shell">[gkmngrgn@gacer ~]$ python3 rank.py
+</code></pre></div><p>Kodun yaptığı şey basit: Sizden iki sayı girmeniz isteniyor ve sayıları, büyüklüklerine göre {0} ve {1} ile eşleştirip, “X, Y’den sayıca büyüktür.” gibisinden bir cümle döndürüyor. Kod basit olduğu için bu tip karakter dizisi işleyicilerin faydası pek belli olmuyor; ama mutlaka bir yerde faydası vardır =). Son kodun çıktısı şu şekilde:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>gkmngrgn@gacer ~<span style="color:#f92672">]</span>$ python3 rank.py
 Python version is, 3.0.1.
-Please write a digit: 3
-And second digit: 1
-3 is bigger than 1 as digit.
-[gkmngrgn@gacer ~]$
-</code></pre>
-
+Please write a digit: <span style="color:#ae81ff">3</span>
+And second digit: <span style="color:#ae81ff">1</span>
+<span style="color:#ae81ff">3</span> is bigger than <span style="color:#ae81ff">1</span> as digit.
+<span style="color:#f92672">[</span>gkmngrgn@gacer ~<span style="color:#f92672">]</span>$
+</code></pre></div>
 
 
                     </div>

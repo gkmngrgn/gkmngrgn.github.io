@@ -147,30 +147,23 @@
                       
     
     <p>Bazen öyle şeylere ihtiyaç duyuyorum ki, &ldquo;Bunun için de şimdi bilmem kaç satır döngü oluşturmaya değer mi?&rdquo; diye düşünmeden olmuyor. Mesela XfceP&rsquo;i yaparken de öyle bir olayla karşılaşmıştım.</p>
-
 <p>Sizi bilmem ama, böylesi basit bir şey için döngü oluşturmayı da fazlasıyla lüks buldum, o nedenle de lambda bazı yerlerde gerçekten işe yarayan bir araç. Özellikle, for döngüsü içinde birkaç tane daha döngü kurunca, bir tiksinti kaplıyor içimi, şu linkte<a href="http://www.secnetix.de/olli/Python/lambda_functions.hawk">1</a> anlatıldığı gibi:</p>
-
-<pre><code class="language-python">nums = range(2, 50)
-for x in nums:
-    divided = False
-    for i in range(2, x - 1):
-        if (x % i) == 0:
-            divided = True
-    if divided == False:
-        print x,
-</code></pre>
-
-<p>Halbuki lambda bu karışıklıktan tek bir satırda kurtulmanıza izin veriyor:</p>
-
-<pre><code class="language-repl">&gt;&gt;&gt; nums = range(2, 50)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nums <span style="color:#f92672">=</span> range(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">50</span>)
+<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> nums:
+    divided <span style="color:#f92672">=</span> False
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, x <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>):
+        <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">%</span> i) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+            divided <span style="color:#f92672">=</span> True
+    <span style="color:#66d9ef">if</span> divided <span style="color:#f92672">==</span> False:
+        <span style="color:#66d9ef">print</span> x,
+</code></pre></div><p>Halbuki lambda bu karışıklıktan tek bir satırda kurtulmanıza izin veriyor:</p>
+<pre><code class="language-repl" data-lang="repl">&gt;&gt;&gt; nums = range(2, 50)
 &gt;&gt;&gt; for i in range(2, 8):
 ...     nums = filter(lambda x: x == i or x % i, nums)
 ...
 &gt;&gt;&gt; print nums
 [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
-</code></pre>
-
-<p>Lambda&rsquo;nın, map &amp; filter &amp; reduce hedelerine ise daha sonra değinirim artık..</p>
+</code></pre><p>Lambda&rsquo;nın, map &amp; filter &amp; reduce hedelerine ise daha sonra değinirim artık..</p>
 
 
 

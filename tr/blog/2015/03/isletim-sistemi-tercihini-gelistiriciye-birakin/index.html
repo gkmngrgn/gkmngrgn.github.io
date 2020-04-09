@@ -162,30 +162,22 @@
                         
     
     <p>Bir yazılım projesine başlarken ihtiyaç duyacağımız ilk şey ne olur diye soracak olursak, sanırım buna “geliştirme ortamı” diyebiliriz. Örneğin bir Android projesi için şunlar gerekli:</p>
-
 <ul>
 <li>Android Studio veya Eclipse (ADT)</li>
 <li>Android Java SDK</li>
 <li>Android yüklü donanım veya emulator</li>
 <li>İşletim sistemine göre emulator hızlandırıcı eklentiler (HAXM, qemu, vb)</li>
 </ul>
-
 <p>Bu ortamı işletim sistemimize kurduğumuzda, iki şeye sahip oluyoruz: Birincisi kod yazabiliyoruz, debug edebiliyoruz, sorunları düzeltebiliyoruz; ikincisi sonucu görmek için uygulamayı yükleyip çalıştırabiliyoruz, test edebiliyoruz, yayınlayabiliyoruz. Bir Windows Phone veya IOS projesi olsaydı, geliştirme ortamı gereksinimleri arasına işletim sistemi de (Windows veya OS X) girecekti; ama Android SDK tüm popüler sistemleri destekliyor, tercih geliştiriciye kalmış.</p>
-
 <p>Peki web projelerinde durum nasıl? Web projesi için geliştirme ortamı konusunda şu üç yoldan birine başvuruyoruz:</p>
-
 <ol>
 <li>Geliştiriciden projeyi, kullandığı sistemin içine kurmasını talep etmek.</li>
 <li>Geliştiriciye GNU/Linux kullanmaya mecbur bırakmak.</li>
 <li>Emulator kullanmak, geliştiriciler için sanal sunucu paketi oluşturmak.</li>
 </ol>
-
 <p>1.’si bence çok kötü fikir. Geliştirici Windows kullanıyorsa karşılaşacağı handikapların sonu yok, production için fayda etmeyecek bir sürü gereksiz düzeltme yapmak zorunda kalabilir. 2.’si de bence kötü fikir. Geliştiricinin alışkın olmadığı bir sistemde, alışkın olmadığı birtakım araçlar kullanarak verimli ve pragmatik olmasını beklemek ne kadar doğru? Velev ki işe alımlarda GNU/Linux kullanıcısı olmak diye bir filtremiz olsun, doğru geliştiriciyi işe almada ne kadar adil ve yardımcı olabilir? Daha önemli bir soru, neden kişisel kullanım için tasarlanmış bilgisayarı bir server’a dönüştüresin?</p>
-
 <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/vagrant-cloud.png" src="https://gokmengorgen.net/img/low/vagrant-cloud.png" alt="Vagrant Cloud" /></p></figure>
-
 <p>O nedenle, tıpki mobil uygulama geliştirirken kullandığımız gerçek donanım veya emulator gibi, web geliştirmede de benzer bir yöntem uygulamalıyız. VMware veya Virtualbox ile, olabildiğince production’u taklit edebilmeliyiz. Ben bunu vagrant ile çok kolay bir şekilde yapabiliyorum, istediğim işletim sisteminde kullanabiliyorum ve taşıyabiliyorum. Bir başka geliştiriciyle de geliştirme ortamımı paylaşabiliyorum.</p>
-
 <p>İşletim sistemi tercihi, IIS’ye ihtiyaç duymak gibi çok özel durumlar olmadıkça geliştiriciye bırakılmalı. En verimli nasıl çalışabileceğini en iyi geliştiricinin kendisi bilir.</p>
 
 

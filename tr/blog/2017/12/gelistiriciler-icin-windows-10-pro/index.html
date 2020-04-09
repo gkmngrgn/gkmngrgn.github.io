@@ -169,82 +169,50 @@
                     <div class="markdown">
                         
     
-    
-
-<p><em>Bu yazıda sözünü ettiğim işletim sistemi ve sürümü Windows 10 Pro’dur. Amacım yazılım geliştiriciler için Windows 10 Pro’nun alternatif bir geliştirme ortamı olduğunu anlatmaktır. Windows 8 değil, Windows 10 Home da değil, sadece Windows 10 Pro. Karar elbette sizin.</em></p>
-
+    <p><em>Bu yazıda sözünü ettiğim işletim sistemi ve sürümü Windows 10 Pro’dur. Amacım yazılım geliştiriciler için Windows 10 Pro’nun alternatif bir geliştirme ortamı olduğunu anlatmaktır. Windows 8 değil, Windows 10 Home da değil, sadece Windows 10 Pro. Karar elbette sizin.</em></p>
 <h2 id="genel-görünüm">Genel Görünüm</h2>
-
 <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/my-desktop.png" src="https://gokmengorgen.net/img/low/my-desktop.png" alt="My Desktop" /></p></figure>
-
 <p>Uzun süre Linux dağıtımı ve MacOS kullanan birisi olarak ilk Windows izlenimim çok kötüydü. Font rendering Ubuntu’dan bile kötüydü. Masaüstü ortamı KDE’den bile karışıktı. Klavye kısayollarını yeni baştan öğrenmem, alışmam gerekecekti. Ama şu detay beni Windows’ta tutabildi: Laptopu ilk açtığımdan itibaren ihtiyacım olup kuramadığım hiçbir program, eksikliğini hissettiğim hiçbir uygulama, kullanamadığım veya ayarlamak zorunda kaldığım mikrofon, kamera gibi hiçbir donanım olmadı. MacOS’ta olduğu gibi, Windows’u açtığımda kullanıcı hesabı oluşturmak, bulut depolama servisi OneDrive’i bağlamak gibi ilk kurulum ayarlarını yaptım ve bir daha ne format atma gereği duydum, ne de performans sorunu yaşadım.</p>
-
 <h2 id="donanım">Donanım</h2>
-
 <p>Eğer Macbook Pro gibi bir laptop arıyorsanız, gibisini değil aslını alın. Ona da Windows kurabilirsiniz. PC için tavsiye isterseniz:</p>
-
 <ul>
 <li>Kurumlarda tercih edilen Thinkpad (Lenovo), Dell, HP gibi markalara öncelik tanıyın.</li>
 <li>SSD şart, mümkünse 16 GB RAM ve son nesil i7 olsun (Yine Macbook Pro’dan ucuz olabilir).</li>
 <li>Ekran çözünürlüğüne, kalitesine önem verin.</li>
 </ul>
-
 <p>Başımdan geçen bir olayı anlatayım. Ben Thinkpad kullanıcısıyım, trende üzerime ve fermuarı açık olduğu için çantamın içine kaynar su döküldü, Thinkpad’i elime aldığımda suyun sıcaklığını hissettim. Laptopu açıp kontrol ettim epey, hiçbir sorun yoktu. O an o laptopun Macbook Pro olduğunu düşünemiyorum.</p>
-
 <h2 id="antivirüs-programı">Antivirüs Programı</h2>
-
 <p>Yüklü geliyorsa kaldırmanıza gerek yok, gelmiyorsa almanıza gerek yok 🙂 Yine de olsun istiyorsanız, bir zararı yok.</p>
-
 <h2 id="terminal-ve-posix-uyumluluğu">Terminal ve POSIX Uyumluluğu</h2>
-
 <p>Windows’a yöneltilen eleştirilerin başında POSIX uyumlu olmaması var. İşin doğrusu bu konuda bir sıkıntı çekmedim, çünkü işletim sistemi ne olursa olsun bu zamana kadar hep sanallaştırma kullandım. Yani geliştirme yaptığım ortam her zaman bir Ubuntu LTS sunucusu oldu. Ancak Twitter’daki mesajıma yazılan cevaplardan gördüm ki sanallaştırmayı herkes kullanmıyor. Bana örnek bir sorun gösterilirse çözümü beraber tartışabiliriz. Ancak sanallaştırma bana göre tüm platformlar için en mantıklı çözüm.</p>
-
 <p>Terminal konusunu ise bir tek Linux dağıtımları becerebiliyor. Ne MacOS, ne de Windows’ta aynı rahatlığı yakalayamadım. Fakat Powershell iş görmüyor mü? Görüyor. Pencere tabları kullanmak isterseniz ConEmu var. KDE’deki Yakuake gibi Quake-style kullanmak isterseniz cmder var. Zsh’siz olmaz derseniz Babun var. Bana Bash yeter derseniz de Git ile birlikte gelen Bash var. Bana bir SSH yeter derseniz Bitvise ve Putty var. Seçenek çok.</p>
-
 <h2 id="paket-yöneticileri">Paket Yöneticileri</h2>
-
 <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/package-manager.png" src="https://gokmengorgen.net/img/low/package-manager.png" alt="Package Manager" /></p></figure>
-
 <ul>
 <li>Windows’ta ilk kullandığım paket yöneticisi Pacman oldu. Archlinux’taki Pacman’ın pek çok parametresini destekliyor.</li>
 <li>Bir süre Chocolatey kullandım, bu MacOS’taki Bower’a daha yakın bir alternatif.</li>
 <li>Şuan ise hiçbir paket yöneticisi kullanmıyorum. Masaüstü uygulamalarının bir kısmını Windows Store ile, bir kısmını doğrudan uygulamanın sitesinden indirerek yüklüyorum.</li>
 </ul>
-
 <h2 id="git-ve-dosyalarda-crlf-ve-utf-8-bom-sorunu">Git ve Dosyalarda CRLF ve UTF-8 Bom Sorunu</h2>
-
 <p>Git’i grafik arayüzüyle kullanmak isterseniz, çok güzel alternatifler var. Komut satırı tercih ediyorsanız, zaten Bash ile birlikte geliyor, onu kullanabilirsiniz veya Powershell tercih edebilirsiniz. Git’e dair hiçbir alışma problemi yaşamayacaksınız, bir konu hariç.</p>
-
 <p>Windows’ta yeni bir dosya oluşturup yazmaya başladığınızda, satırbaşı için öntanımlı CRLF yöntemini kullanıyor. Yani dosyalarınızı Unix tabanlı bir işletim sistemi kullanan birisi okumak, açmak veya çalıştırmak istediğinde; veya bir repoya gönderdiğinizde, deploy ettiğinizde bir okuma, derleme, yorumlama problemiyle karşılaşmanız çok büyük olasılık.</p>
-
 <p>Eğer bir sürüm kontrol sistemi kullanıyorsanız, bu tip sorunların üstesinden gelmek kolay: Dosyalarınızı commitlerken LF’ye zorlamak. Stackoverflow’da çözümü detaylı bir şekilde anlatılıyor. Buna ek olarak bir de kullandığınız editör ve IDE’lerde newline ayarınızı bir seferlik yapmanız gerekir.</p>
-
 <p>Gelelim UTF-8 Bom sorununa. Bu sorun CRLF’ye göre anlaşılması çok daha zor ve sinsi bir sorun. CRLF ile aynı sorunları yaşıyorsunuz; ancak gözle görünür hiçbir problem yok, o nedenle file encoding’e dikkat etmeniz gerekiyor. BOM hakkında detaylı bilgi için Gökhan Şengün’ün buradaki cevaplarına bir göz atınız.</p>
-
 <h2 id="sanallaştırma">Sanallaştırma</h2>
-
 <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/docker-for-windows.png" src="https://gokmengorgen.net/img/low/docker-for-windows.png" alt="Docker for Windows" /></p></figure>
-
 <p>Windows sanallaştırma konusunda gerçekten çok başarılı bir platform. Gerek VMware olsun, gerek Virtualbox, gerekse Hyper-V, elinizin altında çok sayıda alternatif var:</p>
-
 <p>Henüz yeni kararlı sürüme erişmiş WSL (Windows Subsystem Linux) ile arada ek bir sanallaştırmaya ihtiyaç duymadan UNIX ortamına sahip olabilirsiniz. Ancak henüz web development yapmak için yeterli görünmüyor, terminali kapattığınızda alt sisteme erişimin kapanması gibi bir sorun var.</p>
-
 <ul>
 <li>WSL kurulumu çok basit, Windows Store’dan Ubuntu veya Suse diye aratıyorsunuz.</li>
 <li>Docker desteği çok güzel. Hyper-V ile birlikte kullanıyorsunuz.</li>
-
-<li><p>Virtualbox ile Vagrant kullandığınız zaman, veya Android geliştirme yaparken emülatöre ihtiyaç duyduğunuzda Hyper-V’yi kapatıp bilgisayarı yeniden başlatmak zorundasınız. Bu ilk başlarda canımı sıksa da, artık alıştım. Hyper-V açıp kapatmak için Powershell’i Admin yetkisiyle açıp aşağıdaki komutu kullanabilirsiniz:</p>
-
-<pre><code class="language-bash"># kapatmak için
+<li>Virtualbox ile Vagrant kullandığınız zaman, veya Android geliştirme yaparken emülatöre ihtiyaç duyduğunuzda Hyper-V’yi kapatıp bilgisayarı yeniden başlatmak zorundasınız. Bu ilk başlarda canımı sıksa da, artık alıştım. Hyper-V açıp kapatmak için Powershell’i Admin yetkisiyle açıp aşağıdaki komutu kullanabilirsiniz:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># kapatmak için</span>
 $ bcdedit /set hypervisorlaunchtype off
 
-# açmak için
+<span style="color:#75715e"># açmak için</span>
 $ bcdedit /set hypervisorlaunchtype auto
-</code></pre></li>
-</ul>
-
-<h2 id="son-söz">Son Söz</h2>
-
+</code></pre></div><h2 id="son-söz">Son Söz</h2>
 <p>Önce kısayolları öğrenmekle başlayın, bu sizin işletim sistemine hakimiyetinizi ve iş yapma hızınızı her platformda etkiler. Vim ve Emacs severler üzülmesin, Windows altında çok güzel çalışıyorlar. Bir de 2018 mobil{in|yanın} yılı olacak!.</p>
 
 

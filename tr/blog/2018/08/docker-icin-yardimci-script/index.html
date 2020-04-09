@@ -169,85 +169,60 @@
                     <div class="markdown">
                         
     
-    
-
-<p><em>Docker&rsquo;da projenin çalıştırılacağı ortam sayısı arttıkça, konteynerler çoğaldıkça, yapılandırma dosyalarında satır sayısı uzadıkça komutlar da uzamaya, parametreler artmaya başlıyor. Django shell&rsquo;e nasıl bağlanılıyordu, çeviri dosyalarını nasıl güncelliyorduk, frontend sunucusu hazır mı değil mi nasıl anlıyorduk demek yerine, sık kullanılan komutları basit bir scriptle çalıştırırsak beni rahatlatır diye düşündüm ve internette bununla ilgili bir araştırma yaptım.</em></p>
-
+    <p><em>Docker&rsquo;da projenin çalıştırılacağı ortam sayısı arttıkça, konteynerler çoğaldıkça, yapılandırma dosyalarında satır sayısı uzadıkça komutlar da uzamaya, parametreler artmaya başlıyor. Django shell&rsquo;e nasıl bağlanılıyordu, çeviri dosyalarını nasıl güncelliyorduk, frontend sunucusu hazır mı değil mi nasıl anlıyorduk demek yerine, sık kullanılan komutları basit bir scriptle çalıştırırsak beni rahatlatır diye düşündüm ve internette bununla ilgili bir araştırma yaptım.</em></p>
 <p>Öncelikle bu tip işler için <strong>Makefile</strong> kullanma önerisi çok hoşuma gitti. Epey basit ve anlaşılır bir sözdizimi var, komut satırında çift tab yapıp autocomplete yapabiliyorsunuz ve bu tip yardımcı özellikler epey verimliliği artırıyor. Zaten amacımız verimliliği artırmak. Ama Windows kullananların Makefile&rsquo;i ayrıca yüklemesi gerekiyor.</p>
-
-<p>Makefile&rsquo;i yüklemek (veya yükletmek) bir problem değil; ama yine de alternatiflere bakma gereği duydum<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>. <strong>Docker compose</strong>&lsquo;da her bir komut için ayrı ayrı servis oluşturma fikri çok mantıklı gelmedi, bir de help çıktısı ile tüm komutları açıklamalarıyla birlikte görmek istiyordum. O nedenle basit bir <strong>shell scripting</strong> ile zaten bağımlılığımız olan eldeki araçları kullanarak bu işi yapabileceğimizi gördüm.</p>
-
+<p>Makefile&rsquo;i yüklemek (veya yükletmek) bir problem değil; ama yine de alternatiflere bakma gereği duydum<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. <strong>Docker compose</strong>&lsquo;da her bir komut için ayrı ayrı servis oluşturma fikri çok mantıklı gelmedi, bir de help çıktısı ile tüm komutları açıklamalarıyla birlikte görmek istiyordum. O nedenle basit bir <strong>shell scripting</strong> ile zaten bağımlılığımız olan eldeki araçları kullanarak bu işi yapabileceğimizi gördüm.</p>
 <h2 id="kısaca">Kısaca</h2>
-
 <ul>
 <li>Komutu parametresiz çalıştırdığımda bana nasıl kullanabileceğimi gösterecek.</li>
 <li>Sistemin production mu, yoksa geliştirme ortamı mı olduğunu ben belirleyeceğim.</li>
-
-<li><p>Komutu çalıştırırken emin olmak için ortamı ve hatırlatmak için asıl komutu gösterecek.</p>
-
-<pre><code class="language-bash">$ ./do.sh
-Available environments
-- DEV (default)
-- PROD
-- STAGING
-
-Available commands
-&gt; shell               Open Bash
-&gt; start               Create and start containers
-&gt; status              List containers
-&gt; stop                Stop services
-</code></pre></li>
+<li>Komutu çalıştırırken emin olmak için ortamı ve hatırlatmak için asıl komutu gösterecek.</li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./do.sh
+ Available environments
+   - DEV <span style="color:#f92672">(</span>default<span style="color:#f92672">)</span>
+   - PROD
+   - STAGING
 
-<p>Öntanımlı ortam, <strong>DEV</strong>:</p>
-
-<pre><code class="language-bash">$ ./do.sh status
+ Available commands
+   &gt; shell               Open Bash
+   &gt; start               Create and start containers
+   &gt; status              List containers
+   &gt; stop                Stop services
+</code></pre></div><p>Öntanımlı ortam, <strong>DEV</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./do.sh status
 Environment: development
     Command: docker-compose -f docker-compose.yml -f docker-compose.dev.yml ps
 
 Name                  State      Ports
 ----------------------------------------------------------------------------------------------
 prj_amqp_1            Up         15671/tcp, 15672/tcp, 25672/tcp, 4369/tcp, 5671/tcp, 5672/tcp
-prj_backend_1         Exit 137
+prj_backend_1         Exit <span style="color:#ae81ff">137</span>
 prj_celery-beat_1     Up
 prj_celery-worker_1   Up
 prj_db_1              Up         5432/tcp
 prj_es_1              Up         9200/tcp, 9300/tcp
 prj_frontend_1        Up         0.0.0.0:8080-&gt;8080/tcp
-</code></pre>
-
-<p><strong>STAGING</strong> ortamını kullanmak istersek:</p>
-
-<pre><code class="language-bash">$ ENV=STAGING ./do.sh shell
+</code></pre></div><p><strong>STAGING</strong> ortamını kullanmak istersek:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ENV<span style="color:#f92672">=</span>STAGING ./do.sh shell
 Environment: staging
     Command: docker-compose -f docker-compose.yml -f docker-compose.staging.yml up -d db frontend backend ...
 
 ...
-</code></pre>
-
-<p>Windows <strong>PowerShell</strong>&lsquo;de kullanmak için:</p>
-
-<pre><code class="language-powershell">&gt; $env:ENV = &quot;PROD&quot;;
-&gt; bash do.sh status
-Environment: production
-    Command: docker-compose -f docker-compose.yml -f docker-compose.prod.yml ps
+</code></pre></div><p>Windows <strong>PowerShell</strong>&lsquo;de kullanmak için:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">&gt; $env:ENV = <span style="color:#e6db74">&#34;PROD&#34;</span>;
+&gt; bash <span style="color:#66d9ef">do</span>.sh status
+Environment<span style="color:#960050;background-color:#1e0010">:</span> production
+    Command<span style="color:#960050;background-color:#1e0010">:</span> docker-compose <span style="color:#f92672">-f</span> docker-compose.yml <span style="color:#f92672">-f</span> docker-compose.prod.yml ps
 ...
-</code></pre>
-
-<p>Windows&rsquo;ta <strong>Git Bash</strong> kullanıyorsanız:</p>
-
-<pre><code class="language-bash">$ ENV=STAGING winpty bash do.sh status
+</code></pre></div><p>Windows&rsquo;ta <strong>Git Bash</strong> kullanıyorsanız:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ENV<span style="color:#f92672">=</span>STAGING winpty bash <span style="color:#66d9ef">do</span>.sh status
 Environment: staging
     Command: docker-compose -f docker-compose.yml -f docker-compose.staging.yml ps
 ...
-</code></pre>
-
-<h2 id="örnek-script">Örnek script</h2>
-
-<p>Yannick PEREIRA-REIS<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>&lsquo;e teşekkürler. <a href="http://azmesai.net/">Az Mesai</a> slack grubuna da geribildirim için teşekkürler.</p>
-
+</code></pre></div><h2 id="örnek-script">Örnek script</h2>
+<p>Yannick PEREIRA-REIS<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>&lsquo;e teşekkürler. <a href="http://azmesai.net/">Az Mesai</a> slack grubuna da geribildirim için teşekkürler.</p>
 <script src="https://gist.github.com/gkmngrgn/48303742353b0b17ae0e5c2d1d24ec3e.js"></script>
-
 <!--
 # BACKUP IS HERE #
 
@@ -312,13 +287,12 @@ else
     "$@"
 fi
 -->
-<div class="footnotes">
-
+<div class="footnotes" role="doc-endnotes">
 <hr />
-
 <ol>
-<li id="fn:1">Yannick PEREIRA-REIS - <a href="https://ypereirareis.github.io/blog/2015/05/04/docker-with-shell-script-or-makefile/">Docker with shell script or Makefile</a>
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>Yannick PEREIRA-REIS - <a href="https://ypereirareis.github.io/blog/2015/05/04/docker-with-shell-script-or-makefile/">Docker with shell script or Makefile</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
 </div>
 

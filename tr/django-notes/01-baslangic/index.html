@@ -218,7 +218,7 @@ urlpatterns <span style="color:#f92672">=</span> [
     path(<span style="color:#e6db74">&#39;&#39;</span>, view<span style="color:#f92672">=</span>HomeView<span style="color:#f92672">.</span>as_view(), name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;home&#39;</span>),  <span style="color:#75715e"># Bunu ekledik.</span>
     path(<span style="color:#e6db74">&#39;admin/&#39;</span>, admin<span style="color:#f92672">.</span>site<span style="color:#f92672">.</span>urls),
 ]
-</code></pre></div><p>Burada anasayfaya ziyaret edildiğinde hangi View class'ının karşılayacağını belirtmiş olduk; fakat View henüz hazır değil. <code>hello_django/hello_django/views.py</code> dosyası oluşturup yeni bir tane yazalım:</p>
+</code></pre></div><p>Burada anasayfaya ziyaret edildiğinde hangi View class&rsquo;ının karşılayacağını belirtmiş olduk; fakat View henüz hazır değil. <code>hello_django/hello_django/views.py</code> dosyası oluşturup yeni bir tane yazalım:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> django.views.generic <span style="color:#f92672">import</span> TemplateView
 
 
@@ -228,7 +228,7 @@ urlpatterns <span style="color:#f92672">=</span> [
 <a href="https://gokmengorgen.net/img/django-notes/template-does-not-exist.png" target="_blank">
   ![Template does not exist.](/img/django-notes/template-does-not-exist.png "View hazır; ama Template eksik.")
 </a>
-<p>View class'ımızda <code>home.html</code> dosyasını kullanacağımızı belirttik, Django bizim için birkaç yere bakmış ama Template&rsquo;i bulamamış. Biz bir dizin oluşturalım ve Template dosyamızı <code>hello_django/templates/home.html</code> olarak tutalım:</p>
+<p>View class&rsquo;ımızda <code>home.html</code> dosyasını kullanacağımızı belirttik, Django bizim için birkaç yere bakmış ama Template&rsquo;i bulamamış. Biz bir dizin oluşturalım ve Template dosyamızı <code>hello_django/templates/home.html</code> olarak tutalım:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!doctype html&gt;</span>
 &lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
     &lt;<span style="color:#f92672">head</span>&gt;
@@ -329,7 +329,7 @@ STATICFILES_DIRS <span style="color:#f92672">=</span> [
                 <div class="mx-0 mx-md-4 mb-2 text-center text-md-left">
                     
                         <div>
-                            <a class="mx-1 mr-md-2 ml-md-0  text-tags" href="https://gokmengorgen.net/tags/">
+                            <a class="mx-1 mr-md-2 ml-md-0  text-tags" href="https://gokmengorgen.net/tr/tags/">
                                 
                                 Etiketler
                             </a>

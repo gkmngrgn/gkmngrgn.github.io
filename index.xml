@@ -6,10 +6,70 @@
     <description>Recent content in Hello on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Feb 2020 22:22:10 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2020 22:44:15 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to Fix Default Fonts Problem on Firefox</title>
+      <link>https://gokmengorgen.net/blog/2020/05/how-to-fix-default-fonts-problem-on-firefox/</link>
+      <pubDate>Thu, 14 May 2020 22:44:15 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/blog/2020/05/how-to-fix-default-fonts-problem-on-firefox/</guid>
+      <description>&lt;p&gt;Most of the websites are using Helvetica as an alternative font, and Ubuntu is
+trying to set Nimbus Sans as a similar font even you have Helvetica font. Also,
+the default font on Firefox is DejaVu Sans, but the default fonts are working
+just if the styles don&amp;rsquo;t specify a font family in a website.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://gokmengorgen.net/img/original/blog/firefox-nimbus-sans-font.png&#34;&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/firefox-nimbus-sans-font.png&#34; alt=&#34;&#34; title=&#34;Nimbus Sans fonts have a padding problem on Firefox.&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nimbus Sans comes with &lt;strong&gt;fonts-urw-base35&lt;/strong&gt; package, and it&amp;rsquo;s
+&lt;strong&gt;ubuntu-desktop&lt;/strong&gt;&amp;lsquo;s dependency, direct or indirect. I need &lt;strong&gt;ubuntu-desktop&lt;/strong&gt;
+to use GNOME, so the best solution here is to disable the font altogether and
+refresh the fonts cache.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s go step by step. First of all, if you don&amp;rsquo;t have it yet, start with
+installing &lt;strong&gt;ttf-mscorefonts-installer&lt;/strong&gt; package, Arial is the best alternative
+font for Helvetica, and it comes with that package. Then, confirm if the system
+finds Nimbus Sans as an alternative font for Helvetica:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ fc-match &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Helvetica&amp;#34;&lt;/span&gt;
+NimbusSans-Regular.otf: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Nimbus Sans&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Regular&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ok, so we&amp;rsquo;re sure that we understood the problem correctly. We will try to
+reject that weird font and recheck the output until it finds Arial. To do that,
+we need to create a &lt;code&gt;fonts.conf&lt;/code&gt; file and keep it on the correct path. On my
+Ubuntu (20.04), the path will be &lt;code&gt;~/.config/fontconfig/fonts.conf&lt;/code&gt;, but if
+you&amp;rsquo;re using a different distribution, learn the correct path from Google.&lt;/p&gt;
+&lt;p&gt;After you created the file, fill it with these lines:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;selectfont&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;rejectfont&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;patelt&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;family&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;Nimbus Sans&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/patelt&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/rejectfont&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/selectfont&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, let&amp;rsquo;s clear the fonts cache and recheck the fc-match output:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ fc-cache -rv
+$ fc-match &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Helvetica&amp;#34;&lt;/span&gt;
+n019003l.pfb: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Nimbus Sans L&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Regular&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Okay, yet another weird font. Let&amp;rsquo;s ignore this font too and try again:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;selectfont&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;rejectfont&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;patelt&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;family&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;Nimbus Sans&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/patelt&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/rejectfont&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;rejectfont&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;patelt&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;family&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;Nimbus Sans L&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/patelt&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/rejectfont&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/selectfont&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ fc-cache -rv
+$ fc-match &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Helvetica&amp;#34;&lt;/span&gt;
+Arial.ttf: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Arial&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Regular&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finally! Now we can restart the Firefox and check the fonts on the browser:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://gokmengorgen.net/img/original/blog/firefox-arial-font.png&#34;&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/firefox-arial-font.png&#34; alt=&#34;&#34; title=&#34;Arial font is the best Helvetica font alternative.&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s all.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Rust Essentials</title>

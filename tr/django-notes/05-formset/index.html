@@ -193,7 +193,7 @@
 <p>Tek form, tek monitor :-(. Şimdi Formset<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> zamanı.</p>
 <h2 id="formset-kullanımı-ve-dont-repeat-yourself">Formset Kullanımı ve Don&rsquo;t Repeat Yourself</h2>
 <p>Uygulamamız henüz buna hazır değil; ama diyelim ki kullanıcılar projemizde hesap açsınlar ve her kullanıcının en fazla 10 URL&rsquo;i izleme hakkı olsun. Yani bizim uygulama arayüzümüzde 10 form içeren bir form kümesi olsun ve kullanıcılar tek seferde düzenleyebilsin.</p>
-<p><strong>UptimeDashboardView</strong> için miras aldığımız <strong>FormView</strong>, tek bir formu yönetebilmemiz için hazırlanmış kapsamlı bir View class'ıdır. Bu durumda elimizde iki seçenek var. Bunlardan <u>birincisi</u>, FormView&rsquo;i kendi ihtiyacımıza göre özelleştirip yeni bir genel View class'ı ve bu tip özel ihtiyaçlarda hep aynı class'ı kullanmak. Mesela bu özelleştirilmiş class'ın adı <strong>FormSetView</strong> olabilir.</p>
+<p><strong>UptimeDashboardView</strong> için miras aldığımız <strong>FormView</strong>, tek bir formu yönetebilmemiz için hazırlanmış kapsamlı bir View class&rsquo;ıdır. Bu durumda elimizde iki seçenek var. Bunlardan <u>birincisi</u>, FormView&rsquo;i kendi ihtiyacımıza göre özelleştirip yeni bir genel View class&rsquo;ı ve bu tip özel ihtiyaçlarda hep aynı class&rsquo;ı kullanmak. Mesela bu özelleştirilmiş class&rsquo;ın adı <strong>FormSetView</strong> olabilir.</p>
 <p>Ama <u>bir seçeneğimiz daha</u> var. Django büyük bir topluluk ve bizim ihtiyaç duyduğumuz şeye başkaları da ihtiyaç duymuş olabilir, hatta bu ihtiyacı birisi Django eklentisi haline getirmiş bile olabilir. <a href="https://pypi.org/project/django-extra-views/">PyPI</a>&lsquo;den arattığımda <strong>django-extra-views</strong><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>&lsquo;in aradığımız eklenti olduğunu gördüm. Hemen <strong>requirements.txt</strong>&lsquo;ye yeni bağımlılığımızı ekliyoruz, kuruyoruz ve View katmanımızı güncelliyoruz:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_uptime/views.py</span>
 <span style="color:#f92672">from</span> django.urls <span style="color:#f92672">import</span> reverse_lazy
@@ -322,7 +322,7 @@
                 <div class="mx-0 mx-md-4 mb-2 text-center text-md-left">
                     
                         <div>
-                            <a class="mx-1 mr-md-2 ml-md-0  text-tags" href="https://gokmengorgen.net/tags/">
+                            <a class="mx-1 mr-md-2 ml-md-0  text-tags" href="https://gokmengorgen.net/tr/tags/">
                                 
                                 Etiketler
                             </a>

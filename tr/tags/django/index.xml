@@ -67,7 +67,7 @@ HTML Tags, adından da anlaşılacağı üzere, HTML kodlarını CMS paneli üze
       <pubDate>Sun, 27 May 2018 16:45:30 +0200</pubDate>
       
       <guid>https://gokmengorgen.net/tr/blog/2018/05/django-modelinde-selectbox-kullanimi/</guid>
-      <description>Bazen bir model field&#39;ında kullanımı sınırlandırmak veya veriyi denetlemek için basit çözümlere ihtiyacımız var. Örneğin, bir araba markası sorulduğunda kullanıcının kafadan veri girişini engellemek veya Opel - opel gibi büyük - küçük farklarından dolayı oluşacak gereksiz seçenek bölünmelerini önlemek gerekir.
+      <description>Bazen bir model field&amp;rsquo;ında kullanımı sınırlandırmak veya veriyi denetlemek için basit çözümlere ihtiyacımız var. Örneğin, bir araba markası sorulduğunda kullanıcının kafadan veri girişini engellemek veya Opel - opel gibi büyük - küçük farklarından dolayı oluşacak gereksiz seçenek bölünmelerini önlemek gerekir.
 Django notlarım&amp;lsquo;da sürekli dile getirdiğim konu var, bir şeye ihtiyaç duyduğunuzda:
  Mutlaka Django&amp;rsquo;nun kendi dökümantasyonuna bir göz atın. Mutlaka başkaları nasıl çözmüş diye araştırın.  Django dökümantasyonundaki bir örneği alalım ve onun üzerinden gidelim:</description>
     </item>

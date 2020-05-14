@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/blog/</loc>
-    <lastmod>2020-02-02T22:22:10+01:00</lastmod>
+    <lastmod>2020-05-14T22:44:15+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
@@ -18,13 +18,8 @@
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/tags/book/</loc>
-    <lastmod>2020-02-02T22:22:10+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://gokmengorgen.net/</loc>
-    <lastmod>2020-02-02T22:22:10+01:00</lastmod>
+    <lastmod>2020-05-14T22:44:15+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
@@ -38,13 +33,18 @@
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/blog/2020/02/rust-essentials/</loc>
-    <lastmod>2020-02-02T22:22:10+01:00</lastmod>
+    <loc>https://gokmengorgen.net/blog/2020/05/how-to-fix-default-fonts-problem-on-firefox/</loc>
+    <lastmod>2020-05-14T22:44:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/linux/</loc>
+    <lastmod>2020-05-14T22:44:15+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://gokmengorgen.net/tags/</loc>
-    <lastmod>2020-02-02T22:22:10+01:00</lastmod>
+    <lastmod>2020-05-14T22:44:15+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
@@ -55,6 +55,21 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/ubuntu/</loc>
+    <lastmod>2020-05-14T22:44:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/book/</loc>
+    <lastmod>2020-02-02T22:22:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/2020/02/rust-essentials/</loc>
+    <lastmod>2020-02-02T22:22:10+01:00</lastmod>
   </url>
   
   <url>

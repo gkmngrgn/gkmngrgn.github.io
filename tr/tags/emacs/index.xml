@@ -6,10 +6,21 @@
     <description>Recent content in emacs on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Apr 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 15 May 2020 12:57:56 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tr/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Editörde Kullandığım Eklentiler</title>
+      <link>https://gokmengorgen.net/tr/blog/2020/05/editorde-kullandigim-eklentiler/</link>
+      <pubDate>Fri, 15 May 2020 12:57:56 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/blog/2020/05/editorde-kullandigim-eklentiler/</guid>
+      <description>VSCode benim sevdiğim ve takip ettiğim bir editör; ancak alışkanlıkları değiştirmek zor olduğu için Emacs kullanmaya devam ediyorum. Başta VSCode olmak üzere, farklı editörler için yazılmış çeşitli blog yazılarından ilham alarak arada yapılandırma dosyamı güncelliyorum. Ben de bu yazıyla Emacs üzerinden, kullandığınız editör için ilham verebilmeyi ümit ediyorum. Yazıda bahsettiğim yapılandırmaların tümüne bu repodan erişebilirsiniz.
+
+Tema, Font ve Arayüz Bileşenleri Hakkında Ön Bilgi Yazının ilerleyen bölümlerinde kullanacağım bazı terimlerin iyi anlaşılabilmesi için, arayüz hakkında küçük bir bilgi vermeliyim.</description>
+    </item>
     
     <item>
       <title>Emacs&#39;e nereden başlamalı?</title>

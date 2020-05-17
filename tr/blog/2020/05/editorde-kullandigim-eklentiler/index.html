@@ -165,82 +165,44 @@
                     <div class="markdown">
                         
     
-    <p>VSCode benim sevdiğim ve takip ettiğim bir editör; ancak alışkanlıkları
-değiştirmek zor olduğu için Emacs kullanmaya devam ediyorum. Başta VSCode olmak
-üzere, farklı editörler için yazılmış çeşitli blog yazılarından ilham alarak
-arada yapılandırma dosyamı güncelliyorum. Ben de bu yazıyla Emacs üzerinden,
-kullandığınız editör için ilham verebilmeyi ümit ediyorum. Yazıda bahsettiğim yapılandırmaların tümüne <a href="https://github.com/gkmngrgn/emacs.d">bu repodan</a> erişebilirsiniz.</p>
+    <p>VSCode benim sevdiğim ve takip ettiğim bir editör; ancak alışkanlıkları değiştirmek zor olduğu için Emacs kullanmaya devam ediyorum. Başta VSCode olmak üzere, farklı editörler için yazılmış çeşitli blog yazılarından ilham alarak arada yapılandırma dosyamı güncelliyorum. Ben de bu yazıyla Emacs üzerinden, kullandığınız editör için ilham verebilmeyi ümit ediyorum. Yazıda bahsettiğim yapılandırmaların tümüne <a href="https://github.com/gkmngrgn/emacs.d">bu repodan</a> erişebilirsiniz.</p>
 <p><a href="https://gokmengorgen.net/img/original/blog/my-emacs.png"><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://gokmengorgen.net/img/blog/my-emacs.png" src="https://gokmengorgen.net/img/blog/low/my-emacs.png" alt="" title="Gözlüğü çıkardığımda Emacs'i böyle görüyorum... Yok, bu kadar kötü değil tamam. Net görüntü için tıklayın." /></a></p></figure>
 <h2 id="tema-font-ve-arayüz-bileşenleri-hakkında-ön-bilgi">Tema, Font ve Arayüz Bileşenleri Hakkında Ön Bilgi</h2>
-<p>Yazının ilerleyen bölümlerinde kullanacağım bazı terimlerin iyi anlaşılabilmesi
-için, arayüz hakkında küçük bir bilgi vermeliyim. Emacs&rsquo;in grafik arayüzü birkaç
-ana bileşenden oluşmaktadır:</p>
+<p>Yazının ilerleyen bölümlerinde kullanacağım bazı terimlerin iyi anlaşılabilmesi için, arayüz hakkında küçük bir bilgi vermeliyim. Emacs&rsquo;in grafik arayüzü birkaç ana bileşenden oluşmaktadır:</p>
 <ol>
 <li>
-<p><strong>Frame:</strong> Masaüstü ortamımızın penceresi, Emacs için <strong>çerçeve</strong> olarak
-adlandırılır. Emacs&rsquo;i bir kere çalıştırıp, birden fazla çerçeve
-açabiliriz. Bir sunucuda Emacs&rsquo;i servis gibi çalıştırıp, birden fazla
-geliştirici o servise bağlanıp kendi çerçevelerinde kodlama
-yapabilirler. <a href="https://visualstudio.microsoft.com/services/live-share/">Live Share</a> kadar pratik olmasa da benzer işlevi görür.</p>
+<p><strong>Frame:</strong> Masaüstü ortamımızın penceresi, Emacs için <strong>çerçeve</strong> olarak adlandırılır. Emacs&rsquo;i bir kere çalıştırıp, birden fazla çerçeve açabiliriz. Bir sunucuda Emacs&rsquo;i servis gibi çalıştırıp, birden fazla geliştirici o servise bağlanıp kendi çerçevelerinde kodlama yapabilirler. <a href="https://visualstudio.microsoft.com/services/live-share/">Live Share</a> kadar pratik olmasa da benzer işlevi görür.</p>
 </li>
 <li>
-<p><strong>Window:</strong> Her çerçeve en az bir pencere barındırır ve birden fazla da
-olabilir. Her pencere bir buffer&rsquo;i gösterir.</p>
+<p><strong>Window:</strong> Her çerçeve en az bir pencere barındırır ve birden fazla da olabilir. Her pencere bir buffer&rsquo;i gösterir.</p>
 </li>
 <li>
-<p><strong>Buffer:</strong> Pencerelerin içinde gösterilen dosya, pdf, resim, yardım sayfası,
-mesaj, terminal emülatörü, mail uygulaması, hatta bir web sayfası buffer
-olarak adlandırılır. İki taraflı bilgi alışverişinin olduğu bir tampon
-bölgedir.</p>
+<p><strong>Buffer:</strong> Pencerelerin içinde gösterilen dosya, pdf, resim, yardım sayfası, mesaj, terminal emülatörü, mail uygulaması, hatta bir web sayfası buffer olarak adlandırılır. İki taraflı bilgi alışverişinin olduğu bir tampon bölgedir.</p>
 </li>
 <li>
-<p><strong>Mode line:</strong> Pencerelerin altında yer alan, buffer ile ilgili dosya adı,
-çalışan modlar, imleç pozisyonu, aktif git branşı gibi bilgileri gösteren
-satırdır.</p>
+<p><strong>Mode line:</strong> Pencerelerin altında yer alan, buffer ile ilgili dosya adı, çalışan modlar, imleç pozisyonu, aktif git branşı gibi bilgileri gösteren satırdır.</p>
 </li>
 <li>
-<p><strong>Mini buffer:</strong> Mode line&rsquo;ın da altında yer alan, autocomplete&rsquo;in çalıştığı,
-arama sonuçlarının veya geçici logların gösterildiği küçük bir alandır.</p>
+<p><strong>Mini buffer:</strong> Mode line&rsquo;ın da altında yer alan, autocomplete&rsquo;in çalıştığı, arama sonuçlarının veya geçici logların gösterildiği küçük bir alandır.</p>
 </li>
 <li>
-<p><strong>Fringe:</strong> Pencerelerin yan kenarlarında bulunan ince boşluk,
-kenarlıktır. Burada test coverage bilgisi, git diff çıktısı, yer imleri,
-imleç pozisyonu, kod hataları gibi satırla ilgili bilgi gösteren renk, ikon
-veya karakterler yer alır.</p>
+<p><strong>Fringe:</strong> Pencerelerin yan kenarlarında bulunan ince boşluk, kenarlıktır. Burada test coverage bilgisi, git diff çıktısı, yer imleri, imleç pozisyonu, kod hataları gibi satırla ilgili bilgi gösteren renk, ikon veya karakterler yer alır.</p>
 </li>
 </ol>
-<p>Bunun dışında, tepede <strong>header line</strong>, <strong>toolbar</strong>, <strong>menu</strong> gibi bileşenler
-bulunmaktadır. Bir de Emacs 27 sürümüyle birlikte <strong>tab bar mode</strong> geleceğini
-öğrendim. Bunları ben kullanmıyorum.</p>
-<p>Tema seçerken, eklentileri ne kadar göz önünde bulunduruyor, ne kadar
-özelleştirilebilir ve ne kadar erişilebilirliğe uygun, bunlara dikkat
-ediyorum. Ben <strong>Operandi</strong> ve <strong>Vivendi</strong> adıyla iki çeşidi olan <a href="https://gitlab.com/protesilaos/modus-themes/-/wikis/Screenshots">Modus</a>
-temasını kullanıyorum.</p>
-<p>Font olarak uzun süre <strong>Fira Code</strong> kullandım ve hala Terminal uygulamalarında
-kullanmaya devam ediyorum. Şimdi ise italik fontlarını çok beğendiğim için <a href="https://www.ibm.com/plex/">IBM
-Plex Mono</a> kullanıyorum. Malesef font ligatures desteği tam olarak yok.</p>
+<p>Bunun dışında, tepede <strong>header line</strong>, <strong>toolbar</strong>, <strong>menu</strong> gibi bileşenler bulunmaktadır. Bir de Emacs 27 sürümüyle birlikte <strong>tab bar mode</strong> geleceğini öğrendim. Bunları ben kullanmıyorum.</p>
+<p>Tema seçerken, eklentileri ne kadar göz önünde bulunduruyor, ne kadar özelleştirilebilir ve ne kadar erişilebilirliğe uygun, bunlara dikkat ediyorum. Ben <strong>Operandi</strong> ve <strong>Vivendi</strong> adıyla iki çeşidi olan <a href="https://gitlab.com/protesilaos/modus-themes/-/wikis/Screenshots">Modus</a> temasını kullanıyorum.</p>
+<p>Font olarak uzun süre <strong>Fira Code</strong> kullandım ve hala Terminal uygulamalarında kullanmaya devam ediyorum. Şimdi ise italik fontlarını çok beğendiğim için <a href="https://www.ibm.com/plex/">IBM Plex Mono</a> kullanıyorum. Malesef font ligatures desteği tam olarak yok.</p>
 <h2 id="sürüm-kontrol-sistemi">Sürüm Kontrol Sistemi</h2>
-<p>Artık Git dışında bir sürüm kontrol sistemi kullanan kaldı mı,
-bilmiyorum. Bitbucket bile yeni kod deposu oluştururken, &ldquo;Mercurial mı, yoksa
-Git mi?&rdquo; diye sormayı bıraktı. Dolayısıyla sadece git eklentileri
-kullanıyorum. Bunlardan birincisi tabi ki <a href="https://magit.vc/">Magit</a>! O kadar güzel bir şey ki
-Magit, Emacs&rsquo;e bulaşmadan bağımsız bir uygulamaymış gibi kullanabilmek için
-<a href="https://github.com/vlandeiro/magit-docker">docker container imajı</a> bile var. Tabi yine kısayollarına hakim olmak
-gerekiyor.</p>
-<p>Bunun dışında, satır değişikliklerini takip etmek için <a href="https://github.com/dgutov/diff-hl">diff-hl</a> adında bir
-fringe eklentisi kullanıyorum.</p>
+<p>Artık Git dışında bir sürüm kontrol sistemi kullanan kaldı mı, bilmiyorum. Bitbucket bile yeni kod deposu oluştururken, &ldquo;Mercurial mı, yoksa Git mi?&rdquo; diye sormayı bıraktı. Dolayısıyla sadece git eklentileri kullanıyorum. Bunlardan birincisi tabi ki <a href="https://magit.vc/">Magit</a>! O kadar güzel bir şey ki Magit, Emacs&rsquo;e bulaşmadan bağımsız bir uygulamaymış gibi kullanabilmek için <a href="https://github.com/vlandeiro/magit-docker">docker container imajı</a> bile var. Tabi yine kısayollarına hakim olmak gerekiyor.</p>
+<p>Bunun dışında, satır değişikliklerini takip etmek için <a href="https://github.com/dgutov/diff-hl">diff-hl</a> adında bir fringe eklentisi kullanıyorum.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> diff-hl
   <span style="color:#e6db74">:config</span>
   (global-diff-hl-mode)
   (<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">not</span> (display-graphic-p))
       (diff-hl-margin-mode)))
 </code></pre></div><h2 id="arama-filtreleme-eklentileri">Arama, Filtreleme Eklentileri</h2>
-<p>Uzun bir süre git grep ve silversearcher kullandım. Şimdi sadece <a href="https://github.com/BurntSushi/ripgrep">ripgrep</a>
-kullanıyorum. Neden? En rahat bunun kaynak kodunu okuyabildiğim için. Yoksa
-diğerlerinden çok bir artısı olduğunu sanmıyorum.</p>
-<p>Tabi arama sonuçlarını mini buffer üzerinden görebilmek için <a href="https://github.com/abo-abo/swiper">swiper</a>
-kullanıyorum. Bu eklenti sadece kod aramada değil, komut veya buffer
-filtrelerken de kolaylık sağlıyor.</p>
+<p>Uzun bir süre git grep ve silversearcher kullandım. Şimdi sadece <a href="https://github.com/BurntSushi/ripgrep">ripgrep</a> kullanıyorum. Neden? En rahat bunun kaynak kodunu okuyabildiğim için. Yoksa diğerlerinden çok bir artısı olduğunu sanmıyorum.</p>
+<p>Tabi arama sonuçlarını mini buffer üzerinden görebilmek için <a href="https://github.com/abo-abo/swiper">swiper</a> kullanıyorum. Bu eklenti sadece kod aramada değil, komut veya buffer filtrelerken de kolaylık sağlıyor.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> swiper
   <span style="color:#e6db74">:bind</span> ((<span style="color:#e6db74">&#34;C-s&#34;</span> <span style="color:#f92672">.</span> swiper)))
 
@@ -249,9 +211,7 @@ filtrelerken de kolaylık sağlıyor.</p>
          (<span style="color:#e6db74">&#34;C-r&#34;</span>     <span style="color:#f92672">.</span> counsel-rg)
          (<span style="color:#e6db74">&#34;C-x C-f&#34;</span> <span style="color:#f92672">.</span> counsel-find-file)
          (<span style="color:#e6db74">&#34;C-x C-d&#34;</span> <span style="color:#f92672">.</span> counsel-git)))
-</code></pre></div><p>Bazen klavye makrolarını akılda tutmak, öğrenmek zor oluyor. Bunun için de
-<a href="https://github.com/justbur/emacs-which-key">which-key</a> ve <a href="https://github.com/abo-abo/hydra">hydra</a> kullanıyorum. Böylece makrolar için kopya
-kağıtları hazırlayabiliyorsunuz.</p>
+</code></pre></div><p>Bazen klavye makrolarını akılda tutmak, öğrenmek zor oluyor. Bunun için de <a href="https://github.com/justbur/emacs-which-key">which-key</a> ve <a href="https://github.com/abo-abo/hydra">hydra</a> kullanıyorum. Böylece makrolar için kopya kağıtları hazırlayabiliyorsunuz.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> which-key
   <span style="color:#e6db74">:config</span>
   (which-key-mode)
@@ -269,17 +229,8 @@ kağıtları hazırlayabiliyorsunuz.</p>
     (<span style="color:#e6db74">&#34;k&#34;</span>   flycheck-previous-error             <span style="color:#e6db74">&#34;Previous&#34;</span>)
     (<span style="color:#e6db74">&#34;RET&#34;</span> <span style="color:#66d9ef">nil</span>                                 <span style="color:#e6db74">&#34;Close&#34;</span> <span style="color:#e6db74">:color</span> blue)))
 </code></pre></div><h2 id="imleç-gezdirme-navigation">İmleç Gezdirme (Navigation)</h2>
-<p>Emacs, Vim gibi editörlerde kodda gezinirken mouse ve yön tuşlarına ne kadar az
-ihtiyaç duyulursa o kadar hız kazanırsınız. Örneğin <a href="https://github.com/abo-abo/avy">avy</a> ile aktif
-bufferlar arasında nokta atışı bir harfe
-gidebilirsiniz. <a href="https://github.com/Fanael/rainbow-delimiters">rainbow-delimiters</a> ile parantez çiftlerini farklı
-renklendirip gitmek istediğiniz pozisyonu daha net görüp, imleci önceki ve
-sonrakine götürebilirsiniz. Belli bir kod blokunu seçmek, seçimi fonksiyon,
-metod veya class gibi bloklara genişletmek için <a href="https://github.com/magnars/expand-region.el">expand-region</a>
-kullanabilirsiniz.</p>
-<p>Bazen yapılan değişiklikleri geri alıp, bir şeyler kopyaladıktan sonra tekrar
-ileri dönmek isteyebilirsiniz. Emacs&rsquo;in varsayılan undo - redo mantığı epey
-yorucu oluyor benim için, bu nedenle <a href="https://gitlab.com/ideasman42/emacs-undo-fu">undo-fu</a> kullanmayı tercih ediyorum.</p>
+<p>Emacs, Vim gibi editörlerde kodda gezinirken mouse ve yön tuşlarına ne kadar az ihtiyaç duyulursa o kadar hız kazanırsınız. Örneğin <a href="https://github.com/abo-abo/avy">avy</a> ile aktif bufferlar arasında nokta atışı bir harfe gidebilirsiniz. <a href="https://github.com/Fanael/rainbow-delimiters">rainbow-delimiters</a> ile parantez çiftlerini farklı renklendirip gitmek istediğiniz pozisyonu daha net görüp, imleci önceki ve sonrakine götürebilirsiniz. Belli bir kod blokunu seçmek, seçimi fonksiyon, metod veya class gibi bloklara genişletmek için <a href="https://github.com/magnars/expand-region.el">expand-region</a> kullanabilirsiniz.</p>
+<p>Bazen yapılan değişiklikleri geri alıp, bir şeyler kopyaladıktan sonra tekrar ileri dönmek isteyebilirsiniz. Emacs&rsquo;in varsayılan undo - redo mantığı epey yorucu oluyor benim için, bu nedenle <a href="https://gitlab.com/ideasman42/emacs-undo-fu">undo-fu</a> kullanmayı tercih ediyorum.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> avy
   <span style="color:#e6db74">:bind</span> ((<span style="color:#e6db74">&#34;M-g g&#34;</span> <span style="color:#f92672">.</span> avy-goto-char-2)
          (<span style="color:#e6db74">&#34;M-g f&#34;</span> <span style="color:#f92672">.</span> avy-goto-char))
@@ -298,22 +249,11 @@ yorucu oluyor benim için, bu nedenle <a href="https://gitlab.com/ideasman42/ema
   <span style="color:#e6db74">:bind</span> ((<span style="color:#e6db74">&#34;C-z&#34;</span> <span style="color:#f92672">.</span> undo-fu-only-undo)
          (<span style="color:#e6db74">&#34;C-M-z&#34;</span> <span style="color:#f92672">.</span> undo-fu-only-redo))
   <span style="color:#e6db74">:defer</span> <span style="color:#66d9ef">t</span>)
-</code></pre></div><p>Bunun dışında <a href="https://github.com/dgutov/diff-hl">diff-hl</a> ile kod değişikliğinin olduğu satırlarda gezinmek,
-<a href="https://github.com/flycheck/flycheck">flycheck</a> ile hata veren satırlara göz atmak kolaylaşıyor. Makroları CTRL
-(Control) ve Alt (Option) tuşları üzerinden gruplayarak yön tuşlarını daha
-işlevsel kullanmak mümkün olabilir. Örneğin CTRL tuşuyla imleci tek karakter
-hareket ettirirken, Alt tuşunu kullanırken imleci bir sonraki - önceki -
-yukarıdaki - aşağıdaki boşluğa götürebilirsiniz. Bunu Emacs&rsquo;te kendiniz
-yapılandırmanız gerekiyor, bir örneğini aşağıda bulabilirsiniz:</p>
+</code></pre></div><p>Bunun dışında <a href="https://github.com/dgutov/diff-hl">diff-hl</a> ile kod değişikliğinin olduğu satırlarda gezinmek, <a href="https://github.com/flycheck/flycheck">flycheck</a> ile hata veren satırlara göz atmak kolaylaşıyor. Makroları CTRL (Control) ve Alt (Option) tuşları üzerinden gruplayarak yön tuşlarını daha işlevsel kullanmak mümkün olabilir. Örneğin CTRL tuşuyla imleci tek karakter hareket ettirirken, Alt tuşunu kullanırken imleci bir sonraki - önceki - yukarıdaki - aşağıdaki boşluğa götürebilirsiniz. Bunu Emacs&rsquo;te kendiniz yapılandırmanız gerekiyor, bir örneğini aşağıda bulabilirsiniz:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(global-set-key (kbd <span style="color:#e6db74">&#34;M-p&#34;</span>) <span style="color:#e6db74">&#39;backward-paragraph</span>)
 (global-set-key (kbd <span style="color:#e6db74">&#34;M-n&#34;</span>) <span style="color:#e6db74">&#39;forward-paragraph</span>)
 </code></pre></div><h2 id="pencere-yönetimi">Pencere Yönetimi</h2>
-<p>Emacs&rsquo;te tab gösterimi 27 sürümüyle gelecek, geldiğinde kullanır mıyım, emin
-değilim. Belki tabları masaüstünde çalışan veya pinlenmiş programların yer
-aldığı task bar gibi kullanmayı düşünebilirim. Aslında Emacs&rsquo;i, i3wm gibi tiling
-window manager gibi düşünebilirsiniz. İstediğiniz kadar birbirine döşenmiş
-pencereler oluşturup boyutlandırabiliyor, bu pencerelerin içinde dosyalar veya
-uygulamalar açıp düzenleyebiliyorsunuz. Yalın haldeyken pencere geçişlerini yönetmek biraz zor olabiliyor. Bunun için birkaç güzel eklenti var.</p>
+<p>Emacs&rsquo;te tab gösterimi 27 sürümüyle gelecek, geldiğinde kullanır mıyım, emin değilim. Belki tabları masaüstünde çalışan veya pinlenmiş programların yer aldığı task bar gibi kullanmayı düşünebilirim. Aslında Emacs&rsquo;i, i3wm gibi tiling window manager gibi düşünebilirsiniz. İstediğiniz kadar birbirine döşenmiş pencereler oluşturup boyutlandırabiliyor, bu pencerelerin içinde dosyalar veya uygulamalar açıp düzenleyebiliyorsunuz. Yalın haldeyken pencere geçişlerini yönetmek biraz zor olabiliyor. Bunun için birkaç güzel eklenti var.</p>
 <p>Bunlardan ilki <a href="https://github.com/abo-abo/ace-window">ace-window</a>. Tüm çerçevelerde yer alan pencereler arası geçiş yapmak, yeni bir pencereyi belli bir buffer ile açmak, aktif olmayan diğer pencereleri kapatmak, yatay veya dikey bölmek ya da birleştirmek, pencereleri değiş tokuş yapmak gibi yetenekleri var.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> ace-window
   <span style="color:#e6db74">:config</span>
@@ -325,21 +265,11 @@ uygulamalar açıp düzenleyebiliyorsunuz. Yalın haldeyken pencere geçişlerin
   (global-set-key (kbd <span style="color:#e6db74">&#34;M-o&#34;</span>) <span style="color:#e6db74">&#39;ace-window</span>)
   (<span style="color:#66d9ef">setq</span> aw-background <span style="color:#66d9ef">nil</span>)
   (<span style="color:#66d9ef">setq</span> aw-dispatch-always <span style="color:#66d9ef">t</span>))
-</code></pre></div><p>İkincisi <a href="https://depp.brause.cc/eyebrowse">eyebrowse</a>. Bazen pencere düzeninizi bozmak istemezsiniz, yeni bir
-projeye geçip orada farklı dosyaları açıp ve projeler arasında geçiş yapmak
-isteyebilirsiniz. Bazen üçüncü parti bir kütüphanenin kaynak kodlarına bakmak
-istersiniz, onun dosyalarını, kendi projenizin dosyalarıyla karıştırmak
-istemezsiniz. Bir nevi, Windows&rsquo;ta taskbar&rsquo;a kavuşmuş oluyorsunuz.</p>
+</code></pre></div><p>İkincisi <a href="https://depp.brause.cc/eyebrowse">eyebrowse</a>. Bazen pencere düzeninizi bozmak istemezsiniz, yeni bir projeye geçip orada farklı dosyaları açıp ve projeler arasında geçiş yapmak isteyebilirsiniz. Bazen üçüncü parti bir kütüphanenin kaynak kodlarına bakmak istersiniz, onun dosyalarını, kendi projenizin dosyalarıyla karıştırmak istemezsiniz. Bir nevi, Windows&rsquo;ta taskbar&rsquo;a kavuşmuş oluyorsunuz.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> eyebrowse
   <span style="color:#e6db74">:init</span>
   (eyebrowse-mode <span style="color:#66d9ef">t</span>))
-</code></pre></div><p>Üçüncüsü <a href="https://github.com/cyrus-and/zoom">zoom</a>. Bu eklenti sayesinde artık pencere boyutlandırma diye bir
-ihtiyacım kalmadı. Hangi pencerede çalışıyorsam, onun kapsam alanını genişletip,
-diğerlerini daraltıyor. Çerçeveleri dikey birkaç pencereye bölüp pencereler
-arasında geçiş yaptığınızda sanki kitaptan sayfa çeviriyormuşsunuz gibi
-oluyor. Algoritması biraz karışık çünkü çerçeve boyutuna göre pencereleri
-hesaplamaya çalışıyor ve bazı çözünürlüklerde bu algoritmaya müdahale etmek
-gerekebiliyor.</p>
+</code></pre></div><p>Üçüncüsü <a href="https://github.com/cyrus-and/zoom">zoom</a>. Bu eklenti sayesinde artık pencere boyutlandırma diye bir ihtiyacım kalmadı. Hangi pencerede çalışıyorsam, onun kapsam alanını genişletip, diğerlerini daraltıyor. Çerçeveleri dikey birkaç pencereye bölüp pencereler arasında geçiş yaptığınızda sanki kitaptan sayfa çeviriyormuşsunuz gibi oluyor. Algoritması biraz karışık çünkü çerçeve boyutuna göre pencereleri hesaplamaya çalışıyor ve bazı çözünürlüklerde bu algoritmaya müdahale etmek gerekebiliyor.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> zoom
   <span style="color:#e6db74">:diminish</span>
   <span style="color:#e6db74">:config</span>
@@ -347,23 +277,12 @@ gerekebiliyor.</p>
   (<span style="color:#66d9ef">setq</span> zoom-size <span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">0.618</span> <span style="color:#f92672">.</span> <span style="color:#ae81ff">0.618</span>)
 	zoom-ignored-major-modes <span style="color:#f92672">&#39;</span>(which-key-mode
                                    hydra-mode)))
-</code></pre></div><p>Son olarak <a href="https://github.com/waymondo/frog-jump-buffer">frog-jump-buffer</a> eklentisinden bahsetmeliyim. Bazen açmak
-istediğiniz dosyanın adını unutur, hepsine bir göz atmak istersiniz. Emacs&rsquo;te
-zaten bunun için bir çözüm var ama bu da güzel bir alternatif olarak tavsiye
-edilir.</p>
+</code></pre></div><p>Son olarak <a href="https://github.com/waymondo/frog-jump-buffer">frog-jump-buffer</a> eklentisinden bahsetmeliyim. Bazen açmak istediğiniz dosyanın adını unutur, hepsine bir göz atmak istersiniz. Emacs&rsquo;te zaten bunun için bir çözüm var ama bu da güzel bir alternatif olarak tavsiye edilir.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> frog-jump-buffer
   <span style="color:#e6db74">:bind</span> ((<span style="color:#e6db74">&#34;C-x C-b&#34;</span> <span style="color:#f92672">.</span> frog-jump-buffer))
   <span style="color:#e6db74">:defer</span> <span style="color:#66d9ef">t</span>)
 </code></pre></div><h2 id="kod-tamamlama-denetleme-ve-düzenleme">Kod Tamamlama, Denetleme ve Düzenleme</h2>
-<p>Microsoft&rsquo;un VSCode ile birlikte geliştiricilere sağlamış olduğu en güzel şey
-nedir sorarsanız, herhalde LSP ve DAP derim. Yazıyı bu iki güzel eklentiyle
-uzatmak istemiyorum ama hangi editör kullanıyorsanız kullanın, bir göz atıp
-bakmanızda fayda olduğunu düşünüyorum. <a href="https://emacs-lsp.github.io/lsp-mode">lsp-mode</a> ile kod tamamlama, imleci
-belli bir değişken, sınıf, fonksiyon veya değerin tanımlandığı yere götürmek,
-referansların listesini elde etmek, kodu refactor etmek, satır içi kod
-standartları veya derleme hataları ile ilgili bilgiye erişmek, dökümantasyona
-ulaşmak gibi bir sürü yeteneği var. Ayrıca <a href="https://emacs-lsp.github.io/dap-mode">dap-mode</a> ile kodu editör
-üzerinden çalıştırıp debug etme imkanınız oluyor.</p>
+<p>Microsoft&rsquo;un VSCode ile birlikte geliştiricilere sağlamış olduğu en güzel şey nedir sorarsanız, herhalde LSP ve DAP derim. Yazıyı bu iki güzel eklentiyle uzatmak istemiyorum ama hangi editör kullanıyorsanız kullanın, bir göz atıp bakmanızda fayda olduğunu düşünüyorum. <a href="https://emacs-lsp.github.io/lsp-mode">lsp-mode</a> ile kod tamamlama, imleci belli bir değişken, sınıf, fonksiyon veya değerin tanımlandığı yere götürmek, referansların listesini elde etmek, kodu refactor etmek, satır içi kod standartları veya derleme hataları ile ilgili bilgiye erişmek, dökümantasyona ulaşmak gibi bir sürü yeteneği var. Ayrıca <a href="https://emacs-lsp.github.io/dap-mode">dap-mode</a> ile kodu editör üzerinden çalıştırıp debug etme imkanınız oluyor.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> lsp-mode
   <span style="color:#e6db74">:commands</span> (lsp lsp-deferred)
   <span style="color:#e6db74">:diminish</span>
@@ -384,39 +303,33 @@ ulaşmak gibi bir sürü yeteneği var. Ayrıca <a href="https://emacs-lsp.githu
    lsp-enable-snippet <span style="color:#66d9ef">nil</span>
    lsp-signature-doc-lines <span style="color:#ae81ff">10</span>
    lsp-signature-auto-activate <span style="color:#66d9ef">nil</span>))
-</code></pre></div><p>Tabi bunları yapabilmek için de pek çok eklentiye de ihtiyaç duyuluyor. LSP Mode
-zaten bunları yüklüyor ve varsayılan bir ayarı var. Ama bazı tercihleriniz
-farklı olabilir. Örneğin ben sözdizimi kontrolü için flymake yerine
-<a href="https://github.com/flycheck/flycheck">flycheck</a>, kod tamamlama önerilerinin gösterileceği popup için
-<a href="https://github.com/company-mode/company-mode">company</a> tercih ediyorum.</p>
-<pre><code>(use-package flycheck
-  :diminish
-  :init
+</code></pre></div><p>Tabi bunları yapabilmek için de pek çok eklentiye de ihtiyaç duyuluyor. LSP Mode zaten bunları yüklüyor ve varsayılan bir ayarı var. Ama bazı tercihleriniz farklı olabilir. Örneğin ben sözdizimi kontrolü için flymake yerine <a href="https://github.com/flycheck/flycheck">flycheck</a>, kod tamamlama önerilerinin gösterileceği popup için <a href="https://github.com/company-mode/company-mode">company</a> tercih ediyorum.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> flycheck
+  <span style="color:#e6db74">:diminish</span>
+  <span style="color:#e6db74">:init</span>
   (global-flycheck-mode))
 
-(use-package flycheck-rust
-  :config
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+(<span style="color:#a6e22e">use-package</span> flycheck-rust
+  <span style="color:#e6db74">:config</span>
+  (add-hook <span style="color:#e6db74">&#39;flycheck-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>flycheck-rust-setup))
 
-(use-package company
-  :bind (&quot;C-c TAB&quot; . company-complete-common)
-  :config
-  (push 'company-capf company-backends)
-  :diminish
-  :hook ((after-init . global-company-mode))
-  :init
-  (setq-default company-dabbrev-ignore-case t
-                company-dabbrev-code-ignore-case t)
-  (setq company-idle-delay 1
-        company-minimum-prefix-length 2
-        company-require-match 'never
-        company-show-numbers nil
-        company-tooltip-align-annotations t
-        company-tooltip-flip-when-above t
-        company-tooltip-limit 10))
-</code></pre><p>Bunun dışında parantez çiftlerini otomatik ekleyen <a href="https://github.com/Fuco1/smartparens">smartparens</a>, önceden
-tanımlı kod parçacıklarını kolayca yapıştırmak için <a href="https://medium.com/@beratbozkurt/a03f5cfb87bb">yasnippet</a>
-kullanıyorum.</p>
+(<span style="color:#a6e22e">use-package</span> company
+  <span style="color:#e6db74">:bind</span> (<span style="color:#e6db74">&#34;C-c TAB&#34;</span> <span style="color:#f92672">.</span> company-complete-common)
+  <span style="color:#e6db74">:config</span>
+  (push <span style="color:#e6db74">&#39;company-capf</span> company-backends)
+  <span style="color:#e6db74">:diminish</span>
+  <span style="color:#e6db74">:hook</span> ((after-init <span style="color:#f92672">.</span> global-company-mode))
+  <span style="color:#e6db74">:init</span>
+  (setq-default company-dabbrev-ignore-case <span style="color:#66d9ef">t</span>
+                company-dabbrev-code-ignore-case <span style="color:#66d9ef">t</span>)
+  (<span style="color:#66d9ef">setq</span> company-idle-delay <span style="color:#ae81ff">1</span>
+        company-minimum-prefix-length <span style="color:#ae81ff">2</span>
+        company-require-match <span style="color:#e6db74">&#39;never</span>
+        company-show-numbers <span style="color:#66d9ef">nil</span>
+        company-tooltip-align-annotations <span style="color:#66d9ef">t</span>
+        company-tooltip-flip-when-above <span style="color:#66d9ef">t</span>
+        company-tooltip-limit <span style="color:#ae81ff">10</span>))
+</code></pre></div><p>Bunun dışında parantez çiftlerini otomatik ekleyen <a href="https://github.com/Fuco1/smartparens">smartparens</a>, önceden tanımlı kod parçacıklarını kolayca yapıştırmak için <a href="https://medium.com/@beratbozkurt/a03f5cfb87bb">yasnippet</a> kullanıyorum.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> yasnippet
   <span style="color:#e6db74">:config</span>
   (yas-global-mode <span style="color:#ae81ff">1</span>)
@@ -432,12 +345,8 @@ kullanıyorum.</p>
   (smartparens-global-mode <span style="color:#66d9ef">t</span>)
   (show-smartparens-global-mode <span style="color:#66d9ef">t</span>))
 </code></pre></div><h2 id="son-olarak">Son olarak</h2>
-<p>Bahsetmediğim çok eklenti var ama yazıyı uzatmak istemedim. Doğru eklentileri
-kullandığımızda editörlerden daha fazla verim alabiliyoruz. Editör savaşlarını
-her ne kadar işin goygoyunda olsak da gereksiz buluyorum. Bir dönem .NET için
-Visual Studio kullanırken afallamıştım; ama Twitch&rsquo;te tüm marifetiyle, yüksek
-verimde kullanabilen insanları da gördüm.</p>
-<p>Bu yazıyı yazmama vesile olan <a href="https://medium.com/@beratbozkurt/a03f5cfb87bb">Berat Bozkurt</a>&lsquo;a da ayrıca teşekkürler.</p>
+<p>Bahsetmediğim çok eklenti var ama yazıyı uzatmak istemedim. Doğru eklentileri kullandığımızda editörlerden daha fazla verim alabiliyoruz. Editör savaşlarını her ne kadar işin goygoyunda olsak da gereksiz buluyorum. Bir dönem .NET için Visual Studio kullanırken afallamıştım; ama Twitch&rsquo;te tüm marifetiyle, yüksek verimde kullanabilen insanları da gördüm.</p>
+<p>Bu yazıyı yazmama vesile olan <a href="https://medium.com/@beratbozkurt/a03f5cfb87bb">Berat Bozkurt</a>&lsquo;a ayrıca teşekkürler.</p>
 
 
 

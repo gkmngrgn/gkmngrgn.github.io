@@ -6,10 +6,19 @@
     <description>Recent content in Tags on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 15 May 2020 12:57:56 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2020 23:47:58 +0200</lastBuildDate>
     
 	<atom:link href="https://gokmengorgen.net/tr/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>düşünce</title>
+      <link>https://gokmengorgen.net/tr/tags/d%C3%BC%C5%9F%C3%BCnce/</link>
+      <pubDate>Mon, 03 Aug 2020 23:47:58 +0200</pubDate>
+      
+      <guid>https://gokmengorgen.net/tr/tags/d%C3%BC%C5%9F%C3%BCnce/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>emacs</title>
@@ -26,15 +35,6 @@
       <pubDate>Sat, 28 Mar 2020 19:40:34 +0100</pubDate>
       
       <guid>https://gokmengorgen.net/tr/tags/uzaktan-%C3%A7al%C4%B1%C5%9Fma/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>düşünce</title>
-      <link>https://gokmengorgen.net/tr/tags/d%C3%BC%C5%9F%C3%BCnce/</link>
-      <pubDate>Wed, 04 Mar 2020 22:34:40 +0100</pubDate>
-      
-      <guid>https://gokmengorgen.net/tr/tags/d%C3%BC%C5%9F%C3%BCnce/</guid>
       <description></description>
     </item>
     

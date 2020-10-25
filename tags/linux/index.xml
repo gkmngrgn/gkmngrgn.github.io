@@ -6,11 +6,7 @@
     <description>Recent content in linux on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 14 May 2020 22:44:15 +0200</lastBuildDate>
-    
-	<atom:link href="https://gokmengorgen.net/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 14 May 2020 22:44:15 +0200</lastBuildDate><atom:link href="https://gokmengorgen.net/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Fix Default Fonts Problem on Firefox</title>
       <link>https://gokmengorgen.net/blog/2020/05/how-to-fix-default-fonts-problem-on-firefox/</link>
@@ -19,7 +15,7 @@
       <guid>https://gokmengorgen.net/blog/2020/05/how-to-fix-default-fonts-problem-on-firefox/</guid>
       <description>Most of the websites are using Helvetica as an alternative font, and Ubuntu is trying to set Nimbus Sans as a similar font even you have Helvetica font. Also, the default font on Firefox is DejaVu Sans, but the default fonts are working just if the styles don&amp;rsquo;t specify a font family in a website.
 
-Nimbus Sans comes with fonts-urw-base35 package, and it&amp;rsquo;s ubuntu-desktop&amp;lsquo;s dependency, direct or indirect. I need ubuntu-desktop to use GNOME, so the best solution here is to disable the font altogether and refresh the fonts cache.</description>
+Nimbus Sans comes with fonts-urw-base35 package, and it&amp;rsquo;s ubuntu-desktop&amp;rsquo;s dependency, direct or indirect. I need ubuntu-desktop to use GNOME, so the best solution here is to disable the font altogether and refresh the fonts cache.</description>
     </item>
     
   </channel>

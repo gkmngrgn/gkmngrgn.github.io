@@ -6,11 +6,7 @@
     <description>Recent content in windows on GKMNGRGN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 16 Mar 2019 19:35:51 +0200</lastBuildDate>
-    
-	<atom:link href="https://gokmengorgen.net/tags/windows/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 16 Mar 2019 19:35:51 +0200</lastBuildDate><atom:link href="https://gokmengorgen.net/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configure Windows for Development</title>
       <link>https://gokmengorgen.net/blog/2019/03/configure-windows-for-development/</link>

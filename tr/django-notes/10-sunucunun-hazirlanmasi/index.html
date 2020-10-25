@@ -156,67 +156,67 @@
 <h2 id="ortama-göre-sunucu-ayarları">Ortama göre sunucu ayarları</h2>
 <p>Önceki yazımızda Docker ile geliştirme yapmaya başlamıştık. Bunun için docker-compose.yml dosyası oluşturup Celery, RabbitMQ ve web sunucumuzun otomatik başlamasını sağlamıştık. Ancak bu ayarlarımız tamamen geliştirme ortamına göre hazırlanmıştı. Şimdi bu yapılandırmada ortak kısımları yine <strong>docker-compose.yml</strong> dosyasında tutacağız, diğer ayarları sunucu ortamına göre ayrı dosyalarda tutacağız<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># docker-compose.yml</span>
-<span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
 
-<span style="color:#66d9ef">services</span>:
-  <span style="color:#66d9ef">web</span>:
-    <span style="color:#66d9ef">build</span>: .
-  <span style="color:#66d9ef">celery</span>:
-    <span style="color:#66d9ef">build</span>: .
-    <span style="color:#66d9ef">command</span>: celery worker -l info -A hello_django
-    <span style="color:#66d9ef">depends_on</span>:
-      - amqp
-  <span style="color:#66d9ef">celery-beat</span>:
-    <span style="color:#66d9ef">build</span>: .
-    <span style="color:#66d9ef">command</span>: celery beat -l info -A hello_django --scheduler django_celery_beat.schedulers:DatabaseScheduler
-    <span style="color:#66d9ef">depends_on</span>:
-      - amqp
-      - celery
-  <span style="color:#66d9ef">amqp</span>:
-    <span style="color:#66d9ef">image</span>: rabbitmq:<span style="color:#ae81ff">3.7</span>
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">web</span>:
+    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
+  <span style="color:#f92672">celery</span>:
+    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
+    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">celery worker -l info -A hello_django</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#ae81ff">amqp</span>
+  <span style="color:#f92672">celery-beat</span>:
+    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
+    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">celery beat -l info -A hello_django --scheduler django_celery_beat.schedulers:DatabaseScheduler</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#ae81ff">amqp</span>
+      - <span style="color:#ae81ff">celery</span>
+  <span style="color:#f92672">amqp</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">rabbitmq:3.7</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># docker-compose.dev.yml</span>
-<span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
 
-<span style="color:#66d9ef">services</span>:
-  <span style="color:#66d9ef">web</span>:  <span style="color:#75715e"># Test ortamında geliştirme sunucusu kullanmamız bizim için yeterli.</span>
-    <span style="color:#66d9ef">command</span>: python manage.py runserver <span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">8000</span>
-    <span style="color:#66d9ef">volumes</span>:  <span style="color:#75715e"># Geliştirme aşamasında konteyner içindeki kodlarımıza kolayca müdahale edebilelim.</span>
-      - .:/code
-    <span style="color:#66d9ef">ports</span>:  <span style="color:#75715e"># İlgili portları açıyoruz ki projemize erişebilelim.</span>
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">web</span>:  <span style="color:#75715e"># Test ortamında geliştirme sunucusu kullanmamız bizim için yeterli.</span>
+    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">python manage.py runserver 0:8000</span>
+    <span style="color:#f92672">volumes</span>:  <span style="color:#75715e"># Geliştirme aşamasında konteyner içindeki kodlarımıza kolayca müdahale edebilelim.</span>
+      - <span style="color:#ae81ff">.:/code</span>
+    <span style="color:#f92672">ports</span>:  <span style="color:#75715e"># İlgili portları açıyoruz ki projemize erişebilelim.</span>
       - <span style="color:#ae81ff">8000</span>:<span style="color:#ae81ff">8000</span>
-  <span style="color:#66d9ef">celery</span>:
-    <span style="color:#66d9ef">volumes</span>:
-      - .:/code
-  <span style="color:#66d9ef">celery-beat</span>:
-    <span style="color:#66d9ef">volumes</span>:
-      - .:/code
+  <span style="color:#f92672">celery</span>:
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">.:/code</span>
+  <span style="color:#f92672">celery-beat</span>:
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">.:/code</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># docker-compose.prod.yml</span>
-<span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
 
-<span style="color:#66d9ef">services</span>:
-  <span style="color:#66d9ef">nginx</span>:  <span style="color:#75715e"># Production&#39;da Nginx sunucusunu kullanacağız. 8000 portunu dinlemek için.</span>
-    <span style="color:#66d9ef">image</span>: nginx
-    <span style="color:#66d9ef">volumes</span>:
-     - ./conf/nginx.prod.conf:/etc/nginx/nginx.conf
-     - ./assets/static:/assets/static  <span style="color:#75715e"># Statik dosyalarımız Nginx tarafından sunulacak.</span>
-     - ./assets/media:/assets/media  <span style="color:#75715e"># Media dosyalarımız Nginx tarafından sunulacak.</span>
-    <span style="color:#66d9ef">restart</span>: always  <span style="color:#75715e"># Bir sebepten kapanırsa yeniden başlatması için.</span>
-    <span style="color:#66d9ef">ports</span>:
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">nginx</span>:  <span style="color:#75715e"># Production&#39;da Nginx sunucusunu kullanacağız. 8000 portunu dinlemek için.</span>
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx</span>
+    <span style="color:#f92672">volumes</span>:
+     - <span style="color:#ae81ff">./conf/nginx.prod.conf:/etc/nginx/nginx.conf</span>
+     - <span style="color:#ae81ff">./assets/static:/assets/static </span> <span style="color:#75715e"># Statik dosyalarımız Nginx tarafından sunulacak.</span>
+     - <span style="color:#ae81ff">./assets/media:/assets/media </span> <span style="color:#75715e"># Media dosyalarımız Nginx tarafından sunulacak.</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always </span> <span style="color:#75715e"># Bir sebepten kapanırsa yeniden başlatması için.</span>
+    <span style="color:#f92672">ports</span>:
       - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>
-  <span style="color:#66d9ef">web</span>:  <span style="color:#75715e"># Production&#39;da geliştirme sunucusu yerine Gunicorn kullanacağız.</span>
-    <span style="color:#66d9ef">command</span>: gunicorn hello_django.wsgi:application -b <span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">8000</span>
-    <span style="color:#66d9ef">entrypoint</span>: /code/entrypoint.sh  <span style="color:#75715e"># Bu dosyayı ayrıca inceleyin, otomatik bazı komutları çalıştırmak için.</span>
-    <span style="color:#66d9ef">restart</span>: always
-    <span style="color:#66d9ef">volumes</span>:
-      - ./db.sqlite3:/code/db.sqlite3
-      - ./assets/static:/assets/static
-      - ./assets/media:/assets/media
-  <span style="color:#66d9ef">celery</span>:
-    <span style="color:#66d9ef">restart</span>: always
-  <span style="color:#66d9ef">celery-beat</span>:
-    <span style="color:#66d9ef">restart</span>: always
-  <span style="color:#66d9ef">amqp</span>:
-    <span style="color:#66d9ef">restart</span>: always
+  <span style="color:#f92672">web</span>:  <span style="color:#75715e"># Production&#39;da geliştirme sunucusu yerine Gunicorn kullanacağız.</span>
+    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">gunicorn hello_django.wsgi:application -b 0:8000</span>
+    <span style="color:#f92672">entrypoint</span>: <span style="color:#ae81ff">/code/entrypoint.sh </span> <span style="color:#75715e"># Bu dosyayı ayrıca inceleyin, otomatik bazı komutları çalıştırmak için.</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./db.sqlite3:/code/db.sqlite3</span>
+      - <span style="color:#ae81ff">./assets/static:/assets/static</span>
+      - <span style="color:#ae81ff">./assets/media:/assets/media</span>
+  <span style="color:#f92672">celery</span>:
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+  <span style="color:#f92672">celery-beat</span>:
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+  <span style="color:#f92672">amqp</span>:
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 </code></pre></div><p>Şunu da yapabilirdik, geliştirme aşamasında DB backend olarak SQLite3 kullanıp, Production&rsquo;da PostgreSQL tercih edebilirdik. Bunu pek önermiyorum, geliştirme ortamınız production&rsquo;u ne kadar iyi taklit ederse bizim için o kadar iyi. Peki bu değişiklikten sonra geliştirme ortamımızı nasıl çalıştıracağız?</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># terminal</span>
 $ docker-compose.exe -f docker-compose.yml -f docker-compose.dev.yml up -d

@@ -23,7 +23,7 @@ the default font on Firefox is DejaVu Sans, but the default fonts are working
 just if the styles don&amp;rsquo;t specify a font family in a website.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://gokmengorgen.net/img/original/blog/firefox-nimbus-sans-font.png&#34;&gt;&lt;img src=&#34;https://gokmengorgen.net/img/blog/firefox-nimbus-sans-font.png&#34; alt=&#34;&#34; title=&#34;Nimbus Sans fonts have a padding problem on Firefox.&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Nimbus Sans comes with &lt;strong&gt;fonts-urw-base35&lt;/strong&gt; package, and it&amp;rsquo;s
-&lt;strong&gt;ubuntu-desktop&lt;/strong&gt;&amp;lsquo;s dependency, direct or indirect. I need &lt;strong&gt;ubuntu-desktop&lt;/strong&gt;
+&lt;strong&gt;ubuntu-desktop&lt;/strong&gt;&amp;rsquo;s dependency, direct or indirect. I need &lt;strong&gt;ubuntu-desktop&lt;/strong&gt;
 to use GNOME, so the best solution here is to disable the font altogether and
 refresh the fonts cache.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s go step by step. First of all, if you don&amp;rsquo;t have it yet, start with

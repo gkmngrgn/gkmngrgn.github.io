@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	
-	<sitemap>
-	   	<loc>https://gokmengorgen.net/en/sitemap.xml</loc>
-		
-	   	<lastmod>2020-05-14T22:44:15+02:00</lastmod>
-		
-	</sitemap>
-	
-	<sitemap>
-	   	<loc>https://gokmengorgen.net/tr/sitemap.xml</loc>
-		
-	   	<lastmod>2020-08-03T23:47:58+02:00</lastmod>
-		
-	</sitemap>
-	
+  
+  <sitemap>
+    <loc>https://gokmengorgen.net/en/sitemap.xml</loc>
+    
+      <lastmod>2020-05-14T22:44:15+02:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://gokmengorgen.net/tr/sitemap.xml</loc>
+    
+      <lastmod>2020-10-25T18:26:18+01:00</lastmod>
+    
+  </sitemap>
+  
 </sitemapindex>

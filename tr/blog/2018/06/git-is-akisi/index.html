@@ -204,22 +204,22 @@ $ git push --tags
 </code></pre></div><h2 id="3-aşama-süreci-otomatikleştir">3. Aşama: Süreci otomatikleştir</h2>
 <p>Bu aşamaya kadar atladığım çok şey olmasına karşın kabaca süreç böyle işliyor. Fakat bir müddet sonra bazı işler sürekli tekrarlamaya başlayacak. Her seferinde sürüm numarasını düzelt, statik dosyaları oluştur ve gerekli yerlere taşı, çeviri dosyalarını güncelle, testleri çalıştır, hatta yeni sürümü belli bir tarih ve saatte yayınla, mail at, haber ver vesaire. Tüm bunları yapan bir script hazırlanabilir, Chef - Puppet - Ansible - Salt gibi otomasyon araçları kullanılabilir, onlarca Continuous Delivery, Continous Deployment, Continuous Integration gibi isimlendirmelerle bu süreçleri otomatikleştiren servisler var. Ben genellikle <a href="http://bit.ly/2tqY49q-bitbucket-pipelines">Bitbucket Pipelines</a> kullanıyorum ve Git barındırma servisi olarak Bitbucket kullanıyorsanız kesinlikle denemelisiniz:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># bitbucket-pipelines.yml</span>
-<span style="color:#66d9ef">image</span>: python:<span style="color:#ae81ff">3.5</span>
+<span style="color:#f92672">image</span>: <span style="color:#ae81ff">python:3.5</span>
 
-<span style="color:#66d9ef">pipelines</span>:
-  <span style="color:#66d9ef">branches</span>:
-    <span style="color:#66d9ef">master</span>:
-      - <span style="color:#66d9ef">step</span>:
-         <span style="color:#66d9ef">deployment</span>: production
-         <span style="color:#66d9ef">script</span>:
-           - pip install fabric
-           - fab production deploy
-   <span style="color:#66d9ef">develop</span>:
-     - <span style="color:#66d9ef">step</span>:
-         <span style="color:#66d9ef">deployment</span>: test
-         <span style="color:#66d9ef">script</span>:
-           - pip install fabric
-           - fab staging deploy
+<span style="color:#f92672">pipelines</span>:
+  <span style="color:#f92672">branches</span>:
+    <span style="color:#f92672">master</span>:
+      - <span style="color:#f92672">step</span>:
+         <span style="color:#f92672">deployment</span>: <span style="color:#ae81ff">production</span>
+         <span style="color:#f92672">script</span>:
+           - <span style="color:#ae81ff">pip install fabric</span>
+           - <span style="color:#ae81ff">fab production deploy</span>
+   <span style="color:#f92672">develop</span>:
+     - <span style="color:#f92672">step</span>:
+         <span style="color:#f92672">deployment</span>: <span style="color:#ae81ff">test</span>
+         <span style="color:#f92672">script</span>:
+           - <span style="color:#ae81ff">pip install fabric</span>
+           - <span style="color:#ae81ff">fab staging deploy</span>
 </code></pre></div><p>Artık bundan sonra projenin ihtiyaçlarına iş akışını arada bir gözden geçirmek, gerektiğinde güncellemek gerekir.</p>
 <div class="footnotes" role="doc-endnotes">
 <hr />

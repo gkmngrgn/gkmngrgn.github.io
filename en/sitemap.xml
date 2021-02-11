@@ -3,8 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gokmengorgen.net/blog/2021/02/a-public-letter-for-otter.ai/</loc>
+    <lastmod>2021-02-11T16:25:20+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/</loc>
-    <lastmod>2020-05-14T22:44:15+02:00</lastmod>
+    <lastmod>2021-02-11T16:25:20+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
@@ -19,7 +24,7 @@
   
   <url>
     <loc>https://gokmengorgen.net/</loc>
-    <lastmod>2020-05-14T22:44:15+02:00</lastmod>
+    <lastmod>2021-02-11T16:25:20+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
@@ -33,18 +38,13 @@
   </url>
   
   <url>
-    <loc>https://gokmengorgen.net/blog/2020/05/how-to-fix-default-fonts-problem-on-firefox/</loc>
-    <lastmod>2020-05-14T22:44:15+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gokmengorgen.net/tags/linux/</loc>
-    <lastmod>2020-05-14T22:44:15+02:00</lastmod>
+    <loc>https://gokmengorgen.net/tags/opinion/</loc>
+    <lastmod>2021-02-11T16:25:20+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://gokmengorgen.net/tags/</loc>
-    <lastmod>2020-05-14T22:44:15+02:00</lastmod>
+    <lastmod>2021-02-11T16:25:20+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
@@ -55,6 +55,16 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/blog/2020/05/how-to-fix-default-fonts-problem-on-firefox/</loc>
+    <lastmod>2020-05-14T22:44:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gokmengorgen.net/tags/linux/</loc>
+    <lastmod>2020-05-14T22:44:15+02:00</lastmod>
   </url>
   
   <url>
@@ -115,11 +125,6 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/blog/2019/08/first-review-on-my-ipad/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://gokmengorgen.net/tags/opinion/</loc>
-    <lastmod>2019-08-03T15:24:01+02:00</lastmod>
   </url>
   
   <url>

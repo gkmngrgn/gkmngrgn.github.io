@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://gokmengorgen.net/tr/blog/2021/01/ankara-notlarim/</loc>
     <lastmod>2021-01-24T16:50:41+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/</loc>
     <lastmod>2021-01-24T16:50:41+01:00</lastmod>
     <xhtml:link
@@ -20,14 +17,10 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/blog/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/tags/d%C3%BC%C5%9F%C3%BCnce/</loc>
     <lastmod>2021-01-24T16:50:41+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/</loc>
     <lastmod>2021-01-24T16:50:41+01:00</lastmod>
     <xhtml:link
@@ -40,9 +33,7 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/tags/</loc>
     <lastmod>2021-01-24T16:50:41+01:00</lastmod>
     <xhtml:link
@@ -55,89 +46,55 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/tags/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2020/10/biz-sehirlesmeden-kaybettik/</loc>
     <lastmod>2020-10-25T18:26:18+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2020/08/navorski-sanssizligi/</loc>
     <lastmod>2020-08-03T23:47:58+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2020/05/editorde-kullandigim-eklentiler/</loc>
     <lastmod>2020-05-15T12:57:56+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/tags/emacs/</loc>
     <lastmod>2020-05-15T12:57:56+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2020/03/lost-in-conversation/</loc>
     <lastmod>2020-03-28T19:40:34+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/tags/uzaktan-%C3%A7al%C4%B1%C5%9Fma/</loc>
     <lastmod>2020-03-28T19:40:34+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2020/03/zorunlu-uzaktan-calisma/</loc>
     <lastmod>2020-03-12T21:19:01+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2020/03/cesitlilik-ve-engellilik/</loc>
     <lastmod>2020-03-04T22:34:40+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2020/02/cesitsizlik-neden-bir-sorundur/</loc>
     <lastmod>2020-02-09T17:03:22+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2020/01/fsharp-ile-fonksiyonel-programlama/</loc>
     <lastmod>2020-01-13T22:15:47+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/tags/kitap/</loc>
     <lastmod>2020-01-13T22:15:47+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2020/01/amortisman/</loc>
     <lastmod>2020-01-13T17:10:06+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2020/01/elifin-okuzu-ya-da-surprizler-kitabi/</loc>
     <lastmod>2020-01-05T23:10:15+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/python-deneyimlerimiz/</loc>
     <lastmod>2019-10-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2019/08/uzaktan-calisma-ile-ilgili-sorular/</loc>
     <lastmod>2019-08-29T10:49:37+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2019/08/altin-rehber/</loc>
     <lastmod>2019-08-11T13:43:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2019/08/ipad-uzerine-ilk-incelemem/</loc>
     <lastmod>2019-08-03T15:24:01+02:00</lastmod>
     <xhtml:link
@@ -150,9 +107,7 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/blog/2019/08/ipad-uzerine-ilk-incelemem/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/tags/devops/</loc>
     <lastmod>2019-06-20T13:33:38+02:00</lastmod>
     <xhtml:link
@@ -165,9 +120,7 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/tags/devops/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/tags/django/</loc>
     <lastmod>2019-06-20T13:33:38+02:00</lastmod>
     <xhtml:link
@@ -180,9 +133,7 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/tags/django/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2019/06/tatilden-sonraki-ilk-hatam/</loc>
     <lastmod>2019-06-20T13:33:38+02:00</lastmod>
     <xhtml:link
@@ -195,24 +146,16 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/blog/2019/06/tatilden-sonraki-ilk-hatam/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2019/04/djangocms-icin-html-tags-eklentisi/</loc>
     <lastmod>2019-04-28T11:18:33+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/tags/programlama/</loc>
     <lastmod>2019-04-28T11:18:33+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2019/04/31-mart-secimlerinde-medya/</loc>
     <lastmod>2019-04-06T12:42:17+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2019/02/tuketici/</loc>
     <lastmod>2019-02-27T20:49:26+01:00</lastmod>
     <xhtml:link
@@ -225,9 +168,7 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/blog/2019/02/tuketici/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2019/02/hangi-cagda-yasiyoruz/</loc>
     <lastmod>2019-02-16T23:48:02+01:00</lastmod>
     <xhtml:link
@@ -240,9 +181,7 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/blog/2019/02/hangi-cagda-yasiyoruz/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2019/01/spreadsheet-uygulamalari/</loc>
     <lastmod>2019-01-02T17:30:44+01:00</lastmod>
     <xhtml:link
@@ -255,19 +194,13 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/blog/2019/01/spreadsheet-uygulamalari/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2018/12/zincirsiz/</loc>
     <lastmod>2018-12-29T20:46:59+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2018/12/musteri-memnuniyeti/</loc>
     <lastmod>2018-12-04T11:04:36+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/tags/bash/</loc>
     <lastmod>2018-09-07T22:46:31+02:00</lastmod>
     <xhtml:link
@@ -280,109 +213,67 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/tags/bash/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2018/09/komutlar-icin-yardimci-script/</loc>
     <lastmod>2018-09-07T22:46:31+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2018/08/docker-icin-yardimci-script/</loc>
     <lastmod>2018-08-05T12:11:27+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/tags/git/</loc>
     <lastmod>2018-06-24T14:23:26+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2018/06/git-is-akisi/</loc>
     <lastmod>2018-06-24T14:23:26+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2018/06/2018-en-iyi-laptoplar/</loc>
     <lastmod>2018-06-21T23:38:57+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/django-notes/10-sunucunun-hazirlanmasi/</loc>
     <lastmod>2018-06-17T01:57:58+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/django-notes/</loc>
     <lastmod>2018-06-17T01:57:58+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/django-notes/09-celery-ile-periyodik-isler/</loc>
     <lastmod>2018-06-10T00:17:16+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2018/06/daha-guclu-powershell/</loc>
     <lastmod>2018-06-08T02:00:39+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/django-notes/08-komutlar/</loc>
     <lastmod>2018-06-02T02:05:05+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2018/05/django-modelinde-selectbox-kullanimi/</loc>
     <lastmod>2018-05-27T16:45:30+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/django-notes/07-kullanici-dogrulama/</loc>
     <lastmod>2018-05-18T23:46:49+03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/django-notes/06-bildirimler-ve-ceviriler/</loc>
     <lastmod>2018-05-10T14:36:49+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2018/05/stres/</loc>
     <lastmod>2018-05-10T13:03:43+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/django-notes/05-formset/</loc>
     <lastmod>2018-05-06T14:30:19+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/django-notes/04-template-motoru/</loc>
     <lastmod>2018-04-28T00:56:53+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/django-notes/03-admin-paneli/</loc>
     <lastmod>2018-04-22T00:02:51+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/django-notes/02-model-katmani/</loc>
     <lastmod>2018-04-04T00:12:24+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/django-notes/01-baslangic/</loc>
     <lastmod>2018-03-30T19:22:15+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2017/12/gelistiriciler-icin-windows-10-pro/</loc>
     <lastmod>2017-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/tags/windows/</loc>
     <lastmod>2017-12-10T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -395,99 +286,61 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/tags/windows/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/tags/vagrant/</loc>
     <lastmod>2017-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2017/07/vagrant-ile-proje-gelistirme/</loc>
     <lastmod>2017-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2017/04/emacse-nereden-baslamali/</loc>
     <lastmod>2017-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2017/03/isverenlere-uzaktan-calisma-tavsiyesi/</loc>
     <lastmod>2017-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2016/10/goc/</loc>
     <lastmod>2016-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2016/07/kitaplari-sanallastirmak/</loc>
     <lastmod>2016-07-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2016/05/uzaktan-calismak/</loc>
     <lastmod>2016-05-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2015/10/borsa-kumar-mi/</loc>
     <lastmod>2015-10-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2015/03/isletim-sistemi-tercihini-gelistiriciye-birakin/</loc>
     <lastmod>2015-03-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/blog/2012/03/gelistiriciden-isverene-dagitik-manifesto/</loc>
     <lastmod>2012-03-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/python-deneyimlerimiz/pythonda-karakter-dizisi-islemleri/</loc>
     <lastmod>2009-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/python-deneyimlerimiz/django-notlar-3/</loc>
     <lastmod>2008-09-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/python-deneyimlerimiz/django-notlar-2_09/</loc>
     <lastmod>2008-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/python-deneyimlerimiz/djangoya-balamak_06/</loc>
     <lastmod>2008-09-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/python-deneyimlerimiz/turular-ve-birka-os-fonksiyonu-1/</loc>
     <lastmod>2008-08-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/python-deneyimlerimiz/tisssss-tisssss/</loc>
     <lastmod>2008-08-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/python-deneyimlerimiz/tek-satrlk-dng/</loc>
     <lastmod>2008-08-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/python-deneyimlerimiz/ilk-setuppy-kullanrken/</loc>
     <lastmod>2008-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -499,9 +352,7 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/lisans/</loc>
     <xhtml:link
                 rel="alternate"
@@ -513,9 +364,7 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/lisans/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/canli-yayin/</loc>
     <xhtml:link
                 rel="alternate"
@@ -527,9 +376,7 @@
                 hreflang="tr"
                 href="https://gokmengorgen.net/tr/canli-yayin/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://gokmengorgen.net/tr/yorum-politikasi/</loc>
     <xhtml:link
                 rel="alternate"
@@ -542,5 +389,4 @@
                 href="https://gokmengorgen.net/tr/yorum-politikasi/"
                 />
   </url>
-  
 </urlset>

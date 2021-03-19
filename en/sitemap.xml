@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
   <url>
     <loc>https://gokmengorgen.net/blog/2021/02/a-public-letter-for-otter.ai/</loc>
     <lastmod>2021-02-11T16:25:20+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/</loc>
     <lastmod>2021-02-11T16:25:20+01:00</lastmod>
     <xhtml:link
@@ -17,7 +20,9 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/blog/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/</loc>
     <lastmod>2021-02-11T16:25:20+01:00</lastmod>
     <xhtml:link
@@ -30,10 +35,14 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/opinion/</loc>
     <lastmod>2021-02-11T16:25:20+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/</loc>
     <lastmod>2021-02-11T16:25:20+01:00</lastmod>
     <xhtml:link
@@ -46,40 +55,64 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/tags/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2020/05/how-to-fix-default-fonts-problem-on-firefox/</loc>
     <lastmod>2020-05-14T22:44:15+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/linux/</loc>
     <lastmod>2020-05-14T22:44:15+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/ubuntu/</loc>
     <lastmod>2020-05-14T22:44:15+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/book/</loc>
     <lastmod>2020-02-02T22:22:10+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2020/02/rust-essentials/</loc>
     <lastmod>2020-02-02T22:22:10+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/game/</loc>
     <lastmod>2020-02-02T19:43:27+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2020/02/oceanhorn2/</loc>
     <lastmod>2020-02-02T19:43:27+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2020/01/inmost/</loc>
     <lastmod>2020-01-21T23:47:17+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2019/12/being-a-polyglot-developer/</loc>
     <lastmod>2019-12-31T13:20:00+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/programming/</loc>
     <lastmod>2019-12-31T13:20:00+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2019/08/data-types-in-programming/</loc>
     <lastmod>2019-08-25T01:04:49+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2019/08/first-review-on-my-ipad/</loc>
     <lastmod>2019-08-03T15:24:01+02:00</lastmod>
     <xhtml:link
@@ -92,7 +125,9 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/blog/2019/08/first-review-on-my-ipad/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/devops/</loc>
     <lastmod>2019-06-20T13:33:38+02:00</lastmod>
     <xhtml:link
@@ -105,7 +140,9 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/tags/devops/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/django/</loc>
     <lastmod>2019-06-20T13:33:38+02:00</lastmod>
     <xhtml:link
@@ -118,7 +155,9 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/tags/django/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2019/06/my-first-wrong-after-the-vacation/</loc>
     <lastmod>2019-06-20T13:33:38+02:00</lastmod>
     <xhtml:link
@@ -131,13 +170,19 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/blog/2019/06/my-first-wrong-after-the-vacation/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2019/03/configure-windows-for-development/</loc>
     <lastmod>2019-03-16T19:35:51+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/powershell/</loc>
     <lastmod>2019-03-16T19:35:51+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/windows/</loc>
     <lastmod>2019-03-16T19:35:51+02:00</lastmod>
     <xhtml:link
@@ -150,7 +195,9 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/tags/windows/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2019/02/consumer/</loc>
     <lastmod>2019-02-27T20:53:04+01:00</lastmod>
     <xhtml:link
@@ -163,7 +210,9 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/blog/2019/02/consumer/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2019/02/what-age-do-we-live/</loc>
     <lastmod>2019-02-16T23:47:58+01:00</lastmod>
     <xhtml:link
@@ -176,13 +225,19 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/blog/2019/02/what-age-do-we-live/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/python/</loc>
     <lastmod>2019-01-12T23:59:02+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2019/01/string-quotes-in-pep8/</loc>
     <lastmod>2019-01-12T23:59:02+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2019/01/spreasheet-apps/</loc>
     <lastmod>2019-01-02T17:30:49+01:00</lastmod>
     <xhtml:link
@@ -195,7 +250,9 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/blog/2019/01/spreasheet-apps/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/tags/bash/</loc>
     <lastmod>2018-12-30T15:06:17+01:00</lastmod>
     <xhtml:link
@@ -208,13 +265,19 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/tags/bash/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2018/12/how-do-i-publish-my-articles/</loc>
     <lastmod>2018-12-30T15:06:17+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/blog/2018/12/important-windows-environment-variables/</loc>
     <lastmod>2018-12-25T21:25:57+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -226,7 +289,9 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/categories/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/comment-policy/</loc>
     <xhtml:link
                 rel="alternate"
@@ -238,7 +303,9 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/comment-policy/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/license/</loc>
     <xhtml:link
                 rel="alternate"
@@ -250,7 +317,9 @@
                 hreflang="en"
                 href="https://gokmengorgen.net/license/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://gokmengorgen.net/live/</loc>
     <xhtml:link
                 rel="alternate"
@@ -263,4 +332,5 @@
                 href="https://gokmengorgen.net/live/"
                 />
   </url>
+  
 </urlset>

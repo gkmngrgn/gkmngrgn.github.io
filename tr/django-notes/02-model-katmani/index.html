@@ -186,7 +186,7 @@ __init__.py  admin.py  apps.py  migrations/  models.py  tests.py  views.py
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Palette</span>(models<span style="color:#f92672">.</span>Model):
     image <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ImageField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Image&#34;</span>), upload_to<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;images/&#39;</span>)
     colors <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>TextField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Colors&#34;</span>))
-    created_at <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>DateTimeField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Created at&#34;</span>), auto_now_add<span style="color:#f92672">=</span>True)
+    created_at <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>DateTimeField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Created at&#34;</span>), auto_now_add<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
 
     <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Meta</span>:
         verbose_name <span style="color:#f92672">=</span> _(<span style="color:#e6db74">&#34;Palette&#34;</span>)

@@ -196,7 +196,7 @@ urlpatterns <span style="color:#f92672">=</span> [
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Monitor</span>(models<span style="color:#f92672">.</span>Model):
     user <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(
         verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;User&#34;</span>), to<span style="color:#f92672">=</span>settings<span style="color:#f92672">.</span>AUTH_USER_MODEL, related_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;monitors&#39;</span>, on_delete<span style="color:#f92672">=</span>models<span style="color:#f92672">.</span>CASCADE,
-        null<span style="color:#f92672">=</span>True)
+        null<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
     url <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>URLField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;URL&#34;</span>))
 
     <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Meta</span>:

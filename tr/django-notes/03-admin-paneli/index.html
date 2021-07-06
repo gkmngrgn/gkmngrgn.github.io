@@ -163,8 +163,8 @@
 <span style="color:#f92672">...</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Palette</span>(models<span style="color:#f92672">.</span>Model):
     <span style="color:#f92672">...</span>
-    colors <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>TextField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Colors&#34;</span>), editable<span style="color:#f92672">=</span>False)  <span style="color:#75715e"># Bunu admin panelinden düzenlenemez hale getirdik.</span>
-    is_deleted <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>BooleanField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Is deleted?&#34;</span>), blank<span style="color:#f92672">=</span>True, default<span style="color:#f92672">=</span>False)  <span style="color:#75715e"># işte yeni field&#39;imiz.</span>
+    colors <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>TextField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Colors&#34;</span>), editable<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)  <span style="color:#75715e"># Bunu admin panelinden düzenlenemez hale getirdik.</span>
+    is_deleted <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>BooleanField(verbose_name<span style="color:#f92672">=</span>_(<span style="color:#e6db74">&#34;Is deleted?&#34;</span>), blank<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, default<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)  <span style="color:#75715e"># işte yeni field&#39;imiz.</span>
     <span style="color:#f92672">...</span>
 
     <span style="color:#66d9ef">def</span> __str__(self):  <span style="color:#75715e"># Bunu hatırlayın, admin panelinde kullanacağız.</span>
@@ -232,7 +232,7 @@ Superuser created successfully.
 <span style="color:#f92672">from</span> hello_palette.models <span style="color:#f92672">import</span> Palette
 
 
-<span style="color:#a6e22e">@admin.register</span>(Palette)
+<span style="color:#a6e22e">@admin</span><span style="color:#f92672">.</span>register(Palette)
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PaletteAdmin</span>(admin<span style="color:#f92672">.</span>ModelAdmin):
     list_display <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;__str__&#39;</span>, <span style="color:#e6db74">&#39;colors&#39;</span>, <span style="color:#e6db74">&#39;created_at&#39;</span>, <span style="color:#e6db74">&#39;is_deleted&#39;</span>)
     list_filter <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;is_deleted&#39;</span>,)
@@ -296,9 +296,9 @@ urlpatterns <span style="color:#f92672">=</span> [
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PaletteDetailView</span>(DetailView):
     template_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;palette/detail.html&#39;</span>  <span style="color:#75715e"># template dosyamızı sonra oluşturacağız.</span>
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_object</span>(self, queryset<span style="color:#f92672">=</span>None):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_object</span>(self, queryset<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
         pk <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>kwargs<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;pk&#39;</span>)  <span style="color:#75715e"># URL&#39;deki pk&#39;i hatırladınız mı?</span>
-        <span style="color:#66d9ef">return</span> get_object_or_404(Palette, pk<span style="color:#f92672">=</span>pk, is_deleted<span style="color:#f92672">=</span>False)
+        <span style="color:#66d9ef">return</span> get_object_or_404(Palette, pk<span style="color:#f92672">=</span>pk, is_deleted<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
 </code></pre></div><p>Model katmanı tamam, View katmanı tamam, şimdi Template katmanımızı tamamlamamız gerekiyor:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- templates/palette/new.html --&gt;</span>
 ...

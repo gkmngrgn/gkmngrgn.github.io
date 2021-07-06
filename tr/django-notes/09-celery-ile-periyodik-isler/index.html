@@ -245,7 +245,7 @@ __all__ <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;c
 
 <span style="color:#a6e22e">@shared_task</span>
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check_monitors</span>():
-    call_command(<span style="color:#e6db74">&#39;checkurls&#39;</span>, mail_clients<span style="color:#f92672">=</span>True)
+    call_command(<span style="color:#e6db74">&#39;checkurls&#39;</span>, mail_clients<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
 </code></pre></div><p>Django komutumuzu görev fonksiyonu içinde <code>--mail_clients</code> parametresiyle çalıştırmış olduk. Fakat önceki yazımızda parametre olarak sadece <strong>urls</strong> vardı ve onu da zorunlu yapmıştık. Şimdi <code>--mail_clients</code> parametresine ihtiyacımız var; çünkü herhangi bir ekran erişilemez olduğunda, kullanıcıya bir bildirim epostası göndermek istiyoruz. Komut satırında böyle bir ihtiyacımız yoktu, çünkü her şeyi zaten komut satırında görüyorduk:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># hello_uptime/management/commands/checkurls.py</span>
 <span style="color:#f92672">...</span>
@@ -263,7 +263,7 @@ __all__ <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;c
 
         <span style="color:#75715e"># Monitörler kaç dakikada bir kontrol edilmesi istendiyse, en az bir o kadar dakika kadar öncesine göre</span>
         <span style="color:#75715e"># monitörleri filtreliyoruz. Bir de sadece aktif olanları tekrar kontrol edeceğiz.</span>
-        available_monitors <span style="color:#f92672">=</span> Monitor<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(is_active<span style="color:#f92672">=</span>True)<span style="color:#f92672">.</span>filter(
+        available_monitors <span style="color:#f92672">=</span> Monitor<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>filter(is_active<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)<span style="color:#f92672">.</span>filter(
             models<span style="color:#f92672">.</span>Q(interval<span style="color:#f92672">=</span>MonitoringInterval<span style="color:#f92672">.</span>MIN_5,
                      checked_at__lt<span style="color:#f92672">=</span>now <span style="color:#f92672">-</span> relativedelta(seconds<span style="color:#f92672">=</span>MonitoringInterval<span style="color:#f92672">.</span>MIN_5)) <span style="color:#f92672">|</span>
             <span style="color:#f92672">...</span>
@@ -276,11 +276,11 @@ __all__ <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;c
                 self<span style="color:#f92672">.</span>mail_clients(url, available_monitors)
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mail_clients</span>(self, url, available_monitors):
-        subject <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;[Hello Uptime] Monitor is DOWN: {}&#34;</span><span style="color:#f92672">.</span>format(url)
-        <span style="color:#66d9ef">for</span> monitor <span style="color:#f92672">in</span> available_monitors<span style="color:#f92672">.</span>filter(url<span style="color:#f92672">=</span>url, user__isnull<span style="color:#f92672">=</span>False):
+        subject <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;[Hello Uptime] Monitor is DOWN: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(url)
+        <span style="color:#66d9ef">for</span> monitor <span style="color:#f92672">in</span> available_monitors<span style="color:#f92672">.</span>filter(url<span style="color:#f92672">=</span>url, user__isnull<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>):
             message_list <span style="color:#f92672">=</span> [
-                <span style="color:#e6db74">&#34;Hi {},&#34;</span><span style="color:#f92672">.</span>format(monitor<span style="color:#f92672">.</span>user<span style="color:#f92672">.</span>get_full_name()),
-                <span style="color:#e6db74">&#34;The monitor ({}) is currently DOWN.&#34;</span><span style="color:#f92672">.</span>format(url),
+                <span style="color:#e6db74">&#34;Hi </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">,&#34;</span><span style="color:#f92672">.</span>format(monitor<span style="color:#f92672">.</span>user<span style="color:#f92672">.</span>get_full_name()),
+                <span style="color:#e6db74">&#34;The monitor (</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">) is currently DOWN.&#34;</span><span style="color:#f92672">.</span>format(url),
             ]
             send_mail(
                 subject, <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>join(message_list), from_email<span style="color:#f92672">=</span>settings<span style="color:#f92672">.</span>DEFAULT_FROM_EMAIL,

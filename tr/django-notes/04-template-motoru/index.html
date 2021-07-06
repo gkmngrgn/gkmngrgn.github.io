@@ -199,7 +199,7 @@
 }
 
 .<span style="color:#a6e22e">colors</span> .<span style="color:#a6e22e">color-item</span> { <span style="color:#75715e">/* renk kutuları */</span>
-  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline</span><span style="color:#f92672">-</span><span style="color:#66d9ef">block</span>;
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline-block</span>;
   <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
   <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
   <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#eee</span>;
@@ -224,7 +224,7 @@
 register <span style="color:#f92672">=</span> template<span style="color:#f92672">.</span>Library()
 
 
-<span style="color:#a6e22e">@register.filter</span>
+<span style="color:#a6e22e">@register</span><span style="color:#f92672">.</span>filter
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">as_list</span>(value):
   <span style="color:#66d9ef">return</span> value<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;,&#39;</span>)
 </code></pre></div><p>Bu sayede renk listesini şu şekilde elde edebiliriz:</p>
@@ -261,7 +261,7 @@ ilgili Admin class&rsquo;ında özel bir column fonksiyonu yazmamız gerekiyor:<
 <span style="color:#f92672">...</span>
 
 
-<span style="color:#a6e22e">@admin.register</span>(Palette)
+<span style="color:#a6e22e">@admin</span><span style="color:#f92672">.</span>register(Palette)
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PaletteAdmin</span>(admin<span style="color:#f92672">.</span>ModelAdmin):
     list_display <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;__str__&#39;</span>, <span style="color:#e6db74">&#39;get_colors&#39;</span>, <span style="color:#e6db74">&#39;created_at&#39;</span>, <span style="color:#e6db74">&#39;is_deleted&#39;</span>)  <span style="color:#75715e"># colors&#39;u sildik, fonskyionun adını yazdık.</span>
     <span style="color:#f92672">...</span>
@@ -270,11 +270,11 @@ ilgili Admin class&rsquo;ında özel bir column fonksiyonu yazmamız gerekiyor:<
         <span style="color:#75715e"># buradaki obj aslında bir Palette instance&#39;i. Böylece renk kodlarımıza erişebileceğiz.</span>
         <span style="color:#75715e"># models.py&#39;deki colors_as_list metodumuzu burada da kullanabiliyoruz.</span>
         <span style="color:#75715e"># format_html, HTML tag&#39;lerini HTML dosyasında doğru şekilde çevirebilmek için gerekli.</span>
-        circle_template <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;svg width=16 height=16&gt;&lt;circle cx=8 cy=8 r=5 style=&#34;fill: {};&#34;&gt;&lt;/circle&gt;&lt;/svg&gt;&#39;</span>
+        circle_template <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;svg width=16 height=16&gt;&lt;circle cx=8 cy=8 r=5 style=&#34;fill: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">;&#34;&gt;&lt;/circle&gt;&lt;/svg&gt;&#39;</span>
         <span style="color:#66d9ef">return</span> format_html(<span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(circle_template<span style="color:#f92672">.</span>format(c) <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> obj<span style="color:#f92672">.</span>colors_as_list))
 
     get_colors<span style="color:#f92672">.</span>short_description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Colors&#34;</span>  <span style="color:#75715e"># Column için isim veriyoruz.</span>
-    get_colors<span style="color:#f92672">.</span>allow_tags <span style="color:#f92672">=</span> True  <span style="color:#75715e"># HTML tag&#39;i kullanımına izin veriyoruz.</span>
+    get_colors<span style="color:#f92672">.</span>allow_tags <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>  <span style="color:#75715e"># HTML tag&#39;i kullanımına izin veriyoruz.</span>
 </code></pre></div><a href="https://gokmengorgen.net/img/django-notes/admin-color-circles.png" target="_blank">
   ![Admin color circles](/img/django-notes/admin-color-circles.png "Admin panelinde renk çemberleri")
 </a>
